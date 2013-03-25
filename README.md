@@ -12,3 +12,4 @@ Just links for the web pages of this reference:
 7. [*GNU Operating System*](http://www.gnu.org/)
 8. [*Thinking in C: Foundations for Java & C++
 by Chuck Allison*](http://mindview.net/CDs/ThinkingInC/beta3)
+9. [*Head First C code*](https://github.com/dogriffiths/HeadFirstC)
