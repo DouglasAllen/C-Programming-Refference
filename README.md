@@ -15,6 +15,6 @@ Just links for the web pages of this reference:
 
 Other useful info
 
-1. [*GTK+ fro Win32*](http://www.gtk.org/download/win32.php)
+1. [*GTK+ for Win32*](http://www.gtk.org/download/win32.php)
 2. [*GTK+ for C++*](http://www.gtkmm.org/en/)
 3. [*MinGW*](http://nuwen.net/mingw.html)
