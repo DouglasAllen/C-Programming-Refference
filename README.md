@@ -19,10 +19,6 @@ Other useful info
 2. [*GTK+ for C++*](http://www.gtkmm.org/en/)
 3. [*MinGW*](http://nuwen.net/mingw.html)
 
-C Source Programs
+To the wiki
 
-1. [*hello.c*](http://www.gtk.org/download/win32.php)
-2. [**](http://www.gtk.org/download/win32.php)
-3. [**](http://www.gtk.org/download/win32.php)
-4. [**](http://www.gtk.org/download/win32.php)
-5. [**](http://www.gtk.org/download/win32.php)
+1. [*Source page*]()
