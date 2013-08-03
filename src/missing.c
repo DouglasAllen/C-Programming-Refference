@@ -1,10 +1,9 @@
-<html><font size="+1"><pre>
 /* missing.c */
 /* Compile with:
   make missing CFLAGS="-g -Wall -std=gnu11 -O3"
 */
-#include &lt;stdio.h&gt;
-#include &lt;limits.h&gt;
+#include <stdio.h>
+#include <limits.h>
 
 main() {
     float x = ULONG_MAX;    /* 4,294,967,295 */
@@ -12,6 +11,9 @@ main() {
     long double z = ULONG_MAX;
 
     printf("%f\n%f\n%Lf\n",x,y,z);
+
+    while( getchar() != '\n' ) { /*do nothing*/} ;
+    getchar() ; /* wait */
+    return 0;
 }
 
-</pre></font></html>

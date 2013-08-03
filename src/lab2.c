@@ -1,11 +1,11 @@
-<html><font size="+1"><pre>
 /* lab2.c */
 /* Compile with:
   make lab2 CFLAGS="-g -Wall -std=gnu11 -O3"
 */
-#include &lt;stdio.h&gt;
+#include <stdio.h>
 
-int main() {
+int main()
+{
     float x;
     int n;
     
@@ -14,7 +14,8 @@ int main() {
     scanf("%f", &x);
     n = (int)(x + 0.5);
     printf("%f rounded == %d\n", x, n);
+    while( getchar() != '\n' ) { /*do nothing*/} ;
+    getchar() ; /* wait */
     return 0;
 }
 
-</pre></font></html>
