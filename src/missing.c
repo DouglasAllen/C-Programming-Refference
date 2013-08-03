@@ -12,7 +12,7 @@ main() {
 
     printf("%f\n%f\n%Lf\n",x,y,z);
 
-    while( getchar() != '\n' ) { /*do nothing*/} ;
+    //~ while( getchar() != '\n' ) { /*do nothing*/} ;
     getchar() ; /* wait */
     return 0;
 }

@@ -14,7 +14,7 @@ int main()
     scanf("%f", &x);
     n = (int)(x + 0.5);
     printf("%f rounded == %d\n", x, n);
-    while( getchar() != '\n' ) { /*do nothing*/} ;
+    //~ while( getchar() != '\n' ) { /*do nothing*/} ;
     getchar() ; /* wait */
     return 0;
 }
