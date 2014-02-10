@@ -1,6 +1,8 @@
 /* avg.c: Averages 2 integers */
 /* Compile with:
     make avg CFLAGS="-g -Wall -std=gnu11 -O3"
+   or
+    make avg CFLAGS="-g -Wall -std=gnu99 -O3"
 */
 #include <stdio.h>
 
