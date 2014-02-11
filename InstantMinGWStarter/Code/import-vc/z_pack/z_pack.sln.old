@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "z_pack", "z_pack.vcproj", "{7FD1C7B5-782D-43AE-9839-F4B57DF79D4C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "core", "..\core\core.vcproj", "{79AE1D81-DC76-46B0-82EE-2ABC65DAA129}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FD1C7B5-782D-43AE-9839-F4B57DF79D4C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7FD1C7B5-782D-43AE-9839-F4B57DF79D4C}.Debug|Win32.Build.0 = Debug|Win32
+		{7FD1C7B5-782D-43AE-9839-F4B57DF79D4C}.Release|Win32.ActiveCfg = Release|Win32
+		{7FD1C7B5-782D-43AE-9839-F4B57DF79D4C}.Release|Win32.Build.0 = Release|Win32
+		{79AE1D81-DC76-46B0-82EE-2ABC65DAA129}.Debug|Win32.ActiveCfg = Debug|Win32
+		{79AE1D81-DC76-46B0-82EE-2ABC65DAA129}.Debug|Win32.Build.0 = Debug|Win32
+		{79AE1D81-DC76-46B0-82EE-2ABC65DAA129}.Release|Win32.ActiveCfg = Release|Win32
+		{79AE1D81-DC76-46B0-82EE-2ABC65DAA129}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

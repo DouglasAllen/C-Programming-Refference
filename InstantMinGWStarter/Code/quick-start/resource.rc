@@ -1,0 +1,14 @@
+#include "resource.h"
+
+DLG_MAIN DIALOGEX 6, 5, 138, 75
+
+CAPTION "Typical Windows Application"
+
+FONT 10, "Tahoma"
+
+STYLE 0x10CE0804
+
+BEGIN
+  CONTROL "&Message", IDC_BTN_TEST, "Button", 0x10010000, 46, 15, 46, 15
+  CONTROL "&Quit", IDC_BTN_QUIT, "Button", 0x10010000, 46, 45, 46, 15
+END
