@@ -1,0 +1,90 @@
+<title>strtol function</title>
+
+<head>
+<script language="JavaScript">
+</script>
+</head>
+
+<body bgcolor=#ffffcc>
+<hr>
+<center>
+<h1>strtol function </h1>
+</center>
+<hr>
+<p>
+<b>strtol</b> will convert a string to a long integer. An important feature 
+of this function is the ability to accept data in various number bases
+and convert to decimal. If 
+you are just working with decimal numbers,
+<a href="atoi.html">atoi</a> is probably an easer function to use.
+<p>
+<hr>
+<pre>
+
+Library:   stdlib.h
+
+Prototype: long int strtol(const char *sptr, char **endptr, int base);
+
+Syntax:	   char     String[]="ff";		/* string to convert	*/
+	   int      Base=16;			/* Base 16		*/
+           long int Ans;			/* Result		*/
+
+           Ans = strtol(String, NULL, Base);
+</pre>
+
+<hr>
+<h2>Notes</h2>
+The second argument (char **endptr) seems to be a waste of space! If 
+it is set to NULL, STRTOL
+seems to work its way down the string until it finds an invalid character
+and then stops. All valid chars read are then converted if the string
+starts with an invalid character the function returns ZERO (0).
+<p>
+The Third argument (base) can have a value of 0 or 2-32.
+<ul>
+<li>0 - strtol will attempt to pick the base. Only Dec, Oct Hex  supported.
+<li>2-31 - The base to use.
+</ul>
+<hr> 
+<h2>Examples:</h2>
+<img src=../../GRAPHICS/computer.gif>
+<a href="../EXAMPLES/strtol.c"> Example program.</a>
+<p>
+<hr>
+<dt><h2>See also:</h2> 
+<p>
+<dt><a href="atoi.html">atoi</a> String to integer conversion.
+<dt><a href="atof.html">atof</a> String to floating point conversion.
+<dt><a href="atol.html">atol</a> String to long integer conversion.
+<dt><a href="../MAN/strtod.htm">strtod</a> String to double conversion.
+<dt><a href="strtoul.html">strtoul</a> String to unsigned long integer 
+conversion.
+<dt><a href="../MISC/numconv.html">Conversion table.</a>
+<p>
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

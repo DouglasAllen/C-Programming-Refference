@@ -1,0 +1,75 @@
+<title>getchar function</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor=#ffffcc>
+<hr>
+<center>
+<h1>getchar function </h1>
+<hr>
+</center>
+<p>
+<b>getchar</b> is used to read data from the keyboard (
+<a href=../MISC/stdfiles.html>stdin</a>). Effectivly
+it is a <b>fgetc(stdin)</b>.<p>
+The problem with this function is that the characters are buffered until 
+RETURN is hit! This means that <b>getchar</b> does not see the characters 
+until the user presses return. The non standard function <b>getche</b> 
+gets around this problem and sees each character as it is pressed. 
+I have not been able to produce the same function on Linux. 
+The nearest I can get is by using 'curses' but it keeps clearing the screen!
+
+<pre>
+Library:   stdio.h
+
+Prototype: int getchar(void);
+
+Syntax:    ch = getchar();
+
+</pre>
+
+
+<a href=../EXAMPLES/getchar.c><img src=../../GRAPHICS/computer.gif></a>
+example program.
+<p>
+
+<hr>
+<p>
+See also:
+<ul>
+<li><a href=fgetc.html>fgetc</a>
+<li><a href=fgetc.html>getc</a>
+<li><a href=fgets.html>fgets</a>
+<li><a href=gets.html>gets</a>
+<p>
+<li>getch  (non standard)
+<li>getche (non standard).
+</ul>
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

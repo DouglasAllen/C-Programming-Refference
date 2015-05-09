@@ -1,0 +1,100 @@
+<TITLE>mbstowcs</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>MBSTOWCS(3)         Linux Programmer's Manual         MBSTOWCS(3)
+</h3>
+
+<h3>NAME
+</h3>       mbstowcs  - convert a multibyte string to a wide character
+       string.
+
+<h3>SYNOPSIS
+</h3>       #include &lt;stdlib.h&gt;
+
+       size_t mbstowcs(wchar_t *pwcs, const char *s, size_t n);
+
+<h3>DESCRIPTION
+</h3>       The mbstowcs() function converts a sequence  of  multibyte
+       characters  from the array s into a sequence of wide char-
+       acters and stores up to n wide  characters  in  the  array
+       pwcs.
+
+<h3>RETURN VALUE
+</h3>       mbstowcs() returns the number of wide characters stored or
+       -1 if s contains an invalid multibyte character.
+
+<h3>CONFORMING TO
+</h3>       SVID 3, ISO 9899
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=mblen.htm>mblen</a>, 
+<a href=mbtowc.htm>mbtowc</a>, 
+<a href=wcstombs.htm>wcstombs</a>, 
+<a href=wctomb.htm>wctomb</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>GNU                       March 29, 1993                        1
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

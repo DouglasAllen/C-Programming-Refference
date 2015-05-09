@@ -1,0 +1,100 @@
+<TITLE>mblen</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>MBLEN(3)            Linux Programmer's Manual            MBLEN(3)
+</h3>
+
+<h3>NAME
+</h3>       mblen - determine the number of bytes in a character
+
+<h3>SYNOPSIS
+</h3>       #include &lt;stdlib.h&gt;
+
+       int mblen(const char *s, size_t n);
+
+<h3>DESCRIPTION
+</h3>       The mblen() function scans the first n bytes of the string
+       s and returns the number of bytes  in  a  character.   The
+       mblen() function is equivalent to
+
+              mbtowc((wchat_t *)0, s, n);
+
+       except  that  the  shift state of the mbtowc() function is
+       not affected.
+
+<h3>RETURN VALUE
+</h3>       The mblen() returns the number of bytes in a character  or
+       -1 if the character is invalid or 0 if s is a NULL string.
+
+<h3>CONFORMING TO
+</h3>       SVID 3, ISO 9899
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=mbstowcs.htm>mbstowcs</a>, 
+<a href=mbtowc.htm>mbtowc</a>, 
+<a href=wcstombs.htm>wcstombs</a>, 
+<a href=wctomb.htm>wctomb</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>GNU                       March 29, 1993                        1
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

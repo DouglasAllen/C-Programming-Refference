@@ -1,0 +1,97 @@
+<TITLE>setsid</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>SETSID(2)                  System calls                 SETSID(2)
+</h3>
+
+<h3>NAME
+</h3>       setsid - creates a session and sets the process group ID
+
+<h3>SYNOPSIS
+</h3>       #include &lt;unistd.h&gt;
+
+       pid_t setsid(void);
+
+<h3>DESCRIPTION
+</h3>       setsid()  creates  a new session if the calling process is
+       not a process group leader.  The calling  process  is  the
+       leader of the new session, the process group leader if the
+       new process group, and has no controlling tty.   The  pro-
+       cess  group ID of the calling process is set to the PID of
+       the calling process.  The calling process will be the only
+       process in this new process group and in this new session.
+
+<h3>RETURN VALUE
+</h3>       The process group ID of the calling process.
+
+<h3>ERRORS
+</h3>       On error, -1 will be returned.  The only error  which  can
+       happen is EPERM.
+
+<h3>CONFORMING TO
+</h3>       POSIX
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=setpgid.htm>setpgid</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                           Aug 27, 1994                         1
+
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

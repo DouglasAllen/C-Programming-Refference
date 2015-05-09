@@ -1,0 +1,102 @@
+<title>Logical AND OR and NOT</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>Logical AND OR and NOT</h1>
+</center>
+<hr>
+
+<ul>
+<li><a href=#AND>Logical AND is &&</a>
+<li><a href=#OR>Logical OR is ||</a>
+<li><a href=#NOT>Logical NOT is !</a>
+</ul>
+<hr>
+<a name=AND>
+<h2>Logical AND</h2>
+In simple terms, && is true (1) if both sides of the expression returns NOT 0.
+<p>
+For Example:
+<pre>
+	/* These all return TRUE (1) */
+
+	if (4 && 5) return();
+
+	i=3;
+	j=2;
+	return( i && j);
+</pre>
+The expression is evaluated 'Left to Right' If any part of the expression 
+returns ZERO - The evaluation ends. 
+<p>
+THIS CAN CAUSE SERIOUS PROBLEMS.
+<p>
+For example:
+<pre>
+	k=0;
+	i=3;
+	j=2;
+	if ( i-i && j++) k=1
+</pre>
+The left side <i>(i-i)</i> resolves to 0, so <i>j</i> is not incremented 
+and <i>k</i> is not changed. 
+<hr>
+<a name=OR>
+<h2>Logical OR</h2>
+OR also evaluates 'Left to Right' and will stop when an expression 
+returns true. <p>
+SO WATCH YOUR BACK....
+<p>
+<pre>
+	k=0;
+	i=3;
+	j=2;
+	if ( i+i && j++) k=1
+</pre>
+What are <i>j</i> and <i>k</i> going to be when this code is executed?????
+
+<hr>
+<a name=NOT>
+<h2>Logical NOT</h2>
+
+NOT reverses the logical state of its 
+<a href=../glossary.html#operand>operand</a>. If the operand is 0, 1 is 
+returned, else 0 is returned.
+
+<pre>
+	!4	/* Returns 0	*/
+	!-4	/* Returns 0	*/
+	!1	/* Returns 0	*/
+	!0	/* Returns 1	*/
+</pre>
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

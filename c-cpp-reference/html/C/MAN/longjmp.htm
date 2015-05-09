@@ -1,0 +1,99 @@
+<TITLE>longjmp</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>LONGJMP(3)              Library functions              LONGJMP(3)
+</h3>
+
+<h3>NAME
+</h3>       longjmp - non-local jump to a saved stack context
+
+<h3>SYNOPSIS
+</h3>       #include &lt;setjmp.h&gt;
+
+       void longjmp(jmp_buf env, int val);
+
+<h3>DESCRIPTION
+</h3>       longjmp() and setjmp(3) are useful for dealing with errors
+       and interrupts encountered in a low-level subroutine of  a
+       program.   longjmp() restores the environment saved by the
+       last call of setjmp() with the corresponding env argument.
+       After  longjmp() is completed, program execution continues
+       as if the corresponding call of setjmp() had just returned
+       the  value  val.  longjmp() cannot cause 0 to be returned.
+       If longjmp is invoked with a second argument of 0, 1  will
+       be returned instead.
+
+<h3>RETURN VALUE
+</h3>       This function never returns.
+
+<h3>CONFORMING TO
+</h3>       POSIX
+
+<h3>NOTES
+</h3>       POSIX  does  not  specify  if  the  signal context will be
+       restored or not.  If  you  want  to  save  restore  signal
+       masks,  use siglongjmp(3) longjmp() makes programs hard to
+       understand  and  maintain.   If  possible  an  alternative
+       should be used.
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=setjmp.htm>setjmp</a>, 
+<a href=sigsetjmp.htm>sigsetjmp</a>, 
+<a href=siglongjmp.htm>siglongjmp</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        November 25, 1994                       1
+
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

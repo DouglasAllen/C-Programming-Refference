@@ -1,0 +1,81 @@
+<title>STDIN, STDOUT, STDERR</title> 
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>STDIN, STDOUT, STDERR</h1> 
+</center>
+<hr>
+<p>
+These three file pointers are 
+automatically defined when a program
+executes and provide access to the keyboard and screen.
+<p>
+
+<h2>stdin</h2>
+
+By default <b>stdin</b> accesses the keyboard. Functions that read 
+stdin include...
+<ul>
+<li><a href=../FUNCTIONS/gets.html>gets</a> 
+<li><a href=../FUNCTIONS/getchar.html>getchar</a> 
+</ul>
+The following functions can access <b>stdin</b>
+<ul>
+<li>fgets
+<li>fgetc
+<li>fscanf
+</ul>
+<a href=../EXAMPLES/stdin.c><img src=../../GRAPHICS/computer.gif></a>
+stdin example program.
+<h2>stdout</h2>
+stdout sends data to the screen. Functions that write to stdout
+include....
+<ul>
+<li><a href=../FUNCTIONS/printf.html>printf</a> 
+<li><a href=../FUNCTIONS/puts.html>puts</a> 
+<li>putchar
+</ul>
+<h2>stderr</h2>
+
+stderr also writes to the screen. If you are using a Unix based system
+the data sent to stdout and stderr can be seperated and sent to 
+different places.
+
+Functions that could write to stderr include...
+
+<ul>
+<li>fprintf
+<li>fputs
+</ul>
+
+<hr>
+<p>
+<center>
+<table border=2 width=80% bgcolor=ivory>
+<tr align=center>
+<td width=25%>
+<a href="../cref.html" target="_top">Top</a>
+</td><td width=25%>
+<a href="../master_index.html" target="_top">Master Index</a>
+</td><td width=25%>
+<a href="../SYNTAX/keywords.html" target="_top">C Keywords</a>
+</td><td width=25%>
+<a href="../FUNCTIONS/funcref.htm" target="_top">Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+
+<hr>
+If you wish to create file pointers to perform I/O to other devices 
+you should use <a href=../FUNCTIONS/fopen.html>fopen</a>
+<hr>
+<address>Martin Leslie 
+<script language="JavaScript">
+<!--  //
+document.write(document.lastModified);
+// -->
+</script>
+</address><p>
+

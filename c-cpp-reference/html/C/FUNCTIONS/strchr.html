@@ -1,0 +1,80 @@
+<title>strchr strrchr functions</title>
+
+<head>
+<script language="JavaScript">
+</script>
+</head>
+
+<body bgcolor=#ffffcc>
+<hr>
+<center><h1>strchr strrchr functions</h1></center>
+<p>
+<hr>
+<ul>
+<li><b>strchr</b> will find the first matching character in a string.<br>
+<p>
+<li><b>strrchr</b> will find the last matching character in a string.<p>
+</ul>
+
+The functions will return a pointer to the character or 
+<a href=../SYNTAX/null.html>NULL</a> if 
+the character is not found.
+
+<hr>
+<pre>
+Library:   string.h
+
+Prototype: char * strchr(const char *string, int character);
+
+Syntax:	   int character='w';
+	   char *string="red dwarf";
+           if(strchr(string, character)) puts("Character found");
+</pre>
+
+<hr>
+<h2>See Also:</h2>
+
+<img src=../../GRAPHICS/whiteball.gif>
+<a href=strstr.html>strstr</a> which looks for a sub-string in a string.
+<p>
+
+<img src=../../GRAPHICS/whiteball.gif>
+<a href=strpbrk.html>strpbrk</a> 
+<p>
+
+<img src=../../GRAPHICS/man.gif>
+<a href=../MAN/index.htm>index and rindex</a> do the same as <b>strchr</b> 
+and <b>strrchr</b> but are non standard.
+
+
+<hr>
+<img src=../../GRAPHICS/computer.gif>
+<a href=../EXAMPLES/strchr.c> Example program (from Dave Doolin).</a> <p>
+
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<title>Assignment operators.</title>
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>Assignment operators.</h1>
+</center>
+<hr>
+
+C has the following assignement operators:
+<pre>
+	=   +=   -=   *=   /=   %=   <<=   >>=   &=   ^=   |=
+</pre>
+= is the obvious one. It takes the result of the expression on the right 
+and assigns it to the variable on the left (lvalue).
+<pre>
+	main ()
+        {
+	  int a, b=4, c=10;
+	  a = b + c;
+	}
+</pre>
+I know this is stating the obvious, but:
+<ol>
+<li><b>b</b> is assigned the value 4
+<li><b>c</b> is assigned the value 10
+<li><b>a</b> is assigned the result of b plus C (14).
+</ol>
+
+<hr>
+All the other operators act in a simular way. If you find yourself 
+coding the example on the left, it could be changed to the example on 
+the right.
+<pre>
+	main ()				main()
+	{				{
+	  int a=4;			  int a=4;
+	  a = a * 4;			  a *= 4;
+	}				}
+</pre>
+The rule is as follows:
+<p>
+The lvalue is multiplied by the rvalue and the result assigned to the 
+lvalue.
+<p>
+Here is another example.
+<pre>
+	main()				main()
+	{				{
+	    int a=10, b=2;	            int a=10, b=2;
+	    a /= b * 5;		            a = a / (b*5);
+	}				}
+</pre>
+Again both preduce the same answer (1).
+<p>
+<hr>
+
+<img src=../../GRAPHICS/whiteball.gif>
+<a href="inc_dec.html">Increment (++) and Decrement (--)</a><br>
+
+<img src=../../GRAPHICS/whiteball.gif>
+<a href="bit_shift.html">Bit shifting ( >>= <<= )</a><br>
+
+<img src=../../GRAPHICS/whiteball.gif>
+<a href="precedence.html">Operator precedence table.</a>
+<hr>
+<p>
+<center>
+<table border=2 width=80% bgcolor=ivory>
+<tr align=center>
+<td width=25%>
+<a href="../cref.html">Top</a>
+</td><td width=25%>
+<a href="../master_index.html">Master Index</a>
+</td><td width=25%>
+<a href="../SYNTAX/keywords.html">Keywords</a>
+</td><td width=25%>
+<a href="../FUNCTIONS/funcref.htm">Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+ 
+<hr>
+<address>Martin Leslie
+<script language="JavaScript">
+<!--  //
+document.write(document.lastModified);
+// -->
+</script>
+</address>

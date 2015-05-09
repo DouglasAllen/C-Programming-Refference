@@ -1,0 +1,291 @@
+
+Lesson 4.
+
+                                                                         The
+operators of the language.
+
+        I have mentioned that 'C' is a small language with most of the heavy
+work
+being done by explicit calls to library functions. There is however a rich
+mix of intrinsic operators which allow you to perform bit level operations,
+use pointers, and perform immediate operations on varables. In other words,
+most of a machine's instruction set is able to be used in the object program.
+At the time when 'C' was designed and first written these were unique for
+a high level language.
+
+  Lets start with a discussion about precedence.
+
+        This really means that the compiler puts invisable parentheses into
+your expression. Casting your mind back to Arithmetic in the primary school
+I expect you remember the nmemonic "My Dear Aunt Sally". The 'C' language
+does as well! So the following expression is correct
+
+        15 + 4 * 11 = 59
+
+        The compiler has rendered the expression as:
+
+        15 + ( 4 * 11 ) = 59
+
+        Now the 'C' language has a much larger collection of operators than
+just
+Multiply Divide Add Subtract, in fact much too big to try to remember the
+precedence of all of them. So my recomendation is to ALWAYS put in the
+parentheses, except for simple arithmetic. However, for the sake of
+completeness as much as anything else, here is the list.
+
+        First up come what are called the primary-expression operators:
+
+                ()    Function.
+                []    Array.
+                .     struct member ( variable ).
+                ->    struct member ( pointer ).
+
+         The unary operators:
+
+                *     Indirection via a Pointer.
+                &     Address of Variable.
+                -     Arithmetic Negative.
+                !     Logical Negation or Not.
+                ~     Bit-wise One's Complement.
+                ++    Increment.
+                --    Decrement.
+                sizeof  Which is self explanitary.
+
+        Now the binary operators:
+
+   Arithmetic Operators.
+
+                *     Multiply.                                       My
+                /     Divide.                                         Dear
+                %     Modulo, or Remainder of Integer Division.
+                +     Addition.                                       Aunt
+                -     Subtraction.                                    Sally
+
+         The Shifting Operators.
+
+                >>    Bit-wise Shift to the Right.
+                <<    Bit-wise Shift to the Left.
+
+   Logical Relation Operators.
+
+                <     Less Than.
+                >     Greater Than.
+                <=    Less Than or Equal.
+                >=    Greater Than or Equal.
+                ==    Equal.
+                !=    Not Equal.
+
+         Bit-wise Boolean Operators.
+
+                &     Bit-wise And.
+                ^     Bit-wise Exclusive-or.
+                |     Bit-wise Or.
+
+         The Logical Operators.
+
+                &&    Logical And.
+                ||    Logical Or.
+
+   The Assignment Operators. ( They all have the same priority. )
+
+                =     The normal assignment operator.
+
+         The Self-referencing Assignment Operators.
+
+                +=
+                -=
+                *=
+                /=
+                %=
+                >>=
+                <<=
+                &=
+    ^=
+                |=
+
+  Some explanation is in order here. The machine instructions in your
+computer include a suit of what are called "immediate operand" instructions.
+These instructions have one of the operands in a register and the other
+is either part of the instruction word itself ( if it is numerically small
+enough to fit ) or is the next word in the address space "immediately" after
+the instruction code word. 'C' makes efficient use of this machine feature
+by providing the above set of operations each of which translates directly
+to its corresponding machine instruction. When the variable in question is a
+'register' one, or the optimiser is in use, the compiler output is just
+the one "immediate" machine instruction. Efficiency Personified!!!
+
+        These two lines will make things clearer.
+
+        a = 8;
+        a += 2;     /* The result is 10 */
+
+        The exclusive-or operation is very useful you can toggle any
+combination
+of bits in the variable using it.
+
+        a = 7;
+        a ^= 2;    /* Now a is 5 */
+        a ^= 2;    /*  and back to 7. */
+
+        Naturally, you can use the other operations in exactly the same way,
+I'd like to suggest that you make a utterly simplistic little program
+and have a look at the assembler code output of the compiler. Don't be
+afraid of the assembler codes - they don't bite - and you will see
+what I was on about in the paragraph above.
+
+        Historical Note and a couple of Cautions.
+
+        In the Oldend Days when 'C' was first written all the self-referencing
+operations had the equals symbol and the operand around the other way.
+Until quite recently ( unix system V release 3.0 ) the 'C' compiler had a
+compatability mode and could cope with the old style syntax.
+
+        A sample or test program is probably in order here.
+
+/* ----------------------------------------- */
+
+#include <stdio.h>
+
+char *mes[] =
+{
+        "Your compiler",
+        " understands",
+        " does not understand",
+        " the old-fashioned self-referencing style."
+        };
+
+main()
+{
+        int a;
+
+        a = 5;
+        a=-2;
+        printf ( "%s %s %s\n", mes [ 0 ], mes [ ( a == -2 ) ? 2 : 1 ], mes [ 3
+] );
+        }
+
+/* ----------------------------------------- */
+
+        The 'C' compiler issued with unix System V release 3.2 seems to have
+( thankfully ) dropped the compatability mode. However a collegue, who
+was using an old compiler, and I spent hours trying to find this strange bug!
+The cure for the problem is either to put spaces on either side of the '=' sign
+or to bracket the unary minus to the operand.
+
+        a=(-2);
+        a = -2;
+
+Either is acceptable, and might save you a lot of spleen if sombody tries
+to install your work of art program on an ancient machine.
+
+  The other caution is the use of the shifting instructions with signed
+and unsigned integers.
+
+        If you shift a signed integer to the right when the sign bit is set
+then in all probability the sign will be extended. Once again a little
+demo program. Please cut it out of the news file with your editor
+and play with it.
+
+/* ----------------------------------------- */
+
+#ident "#(@) shifts.c - Signed / Unsigned integer shifting demo."
+#include <stdio.h>
+
+#define WORD_SIZE ( sizeof ( INTEGER int ) * 8 )
+#define NIBBLE_SIZE 4
+#define NIBBLES_IN_WORD (( WORD_SIZE ) / NIBBLE_SIZE )
+#define SIGN_BIT ( 1 << ( WORD_SIZE - 1 ))
+
+char *title[] =
+{ "       Signed             Unsigned",
+        "                 Signed                                 Unsigned"
+        };
+
+main ()
+{
+        INTEGER int a;
+        unsigned INTEGER int b, mask;
+        int ab, i, j, bit_counter, line_counter;
+
+        a = b = SIGN_BIT;
+        printf ( "%s\n\n", title [ ( WORD_SIZE == 16 ) ? 0 : 1 ] );
+
+        for ( line_counter = 0; line_counter < WORD_SIZE; line_counter++ )
+        {
+                for ( ab = 0; ab < 2; ab++ )
+                {
+                        mask = SIGN_BIT;
+                        for ( i = 0; i < NIBBLES_IN_WORD; i++ )
+                        {
+                                for ( j = 0; j < NIBBLE_SIZE; j++ )
+                                {
+                                        printf ( "%c", ((( ab ) ? b : a ) &
+mask ) ? '1' : '0' );
+                                        mask >>= 1;
+                                        }
+                                printf ( " " );
+                                }
+                        printf ( "%s", ( ab ) ? "\n" : " " );
+                        if ( ab )
+                        {
+                          b >>= 1;
+                                }
+                        else
+                        {
+                                a >>= 1;
+#if defined(FIX_COMPILER_BUG)
+# if (INTEGER == long)
+                                a |= SIGN_BIT;    /* This is a work-around for
+the 3b2 compiler bug. */
+# endif
+#endif
+                                }
+                        }
+                }
+        }
+
+/* ----------------------------------------- */
+
+  This little program might well produce some interesting surprises on
+your machine in the same way it did on mine. I have an AT&T 3b2/400 and
+use the K & R style compiler. Interestingly, the above program did what
+I expected it to do when the integers were short, the sign bit is extended,
+but when the integers are long the sign bit is NOT extended. In this case
+the different behaviour is caused by the compiler always issuing a Logical
+Shift instruction, when it should issue a Arithmetic Shift instruction for
+signed integers and a Logical Shift instructon for unsigned ones. In the
+case of the short int the varable is loaded from memory into the register
+with a sign extend load instruction, this makes the Logical Shift instruction
+right work correctly for short ints, but not for longs.  I had to examine
+the assember codes output by the compiler in order to discover this.
+
+  Here are the compiler invocation lines.
+
+cc -olong.shifts -DFIX_COMPILER_BUG -DINTEGER=long shifts.c
+
+        and
+
+cc -oshort.shifts -DINTEGER=short shifts.c
+
+        Experiment with the "-DFIX_COMPILER_BUG" and see what your compiler
+does.
+
+Copyright notice:-
+
+(c) 1993 Christopher Sawtell.
+
+I assert the right to be known as the author, and owner of the
+intellectual property rights of all the files in this material,
+except for the quoted examples which have their individual
+copyright notices. Permission is granted for onward copying,
+but not modification, of this course and its use for personal
+study only, provided all the copyright notices are left in the
+text and are printed in full on any subsequent paper reproduction.
+
+--
+ +----------------------------------------------------------------------+
+ | NAME   Christopher Sawtell                                           |
+ | SMAIL  215 Ollivier's Road, Linwood, Christchurch, 8001. New Zealand.|
+ | EMAIL  chris@gerty.equinox.gen.nz                                    |
+ | PHONE  +64-3-389-3200   ( gmt +13 - your discretion is requested )   |
+ +----------------------------------------------------------------------+

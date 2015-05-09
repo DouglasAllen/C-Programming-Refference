@@ -1,0 +1,83 @@
+<title>C compiler preprocessors</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>C compiler preprocessors</h1>
+</center>
+<hr>
+
+Preprocessor commands are executed before the compiler compiles the
+source code. These commands will change the original code usually to 
+suit the operating environment and/or to add code that will be required by
+calls to library functions. Preprocessors are recognised by the leading 
+# in their names. 
+<p>
+<table border=2 bgcolor=ivory>
+<Caption>Preprocessors</caption>
+<tr>
+<td><a href="include_preprocessor.html">#include</a> <td>Insert a source file.
+<tr>
+<td><a href="define_preprocessor.html">#define</a> <td>Define a preprocessor
+constant.
+<tr>
+<td><a href="../EXAMPLES/if_else_endif.c">#if</a> <td>Branch based on an expression.
+<tr>
+<td>#ifdef <td>Branch if preprocessor constant has been defined?
+<tr>
+<td><a href="../EXAMPLES/ifndef.c">#ifndef</a> <td> Branch is a preprocessor
+constant has NOT been defined.
+<tr>
+<td>#line <td> Specify the number of the next source line.
+<tr>
+<td>#undef <td> Remove a preprocessor constant.
+<tr>
+<td>#pragma<td> Perform an implementation dependent action???
+<tr>
+<td><a href="../EXAMPLES/if_else_endif.c">#else</a> <td> Executed if #if
+#ifdef or #ifndef fails.
+<tr>
+<td>#error <td> Write an error message.
+<tr>
+<td>#elif <td> Executed when an #if fails.
+<tr>
+<td><a href="../EXAMPLES/if_else_endif.c">#endif</a> <td>Close #if #ifdef or
+#ifndef
+</table>
+<hr>
+<H2>Notes:</H2>
+<ul>
+<li>Preprocessors should start in column 1.
+<li>The -E option tells gcc to stop after the preprocessor stage and send the 
+O/P to STDOUT (usually the screen).
+</ul>
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

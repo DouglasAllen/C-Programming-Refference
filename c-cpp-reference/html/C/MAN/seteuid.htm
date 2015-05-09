@@ -1,0 +1,98 @@
+<TITLE>setreuid</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>SETREUID(2)         Linux Programmer's Manual         SETREUID(2)
+</h3>
+
+<h3>NAME
+</h3>       setreuid, seteuid - set real and / or effective user ID
+
+<h3>SYNOPSIS
+</h3>       #include &lt;unistd.h&gt;
+
+       int setreuid(uid_t ruid, uid_t euid);
+       int seteuid(uid_t euid);
+
+<h3>DESCRIPTION
+</h3>       setreuid  sets real and effective user ID's of the current
+       process.  Un-privileged users may change the real user  ID
+       to the effective user ID and vice-versa.
+
+       Prior  to  Linux  1.1.37, the saved ID paradigm, when used
+       with setreuid or seteuid was broken.
+
+       Starting at 1.1.37, it is also possible to set the  effec-
+       tive user ID from the saved user ID.
+
+       Only the super-user may make other changes.
+
+       Supplying  a  value of -1 for either the real or effective
+       user ID forces the system to leave that ID unchanged.
+
+       Currently  (libc-4.x.x),  seteuid(euid)  is   functionally
+       equivalent to setreuid(-1, euid).
+
+       If the real user ID is changed or the effective user ID is
+       set to a value not equal to the previous real user ID, the
+       saved user ID will be set to the new effective user ID.
+
+<h3>RETURN VALUE
+</h3>       On  success,  zero is returned.  On error, -1 is returned,
+       and errno is set appropriately.
+
+<h3>ERRORS
+</h3>       EPERM   The current process  is  not  the  super-user  and
+               changes other than (i) swapping the effective user
+               ID with the real user ID or (ii)  setting  one  to
+               the value of the other or (iii) setting the effec-
+               tive user ID to the value of the saved user ID was
+               specified.
+
+<h3>HISTORY
+</h3>       The setreuid function call appeared in BSD 4.2.
+
+<h3>CONFORMING TO
+</h3>       BSD 4.3
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=getuid.htm>getuid</a>, 
+<a href=setuid.htm>setuid</a>, 
+<pre>
+
+
+
+
+
+<h3>Linux 1.1.38             2nd August 1994                        1
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

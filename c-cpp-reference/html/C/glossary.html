@@ -1,0 +1,350 @@
+<html>
+<head>
+<title>Glossary of C terms.</title>
+</head>
+
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>Glossary of C terms.</h1>
+</center>
+<hr>
+
+<! Spell checked on 5-Feb-95 >
+
+<dl>
+<a name="address">
+<dt>Address.
+<dd>Reference to a memory location.
+In C <a href="#pointer">pointers</a> are used to hold addresses.
+<p>
+
+<a name=ansi>
+<dt>ANSI
+<dd>American
+<p>
+
+<a name=api>
+<dt>API
+<dd>Application Programming Interface
+<p>
+
+<dt><a href="SYNTAX/functions.html">Argument.</a>
+<dd>A value passed to a <a href="SYNTAX/functions.html">function</a>
+(see <a href="#parameter">parameter</a>).
+<p>
+
+<dt><a href="../CPLUSPLUS/glossary.html#baseclass">Base Class</a>
+<dd><font color=brown>See C++ glossary.</font>
+<p>
+
+<a name=block>
+<dt><a href="SYNTAX/statements.html#block">Block.</a>
+<dd>A sequence of 
+<a href="#definition">definitions</a>,
+<a href="#declaration">declarations</a> and 
+<a href="SYNTAX/statements.html">statements,</a> 
+enclosed within braces {}.<p>
+
+
+<dt><a href="CONCEPT/arrays.html#char">Character Array.</a>
+<dd>A set of elements of type 
+<a href="CONCEPT/arrays.html#char">char</a>. (Can be used to store a 
+<a href="#string">string</a>).<p>
+
+<dt><a href="../CPLUSPLUS/glossary.html#class">Class</a>
+<dd><font color=brown>See C++ glossary.</font>
+<p>
+
+<dt>Compilation error.
+<dd>Error which occurs during the translation of source code into machine
+code.<p>
+
+<dt>Compiler.
+<dd>A program which converts source code into machine code.<p>
+
+<dt>Compound Statement.
+<dd>A sequence of simple statements.<p>
+
+<dt><a href="CONCEPT/constants.html">Constant</a> (common all garden)
+<dd>An item that represents a value that cannot be changed.
+For Example:
+<pre>   
+        123
+        'x'
+</pre>
+
+<dt>Constant (symbolic)
+<dd>A symbol defined in a <a href="SYNTAX/define_preprocessor.html">#define</a>
+preprocessor directive to represent
+a constant value.<p>
+
+<dt><a href="CONCEPT/data_types.html">Data type</a>.
+<dd>Definition of the data. <i>int, char, float.</i><p>
+
+<a name=declaration>
+<! THIS IS CORRECT>
+<dt>Declaration.
+<dd>A construct which associates attributes to a variable name
+or function.<br>
+No storage is reserved.<p>
+For example:
+<pre>
+        extrn int  a;
+        extrn char c;
+</pre>
+<a href="SYNTAX/glo_int_vars.html">variable declaration</a><p>
+A structure decleration could look like:
+<pre>
+        struct per_rec
+        {
+            int   age;
+            char *surname;
+            char *firstname;
+        };
+</pre>
+<p>
+
+<a name=definition>
+<! THIS IS CORRECT>
+<dt>Definition.
+<ol>
+<li>Variable definition is a declaration with storage allocation.<p>
+<pre>
+        int a;
+        char c;
+        struct per_rec person;
+</pre>
+                        
+<li>A construct which specifies the name,parameters and return type
+of a function.<br>
+For example a function definition would be:
+<pre>
+        long sqr(int num)
+        {
+            return(num*num);
+        }
+</pre>
+</ol>
+
+
+<dt><a href="../CPLUSPLUS/glossary.html#derivedclass">Derived Class</a>
+<dd><font color=brown>See C++ glossary.</font>
+<p>
+
+
+<a name="encapsulation">
+<font color="brown">
+<dt>Encapsulation.
+<dd>The C++ concept of grouping related variables and 
+    controlling the operations performed apon them. The 
+    encapsulated variables can be considered to be 
+    contained in their own environment.
+</font>
+<p>
+
+<dt><a href="FUNCTIONS/escape.html">Escape sequence</a>.
+<dd>Control codes comprising combinations of a backslash followed by
+letters or digits which represent non printing characters.<p>
+
+<dt>Executable program.
+<dd>Program which will run in the environment of the operating system
+or within an appropriate run time environment.<p>
+
+<dt>Executable (stand-alone) program.
+<dd>Program which will run within the environment of the operating system
+without additional utilities or support.<p>
+
+<dt><a href="CONCEPT/expressions.html">Expression.</a>
+<dd>A sequence of operators and operands which may yield a single value.<p>
+
+<dt>File.
+<dd>Data stored as an electronic file.<p>
+
+<a name=filedes>
+<dt>File descriptor.
+<dd>This is used in 
+<a href="MISC/io.html#low">low level I/O</a> 
+(open/read/write/close functions) to
+identify a file. It is an integer number assigned to a file name 
+by open and then used as a unique identifier by
+read/write and close.
+<p>
+
+<dt>Floating-point Number.
+<dd>Number having a decimal place or exponent.<p>
+
+<dt>Format specification.
+<dd>A string which controls how input or output shall be presented.<p>
+
+<dt>Identifier.
+<dd>The names used to refer to stored data values such as <i>constants, 
+variables</i> or <i>functions</i>.
+
+<dt>Integer.
+<dd>A number without a fractional part.<p>
+
+<a name=keyword>
+<dt><a href="SYNTAX/keywords.html">Keyword.</a>
+<dd>A word which has a predefined meaning to a 'C' compiler and therefore 
+must not be used for any other purpose.<p>
+
+<dt><a href="LIBRARIES/libraries.html">library file</a>.
+<dd>The file which contains compiled versions of commonly used functions 
+which can be linked to an object file to make an executable program.<p>
+
+<dt>Library function.
+<dd>A function whose code is contained in the external <i>library file</i>.
+
+<dt>Line.
+<dd>One line of input from the standard input device (keyboard) which is
+terminated with a newline character. The newline character is replaced by a 
+null character.<p>
+
+<dt>Literal.
+<dd>Characters, letters or 
+<a href="#string">strings</a>
+which are to be taken literally and used
+as constants rather than identifiers.<p>
+
+<font color=brown>
+<a name=method>
+<dt>Method.
+<dd>C++ talk meaning a member function of a class.
+</font>
+<p>
+
+<a name=class_object>
+<dt><a href="../CPLUSPLUS/glossary.html#object">Object</a>
+<dd><font color=brown>See C++ glossary.</font>
+<p>
+
+<a name=object>
+<dt>Object Code.
+<dd>Code which is directly understandable by the machine (machine code).<p>
+
+<a name=operand>
+<dt>Operand.
+<dd>An expression acted on by an operator. For example:
+<pre>
+        z = a + b;
+</pre>
+<i>a</i> and <i>b</i> are both operands of the <i>+</i> operator.
+
+
+<a name=parameter>
+<dt>Parameter.
+<dd>A value received by a <i>function</i>.<p>
+
+<a name=pointer>
+<dt><a href="CONCEPT/pointers.html">Pointer.</a>
+<dd>Variable containing an address.
+<p>
+
+<dt><a href="../CPLUSPLUS/glossary.html#polymorphism">Polymorphism</a>
+<dd><font color=brown>See C++ glossary.</font>
+<p>
+
+<a name=posix>
+<dt>POSIX
+<dd>Portable Operating System Interface.
+<p>
+
+<dt><a href="CONCEPT/precedence.html">Precedence</a>
+(of <a href="CONCEPT/expressions.html">operators</a>)
+<dd>The order in which operators are dealt with during the evaluation
+of an expression.<p>
+
+<dt><a href="SYNTAX/preprocessors.html">Preprocessor</a>.
+<dd>A processor which manipulates the initial directives of the source file
+which contains instructions about how the source file shall be processed 
+and compiled.<p>
+
+<dt>Preprocessor directive.
+<dd>Source file instruction about how the file shall be processed and 
+compiled.<p>
+
+<dt>Program.
+<dd>A text file comprising code which can be compiled.<p>
+
+<dt>Run time error.
+<dd>An error which occurs when a program is executed.<p>
+
+<dt>Reserved word. <a href="SYNTAX/keywords.html">(keyword)</a>
+<dd>A word which has a predefined meaning to a 'C' compiler and therefore 
+must not be used for any other purpose.<p>
+
+<a name=scope>
+<dt>Scope.
+<dd><p>
+
+
+<dt>Source code.
+<dd>A text file comprising code which can be compiled.<p>
+
+<dt>Statement.
+<dd>A simple statement is an <i>expression</i> followed by a semicolon.
+(See compound statement and <a href="#block">block</a>).<p>
+
+<a name=string>
+<dt>String.
+<dd>A string in 'C' is an array of characters terminated by a 
+<a href="SYNTAX/null.html">Null</a> character
+('\0').
+<p>
+
+<dt><a href="../CPLUSPLUS/glossary.html#derivedclass">SubClass</a>
+<dd><font color=brown>See C++ glossary.</font>
+<p>
+
+<dt><a href="../CPLUSPLUS/glossary.html#baseclass">SuperClass</a>
+<dd><font color=brown>See C++ glossary.</font>
+<p>
+
+<dt>Syntax error.
+<dd>A mistake in the source code which prevents the compiler from converting
+it into <a href="#object">object code</a>.<p>
+
+<a name="threads">
+<dt>Threads.
+<dd>A process has five fundamental parts: code ("text"), data (VM),
+stack, file I/O, and signal tables. Theads are spawned from a process
+and can share these parts to comunicate with each other.
+<p>
+The traditional method of spawning processes (<a href="FUNCTIONS/fork.html">fork</a>) could only communicate
+with other forked processes via pipes and and "shared memory". The result is
+threads can communicate easily and have a low CPU overhead.
+<p>
+
+<dt>Variable.
+<dd>An identifier (and storage) for a 
+<a href="CONCEPT/data_types.html">data type </a>
+and for which the data value
+is allowed to change as the program runs.<p>
+
+<dt>
+
+<p>
+ <hr>
+<p>
+<center>
+<table border=1 width=80% bgcolor="ivory">
+<tr align=center>
+<td width=25%>
+<a href="cref.html">                  Top</a>
+</td><td width=25%>
+<a href="master_index.html">          Master Index</a>
+</td><td width=25%>
+<a href="SYNTAX/keywords.html">       Keywords</a>
+</td><td width=25%>
+<a href="FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

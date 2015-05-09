@@ -1,0 +1,99 @@
+<TITLE>setjmp</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>SETJMP(3)               Library functions               SETJMP(3)
+</h3>
+
+<h3>NAME
+</h3>       setjmp - save stack context for non-local goto
+
+<h3>SYNOPSIS
+</h3>       #include &lt;setjmp.h&gt;
+
+       int setjmp(jmp_buf env );
+
+<h3>DESCRIPTION
+</h3>       setjmp  and  longjmp(3) are useful for dealing with errors
+       and interrupts encountered in a low-level subroutine of  a
+       program.   setjmp() saves the stack context/environment in
+       env for later use by longjmp().  The stack context will be
+       invalidated if the function which called setjmp() returns.
+
+<h3>RETURN VALUE
+</h3>       It returns the value 0 if returning directly and  non-zero
+       when returning from longjmp() using the saved context.
+
+<h3>CONFORMING TO
+</h3>       POSIX
+
+<h3>NOTES
+</h3>       POSIX does not specify if the signal context will be saved
+       or  not.   If  you  want  to  save   signal   masks,   use
+       sigsetjmp(3).   setjmp() makes programs hard to understand
+       and maintain.  If possible an alternative should be  used.
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=longjmp.htmlongjmp</a>, 
+<a href=sigsetjmp.htm>sigsetjmp</a>, 
+<a href=siglongjmp.htm>siglongjmp</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        November 25, 1994                       1
+
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

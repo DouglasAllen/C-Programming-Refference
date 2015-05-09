@@ -1,0 +1,120 @@
+<title>Conditional Expressions</title>
+
+<head>
+<script language="JavaScript">
+</script>
+</head>
+
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>Conditional Expressions.</h1>
+</center>
+<hr>
+<p>
+
+
+We have a short-hand construct for some <b>if ... else ...</b> constructs.<p>
+Consider the following two examples.
+<p>
+<center>
+<table border=2 bgcolor=ivory>
+<th>Example 1</th>
+<th>Example 2</th>
+<tr>
+<td>
+<pre>
+
+  if ( x == 1 ) 
+    y = 10;
+  else
+    y = 20;
+    
+</pre>
+</td>
+<td>
+<pre>
+
+  y = (x == 1) ? 10 : 20;  
+
+</pre>
+</td>
+</tr>
+</table>
+</center>
+<p>
+These examples both perform the same function. If x is 1 then y becomes 10
+else y becomes 20. The example on the right evaluates the first expression 
+'(x ==1 )' and if <b>true</b> evaluates the second '10'. If <b>false</b> the
+third is evaluated. Here is another example.
+<p>
+<center>
+<table border=2 bgcolor=ivory>
+<th>Example 1</th>
+<th>Example 2</th>
+<tr>
+<td>
+<pre>
+
+ if ( x == 1 ) 
+   puts("take car"); 
+ else
+   puts("take bike");  
+</pre>
+</td>
+<td>
+<pre>
+
+ (x == 1) ? puts("take car") : puts("take bike"); 
+                                                  
+    or
+
+ puts( (x == 1) ? "take car" : "take bike");
+</pre>
+</td>
+</tr>
+</table>
+</center>
+<p>
+It has been said that the compiler can create more efficent code from
+a <b>conditional expression</b> possibly at the expence of readable code.
+Unless you are writing time critical code (and lets face it, thats unlikely)
+the more efficent code is not much of a reason to use this construct.
+I feel that it has its uses, but should not be lost into some complex
+statement,
+but, since when did C programmers worry if anyone else could read their 
+code ;-)
+<p> 
+<hr>
+<h2>See also:</h2>
+<ul>
+<li><a href="if.html">if</a> keyword.
+<li><a href="switch.html">switch</a> keyword.
+<li><a href="idioms.html#printf">A use within printf.</a>.
+</ul>
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

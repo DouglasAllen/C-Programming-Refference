@@ -1,0 +1,159 @@
+<TITLE>va_start</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>STDARG(3)           Linux Programmer's Manual           STDARG(3)
+</h3>
+
+<h3>NAME
+</h3>       stdarg - variable argument lists
+
+<h3>SYNOPSIS
+</h3>       #include &lt;stdarg.h&gt;
+
+       void va_start( va_list ap, last);
+       typeva_arg( va_list ap, type);
+       void va_end( va_list ap);
+
+<h3>DESCRIPTION
+</h3>       A  function  may  be called with a varying number of argu-
+       ments  of  varying  types.   The  include  file   stdarg.h
+       declares a type va_list and defines three macros for step-
+       ping through a list of arguments whose  number  and  types
+       are not known to the called function.
+
+       The called function must declare an object of type va_list
+       which is used by the macros va_start, va_arg, and  va_end.
+
+       The  va_start  macro  initializes ap for subsequent use by
+       va_arg and va_end, and must be called first.
+
+       The parameter last is  the  name  of  the  last  parameter
+       before  the variable argument list, i.e., the last parame-
+       ter of which the calling function knows the type.
+
+       Because the address of  this  parameter  is  used  in  the
+       va_start  macro,  it  should not be declared as a register
+       variable, or as a function or an array type.
+
+       The va_start macro returns no value.
+
+       The va_arg macro expands to an  expression  that  has  the
+       type  and  value  of  the  next argument in the call.  The
+       parameter ap is the va_list ap  initialized  by  va_start.
+       Each  call  to  va_arg  modifies  ap so that the next call
+       returns the next argument.  The parameter type is  a  type
+       name  specified so that the type of a pointer to an object
+       that has the specified type  can  be  obtained  simply  by
+       adding a * to type.
+
+       If there is no next argument, or if type is not compatible
+       with the type of the actual  next  argument  (as  promoted
+       according  to  the  default  argument  promotions), random
+       errors will occur.
+
+       The first use of  the  va_arg  macro  after  that  of  the
+       va_start  macro  returns the argument after last.  Succes-
+       sive invocations return the values of the remaining  argu-
+       ments.
+
+       The va_end macro handles a normal return from the function
+       whose variable argument list was initialized by  va_start.
+
+
+
+<h3>BSD MANPAGE              29 November 1993                       1
+</h3>
+
+
+
+
+<h3>STDARG(3)           Linux Programmer's Manual           STDARG(3)
+</h3>
+
+       The va_end macro returns no value.
+
+<h3>EXAMPLES
+</h3>       The  function  foo takes a string of format characters and
+       prints out the argument associated with each format  char-
+       acter based on the type.
+              void foo(char *fmt, ...)
+              {
+                   va_list ap;
+                   int d;
+                   char c, *p, *s;
+
+                   va_start(ap, fmt);
+                   while (*fmt)
+                        switch(*fmt++) {
+                        case 's':           /* string */
+                             s = va_arg(ap, char *);
+                             printf("string %s\n", s);
+                             break;
+                        case 'd':           /* int */
+                             d = va_arg(ap, int);
+                             printf("int %d\n", d);
+                             break;
+                        case 'c':           /* char */
+                             c = va_arg(ap, char);
+                             printf("char %c\n", c);
+                             break;
+                        }
+                   va_end(ap);
+              }
+
+<h3>STANDARDS
+</h3>       The  va_start,  va_arg,  and va_end macros conform to ANSI
+       C3.159-1989 (``ANSI C'').
+
+<h3>COMPATIBILITY
+</h3>       These macros are not compatible with the  historic  macros
+       they  replace.  A backward compatible version can be found
+       in the include file varargs.h.
+
+<h3>BUGS
+</h3>       Unlike the varargs macros, the stdarg macros do not permit
+       programmers  to  code  a function with no fixed arguments.
+       This problem generates work mainly when converting varargs
+       code  to stdarg code, but it also creates difficulties for
+       variadic functions that wish to pass all  of  their  argu-
+       ments on to a function that takes a va_list argument, such
+       as vfprintf(3).
+
+
+
+
+
+
+
+
+
+<h3>BSD MANPAGE              29 November 1993                       2
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

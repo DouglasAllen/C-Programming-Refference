@@ -1,0 +1,81 @@
+<title>Null</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor="#ffffcc">
+<hr>
+<center><h1>NULL</h1></center>
+<hr>
+<p>
+NULL is used in several ways.
+<ul>
+<li>As a pointer to address zero. NULL is defined in several ANSI headers 
+as the 
+<a href="define_preprocessor.html">symbolic constant</a>
+<a href="../CONCEPT/pointers.html#void">(void *)0</a>. Zero is often returned from 
+functions that normaly return a pointer to signal an error. It is therefore
+conveniant to compare a function return code with NULL to catch errors.
+<pre>
+	if ((fp=<a href="../FUNCTIONS/fopen.html">fopen</a>("/etc/hosts","r") == NULL)
+        {
+          exit(0);
+        }
+</pre>
+<p>
+<li>To mark the end of a character string. A null character is used to 
+terminate the string. For example if you coded:
+<pre>
+	char * text="abc";
+</pre>
+You will actually reserve <b>FOUR</b> bytes containing in ASCII hex.
+<pre>
+	61 62 63 00
+	 a  b  c \0
+</pre>
+The null at the end can be coded by using the 
+<a href="../FUNCTIONS/escape.html">escape sequence</a> '\0'.
+</ul>
+<p>
+\0 is actually an octal <a href="../FUNCTIONS/escape.html">escape sequence</a>, 
+strictly speeking it should
+be written as \000
+<p>
+<hr>
+<h2>ANSI headers</h2>
+The following headers define NULL.
+<ul>
+<li><a href="../FUNCTIONS/funcref.htm#headers">locale.h</a>
+<li><a href="../FUNCTIONS/funcref.htm#headers">stddef.h</a>
+<li><a href="../FUNCTIONS/funcref.htm#headers">stdio.h</a>
+<li><a href="../FUNCTIONS/funcref.htm#headers">stdlib.h</a>
+<li><a href="../FUNCTIONS/funcref.htm#headers">string.h</a>
+<li><a href="../FUNCTIONS/funcref.htm#headers">string.h</a>
+<li><a href="../FUNCTIONS/funcref.htm#headers">time.h</a>
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

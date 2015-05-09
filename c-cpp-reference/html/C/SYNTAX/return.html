@@ -1,0 +1,134 @@
+<title>The return statement</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>The return statement </h1>
+</center>
+<hr>
+<p>
+<b>return</b> will return a value from a function to its caller. 
+The value returned is 
+the result of an <a href="../CONCEPT/expressions.html">expression</a>.
+<p>
+<hr>
+As an Example this will print <b>7</b>
+
+<p>
+<table border=2 width="100%" bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+        int func(void);
+
+	main()
+ 	{
+	   printf("%d \n", func());
+        }
+
+        int func(void)
+        {
+           return 7;
+	}
+</pre>
+</td>
+</tr>
+</table>
+<p>
+	   
+What ever follows the <b>return</b> statement will be evaluated as 
+an expression. So, to be consistant you could place brackets around 
+the return value.
+
+<p>
+<table border=2 width="50%" bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+        return(7);
+</pre>
+</td>
+</tr>
+</table>
+<p>
+Or you could evaluate a formula on the statement:
+
+<p>
+<table border=2 width="50%" bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+	return (Count-1);
+</pre>
+</td>
+</tr>
+</table>
+<p>
+Finally, if the function returns a <a href=void.html>void</a>
+the <b>return</b> statement is not required, but maybe needed to 
+leave a function before the end of the function block. Here
+is an example.
+
+<p>
+<table border=2 width="100%" bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+	void CheckDate(int)
+
+	main()
+	{
+	  CheckDate(40)
+        }
+
+	void CheckDate(int Month)
+	{
+	  if (Month > 31)
+	  {
+	    return;
+	  }
+
+	  puts("Month is valid");
+        }
+</pre>
+</td>
+</tr>
+</table>
+<p>
+<hr>
+<h2>See also:</h2>
+The <a href=../FUNCTIONS/exit.html>exit </a>function.
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

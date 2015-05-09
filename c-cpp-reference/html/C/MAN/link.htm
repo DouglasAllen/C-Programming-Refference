@@ -1,0 +1,167 @@
+<TITLE>link</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>LINK(2)             Linux Programmer's Manual             LINK(2)
+</h3>
+
+<h3>NAME
+</h3>       link - make a new name for a file
+
+<h3>SYNOPSIS
+</h3>       #include &lt;unistd.h&gt;
+
+       int link(const char *oldpath, const char *newpath);
+
+<h3>DESCRIPTION
+</h3>       link  creates a new link (also known as a hard link) to an
+       existing file.
+
+       If newpath exists it will not be overwritten.
+
+       This new name may be used exactly as the old one  for  any
+       operation;  both names refer to the same file (and so have
+       the same permissions and ownership) and it  is  impossible
+       to tell which name was the `original'.
+
+<h3>RETURN VALUE
+</h3>       On  success,  zero is returned.  On error, -1 is returned,
+       and errno is set appropriately.
+
+<h3>ERRORS
+</h3>       EXDEV   oldpath and newpath are not on the  same  filesys-
+               tem.
+
+       EPERM   The filesystem containing oldpath and newpath does
+               not support the creation of hard links.
+
+       EFAULT  oldpath or newpath points outside your  accessible
+               address space.
+
+       EACCES  Write  access  to the directory containing newpath
+               is not allowed for the process's effective uid, or
+               one  of  the directories in oldpath or newpath did
+               not allow search (execute) permission.
+
+       ENAMETOOLONG
+               oldpath or newpath was too long.
+
+       ENOENT  A directory component in oldpath  or  newpath does
+               not exist or is a dangling symbolic link.
+
+       ENOTDIR A component used as a directory in oldpath or new-
+               path is not, in fact, a directory.
+
+       ENOMEM  Insufficient kernel memory was available.
+
+       EROFS   The file is on a read-only filesystem.
+
+       EEXIST  newpath already exists.
+
+       EMLINK  The file referred to by oldpath  already  has  the
+
+
+
+<h3>Linux                     17 August 1994                        1
+</h3>
+
+
+
+
+<h3>LINK(2)             Linux Programmer's Manual             LINK(2)
+</h3>
+
+               maximum number of links to it.
+
+       ELOOP   oldpath  or newpath contains a reference to a cir-
+               cular symbolic link,  ie  a  symbolic  link  whose
+               expansion contains a reference to itself.
+
+       ENOSPC  The device containing the file has no room for the
+               new directory entry.
+
+       EPERM   oldpath is the .  or  ..  entry of a directory.
+
+<h3>NOTES
+</h3>       Hard links, as created by link, cannot  span  filesystems.
+       Use symlink if this is required.
+
+<h3>CONFORMING TO
+</h3>       SVID, AT&T, POSIX, BSD 4.3
+
+<h3>BUGS
+</h3>       On  NFS file systems, the return code may be wrong in case
+       the NFS server performs the link creation and dies  before
+       it  can  say  so.  Use stat(2) to find out if the link got
+       created.
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=symlink.htm>symlink</a>, 
+<a href=unlink.htm>unlink</a>, 
+<a href=rename.htm>rename</a>, 
+<a href=open.htm>open</a>, 
+<a href=stat.htm>stat</a>, 
+<a href=ln.htm>ln</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Linux                     17 August 1994                        2
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

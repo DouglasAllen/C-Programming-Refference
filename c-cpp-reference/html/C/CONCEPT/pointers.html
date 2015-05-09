@@ -1,0 +1,559 @@
+<title>Pointers</title>
+<body bgcolor="#ffffcc">
+<hr>
+<center><h1>Pointers.</h1></center>
+<hr>
+<p>
+Pointers are at the heart of C. When you crack this subject, you have got the worst
+of C behind you. Before you tackle pointers though, you should get a grip
+on <a href=arrays.html>arrays</a>.<p>
+<ul>
+<li><a href="#first">First principles.</a>
+<li><a href="#def">Definition of a pointer.</a>
+<li><a href="string.html">Pointers to strings.</a>
+<li><a href="#arrays">Pointers to arrays.</a>
+<li><a href="#compare">Char arrays verses char pointers.</a> 
+<li><a href="#void">Void pointers.</a>
+<li><a href="#ptrs">Pointers to pointers.</a>
+<li><a href="#functions">Pointers to functions.</a>
+<li><a href=../MISC/linklists.html>Linked lists.</a>
+</ul>
+<a name=string>
+<a name=basic>
+<a name=first>
+<hr>
+<h2>First Principles.</h2>
+To understand pointers, it may be worth understanding how normal
+variables are stored. If you disagree, <A HREF="#def">Click here</A>
+to move on.
+<p>
+What does the following program realy mean?
+<p>
+<table border=2 width=100% bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+        main()
+	{
+  	    int Length;     
+	}      
+</pre>
+</td>
+</tr>
+</table>
+<p>
+In my mind, it means, reserve enough storage to hold an integer and assign the variable 
+name 'Length' to it. The data held in this storage is undefined.
+Graphically it looks like:
+<pre>
+
+      (Address) (Data)
+           ---- ----
+          | F1 |   <------- Length
+          |----|----|
+          | F2 |    |       
+          |----|----|
+          | F3 |    |
+          |----|----|
+          | F4 |    |
+           ---------    
+
+</pre>
+To put a known value into 'Length' we code,  
+<p>
+<table border=2 width=100% bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+	main()
+	{
+	    int Length;
+  	    Length = 20;
+        }
+</pre>
+</td>
+</tr>
+</table>
+<p>
+the deciamal value 20 (Hex 14) is placed into the storage location.
+<pre>
+
+      (Address) (Data)
+	   ---- ----
+          | F1 | 00 <------- Length
+          |----|----|
+          | F2 | 00 |
+          |----|----|
+          | F3 | 00 |
+          |----|----|
+          | F4 | 14 |
+           ---------
+     
+</pre>
+Finally, if the program is expanded to become
+<p>
+<table border=2 width=100% bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+      main()
+      {
+          int Length;
+
+          Length = 20;
+
+          <A HREF="../FUNCTIONS/printf.html">printf</a>("Length is %d\n", Length);
+          printf("Address of Length is %p\n", &Length);
+      }
+      
+</pre>
+</td>
+</tr>
+</table>
+<p>
+The output would look something like this .....
+<pre>
+    
+      Length is 20
+      Address of Length is 0xF1
+      
+</pre>      
+
+Please note the '&Length' on the second printf statement. 
+The <b>&</b> means <b>address of</b> Length.  
+If you are happy with this, you should push onto the pointers below.
+<p>
+<a name=def>
+<hr>
+<h2>Pointer definition.</h2> 
+
+<b>A pointer contains an <a href=../glossary.html#address>address</a> that points 
+
+to data.</b>
+<p>
+An example of code <a href=../glossary.html#definition>defining</a> a pointer could be...
+<p>
+<table border=2 width=100% bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+      main()
+      {
+          int *Width;
+      }
+
+</Pre>
+</td>
+</tr>
+</table>
+<p>
+A graphical representation could be...
+<pre>
+
+      (Address) (Data)
+           ---- ----
+          | F1 |    <------- Width
+          |----|----|
+          | F2 |    |
+          |----|----|
+          | F3 |    |
+          |----|----|
+          | F4 |    |
+           ---------
+		   
+</pre>
+So far, this variable looks the same as above,
+ the value stored at 'Width' is unknown.
+To place a value in 'Width' you could code.		   
+<p>
+<Table border=2 width=100% bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+      main()
+      {
+          int *Width;                                 /* 1 */
+
+          Width = (int *)malloc(sizeof(int));         /* 2 */
+
+          *Width = 34;                                /* 3 */
+      }
+
+</pre>
+</td>
+</tr>
+</table>
+<pre>
+
+      (Address) (Data)
+           ---- ----    
+          | F1 | 00 <------- Width   
+	  |----|----|               (Data) (Adress)
+          | F2 | 00 |                 ---------
+	  |----|----|         -------> 00 | D1 |
+	  | F3 | 00 |        |       |----|----|
+	  |----|----|  *Width|       | 00 | D2 |
+	  | F4 | D1 | -------        |----|----|
+	   ---------                 | 00 | D3 |
+	                             |----|----|
+				     | 22 | D4 |
+				      ---------
+		 
+</pre>
+
+Statements 2 and 3 are important here:
+<p>
+2) The <a href="../FUNCTIONS/malloc.html">malloc</a> function reserves some storage and puts the address of the
+storage into Width.
+<p>
+3) *Width puts a value into the storage pointed to by Width.
+<p>
+
+Unlike the 
+<a href="#first">Length = 20</a> example above, the storage pointed to by 'Width'
+does NOT contain 34 (22 in Hex), it contains the address where the value
+34 can be found.
+The final program is...
+<p>
+<table border=2 width=100% bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+      main()
+      {
+          int *Width;                               
+
+          Width  = (int *)malloc(sizeof(int));      
+	  *Width = 34;
+
+	  printf("  Data stored at *Width is %d\n", *Width); 
+	  printf("       Address of Width is %p\n", &Width);
+	  printf("Address stored at Width is %p\n",  Width);
+      }
+				  
+</pre>
+</tr>
+</td>
+</table>
+<p>
+The program would O/P something like.
+<p>
+<table border=2 width=100% bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+          Data stored at *Width is 34
+	       Address of Width is 0xF1
+	Address stored at Width is 0xD1
+
+</pre>
+</td>
+</td>
+</table>
+			
+<p>
+<a name=why>A pointer can point to any data type, ie 
+<a href=data_types.html#int>int</a>,
+<a href=data_types.html#float>float</a>,
+<a href=data_types.html#char>char</a>.
+When <a href=../glossary.html#definition>defining</a> a pointer you 
+place an <b>*</b> (asterisk) character 
+between the data type and the variable name, here are a few examples. 
+<p>
+<table border=2 width=100% bgcolor=ivory>
+<tr><td>
+<pre>
+
+	main()
+	{
+	    int    count;		/* an integer variable              */
+	    int   *pcount;		/* a pointer to an integer variable */
+	    float  miles;		/* a floating point variable.	    */
+	    float *m;			/* a pointer			    */
+	    char   ans;			/* character variable		    */ 	
+	    char  *charpointer;		/* pointer to a character variable  */
+	}
+
+</pre>
+</td></tr></table>
+<p>
+
+
+<p>
+
+<a name=arrays>
+<hr>
+<h2>Pointers to arrays</h2>
+When looking at 
+<a href=arrays.html>arrays</a> we had a program that accessed data within a 
+two dimensional character array. This is what the code looked like.
+
+<pre>
+        main()
+        {
+          char colours[3][6]={"red","green","blue"};
+        }
+</pre>
+The code above has defined an array of 3 elements, each pointing to  6
+character strings.
+You can also code it like this. Which is actually more descriptive
+because it indicates what is actually going on in storage.
+<pre>
+        main()
+        {
+          char *colours[]={"red","green","blue"};
+        }
+</pre>
+
+Graphically it looks like this:
+<p>
+<table border=2 width=100% bgcolor=ivory>
+<tr><td>
+<pre>
+
+<font color="gray">
+
+                        
+     colours  *colours *(colours+2) **colours
+          |         |       |           |
+          |         |       |           |
+          V         V       V           |     </font>
+         ---       -----------      <font color="gray">    |     </font>
+        |   |---->|   |   |   |     <font color="gray">    |     </font>
+         ---       -----------      <font color="gray">    |     </font>
+                    |   |   |       <font color="gray">    V     </font>
+                    |   |   |         -----------------------
+                     --------------->| r | e | d |   |   |   |
+                        |   |         -----------------------
+                        |   |      
+                        |   |          -----------------------
+                         ---|-------->| g | r | e | e | n |   |
+                            |          -----------------------
+                            |
+                            |          -----------------------
+                             -------->| b | l | u | e |   |   |
+                                       -----------------------
+<font color="gray">		            	        A           A
+                                        |           |
+                                        |           |
+                                **(colours+2)   *(*(colours+2)+3)
+</font>                                 
+</pre>
+</td></tr></table>
+<p>
+<pre>
+	printf("%s \n", colours[1]);
+	printf("%s \n", *(colours+1))
+</pre>
+will both return <b>green</b>.
+<p>
+
+<a name=compare>
+<hr>
+<h2>Char Arrays verses Char pointers</h2>
+
+What is the difference
+between these two lumps of code?
+<p>
+<table border=2 width=100% bgcolor=ivory>
+<tr><td>
+<pre>
+	
+  main()			
+  {			
+      char colour[]="red";		
+      printf("%s \n",colour);	
+  }				
+
+</pre>
+</td><td>
+<pre>
+
+  main()
+  {				
+      char *colour="red";
+      printf("%s \n",colour);	
+  }				
+
+</pre>
+</td></tr></table>
+<p>
+The answer is, NOTHING! They both print the word 
+<b>red</b> because in both cases 'printf' is being passed a pointer to a 
+string. 
+<p>
+An <a href=arrays.html>array</a> of 4 bytes is 
+reserved and the text 'red' placed
+into the storage array. The contents of the array can be chaged later
+BUT on the left, the size of the array is fixed.
+<p>
+Here is a picture of the example on the right. The 'r' of 'red' is stored 
+at address 10, the 'e' is at address 11 etc.
+
+<p>
+<img src=../../GRAPHICS/ptr.gif>
+<p>
+At this point it maybe worth looking at  
+the <a href=../FUNCTIONS/malloc.html>malloc</a> function.
+
+<p>
+<a name=void>
+<hr>
+<h2>Void Pointers</h2>
+
+There are times when you write a function but do not know the datatype
+of the returned value. When this is the case, you can use a void pointer.
+<p>
+
+<table border=2 width=100% bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+  	int func(void *Ptr);
+
+  	main()
+  	{
+            char *Str = "abc";
+
+            func(Str);
+  	}
+
+  	int func(void *Ptr)
+  	{
+  	    printf("%s\n", Ptr);
+  	}
+</pre>
+</td>
+</tr>
+</table>
+<p>
+
+<b>Please note, you cant do pointer arithmatic on void pointers.</b>
+<p>
+
+<a name=ptrs>
+<hr>
+<h2>Pointers to pointers</h2>
+
+So far we have looked at pointers to data, but there is no reason why
+we should not define a pointer to a pointer.  The syntax looks like this.
+<p>
+
+<table border=2 width=100% bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+	main()
+	{
+	    char **DoublePtr;
+	}
+</pre>
+</td>
+</tr>
+</table>
+<p>
+
+A common use for these is when you want to return a
+pointer in a function parameter.
+<p>
+
+<table border=2 width=100% bgcolor=ivory>
+<tr>
+<td>
+<pre>
+   	#include <stdlib.h>		/* malloc */
+
+	void Func(char **DoublePtr);
+
+	main()
+	{
+            char *Ptr;
+
+	    Func(&Ptr);
+	}
+
+	void Func(char **DoublePtr)
+	{
+	    *DoublePtr = <a href=../FUNCTIONS/malloc.html>malloc</a>(50);
+	}
+</pre>
+</td>
+</tr>
+</table>
+<p>
+
+<p>
+<a name=functions>
+<hr>
+
+<h2>Pointers to functions</h2>
+
+Pointers to functions can be used to create 'callback' functions. 
+An example of these pointers can be seen in the 
+<a href=../FUNCTIONS/qsort.html>qsort</a> function.
+<p>
+<h3>Examples.</h3>
+
+<img src="../../GRAPHICS/computer.gif">
+<a href="../EXAMPLES/funcpt1.c">Simple example passing a function pointer.</a><p>
+
+<img src="../../GRAPHICS/computer.gif">
+<a href="../EXAMPLES/funcpt2.c"> Example passing 'int' variables.</a><p>
+
+<img src="../../GRAPHICS/computer.gif">
+<a href="../EXAMPLES/funcpt3.c"> Example passing 'char' and 'char *' variables.</a><p>
+
+<hr>
+<h2>See Also:</h2>
+
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="../SYNTAX/void.html">VOID keyword.</a>
+<p>
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="../SYNTAX/functions.html">function</a> arguments.
+<p>
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="../MISC/linklists.html">linked lists</a>.
+<p>
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="string.html">Strings</a>.
+<p>
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="arrays.html">Arrays.</a>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor=ivory>
+<tr align=center>
+<td width=25%>
+<a href="../cref.html">Top</a>
+</td><td width="25%">
+<a href="../master_index.html">Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html">Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+ 
+<hr>
+<address>Martin Leslie
+<script language="JavaScript">
+<!--  //
+document.write(document.lastModified);
+// -->
+</script>
+</address>

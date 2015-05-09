@@ -1,0 +1,172 @@
+<TITLE>mkdir</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>MKDIR(2)            Linux Programmer's Manual            MKDIR(2)
+</h3>
+
+<h3>NAME
+</h3>       mkdir - create a directory
+
+<h3>SYNOPSIS
+</h3>       #include &lt;sys/types.h&gt;
+       #include &lt;fcntl.h&gt;
+       #include &lt;unistd.h&gt;
+
+       int mkdir(const char *pathname, mode_t mode);
+
+<h3>DESCRIPTION
+</h3>       mkdir attempts to create a directory named pathname.
+
+       mode  specifies  the permissions to use. It is modified by
+       the process's umask in the usual way: the  permissions  of
+       the created file are (mode & ~umask).
+
+       The newly created directory will be owned by the effective
+       uid of the process.  If the directory containing the  file
+       has  the  set  group  id  bit set, or if the filesystem is
+       mounted with BSD group semantics, the new  directory  will
+       inherit  the group ownership from its parent; otherwise it
+       will be owned by the effective gid of the process.
+
+       If the parent directory has the set group id bit set  then
+       so will the newly created directory.
+
+
+<h3>RETURN VALUE
+</h3>       mkdir  returns zero on success, or -1 if an error occurred
+       (in which case, errno is set appropriately).
+
+<h3>ERRORS
+</h3>       EEXIST pathname  already  exists  (not  necessarily  as  a
+              directory).
+
+       EFAULT pathname  points  outside  your  accessible address
+              space.
+
+       EACCES The parent directory does not allow  write  permis-
+              sion  to  the process, or one of the directories in
+              pathname did not allow search (execute) permission.
+
+       ENAMETOOLONG
+              pathname was too long.
+
+       ENOENT A directory component in pathname does not exist or
+              is a dangling symbolic link.
+
+       ENOTDIR
+              A component used as a directory in pathname is not,
+              in fact, a directory.
+
+       ENOMEM Insufficient kernel memory was available.
+
+
+
+<h3>Linux 1.0                 29 March 1994                         1
+</h3>
+
+
+
+
+<h3>MKDIR(2)            Linux Programmer's Manual            MKDIR(2)
+</h3>
+
+       EROFS  pathname refers to a file on a read-only filesystem
+              and write access was requested.
+
+       ELOOP  pathname contains a reference to  a  circular  sym-
+              bolic link, ie a symbolic link whose expansion con-
+              tains a reference to itself.
+
+       ENOSPC The device containing pathname has no room for  the
+              new  directory.  ENOSPC The new directory cannot be
+              created because the user's disk quota is exhausted.
+
+<h3>CONFORMING TO
+</h3><h3>BUGS
+</h3>       In some older versions of Linux (for example, 0.99pl7) all
+       the normal filesystems sometime allow the creation of  two
+       files  in  the  same  directory  with the same name.  This
+       occurs only rarely and only on a  heavily  loaded  system.
+       It  is  believed  that  this  bug  was  fixed in the Minix
+       filesystem in Linux 0.99pl8 pre-release; and it  is  hoped
+       that  it was fixed in the other filesystems shortly after-
+       wards.
+
+       There are many infelicities  in  the  protocol  underlying
+       NFS.
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=read.htm>read</a>, 
+<a href=write.htm>write</a>, 
+<a href=fcntl.htm>fcntl</a>, 
+<a href=close.htm>close</a>, 
+<a href=unlink.htm>unlink</a>, 
+<a href=open.htm>open</a>, 
+<a href=mknod.htm>mknod</a>, 
+<a href=stat.htm>stat</a>, 
+<a href=umask.htm>umask</a>, 
+<a href=mount.htm>mount</a>, 
+<a href=socket.htm>socket</a>, 
+<a href=socket.htm>socket</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Linux 1.0                 29 March 1994                         2
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

@@ -1,0 +1,100 @@
+<TITLE>wcstombs</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>WCSTOMBS(3)         Linux Programmer's Manual         WCSTOMBS(3)
+</h3>
+
+<h3>NAME
+</h3>       wcstombs  - convert a wide character string to a multibyte
+       character string.
+
+<h3>SYNOPSIS
+</h3>       #include &lt;stdlib.h&gt;
+
+       size_t wcstombs(char *s, const wchar_t *pwcs, size_t n);
+
+<h3>DESCRIPTION
+</h3>       The wcstombs() function converts a sequence of wide  char-
+       acters  from  the  array pwcs into a sequence of multibyte
+       characters and stores up to n bytes of  multibyte  charac-
+       ters in the array s.
+
+<h3>RETURN VALUE
+</h3>       wcstombs()  returns  the number of bytes stored in s or -1
+       if s contains an invalid wide character.
+
+<h3>CONFORMING TO
+</h3>       SVID 3, ISO 9899
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=mblen.htm>mblen</a>, 
+<a href=mbtowc.htm>mbtowc</a>, 
+<a href=mbstowcs.htm>mbstowcs</a>, 
+<a href=wctomb.htm>wctomb</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>GNU                       March 29, 1993                        1
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

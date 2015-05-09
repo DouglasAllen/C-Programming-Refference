@@ -1,0 +1,127 @@
+<title>strcpy function</title>
+
+<head>
+<script language="JavaScript">
+</script>
+</head>
+
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>strcpy function</h1>
+</center>
+<hr>
+<p>
+<b>strcpy</b> copies a string. This function will copy the bytes
+stored at the location pointed to by 's2' to the location pointed to by 's1'.
+
+<pre>
+
+     	s1		s2
+	|		|
+	V		V
+        - - - -		- - - --	
+       | | | | |       |a|b|c|\0|
+        - - - -		- - - --	
+	^ ^		| |
+	| |		| |
+	 -|-------------  |
+	   ---------------
+</pre>
+
+<hr>
+<pre>
+Library:   string.h
+
+Prototype: char strcpy(char *s1, const char *s2);
+
+Syntax:	  
+	   char string2[20]="red dwarf";
+	   char string1[20]="";
+           strcpy(string1, string2);
+</pre>
+
+<hr>
+
+<h2>Notes</h2>
+
+Dont forget that strings are terminated with a 
+'<a href="../SYNTAX/null.html">\0</a>' so allow space for it...
+<p>
+There is another way to code the example above. Consider this piece of 
+code.
+<pre>
+	main()
+	{
+	  char *string2="red dwarf";
+	  char *string1;
+
+	  string1=string2;
+	}
+</pre>
+
+'string2' is now a character pointer (only one byte) that points to a 
+storage location containing "red dwarf" (a 
+<a href="../CONCEPT/constants.html#str">string constant</a>).  So 
+<b>string1=string2;</b> copies the address of "red dwarf" into 
+'string1'. This version of the code will execute quicker than strcpy 
+because less data is being moved around the system.
+ 
+
+<hr>
+<img src="../../GRAPHICS/computer.gif">
+<a href="../EXAMPLES/strcpy.c">example program.</a>
+<hr>
+
+<h2>See also:</h2>
+
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="strtok.html">strtok</a>
+<br>
+
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="strncpy.html">strncpy</a> 
+<br>
+
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="sprintf.html">sprintf</a> 
+<br>
+
+<img src="../../GRAPHICS/man.gif">
+<a href="../MAN/strcat.htm"><i>strcat</a>
+<br>
+
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="../CONCEPT/string.html">strings</a>
+<br>
+
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="memcpy.htm">memcpy</a> Copy data between tow memory locations.
+<p>
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">            Top</a>
+</td><td width="25%">
+<a href="../master_index.html">    Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html"> Keywords</a>
+</td><td width="25%">
+<a href="funcref.htm">             Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

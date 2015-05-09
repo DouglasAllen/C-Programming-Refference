@@ -1,0 +1,101 @@
+<TITLE>telldir</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>TELLDIR(3)          Linux Programmer's Manual          TELLDIR(3)
+</h3>
+
+<h3>NAME
+</h3>       telldir - return current location in directory stream.
+
+<h3>SYNOPSIS
+</h3>       #include &lt;dirent.h&gt;
+
+       off_t telldir(DIR *dir);
+
+<h3>DESCRIPTION
+</h3>       The  telldir() function returns the current location asso-
+       ciated with the directory stream dir.
+
+<h3>RETURN VALUE
+</h3>       The telldir() function returns the current location in the
+       directory stream or -1 if an error occurs.
+
+<h3>ERRORS
+</h3>       EBADF  Invalid directory stream descriptor dir.
+
+<h3>CONFORMING TO
+</h3>       BSD 4.3
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=opendir.htm>opendir</a>, 
+<a href=readdir.htm>readdir</a>, 
+<a href=closedir.htm>closedir</a>, 
+<a href=rewinddir.htm>rewinddir</a>, 
+<a href=seekdir.htm>seekdir</a>, 
+<a href=scandir.htm>scandir</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          March 31, 1993                        1
+
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

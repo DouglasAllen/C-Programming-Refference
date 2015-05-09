@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>Default Parameters.</title>
+</head>
+<body bgcolor="#dddddd">
+<font color=brown>
+<hr>
+<center><h1>Default Parameters.</h1></center>
+<hr>
+<p>
+Within C you could not provide default values for function
+parameters. Well, C++ has come to your rescue. 
+<p>
+
+<center>
+<table border="1" width="80%" bgcolor="ivory">
+<tr>
+<td>
+<pre>
+
+    #include &lt;iostream.h&gt;
+    
+    void Func( int one, <b>int two=2, int three=3</b>);
+    
+    main ()
+    {
+        Func(10, 20, 30);
+        Func<b>(10, 20);   // Let the last parm default</b>
+        Func<b>(10);       // Just provide the required parm.</b>
+    }
+    
+
+    void Func( int one, int two, int three)
+    {
+        cout << "One   = " << one   << endl;
+        cout << "Two   = " << two   << endl;
+        cout << "Three = " << three << endl << endl;
+    }
+</pre>
+</td>
+</tr>
+</table>
+</center>
+
+<p>
+From this example, you can see that the prototype/function declaration
+gives default values for the second and third parameters. It is now 
+down to the programmer calling the function to decide how many
+s/he wants to provide.
+<p>
+There are some basic rules that should be applied when using 
+default parameter values.
+<ul>
+<li>When a default is provided, all remaining parameters must be
+    given defaults. There can not be any holes.
+<li>Default values must be of the correct type.
+<li>Defaults can be placed on the function prototype or the function
+    definition. They can also be placed in both locations at the
+    same time. I have been told its good practice to place them 
+    in the prototype only.
+</ul>
+<p>
+<hr>
+<h2>Examples:</h2>
+<!-- 
+<img src="../../GRAPHICS/computer.gif" alt="o">
+<a href="../EXAMPLES/xxxx.cc">Example program.</a>
+<p>
+-->
+
+<hr>
+<h2>See Also:</h2>
+
+<img src="../../GRAPHICS/whiteball.gif" alt="o">
+<a href="funcoverload.html">Function Name Overloading</a>.
+</font>
+<hr>
+<font color=black>
+<h2>C References</h2>
+<p>
+<img src="../../GRAPHICS/whiteball.gif" alt="o">
+<a href="../../C/SYNTAX/functions.html">Function basics</a>.
+
+</font>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">Top</a>
+</td><td width="25%">
+<a href="../../C/master_index.html">Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html">Keywords</a>
+</td><td width="25%">
+<a href="../../C/FUNCTIONS/funcref.htm">Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<font color=brown>
+<address>Martin Leslie 
+<script language="JavaScript">
+<!--  //
+document.write(document.lastModified);
+// -->
+</script>
+</address><p>
+</font>
+</body>
+</html>

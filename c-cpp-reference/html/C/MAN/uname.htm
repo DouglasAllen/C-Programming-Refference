@@ -1,0 +1,99 @@
+<TITLE>uname</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>UNAME(2)            Linux Programmer's Manual            UNAME(2)
+</h3>
+
+<h3>NAME
+</h3>       uname - get name and information about current kernel
+
+<h3>SYNOPSIS
+</h3>       #include &lt;sys/utsname.h&gt;
+
+       int uname(struct utsname *buf);
+
+<h3>DESCRIPTION
+</h3>       uname  returns  system  information  in  buf.  The utsname
+       struct is as defined in /usr/include/sys/utsname.h :
+       struct utsname {
+                      char sysname[65];
+                      char nodename[65];
+                      char release[65];
+                      char version[65];
+                      char machine[65];
+                      char domainname[65];
+                      };
+
+<h3>RETURN VALUE
+</h3>       On success, zero is returned.  On error, -1  is  returned,
+       and errno is set appropriately.
+
+<h3>ERRORS
+</h3>       EFAULT  buf is not valid.
+
+<h3>CONFORMING TO
+</h3>       SVID, AT&T, POSIX, X/OPEN
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=uname.htm>uname</a>, 
+<a href=getdomainname.htm>getdomainname</a>, 
+<a href=gethostname.htm>gethostname</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Linux 0.99.11               24 July 93                          1
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

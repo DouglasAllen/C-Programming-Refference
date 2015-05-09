@@ -1,0 +1,101 @@
+<TITLE>strtod</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>STRTOD(3)           Linux Programmer's Manual           STRTOD(3)
+</h3>
+
+<h3>NAME
+</h3>       strtod - convert ASCII string to double
+
+<h3>SYNOPSIS
+</h3>       #include &lt;stdlib.h&gt;
+
+       double strtod(const char *nptr, char **endptr
+
+<h3>DESCRIPTION
+</h3>       The  strtod  function  converts the initial portion of the
+       string pointed to by nptr to double representation.
+
+       The expected form  of  the  string  is  an  optional  plus
+       (``+'')  or  minus  sign (``-'') followed by a sequence of
+       digits optionally containing  a  decimal-point  character,
+       optionally  followed by an exponent.  An exponent consists
+       of an ``E'' or ``e'', followed  by  an  optional  plus  or
+       minus sign, followed by a sequence of digits.
+
+       Leading  white-space  characters in the string (as defined
+       by the isspace(3) function) are skipped.
+
+<h3>RETURN VALUES
+</h3>       The strtod function returns the converted value, if any.
+
+       If endptr is not NULL, a pointer to  the  character  after
+       the last character used in the conversion is stored in the
+       location referenced by endptr.
+
+       If no conversion is performed, zero is  returned  and  the
+       value  of  nptr  is  stored  in the location referenced by
+       endptr.
+
+       If the correct value would cause overflow, plus  or  minus
+       HUGE_VAL is returned (according to the sign of the value),
+       and ERANGE is stored in errno.  If the correct value would
+       cause  underflow, zero is returned and ERANGE is stored in
+       errno.
+
+<h3>ERRORS
+</h3>       ERANGE Overflow or underflow occurred.
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=atof.htm>atof</a>, 
+<a href=atoi.htm>atoi</a>, 
+<a href=atol.htm>atol</a>, 
+<a href=strtol.htm>strtol</a>, 
+<a href=strtoul.htm>strtoul</a>, 
+<pre>
+
+<h3>STANDARDS
+</h3>       The strtod function conforms to ANSI-C.
+
+<h3>BUGS
+</h3>       This is a BSD manual page and may not reflect the  current
+       Linux implementation.
+
+
+
+
+
+
+<h3>BSD Man Page               21 Aug 1994                          1
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

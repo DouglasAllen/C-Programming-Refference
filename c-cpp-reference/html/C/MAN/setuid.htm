@@ -1,0 +1,99 @@
+<TITLE>setuid</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>SETUID(2)           Linux Programmer's Manual           SETUID(2)
+</h3>
+
+<h3>NAME
+</h3>       setuid - set user identity
+
+<h3>SYNOPSIS
+</h3>       #include &lt;unistd.h&gt;
+
+       int setuid(uid_t uid)
+
+<h3>DESCRIPTION
+</h3>       setuid  sets the effective user ID of the current process.
+       If the caller is the superuser, the real  and  saved  user
+       ID's are also set.
+
+       Under   Linux,   setuid  is  implemented  like  SYSV  with
+       SAVED_IDS.  This allows a setuid (other than root) program
+       to drop all of it's user privileges, do some un-privileged
+       work, and then re-engage the original effective user ID in
+       a secure manner.
+
+       If the user is root or the program is setuid root, special
+       care must be taken. The setuid function checks the  effec-
+       tive  uid  of  the  caller and if it is the superuser, all
+       process related user ID's are set to uid.  After this  has
+       occurred,  it is impossible for the program to regain root
+       privileges.
+
+<h3>RETURN VALUE
+</h3>       On success, zero is returned.  On error, -1  is  returned,
+       and errno is set appropriately.
+
+<h3>ERRORS
+</h3>       EPERM   The  user  is not the super-user, and uid does not
+               match the effective or saved user ID of the  call-
+               ing process.
+
+<h3>CONFORMING TO
+</h3>       System V
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=getuid.htm>getuid</a>, 
+<a href=setreuid.htm>setreuid</a>, 
+<a href=seteuid.htm>seteuid</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Linux 1.1.36               29 July 1994                         1
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

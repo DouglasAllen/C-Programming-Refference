@@ -1,0 +1,629 @@
+                                  Lesson 2
+
+                                        Data Storage Concepts.
+
+        It has been stated that "data + algorithms = programs".
+        This Lesson deals with with the first part of the addition sum.
+
+  All information in a computer is stored as numbers represented using the
+binary number system. The information may be either program instructions or
+data elements. The latter are further subdivided into several different types,
+and stored in the computer's memory in different places as directed by the
+storage class used when the datum element is defined.
+
+These types are:
+
+  a) The Character.
+
+     This is a group of 8 data bits and in 'C' represents either
+     a letter of the Roman alphabet, or a small integer in the range of 0
+     through to +255. So to arrange for the compiler to give you a named
+     memory area in which to place a single letter you would "say":
+
+  char letter;
+
+     at the beginning of a program block. You should be aware that
+                 whether or not a char is signed or unsigned is dependant
+                 on the design of the processor underlying your compiler.
+                 In particular, note that both the PDP-11, and VAX-11 made by
+                 Digital Equipment Corporation have automatic sign extention of
+char.
+                 This means that the range of char is from -128 through to +127
+                 on these machines. Consult your hardware manual, there may be
+                 other exceptions to the trend towards unsigned char as the
+default.
+
+                 This test program should clear things up for you.
+
+/* ----------------------------------------- */
+
+#ident "@(#) - Test char signed / unsigned.";
+
+#include <stdio.h>
+
+main()
+{
+        char a;
+        unsigned char b;
+
+        a = b = 128;
+        a >>= 1;
+        b >>= 1;
+  printf ( "\nYour computer has %ssigned char.\n\n", a == b ? "un" : "" );
+        }
+
+/* ----------------------------------------- */
+
+     Here ( Surprise! Surprise! ) is its output on a machine which has
+                 unsigned chars.
+
+Your computer has unsigned char.
+
+    Cut this program out of the news file. Compile and execute it on
+                your computer in order to find out if you have signed or
+unsigned char.
+
+  b) The Integers.
+
+     As you might imagine this is the storage type in which to store whole
+     numbers. There are two sizes of integer which are known as short and long.
+     The actual number of bits used in both of these types is Implementation
+     Dependent. This is the way the jargonauts say that it varies from computer
+     to computer. Almost all machines with a word size larger than sixteen bits
+                 have the the long int fitting exactly into a machine word and
+a short int
+     represented by the contents of half a word. It's done this way because
+                 most machines have instructions which will perform arithmetic
+efficiently
+                 on both the complete machine word as well as the half-word.
+For the
+                 sixteen bit machines, the long integer is two machine words
+long,
+                 and the short integer is one.
+
+  short int smaller_number;
+  long int big_number;
+
+     Either of the words short or long may be omitted as a default is
+                 provided by the compiler. Check your compiler's documentation
+to see
+                 which default you have been given. Also you should be aware
+that some
+                 compilers allow the you to arrange for the integers declared
+with just
+                 the word "int" to be either short or long. The range for a
+short int on
+                 a small computer is -32768 through to +32767, and for a long
+int
+                 -4294967296 through to +4294967295.
+
+  c) The Real Numbers.
+
+     Sometimes known as floating point numbers this number representation
+     allows us to store values such as 3.141593, or -56743.098. So, using
+     possible examples from a ship design program you declare floats and
+     doubles like this:
+
+  float length_of_water_line;     /* in meters */
+  double displacement;            /* in grammes */
+
+     In the same way that the integer type offers two sizes so does the
+     floating point representation. They are called float and double. Taking
+     the values from the file /usr/include/values.h the ranges which can be
+     represented by float and double are:
+
+  MAXFLOAT      3.40282346638528860e+38
+  MINFLOAT      1.40129846432481707e-45
+  MAXDOUBLE     1.79769313486231470e+308
+  MINDOUBLE     4.94065645841246544e-324
+
+     However you should note that for practical purposes the maximum
+                 number of significant digits that can be represented by a
+float
+                 is approximately six and that by a double is twelve. Also you
+should
+                 be aware that the above numbers are as defined by the IEEE
+floating
+                 point standard and that some older machines and compilers do
+not
+                 conform. All small machines bought retail will conform. If you
+are
+                 in doubt I suggest that refer to your machine's documentation
+for
+                 the whole and exact story!
+
+
+  d) Signed and unsigned prefixes.
+
+     For both the character and integer types the declaration can be
+                 preceded by the word "unsigned". This shifts the range so that
+0
+                 is the minimum, and the maximum is twice that of the signed
+data
+                 type in question. It's useful if you know that it is
+impossible
+                 for the number to go negative. Also if the word in memory is
+going
+                 to be used as a bit pattern or a mask and not a number the use
+of
+                 unsigned is strongly urged. If it is possible for the sign bit
+in
+                 the bit pattern to be set and the program calls for the bit
+pattern
+                 to be shifted to the right, then you should be aware that the
+sign
+                 bit will be extended if the variable is not declared unsigned.
+                 The default for the "int" types is always "signed", and, as
+discussed
+                 above that of the "char" is machine dependent.
+
+  This completes the discussion on the allocation of data types, except to
+  say that we can, of course, allocate arrays of the simple types simply by
+  adding a pair of square brackets enclosing a number which is the size of
+  the array after the variable's name:
+
+  char client_surname[31];
+
+  This declaration reserves storage for a string of 30 characters plus the
+  NULL character of value zero which terminates the string.
+
+  Structures.
+
+         Data elements which are logically connected, for example - to use the
+         example alluded to above - the dimensions and other details about a
+sea
+         going ship, can be collected together as a single data unit called a
+         struct. One possible way of laying out the struct in the source code
+is:
+
+struct ship          /* The word "ship" is known as the structure's "tag". */
+{
+  char name[30];
+  double displacement;                           /* in grammes */
+  float length_of_water_line;                    /* in meters */
+  unsigned short int number_of_passengers;
+  unsigned short int number_of_crew;
+  };
+
+     Note very well that the above fragment of program text does NOT
+                 allocate any storage, it merely provides a named template to
+the
+                 compiler so that it knows how much storage is needed for the
+                 structure. The actual allocation of memory is done either like
+this:
+
+struct ship cunarder;
+
+                 Or by putting the name of the struct variable between the "}"
+and
+                 the ";" on the last line of the definition. Personally I don't
+                 use this method as I find that the letters of the name tend to
+get
+                 "lost" in the - shall we say - amorphous mass of characters
+which
+                 make up the definition itself.
+
+     The individual members of the struct can have values assigned to
+                 them in this fashion:
+
+  cunarder.displacement = 97500000000.0;
+  cunarder.length_of_water_line = 750.0
+  cunarder.number_of_passengers = 3575;
+  cunarder.number_of_crew = 4592;
+
+     These are a couple of files called demo1.c & demo1a.c which contain
+                 small 'C' programs for you to compile. So, please cut them out
+of the
+                 news posting file and do so.
+
+
+----------------------------------------------------------------------
+#ident demo1.c  /* If your compiler complains about this line, chop it out */
+#include <stdio.h>
+
+struct ship
+{
+  char name[31];
+  double displacement;                              /* in grammes */
+  float length_of_water_line;                       /* in meters */
+  unsigned short int number_of_passengers;
+  unsigned short int number_of_crew;
+  };
+
+char *format = "\
+Name of Vessel: %-30s\n\
+  Displacement: %13.3f\n\
+    Water Line: %5.1f\n\
+    Passengers: %4d\n\
+          Crew: %4d\n\n";
+
+main()
+{
+  struct ship cunarder;
+
+  cunarder.name = "Queen Mary";                  /* This is the bad line. */
+  cunarder.displacement = 97500000000.0;
+  cunarder.length_of_water_line = 750.0
+  cunarder.number_of_passengers = 3575;
+  cunarder.number_of_crew = 4592;
+
+  printf ( format,
+           cunarder.name,
+                 cunarder.displacement,
+           cunarder.length_of_water_line,
+           cunarder.number_of_passengers,
+           cunarder.number_of_crew
+           );
+  }
+
+----------------------------------------------------------------------
+
+                 Why is the compiler complaining at line 21?
+     Well C is a small language and doesn't have the ability to allocate
+     strings to variables within the program text at run-time. This
+                 program shows the the correct way to copy the string "Queen
+Mary",
+                 using a library routine, into the structure.
+
+
+----------------------------------------------------------------------
+#ident demo1a.c  /* If your compiler complains about this line, chop it out */
+#include <stdio.h>
+
+/*
+** This is the template which is used by the compiler so that
+** it 'knows' how to put your data into a named area of memory.
+*/
+
+struct ship
+{
+  char name[31];
+  double displacement;                              /* in grammes */
+  float length_of_water_line;                       /* in meters */
+  unsigned short int number_of_passengers;
+  unsigned short int number_of_crew;
+  };
+
+/*
+** This character string tells the printf() function how it is to output
+** the data onto the screen. Note the use of the \ character at the end
+** of each line. It is the 'continue the string on the next line' flag
+** or escape character. It MUST be the last character on the line.
+** This technique allows you to produce nicely formatted reports with all the
+** ':' characters under each other, without having to count the characters
+** in each character field.
+*/
+
+char *format = "\n\
+Name of Vessel: %-30s\n\
+  Displacement: %13.1f grammes\n\
+    Water Line: %5.1f metres\n\
+    Passengers: %4d\n\
+          Crew: %4d\n\n";
+
+main()
+{
+  struct ship cunarder;
+
+  strcpy ( cunarder.name, "Queen Mary" );           /* The corrected line */
+  cunarder.displacement = 97500000000.0;
+  cunarder.length_of_water_line = 750.0;
+  cunarder.number_of_passengers = 3575;
+  cunarder.number_of_crew = 4592;
+
+  printf ( format,
+           cunarder.name,
+                                 cunarder.displacement,
+           cunarder.length_of_water_line,
+           cunarder.number_of_passengers,
+           cunarder.number_of_crew
+                                 );
+  }
+
+----------------------------------------------------------------------
+
+     I'd like to suggest that you compile the program demo1a.c and execute it.
+
+$ cc demo1a.c
+$ a.out
+
+Name of Vessel: Queen Mary
+  Displacement: 97500000000.0 grammes
+    Water Line: 750.0 metres
+    Passengers: 3575
+          Crew: 4592
+
+     Which is the output of our totally trivial program to demonstrate
+     the use of structures.
+
+  Tip:
+
+     To avoid muddles in your mind and gross confusion in other minds
+     remember that you should ALWAYS declare a variable using a name which is
+     long enough to make it ABSOLUTELY obvious what you are talking about.
+
+        Storage Classes.
+
+        The little dissertation above about the storage of variables was
+        concerned with the sizes of the various types of data. There is
+        just the little matter of the position in memory of the variables'
+        storage.
+
+        'C' has been designed to maximise the the use of memory by allowing you
+        to re-cycle it automatically when you have finished with it.
+        A variable defined in this way is known as an 'automatic' one. Although
+        this is the default behaviour you are allowed to put the word 'auto' in
+        front of the word which states the variable's type in the definition.
+        It is quite a good idea to use this so that you can remind yourself
+        that this variable is, in fact, an automatic one. There are three other
+        storage allocation methods, 'static' and 'register', and 'const'.
+        The 'static' method places the variable in main storage for the whole
+        of the time your program is executing. In other words it kills the
+        're-cycling' mechanism. This also means that the value stored there
+        is also available all the time. The 'register' method is very machine
+        and implementation dependent, and also perhaps somewhat archaic in
+        that the optimiser phase of the compilation process does it all for
+        you. For the sake of completeness I'll explain. Computers have a small
+        number of places to store numbers which can be accessed very quickly.
+        These places are called the registers of the Central Processing Unit.
+        The 'register' variables are placed in these machine registers instead
+of
+        stack or main memory. For program segments which are tiny loops the
+speed
+        at which your program executes can be enhanced quite remarkably.
+        The optimiser compilation phase places as many of your variables into
+        registers as it can. However no machine can decide which of the
+variables
+        should be placed in a register, and which may be left in memory, so if
+        your program has many variables and two or three should be register
+ones
+        then you should specify which ones the compiler.
+
+        All this is dealt with at much greater detail later in the course.
+
+        Pointers.
+
+        'C' has the very useful ability to set up pointers. These are memory
+        cells which contain the address of a data element. The variable name is
+        preceeded by a '*' character. So, to reserve an element of type char
+and
+  a pointer to an element of type char, one would say.
+
+char c;
+char *ch_p;
+
+  I always put the suffix '_p' on the end of all pointer variables
+        simply so that I can easily remember that they are in fact pointers.
+
+        There is also the companion unary operator '&' which yields the
+        address of the variable. So to initialize our pointer ch_p to point
+        at the char c, we have to say.
+
+  ch_p = &c;
+
+  Note very well that the process of indirection can procede to any
+        desired depth, However it is difficult for the puny brain of a normal
+        human to conceptualize and remember more that three levels! So be
+careful
+        to provide a very detailed and precise commentry in your program if
+        you put more than two or three stars.
+
+
+  Getting data in and out of your programs.
+
+        As mentioned before 'C' is a small language and there are no intrinsic
+        operators to either convert between binary numbers and ascii
+        characters or to transfer information to and fro between the
+        computer's memory and the peripheral equipment, such as terminals or
+        disk stores.
+
+        This is all done using the i/o functions declared in the file stdio.h
+        which you should have examined earlier. Right now we are going to look
+        at the functions "printf" and "scanf". These two functions together
+        with their derivatives, perform i/o to the stdin and stdout files,
+        i/o to nominated files, and internal format conversions. This means
+        the conversion of data from ascii character strings to binary numbers
+        and vice versa completely within the computer's memory. It's more
+        efficient to set up a line of print inside memory and then to send the
+        whole line to the printer, terminal, or whatever, instead of
+        "squirting" the letters out in dribs and drabs!
+
+        Study of them will give you understanding of a very convenient way to
+        talk to the "outside world".
+
+        So, remembering that one of the most important things you learn in
+        computing is "where to look it up", lets do just that.
+        If you are using a computer which has the unix operating system,
+        find your copy of the "Programmer Reference Manual" and turn to the
+        page printf(3S), alternatively, if your computer is using some other
+        operating system, then refer to the section of the documentation which
+        describes the functions in the program library.
+
+        You will see something like this:-
+
+        NAME
+                                printf, fprintf, sprintf - print formatted
+output.
+
+        SYNOPSIS
+                                #include <stdio.h>
+
+                                int printf ( format [ , arg ] ... )
+                                char *format;
+
+                                int fprintf ( stream, format [ , arg ] ... )
+                                FILE *stream;
+                                char *format;
+
+                                int sprintf ( s, format [ , arg ] ... )
+                                char *s, *format;
+
+        DESCRIPTION
+
+                                etc... etc...
+
+        The NAME section above is obvious isn't it?
+
+        The SYNOPSIS starts with the line #include <stdio.h>. This tells
+        you that you MUST put this #include line in your 'C' source code
+        before you mention any of the routines. The rest of the paragraph
+        tells you how to call the routines. The " [ , arg ] ... " heiroglyph
+        in effect says that you may have as many arguments here as you wish,
+        but that you need not have any at all.
+
+  The DESCRIPTION explains how to use the functions.
+
+        Important Point to Note:
+
+        Far too many people ( including the author ) ignore the fact that
+        the printf family of functions return a useful number which can be
+        used to check that the conversion has been done correctly, and that
+        the i/o operation has been completed without error.
+
+  Refer to the format string in the demonstration program above for
+        an example of a fairly sophisticated formatting string.
+
+  In order to fix the concepts of printf in you mind, you
+        might care to write a program which prints some text in three ways:
+
+a) Justified to the left of the page. ( Normal printing. )
+b) Justified to the right of the page.
+c) Centred exactly in the middle of the page.
+
+        Suggestions and Hint.
+
+        Set up a data area of text using the first verse of "Quangle" as data.
+        Here is the program fragment for the data:-
+
+/* ----------------------------------------- */
+
+char *verse[] =
+{
+  "On top of the Crumpetty Tree",
+  "The Quangle Wangle sat,",
+  "But his face you could not see,",
+  "On account of his Beaver Hat.",
+  "For his Hat was a hundred and two feet wide.",
+  "With ribbons and bibbons on every side,",
+  "And bells, and buttons, and loops, and lace,",
+  "So that nobody ever could see the face",
+  "Of the Quangle Wangle Quee.",
+  NULL
+  };
+
+/* ----------------------------------------- */
+
+  Cut it out of the news file and use it in a 'C' program file called
+        verse.c
+
+        Now write a main() function which uses printf alone for (a) & (b)
+        You can use both printf() and sprintf() in order to create
+        a solution for (c) which makes a good use of the capabilities
+        of the printf family. The big hint is that the string controlling
+        the format of the printing can change dynamically as program execution
+        proceeds. A possible solution is presented in the file verse.c which is
+        appended here. I'd like to suggest that you have a good try at making
+        a program of you own before looking at my solution.
+        ( One of many I'm sure )
+
+/* ----------------------------------------- */
+
+#include <stdio.h>
+
+char *verse[] =
+{
+  "On top of the Crumpetty Tree",
+  "The Quangle Wangle sat,",
+  "But his face you could not see,",
+  "On account of his Beaver Hat.",
+  "For his Hat was a hundred and two feet wide.",
+  "With ribbons and bibbons on every side,",
+  "And bells, and buttons, and loops, and lace,",
+  "So that nobody ever could see the face",
+  "Of the Quangle Wangle Quee.",
+  NULL
+  };
+
+main()
+{
+        char **ch_pp;
+
+        /*
+        ** This will print the data left justified.
+        */
+
+        for ( ch_pp = verse; *ch_pp; ch_pp++ ) printf ( "%s\n", *ch_pp );
+        printf( "\n" );
+
+        /*
+        ** This will print the data right justified.
+        **
+        **  ( As this will print a character in column 80 of
+        **    the terminal you should make sure any terminal setting
+        **    which automatically inserts a new line is turned off. )
+        */
+
+        for ( ch_pp = verse; *ch_pp; ch_pp++ ) printf ( "%79s\n", *ch_pp );
+        printf( "\n" );
+
+        /*
+        ** This will centre the data.
+        */
+
+        for ( ch_pp = verse; *ch_pp; ch_pp++ )
+        {
+                int length;
+                char format[10];
+
+                length = 40 + strlen ( *ch_pp ) / 2;      /* Calculate the
+field length  */
+                sprintf ( format, "%%%ds\n", length );    /* Make a format
+string.       */
+                printf ( format, *ch_pp );                /* Print line of
+verse, using  */
+                }                                         /* generated format
+string     */
+        printf( "\n" );
+        }
+
+/* ----------------------------------------- */
+
+  If you cheated and looked at my example before even attempting
+        to have a go, you must pay the penalty and explain fully why
+        there are THREE "%" signs in the line which starts with a call
+        to the sprintf function. It's a good idea to do this anyway!
+
+
+  So much for printf(). Lets examine it's functional opposite - scanf(),
+
+        Scanf is the family of functions used to input from the outside world
+        and to perform internal format conversions from character strings to
+        binary numbers. Refer to the entry scanf(3S) in the Programmer
+        Reference Manual. ( Just a few pages further on from printf. )
+
+  The "Important Point to Note" for the scanf family is that the
+        arguments to the function are all POINTERS. The format string has to
+        be passed in to the function using a pointer, simply because this
+        is the way 'C' passes strings, and as the function itself has to store
+        its results into your program it ( the scanf function ) has to "know"
+        where you want it to put them.
+
+Copyright notice:-
+
+(c) 1993 Christopher Sawtell.
+
+I assert the right to be known as the author, and owner of the
+intellectual property rights of all the files in this material,
+except for the quoted examples which have their individual
+copyright notices. Permission is granted for onward copying,
+but not modification, of this course and its use for personal
+study only, provided all the copyright notices are left in the
+text and are printed in full on any subsequent paper reproduction.
+
+--
+ +----------------------------------------------------------------------+
+ | NAME   Christopher Sawtell                                           |
+ | SMAIL  215 Ollivier's Road, Linwood, Christchurch, 8001. New Zealand.|
+ | EMAIL  chris@gerty.equinox.gen.nz                                    |
+ | PHONE  +64-3-389-3200   ( gmt +13 - your discretion is requested )   |
+ +----------------------------------------------------------------------+

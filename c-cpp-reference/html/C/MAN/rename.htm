@@ -1,0 +1,231 @@
+<TITLE>rename</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>RENAME(2)           Linux Programmer's Manual           RENAME(2)
+</h3>
+
+<h3>NAME
+</h3>       rename - change the name or location of a file
+
+<h3>SYNOPSIS
+</h3>       #include &lt;unistd.h&gt;
+
+       int rename(const char *oldpath, const char *newpath);
+
+<h3>DESCRIPTION
+</h3>       rename  renames  a  file, moving it between directories if
+       required.
+
+       Any other hard links to the file (as created  using  link)
+       are unaffected.
+
+       If  newpath already exists it will be atomically overwrit-
+       ten (subject to a few conditions - see ERRORS  below),  so
+       that there is no point at which another process attempting
+       to access newpath will find it missing.
+
+       If newpath exists but the operation fails for some  reason
+       or  the  system  crashes  rename  guarantees  to  leave an
+       instance of newpath in place.
+
+       However, when overwriting there will probably be a  window
+       in  which both oldpath and newpath refer to the file being
+       renamed.
+
+       If oldpath refers to a symbolic link the link is  renamed;
+       if  newpath  refers  to  a  symbolic link the link will be
+       overwritten.
+
+<h3>RETURN VALUE
+</h3>       On success, zero is returned.  On error, -1  is  returned,
+       and errno is set appropriately.
+
+<h3>ERRORS
+</h3>       EISDIR  newpath  is  an existing directory, but oldpath is
+               not a directory.
+
+       EXDEV   oldpath and newpath are not on the  same  filesys-
+               tem.
+
+       ENOTEMPTY
+               newpath is a non-empty directory.
+
+       EBUSY   newpath  exists  and is the current working direc-
+               tory or root directory of some process.
+
+       EINVAL  An attempt was made to make a directory  a  subdi-
+               rectory of itself.
+
+       EMLINK  oldpath already has the maximum number of links to
+               it, or  it  was  a  directory  and  the  directory
+
+
+
+<h3>Linux 0.99.7               24 July 1993                         1
+</h3>
+
+
+
+
+<h3>RENAME(2)           Linux Programmer's Manual           RENAME(2)
+</h3>
+
+               containing  newpath  has  the  maximum  number  of
+               links.
+
+       ENOTDIR A component used as a directory in oldpath or new-
+               path is not, in fact, a directory.
+
+       EFAULT  oldpath  or newpath points outside your accessible
+               address space.
+
+       EACCES  Write access to the directory  containing  oldpath
+               or newpath is not allowed for the process's effec-
+               tive uid, or one of the directories in oldpath  or
+               newpath did not allow search (execute) permission,
+               or oldpath was a directory and did not allow write
+               permission (needed to update the ..  entry).
+
+       EPERM   The  directory  containing  oldpath has the sticky
+               bit set and the process's effective uid is neither
+               the  uid of the file to be deleted nor that of the
+               directory containing it, or  the  filesystem  con-
+               taining  pathname does not support renaming of the
+               type requested.
+
+       ENAMETOOLONG
+               oldpath or newpath was too long.
+
+       ENOENT  A directory component in oldpath  or  newpath does
+               not exist or is a dangling symbolic link.
+
+       ENOMEM  Insufficient kernel memory was available.
+
+       EROFS   The file is on a read-only filesystem.
+
+       ELOOP   oldpath  or newpath contains a reference to a cir-
+               cular symbolic link,  ie  a  symbolic  link  whose
+               expansion contains a reference to itself.
+
+       ENOSPC  The device containing the file has no room for the
+               new directory entry.
+
+<h3>CONFORMING TO
+</h3>       POSIX, BSD 4.3, ANSI C
+
+<h3>BUGS
+</h3>       Currently (Linux 0.99pl7) most of the  filesystems  except
+       Minix  will  not  allow  any overwriting renames involving
+       directories. You get EEXIST if you try.
+
+       On NFS filesystems, you can not assume that  only  because
+       the  operation  failed,  the file was not renamed.  If the
+       server does the rename operation  and  then  crashes,  the
+       retransmitted  RPC which will be processed when the server
+       is up again causes a failure.  The application is expected
+       to deal with this.  See link(2) for a similar problem.
+
+
+
+<h3>Linux 0.99.7               24 July 1993                         2
+</h3>
+
+
+
+
+<h3>RENAME(2)           Linux Programmer's Manual           RENAME(2)
+</h3>
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=link.htm>link</a>, 
+<a href=unlink.htm>unlink</a>, 
+<a href=symlink.htm>symlink</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Linux 0.99.7               24 July 1993                         3
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

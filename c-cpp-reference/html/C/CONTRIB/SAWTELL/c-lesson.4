@@ -1,0 +1,313 @@
+                                    Lesson 3
+
+                               Arrays and Pointers.
+
+   You can allocate space for an array of elements at compile time with fixed
+   dimension sizes of any data type, even functions and structs.
+   So these are legal array definitions:
+
+  char name[30];                   /* An array of 30 signed characters. */
+  char *strings[50];               /* 50 pointers to strings. */
+  unsigned long int *(*func)()[20];/* An array of pointers to functions which
+*/
+                                   /* return pointers to unsigned long ints. */
+
+   You can declare a pointer to point at any type of data element, and as in
+   the array situation above functions and structs are included.
+
+struct ship
+{
+  char name[30];
+  double displacement;                           /* in grammes */
+  float length_of_water_line;                    /* in meters */
+  unsigned short int number_of_passengers;
+  unsigned short int number_of_crew;
+  };
+
+   So using the ship concept from Lesson 2 you can declare a pointer to point
+   at one of the ship structs in an array.
+
+struct ship *vessel_p;
+
+   Note the use of the suffix "_p".
+   This is my way of reminding myself that the variable is a pointer.
+
+struct ship fleet[5];     /* This allocates enough storage for 5 ships' info.
+*/
+
+   Now lets set the pointer to point at the first vessel in the fleet.
+
+  vessel_p = fleet;
+
+   This pointer can be made to point at other ships in the fleet by
+   incrementing it or doing additive arithmetic on it:
+
+  vessel_p++;             /* point a the next ship in the fleet array. */
+  vessel_p = fleet + 3;
+
+   Also we can find out the index of the ship in the fleet at which we are
+   pointing:
+
+  i = vessel_p - fleet;
+
+   It is also legal to find out the separation of two pointers pointing at
+   elements in an array:
+
+  d = vessel_p - another_vessel_p; /* This gives the separation in elements. */
+
+   So summarising, pointers may be, incremented, decremented, and subtracted
+   one from another or have a constant subtracted from them. Any other
+   mathematical operation is meaningless and not allowed.
+
+   Assembler programmers should note that while the pointer variables contain a
+   byte machine address, when the arithmetic is done using pointers the
+compiler
+   also issues either a multiply or a divide as well as the add or subtract
+   instruction so that the result is ALWAYS expressed in elements rather than
+   bytes. Have a go and write yourself a trivial little program, and have a
+   look at the compiler ouput code. Lesson 1 told you how!
+
+   When using a pointer to reference a structure we have to use a "pointer
+   offset" operator in order to access the member of the struct we require:
+
+  vessel_p = fleet;
+
+  vessel_p->name = "Queen Mary";
+  vessel_p->displacement = 97500000000.0;
+  vessel_p->length_of_water_line = 750.0
+  vessel_p->number_of_passengers = 3575;
+  vessel_p->number_of_crew = 4592;
+
+   Remember:
+
+       It's a "." when accessing a struct which is in storage declared in
+       the program.
+
+       It's a "->" when accessing a struct at which a pointer is pointing.
+
+  Initialisation of arrays.
+
+   'C' has the facility to initialise variables in a program script.
+
+   Some examples:
+
+  char *qbf = "The quick brown fox jumped over the lazy dogs back";
+
+  int tic_tac_toe[3][3] =
+  {
+    { 1, 2, 3 },
+    { 4, 5, 6 },
+    { 7, 8, 9 }
+    };
+
+  struct ship fleet[2] =
+  {
+    { "Queen Elizabeth",  97500000000.0, 750.0, 3575, 4592 },
+    {      "Queen Mary", 115000000000.0, 875.0, 4500, 5500 }
+    };
+
+   Take a careful note of where the commas and semi-colons go ( and don't go )!
+
+   Initialised Tables of Indeterminate Length.
+
+   One nice feature 'C' offers is that it is able to calculate
+   the amount of storage required for a table by 'looking' at the number
+   of initialisers.
+
+char *verse[] =
+{
+  "On top of the Crumpetty Tree",
+  "The Quangle Wangle sat,",
+  "But his face you could not see,",
+  "On account of his Beaver Hat.",
+  "For his Hat was a hundred and two feet wide.",
+  "With ribbons and bibbons on every side,",
+  "And bells, and buttons, and loops, and lace,",
+  "So that nobody ever could see the face",
+  "Of the Quangle Wangle Quee."
+  NULL
+  };
+
+   Note the * character in the definition line. This means that we are going
+   to make an array of pointers to variables of type char. As there is no
+   number between the [ ] characters the compiler calculates it for us.
+   With this kind of set-up it is nice and easy to add extra information
+   to the table as program development proceeds. The compiler will calculate
+   the new dimension for you. The point to remember is that the program has to
+   know - from the contents of the table - that it has come to the end of the
+   table! So you have to make a special entry which CANNOT under any
+   circumstances be a real data element. We usually use NULL for this.
+   The other way is to calculate the size of the table by using the sizeof
+         operator - Note that although use of sizeof looks like a function call
+         it is in fact an intrinsic operator of the language. The result is
+         available at compile time. So one can say:-
+
+        #define SIZE_OF_VERSE sizeof verse
+
+   There is one final initialised data type, the enum. It is a fairly recent
+   addition to the language.
+
+  enum spectrum { red, orange, yellow, green, blue, indigo, violet } colour;
+
+   In this construct the first symbol is given the value of 0 and for each
+   following symbol the value is incremented. It is however possible to assign
+   specific values to the symbols like this:
+
+  enum tub
+  { anorexic = 65,
+    slim = 70,
+    normal = 80,
+    fat = 95,
+    obese = 135
+    };
+
+   Some compilers are bright enough to detect that it is an error if an
+   attempt is made to assign a value to an enum variable which is not in
+   the list of symbols, on the other hand many are not. Take care! In
+   practice there is little difference between the enum language construct
+   and a number of define statements except perhaps aesthetics. Here is
+   another trivial program which demonstrates the use of enum and a
+   pre-initialised array.
+
+#include <stdio.h>
+
+enum spectrum { red, orange, yellow, green, blue, indigo, violet } colour;
+
+char *rainbow[] = { "red", "orange", "yellow", "green",
+                    "blue", "indigo", "violet" };
+
+main()
+{
+  for ( colour = red; colour <= violet; colour++ )
+  {
+    printf ( "%s ", rainbow[colour]);
+    }
+  printf ( "\n" );
+  }
+
+   The output of which is ( not surprisingly ):
+
+red orange yellow green blue indigo violet
+
+   One quite advanced use of initialised arrays and pointers is the jump or
+   dispatch table. This is a efficient use of pointers and provides a very much
+   better ( In my opinion ) method of controlling program flow than a maze
+   of case or ( heaven forbid ) if ( ... ) goto statements.
+
+   Please cut out this program, read and compile it.
+   ------------------------------------------------------------------------
+
+char *ident = "@(#) tellme.c - An example of using a pointer to a function.";
+
+#include <stdio.h>
+#include <math.h>
+#include <sys/errno.h>
+
+/*
+These declarations are not in fact needed as they are all declared extern in
+math.h. However if you were to use routines which are not in a library and
+therefore not declared in a '.h' file you should declare them. Remember you
+MUST declare external routines which return a type other than the int type.
+
+extern double  sin ();
+extern double  cos ();
+extern double  tan ();
+extern double atof ();
+*/
+
+struct table_entry
+{
+  char *name;                        /* The address of the character string. */
+  double (*function)();   /* The address of the entry point of the function. */
+  };
+
+typedef struct table_entry TABLE;
+
+double help ( tp )
+TABLE *tp;
+{ printf ( "Choose one of these functions:- " );
+  fflush ( stdout );
+  for ( ; tp -> name; tp++ ) printf ( "%s ", tp -> name );
+  printf ( "\nRemember the input is expressed in Radians\n" );
+  exit ( 0 );
+  return ( 0.0 );  /* Needed to keep some nit-picking dumb compilers happy! */
+  }
+
+/*
+ * This is the array of pointers to the strings and function entry points.
+ * Is is initialised at linking time. You may add as many functions as you
+ * like in here PROVIDED you declare them to be extern, either in some .h
+ * file or explicitly.
+ */
+
+TABLE interpretation_table [ ] =
+{
+  { "sin",  sin  },
+  { "tan",  tan  },
+  { "cos",  cos  },
+  { "help", help },
+  {  NULL,  NULL }               /* To flag the end of the table. */
+  };
+
+char *output_format = { "\n %s %s = %g\n" };
+extern int errno;
+extern void perror();
+
+main( argc, argv )
+int argc;
+char **argv;
+{
+  TABLE *tp;
+  double x, answer;
+
+  if ( argc > 3 )
+  {
+    errno = E2BIG;
+    perror ( "tellme" );
+    exit ( -1 );
+    }
+
+  for (;;)                  /* This is the way to set up a continuous loop. */
+  {
+    for ( tp = interpretation_table;
+          ( tp -> name && strcmp ( tp -> name, argv[1] ));
+          tp++
+    )  ;                      /* Note use of empty for loop to position tp. */
+
+    if ( tp -> function == help ) (*tp -> function )( interpretation_table );
+    if ( tp -> name == NULL )
+    {
+      printf ( "Function %s not implemented yet\n", argv[1] );
+      exit ( 1 );
+      }
+    break;                     /* Leave the loop. */
+    }
+
+  x = atof ( argv[2] );        /* Convert the character string to a double. */
+  answer = ( *tp -> function )( x );/* Execute the desired function.        */
+  printf ( output_format,      /* Pointer to printf()'s format string.      */
+           argv[1],            /* Pointer to the name of the function.      */
+           argv[2],            /* Pointer to the input number ascii string. */
+           answer              /* Value ( in double floating point binary ) */
+           );
+  }
+
+Copyright notice:-
+
+(c) 1993 Christopher Sawtell.
+
+I assert the right to be known as the author, and owner of the
+intellectual property rights of all the files in this material,
+except for the quoted examples which have their individual
+copyright notices. Permission is granted for onward copying,
+but not modification, of this course and its use for personal
+study only, provided all the copyright notices are left in the
+text and are printed in full on any subsequent paper reproduction.
+
+--
+ +----------------------------------------------------------------------+
+ | NAME   Christopher Sawtell                                           |
+ | SMAIL  215 Ollivier's Road, Linwood, Christchurch, 8001. New Zealand.|
+ | EMAIL  chris@gerty.equinox.gen.nz                                    |
+ | PHONE  +64-3-389-3200   ( gmt +13 - your discretion is requested )   |
+ +----------------------------------------------------------------------+

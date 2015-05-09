@@ -1,0 +1,89 @@
+<title>The UNION keyword.</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor="#ffffcc">
+<hr>
+<center><h1>The UNION keyword.</h1></center>
+<hr>
+
+The <b>union</b> <a href="../glossary.html#keyword">keyword</a> allows several 
+variables of different type and size to occupy the same storage location.
+<p>
+The syntax to define a union is simular to the
+<a href="struct.html">struct</a> keyword as shown below:<p>
+
+
+<pre>
+	union union_def { int a; float b; char c;} ;
+</pre>
+
+and a variable declared with either of these statements:
+
+<pre>
+	union union_def union_var;
+	union { int a; float b; char c;} union_var;
+</pre>
+
+If you wish to initalise a variable you can say:
+
+<pre>
+	union { int a; float b; char c;} union_var=97;
+</pre>
+
+By default the first variable (<b>a</b>) is initalised.
+<p>
+
+To assign a value to a variable you can say:
+
+<pre>
+	union_var.b=99.99;
+	union_var.a=34;
+	union_var.c='x';
+</pre>
+It's important to note that the storage will only hold ONE value, 
+looking at the
+three lines above, <b>union_var.a</b> overwrites <b>union_var.b</b> and 
+then <b>union_var.c</b> overwrites <b>union_var.a</b><p>
+
+
+
+I have yet to see more than one use for this keyword.
+<hr>
+<h2>Examples:</h2>
+<img src="../../GRAPHICS/computer.gif" align=left>
+<a href="../EXAMPLES/union.c"> Here is an example.</a>
+<br clear=left>
+<hr>
+<h2>See also:</h2>
+<ul>
+<li><a href="struct.html">struct</a> keyword.
+</ul>
+ 
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

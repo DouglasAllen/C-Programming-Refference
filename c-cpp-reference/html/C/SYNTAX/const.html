@@ -1,0 +1,212 @@
+<head>
+<title>The const keyword.</title>
+
+<script language="JavaScript">
+</script>
+</head>
+
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>The const keyword.</h1>
+</center>
+<hr>
+
+The const keyword is used to create a read only variable. Once initialised,
+the value of the variable cannot be changed but can be used just like
+any other variable. 
+
+<h2>const syntax</h2>
+<p>
+<center>
+<table bgcolor=ivory width="80%" border=1>
+<tr><td>
+<pre>
+
+        main()
+        {
+            const float pi = 3.14; 
+        }
+</pre>
+</td></tr>
+</table>
+</center>
+<p>
+The const keyword is used as a qualifier to the following data types - 
+int float char double struct. 
+<p>
+<center>
+<table bgcolor=ivory width="80%" border=1>
+<tr><td>
+<pre>
+
+        const int   degrees = 360; 
+        const float pi      = 3.14; 
+        const char  quit    = 'q'; 
+</pre>
+</td></tr>
+</table>
+</center>
+<p>
+<h2>const and pointers.</h2>
+
+Consider the following example.
+<p>
+<center>
+<table bgcolor=ivory width="80%" border=1>
+<tr><td>
+<pre>
+
+        void Func(const char *Str);
+
+        main()
+        {
+            char *Word;
+
+            Word = (char *) malloc(20);
+
+            strcpy(Word, "Sulphate");
+          
+            Func(Word);
+        }
+        
+        void Func(const char *Str)
+        {
+        }
+</pre>
+</td></tr>
+</table>
+</center>
+<p>
+The <code>const char *Str</code> tells the compiler that the DATA the
+pointer points too is <code>const</code>. This means, Str can be changed
+within Func, but *Str cannot. As a copy of the pointer is passed to Func,
+any changes made to Str are not seen by main....
+
+<p>
+<center>
+<table bgcolor=ivory width="80%" border=1>
+<tr><td>
+<pre>
+
+            --------
+           | Str    |  Value can be changed
+            -----|--
+                 |
+                 |
+                 V
+            --------
+           | *Str   | Read Only - Cannot be changed.
+            --------
+</pre>
+</td></tr>
+</table>
+</center>
+<p>
+
+<h2>Geeky Stuff</h2>
+
+It is still possible to change the contents of a 'const' variable.
+<a href=../EXAMPLES/const2.c>Consider this program</a> it creates
+a const variable and then changes its value by accessing the data by
+another name.
+<p>
+I am not sure if this applies to all compilers, but, 
+you can place the 'const' after the datatype, for example:
+<p>
+<center>
+<table bgcolor=ivory width="80%" border=1>
+<tr><td>
+<pre>
+
+        int   const degrees = 360; 
+        float const pi      = 3.14; 
+        char  const quit    = 'q'; 
+</pre>
+</pre>
+</td></tr>
+</table>
+</center>
+<p>
+are all valid in 'gcc'.
+<p>
+<h2>More Geeky Stuff</h2>
+
+What would you expect these to do?
+<p>
+<center>
+<table bgcolor=ivory width="80%" border=1>
+<tr><td>
+<pre>
+
+        main()
+        {
+            const char * const Variable1;
+            char const * const Variable2;
+        };
+</pre>
+</td></tr>
+</table>
+</center>
+<p>
+These both make the pointer and the data read only. 
+Here are a few more examples.
+<p>
+<center>
+<table bgcolor=ivory width="80%" border=1>
+<tr><td>
+<pre>
+
+  const int   Var;           /* Var is constant */
+  int const   Var;           /* Ditto */
+  int * const Var;           /* The pointer is constant, 
+                              * the data its self can change. */
+  const int * Var;           /* Var can not be changed. */  
+                           
+</pre>
+</td></tr>
+</table>
+</center>
+<p>
+
+<hr>
+<h2>See Also.</h2>
+<img src="../../GRAPHICS/whiteball.gif" alt="o">
+<a href="../SYNTAX/define_preprocessor.html">#define preprocessor</a>
+<p>
+<font color=brown>
+<img src="../../GRAPHICS/whiteball.gif" alt="o">
+C++ version of
+<a href="../../CPLUSPLUS/SYNTAX/const.html">const</a>
+</font>
+
+<hr>
+<h2>An Example.</h2>
+<img src="../../GRAPHICS/computer.gif" alt="o">
+<a href=../EXAMPLES/const.c> const</a> example.
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

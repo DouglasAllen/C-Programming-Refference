@@ -1,0 +1,100 @@
+<title>qsort function</title>
+
+<head>
+<script language="JavaScript">
+</script>
+</head>
+
+<body bgcolor="#ffffcc">
+<center>
+<hr>
+<h1>qsort function</h1>
+<hr>
+</center>
+<p>
+<b>qsort</b> will sort an array of elements. This is a wild function that
+uses a pointer to another function that performs
+the required comparisons.
+
+<pre>
+Library:   stdlib.h
+
+Prototype: void qsort(void *base, 
+		      size_t num, 
+		      size_t size, 
+ 		      int (*comp_func)(const void *, const void *))
+
+</pre>
+<hr>
+<h2>Some explanation.</h2>
+<ul>
+<li><pre>void * base</pre> Is a pointer to the array to be sorted. This can 
+be a pointer to any <a href=../CONCEPT/data_types.html>datatype</a>.
+<p>
+<li><pre>size_t num</pre> The number of elements.
+<p>
+<li><pre>size_t size</pre> The element size.
+<p>
+<li><pre>int (*comp_func)(const void *, const void *))</pre> This is a 
+pointer to 
+a function.
+</ul>
+
+
+<hr>
+<h2>Notes</h2>
+<ol>
+<li>Well... This caused me alot of trouble! Although the prototype above is 
+exactly as shown in the documentation, the last parm kept giving compiler
+warnings (invalid pointer type) this is the fix.
+<pre>
+	
+Prototype: void qsort(void *base, 
+		      size_t num, 
+		      size_t size, 
+ 		      (void *) (*comp_func)(const void *, const void *))
+</pre>
+does anyone know the answer to this problem??
+<p>
+<li>I think <a href=../CONCEPT/pointers.html#void>void *</a> needs an explanation.
+<p>
+<li>And <a href=../CONCEPT/cast.html>cast</a> aswell 
+<p>
+</ol>
+<hr>
+
+<img src=../../GRAPHICS/computer.gif>
+<a href=../EXAMPLES/qsort1.c>Example program 1</a> As basic as I can make it.<p>
+
+<img src=../../GRAPHICS/computer.gif>
+<a href=../EXAMPLES/qsort2.c>Example program</a> with user input.<p>
+
+<img src=../../GRAPHICS/computer.gif>
+<a href=../CONTRIB/OR_USING_C/14.2.c>O'Reilly 'Using C' example.</a><p>
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

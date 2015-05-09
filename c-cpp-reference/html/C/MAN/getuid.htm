@@ -1,0 +1,98 @@
+<TITLE>getuid</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>GETUID(2)           Linux Programmer's Manual           GETUID(2)
+</h3>
+
+<h3>NAME
+</h3>       getuid, geteuid - get user identity
+
+<h3>SYNOPSIS
+</h3>       #include &lt;unistd.h&gt;
+
+       uid_t getuid(void);
+       uid_t geteuid(void);
+
+<h3>DESCRIPTION
+</h3>       getuid returns the real user ID of the current process.
+
+       geteuid  returns the effective user ID of the current pro-
+       cess.
+
+       The real ID corresponds to the ID of the calling  process.
+       The effective ID corresponds to the set ID bit on the file
+       being executed.
+
+<h3>ERRORS
+</h3>       These functions are always successful.
+
+<h3>CONFORMS TO
+</h3>       POSIX, BSD 4.3
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=setreuid.htm>setreuid</a>, 
+<a href=setuid.htm>setuid</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Linux 0.99.11              23 July 1993                         1
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>Scope in C++</title>
+</head>
+<body bgcolor="#dddddd">
+<font color=brown>
+<hr>
+<center><h1>Scope in C++.</h1></center>
+<hr>
+<p>
+                               
+The :: operator is used within C++ to identify global variables that 
+conflict with local variable names. Obviously it would be good programming 
+practice to use suitable names in the first place......
+
+<p>
+<center>
+<table width=1 bgcolor=ivory width=80%>
+<tr>
+<td>
+<pre>
+
+        #include <iostream.h>
+        
+        int Counter = 1;
+        
+        main()     
+        {
+            int Counter = 1;
+            
+            for (int i=0; i< 10; i++)
+            {
+                cout << Counter << " " << ::Counter << endl;
+                Counter++; 
+            }
+            
+            return 0;
+        }
+</pre>
+</tr>
+</td>
+</table>
+</center>
+<p>
+
+<hr>
+<h2>Examples:</h2>
+<img src="../../GRAPHICS/computer.gif" alt="o">
+<a href="../EXAMPLES/scope.cc">Example program.</a>
+<p>
+
+<hr>
+<h2>See Also:</h2>
+<img src="../../GRAPHICS/whiteball.gif" alt="o">
+<a href="../SYNTAX/ops.html">C++ operators.</a>.
+
+</font>
+<hr>
+<font color=black>
+<h2>C References</h2>
+<p>
+<img src="../../GRAPHICS/whiteball.gif" alt="o">
+<a href="../../C/SYNTAX/glo_int_vars.html#global">Global Variables</a>.
+<p>
+<img src="../../GRAPHICS/whiteball.gif" alt="o">
+<a href="../../C/CONCEPT/expressions.html">C Expressions and Operators</a>.
+
+
+</font>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">Top</a>
+</td><td width="25%">
+<a href="../../C/master_index.html">Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html">Keywords</a>
+</td><td width="25%">
+<a href="../../C/FUNCTIONS/funcref.htm">Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<font color=brown>
+<address>Martin Leslie 
+<script language="JavaScript">
+<!--  //
+document.write(document.lastModified);
+// -->
+</script>
+</address><p>
+</font>
+</body>
+</html>

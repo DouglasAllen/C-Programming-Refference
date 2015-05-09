@@ -1,0 +1,242 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; Linux 2.0.36 i586) [Netscape]">
+   <title>C programming problems</title>
+</head>
+<body bgcolor="#FFFFCC">
+
+<hr>
+<center>
+<h1>
+C programming problems</h1></center>
+
+<hr>
+<p>Here are few problems to try out your C skills on.&nbsp;
+<hr>
+<dl compact>
+<dt>
+<img SRC="whiteball.gif" ></dt>
+
+<dd>
+Produce a multiplication table. Top left hand corner will show 1x1 and
+bottom right shows 12x12, as below.</dd>
+
+<pre>
+&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp; 2&nbsp;&nbsp; 3&nbsp;&nbsp; 4&nbsp;&nbsp; 5&nbsp;&nbsp; 6&nbsp;&nbsp; 7&nbsp;&nbsp; 8&nbsp;&nbsp; 9&nbsp; 10&nbsp; 11&nbsp; 12&nbsp;
+&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp; 4&nbsp;&nbsp; 6&nbsp;&nbsp; 8&nbsp; 10&nbsp; 12&nbsp; 14&nbsp; 16&nbsp; 18&nbsp; 20&nbsp; 22&nbsp; 24&nbsp;
+&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp; 6&nbsp;&nbsp; 9&nbsp; 12&nbsp; 15&nbsp; 18&nbsp; 21&nbsp; 24&nbsp; 27&nbsp; 30&nbsp; 33&nbsp; 36&nbsp;
+&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp; 8&nbsp; 12&nbsp; 16&nbsp; 20&nbsp; 24&nbsp; 28&nbsp; 32&nbsp; 36&nbsp; 40&nbsp; 44&nbsp; 48&nbsp;
+&nbsp;&nbsp;&nbsp; 5&nbsp; 10&nbsp; 15&nbsp; 20&nbsp; 25&nbsp; 30&nbsp; 35&nbsp; 40&nbsp; 45&nbsp; 50&nbsp; 55&nbsp; 60&nbsp;
+&nbsp;&nbsp;&nbsp; 6&nbsp; 12&nbsp; 18&nbsp; 24&nbsp; 30&nbsp; 36&nbsp; 42&nbsp; 48&nbsp; 54&nbsp; 60&nbsp; 66&nbsp; 72&nbsp;
+&nbsp;&nbsp;&nbsp; 7&nbsp; 14&nbsp; 21&nbsp; 28&nbsp; 35&nbsp; 42&nbsp; 49&nbsp; 56&nbsp; 63&nbsp; 70&nbsp; 77&nbsp; 84&nbsp;
+&nbsp;&nbsp;&nbsp; 8&nbsp; 16&nbsp; 24&nbsp; 32&nbsp; 40&nbsp; 48&nbsp; 56&nbsp; 64&nbsp; 72&nbsp; 80&nbsp; 88&nbsp; 96&nbsp;
+&nbsp;&nbsp;&nbsp; 9&nbsp; 18&nbsp; 27&nbsp; 36&nbsp; 45&nbsp; 54&nbsp; 63&nbsp; 72&nbsp; 81&nbsp; 90&nbsp; 99 108&nbsp;
+&nbsp;&nbsp; 10&nbsp; 20&nbsp; 30&nbsp; 40&nbsp; 50&nbsp; 60&nbsp; 70&nbsp; 80&nbsp; 90 100 110 120&nbsp;
+&nbsp;&nbsp; 11&nbsp; 22&nbsp; 33&nbsp; 44&nbsp; 55&nbsp; 66&nbsp; 77&nbsp; 88&nbsp; 99 110 121 132&nbsp;
+&nbsp;&nbsp; 12&nbsp; 24&nbsp; 36&nbsp; 48&nbsp; 60&nbsp; 72&nbsp; 84&nbsp; 96 108 120 132 144</pre>
+
+<dt>
+<img SRC="computer.gif" ><a href="times1.c">Answer 1</a></dt>
+
+<dt>
+<img SRC="computer.gif" ><a href="times2.c">Answer 2</a>&nbsp;
+<hr></dt>
+
+<dt>
+<img SRC="whiteball.gif" ></dt>
+
+<dd>
+Produce an Ascii convertion table.</dd>
+
+<dt>
+<img SRC="computer.gif" height=44 width=40><a href="ascii1.c">Answer 1</a></dt>
+
+<dt>
+<img SRC="computer.gif" height=44 width=40><a href="ascii2.c">Answer 2&nbsp;</a>
+<hr></dt>
+
+<dt>
+<img SRC="whiteball.gif" ></dt>
+
+<dd>
+Convert unix files to DOS format.</dd>
+
+<dd>
+Unix records are terminated with x'0a'</dd>
+
+<dd>
+DOS records are terminated with x'0d0a'</dd>
+
+<dt>
+<img SRC="computer.gif" ><a href="unix2dos.c">Answer</a>&nbsp;
+<hr></dt>
+
+<dt>
+<img SRC="whiteball.gif" ></dt>
+
+<dd>
+'for' problem. Count from 1 to 32 and list the range of unsigned integer
+numbers that can be stored in each collection of bits. I.E 8 bits can hold
+the range 0 to 255.</dd>
+
+<dt>
+<img SRC="computer.gif" ><a href="bits.c">Answer</a>&nbsp;
+<hr></dt>
+
+<dt>
+<img SRC="whiteball.gif" ></dt>
+
+<dd>
+Random numbers. Produce a sequence of six random numbers between 1 and
+49. These can then be used to play the National lottery (in England). The
+odds on getting the right numbers are 13,983,816 to 1 - GOOD LUCK SUCKER.</dd>
+
+<dt>
+<img SRC="computer.gif" ><a href="lotto1.c">Answer</a> should look like:</dt>
+
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Possible winning ticket numbers are 7 8 9 33 34 43</pre>
+
+<hr>
+<dt>
+<img SRC="whiteball.gif" ></dt>
+
+<dd>
+Take the previous 'lotto' program and add code so duplicate numbers are
+filtered out and the results are sorted (use <a href="../FUNCTIONS/qsort.html">qsort</a>).</dd>
+
+<dt>
+<img SRC="computer.gif" ><a href="lotto2.c">Answer</a>&nbsp;
+<hr></dt>
+
+<dt>
+<img SRC="whiteball.gif" ></dt>
+
+<dd>
+Here is a problem you can solve with an integer array. Generate the Fibonacci
+sequence. Starting with 0, 1 add them up then take the result and add it
+to the last number and repeat.</dd>
+
+<dt>
+<img SRC="computer.gif" ><a href="array_prob.c">Answer</a> should look
+like:</dt>
+
+<pre>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181</pre>
+
+<dt>
+<img SRC="computer.gif" ><a href="../CONTRIB/OR_PRACTICAL_C/05_1.c">Answer</a>
+taken from 'Practical C' from O'Reilly and Associates.&nbsp;
+<hr></dt>
+
+<dt>
+<img SRC="whiteball.gif" ></dt>
+
+<dd>
+Functions - write a program that calls bignum() and littlenum() which determine,
+respectively, the highest and the smallest of a sequecnce of numbers read
+in from the terminal.</dd>
+
+<dt>
+<img SRC="computer.gif" ><a href="numtest.c">Answer</a>&nbsp;
+<hr></dt>
+
+<p><br><a NAME="struct"></a>
+<dt>
+<img SRC="whiteball.gif" ></dt>
+
+<dd>
+Structures - Use structures to add two fractions together.</dd>
+
+<dt>
+<img SRC="computer.gif" ><a href="fractions.c">Answer</a>&nbsp;
+<hr></dt>
+
+<dt>
+<img SRC="whiteball.gif" ></dt>
+
+<dd>
+Write a calendar program</dd>
+
+<dt>
+<img SRC="computer.gif" ><a href="calender.c">Answer</a></dt>
+
+<p><br>
+<hr>
+<dt>
+<img SRC="whiteball.gif" ></dt>
+
+<dd>
+Print the name of the program thats executing.</dd>
+
+<dt>
+<img SRC="computer.gif" ><a href="../EXAMPLES/prog_name.c">Answer</a>&nbsp;
+<hr><a NAME="hexdump"></a></dt>
+
+<dt>
+<img SRC="whiteball.gif" ></dt>
+
+<dd>
+Produce a program that will display a file in hex format as below. Most
+versions of Unix have 'od' but this dump format is more usefull.</dd>
+
+<pre>&nbsp;&nbsp; 20 2A 20 68 65 78 5F 63 68 61 72 28 63 68 61 72&nbsp;&nbsp;&nbsp;&nbsp; * hex_char(char
+&nbsp;&nbsp; 20 2A 70 6F 73 69 74 69 6F 6E 2C 20 63 68 61 72&nbsp;&nbsp;&nbsp;&nbsp; *position, char
+&nbsp;&nbsp; 20 63 29 0A 20 20 20 7B 0A 20 20 20 73 70 72 69&nbsp;&nbsp;&nbsp;&nbsp; c).&nbsp;&nbsp; {.&nbsp;&nbsp; spri
+&nbsp;&nbsp; 6E 74 66 28 70 6F 73 69 74 69 6F 6E 2C 20 22 25&nbsp;&nbsp;&nbsp; ntf(position, "%
+&nbsp;&nbsp; 30 32 58 20 22 2C 20 63 29 3B 20 0A 0A 09 09 09&nbsp;&nbsp;&nbsp; 02X ", c); .....</pre>
+
+<dt>
+<img SRC="computer.gif" ><a href="hexdump1.c">Answer</a>&nbsp;
+<hr><a NAME="yesterday"></a></dt>
+
+<dt>
+<img SRC="whiteball.gif" ></dt>
+
+<dd>
+Print yesterdays date. You can use the ANSI standard functions 'time' and
+'ctime'. An example of the O/P from my program is.</dd>
+
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fri Mar 17 18:46:47 1995</pre>
+
+<dt>
+<img SRC="computer.gif" ><a href="yesterday.c">Answer</a>&nbsp;
+<hr><a NAME="binary"></a></dt>
+
+<dt>
+<img SRC="whiteball.gif" ></dt>
+
+<dd>
+Display a byte in binary format. For example:</dd>
+
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 55 == 00110111</pre>
+Things like <b>&lt;&lt; &lt;&lt;= &amp;</b> can be used to solve this problem.
+<dt>
+<img SRC="computer.gif" ><a href="binary_op.c">Answer</a></dt>
+</dl>
+
+<hr>
+<center><table BORDER=2 WIDTH="80%" BGCOLOR="#FFFFF0" >
+<tr ALIGN=CENTER>
+<td WIDTH="25%"><a href="../cref.html" target="_top">Top</a></td>
+
+<td WIDTH="25%"><a href="../master_index.html" target="_top">Master Index</a></td>
+
+<td WIDTH="25%"><a href="../SYNTAX/keywords.html" target="_top">C Keywords</a></td>
+
+<td WIDTH="25%"><a href="../FUNCTIONS/funcref.htm" target="_top">Functions</a></td>
+</tr>
+</table></center>
+
+<p>
+<hr>
+<address>
+Martin Leslie<script language="JavaScript">
+<!--  //
+document.write(document.lastModified);
+// -->
+</script>
+</address>
+
+</body>
+</html>

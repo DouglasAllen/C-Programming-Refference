@@ -1,0 +1,149 @@
+<html>
+<head>
+</head>
+<body>
+<title>Download</title>
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>Download and install the HTML source.</h1>
+</center>
+<hr>
+<p>
+
+<!-- Several people have requested a copy of this guide so it can be installed 
+on local sites. This seems a resonable request so it is now available 
+via E-mail. --> 
+
+<!-- I have implimented an E-mail approach as I would like to 
+know where its being installed and E-mail is the only way to get through
+my company fire wall. -->
+
+<!-- If you download the source, you will receive three files. The first contains
+details of the install and the following two actually contain the source. -->
+<p>
+<h2>Install Instructions</h2>
+<ul>
+<!-- <li>Request the required source by mailing 
+<a href="mailto:leslim@gatwick.Geco-Prakla.slb.com">leslim@gatwick.Geco.Prakla.slb.com</a>
+and place the following request in the <b>subject</b> field. -->
+<li>Request the source by clicking on the links below.
+The DOS files have been split so you can get them onto floppy disks.
+<p>
+<ul>
+<li>cunix.tgz - tar gzip file contains the complete source for use on Unix machines.
+<li>cdos1.zip - Contains most of the source for use on DOS and Windows 3.1 machines.
+<li>cdos2.zip - The remainder of the source for DOS and Windows 3.1 machines.
+</ul>
+<p>
+<center>
+<table border=1 bgcolor="ivory" width="40%">
+<tr>
+<td>
+<font color="green">Unix Version. </font>
+</td>
+</tr>
+<tr>
+<td>
+<a href ="http://home.clara.net/leslim/WWW/cunix.tgz">cunix.tgz</a>
+</td>
+<td>
+1.00 Kbytes
+</td>
+</tr>
+</table>
+<p>
+<table border=1 bgcolor="ivory" width="40%">
+<tr>
+<td>
+<font color="green">DOS/Windows 3.1. </font>
+</td>
+</tr>
+<tr>
+<td>
+<a href ="http://home.clara.net/leslim/WWW/cdos1.zip">cdos1.zip</a>
+</td>
+<td>
+0.86 Kbytes
+</td>
+</tr>
+<tr>
+<td>
+<a href ="http://home.clara.net/leslim/WWW/cdos2.zip">cdos2.zip</a>
+</td>
+<td>
+0.62 Kbytes
+</td>
+</tr>
+
+</table>
+</center>
+<p>
+
+<li>Create a suitable directory, like 'cref' and copy the zip or tgz files 
+into it.
+
+<li>Unpack with the following commands.
+<pre>
+<font color="green">Unix</font>
+
+     gunzip cunix.tgz
+     tar xvf cunix.tar
+
+
+<font color="green">DOS</font>
+
+     pkunzip cdos1.zip
+     pkunzip cdos2.zip
+</pre>
+<li>Recompile the Java code in 
+<pre>
+	C/MISC/CLASSES
+</pre>
+The existing binaries are compiled for Linux. BTW the Java compiler
+is called <b>javac</b>.
+
+</ul>
+<hr>
+<p>
+If you have install problems or find mistakes please let me know.
+<p>
+Windows 3.1 users, you should now be able to install this source with pkunzip.
+I have provided the source with 8.3 format names but left the
+links in the original (unix) form. Testing this with Netscape 3.01 for
+Windows 3.1 and
+Internet Explorer, it would seem that the browsers will chop the link name
+down to 8.3 format and then attempt to load the resulting file.
+<p>
+distribution files made with the following commands.
+<p>
+<pre>
+tar cvf ../cunix.tar * --gzip
+mv ../cunix.tar ../cunix.tgz
+<br>
+zip -k -r ../cdos1.zip * -x C/CONTRIB/\*
+zip -k -r ../cdos2.zip C/CONTRIB/*
+</pre>
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor=ivory>
+<tr align=center>
+<td width="25%">
+<a href="../cref.html" target="_top">Top</a>
+</td><td width="25%">
+<a href="../master_index.html" target="_top">Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html" target="_top">C Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm" target="_top">Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address>
+</body>
+</html>

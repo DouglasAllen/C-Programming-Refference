@@ -1,0 +1,219 @@
+<title>Bitwise operations</title>
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>Bitwise operations</h1>
+</center>
+<hr>
+
+<p>
+Bitwise operators include:
+<p>
+<center>
+<table border=2 width=40% bgcolor=ivory>
+<tr align=center><td>&amp;</td>     <td><a href="#aox">AND</a></td></tr>
+<tr align=center><td>&amp;=</td>    <td><a href="#aox">AND</a></td></tr>
+<tr align=center><td>|</td>         <td><a href="#aox">OR</a></td></tr>
+<tr align=center><td>|=</td>        <td><a href="#aox">OR</a></td></tr>
+<tr align=center><td>^</td>         <td><a href="#aox">XOR</a></td></tr>
+<tr align=center><td>~</td>         <td><a href="#one">one's compliment</a></td></tr>
+<tr align=center><td>&lt;&lt;</td>  <td><a href="#shift">Shift Left</a></td></tr>
+<tr align=center><td>&gt;&gt;</td>  <td><a href="#shift">Shift Right</a></td></tr>
+<tr align=center align=center><td>&lt;&lt;=</td> <td><a href="#shift">Shift Left</a></td></tr>
+<tr align=center><td>&gt;&gt;=</td><td><a href="#shift">Shift Right</a></td></tr>
+</table>
+</center>
+<p>
+
+<a name=aox>
+<hr>
+<h2>AND OR and XOR</h2>
+
+These require two operands and will perform bit comparisions.
+<p>
+<b>AND &</b>
+will copy a bit to the result if it exists in both operands.
+<p>
+<center>
+<table border=2 bgcolor=ivory>
+<tr><td>
+<pre>
+  
+  main()
+  {
+    unsigned int a = 60;	/* 60 = 0011 1100 */  
+    unsigned int b = 13;	/* 13 = 0000 1101 */
+    unsigned int c = 0;           
+
+    c = a & b;                  /* 12 = 0000 1100 */ 
+  }
+
+</pre>
+</td></tr>
+</table>
+</center>
+<p>
+<b>OR |</b> will copy a bit if it exists in eather operand.
+<p>
+<center>
+<table border=2 bgcolor=ivory>
+<tr><td>
+<pre>
+  
+  main()
+  {
+    unsigned int a = 60;	/* 60 = 0011 1100 */  
+    unsigned int b = 13;	/* 13 = 0000 1101 */
+    unsigned int c = 0;           
+
+    c = a | b;                  /* 61 = 0011 1101 */ 
+  }
+
+</pre>
+</td></tr>
+</table>
+</center>
+<p>
+<b>XOR ^</b> copies the bit if it is set in one operand (but not both).
+<p>
+<center>
+<table border=2 bgcolor=ivory>
+<tr><td>
+<pre>
+  
+  main()
+  {
+    unsigned int a = 60;	/* 60 = 0011 1100 */  
+    unsigned int b = 13;	/* 13 = 0000 1101 */
+    unsigned int c = 0;           
+
+    c = a ^ b;                  /* 49 = 0011 0001 */ 
+  }
+
+</pre>
+</td></tr>
+</table>
+</center>
+
+<p>
+<a name=one>
+<hr>
+<h2>Ones Complement</h2>
+
+This operator is unary (requires one operand) and has the efect of 
+'flipping' bits. 
+<p>
+<center>
+<table border=2 bgcolor=ivory>
+<tr><td>
+<pre>
+
+  main()
+  {
+    unsigned int Value=4;          /*   4 = 0000 0100 */  
+
+    Value = ~ Value;               /* 251 = 1111 1011 */  
+
+  }
+
+</pre>
+</td></tr>
+</table>
+</center>
+<p>
+
+
+<p>
+<a name=shift>
+<hr>
+<h2>Bit shift.</h2>
+The following <a href="../CONCEPT/expressions.html">operators</a>
+can be used for shifting bits left or right. 
+<p>
+<center>
+<table border=2 width=50% bgcolor=ivory>
+<tr align=center>
+<td width=25%> &lt;&lt; </td>
+<td width=25%> &gt;&gt; </td>
+<td width=25%> &lt;&lt;= </td>
+<td width=25%> &gt;&gt;= </td>
+</tr>
+</table>
+</center>
+<p>
+The left operands value is moved left or right by the number of bits specified
+by the right operand. For example:
+<p>
+<center>
+<table border=2 bgcolor=ivory>
+<tr><td>
+<pre>
+
+  main()
+  {
+    unsigned int Value=4;          /*  4 = 0000 0100 */  
+    unsigned int Shift=2;
+
+    Value = Value << Shift;        /* 16 = 0001 0000 */  
+
+    Value <<= Shift;               /* 64 = 0100 0000 */  
+
+    printf("%d\n", Value);         /* Prints 64      */  
+  }
+
+</pre>
+</td></tr>
+</table>
+</center>
+<p>
+Usually, the resulting 'empty' 
+bit is assigned ZERO.
+Please use 
+<a href="data_types.html#modifier">unsigned</a> 
+variables with these operators to avoid unpredictable
+results.
+<p>
+<hr>
+<h2>Examples:</h2>
+<a href="../EXAMPLES/and.c"><img src=../../GRAPHICS/computer.gif></a> AND<br>
+<a href="../EXAMPLES/or.c"><img src=../../GRAPHICS/computer.gif></a> OR<br>
+<a href="../EXAMPLES/bit_shift.c"><img src=../../GRAPHICS/computer.gif></a> Bit shifting.
+<hr>
+<h2>Problem:</h2>
+<img src=../../GRAPHICS/whiteball.gif>
+<a href="../PROBLEMS/problems.html#binary">Bit shifting problem.</a>
+<hr>
+<h2>See Also:</h2>
+<img src=../../GRAPHICS/whiteball.gif>
+All the other <a href="expressions.html#bit">Expressions and operators</a>.<br>
+<img src=../../GRAPHICS/whiteball.gif>
+<a href="../CONCEPT/precedence.html">Operator precedence.</a><br>
+<img src=../../GRAPHICS/whiteball.gif>
+<a href="../CONCEPT/assignment.html">Assignment Operators</a>.
+<hr>
+<p>
+<center>
+<table border=2 width=80% bgcolor=ivory>
+<tr align=center>
+<td width=25%>
+<a href="../cref.html">Top</a>
+</td><td width=25%>
+<a href="../master_index.html">Master Index</a>
+</td><td width=25%>
+<a href="../SYNTAX/keywords.html">Keywords</a>
+</td><td width=25%>
+<a href="../FUNCTIONS/funcref.htm">Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+<script language="JavaScript">
+<!--  //
+document.write(document.lastModified);
+// -->
+</script>
+</address>
+

@@ -1,0 +1,104 @@
+<TITLE>signal</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>SIGACTION(2)        Linux Programmer's Manual        SIGACTION(2)
+</h3>
+
+<h3>NAME
+</h3>       signal - ANSI C signal handling.
+
+
+<h3>SYNOPSIS
+</h3>       #include &lt;signal.h&gt;
+
+
+       void (*signal(int signum, void (*handler)(int)))(int);
+
+
+<h3>DESCRIPTION
+</h3>       The  signal  system call installs a new signal handler for
+       signal signum.  The signal handler is set to handler which
+       may be a user specified function, or one of the following:
+
+              SIG_IGN
+                     Ignore the signal.
+
+              SIG_DFL
+                     Reset the signal to its default behavior.
+
+
+
+<h3>RETURN VALUE
+</h3>       signal returns the previous value of the  signal  handler,
+       or SIG_ERR on error.
+
+
+<h3>NOTES
+</h3>       Signal handlers cannot be set for SIGKILL or SIGSTOP.
+
+       Unlike BSD systems, signals under Linux are reset to their
+       default behavior when raised.
+
+       If you're confused by the prototype at  the  top  of  this
+       manpage, it may help to see it separated out thus:
+
+       typedef void (*sighandler_t)(int);
+       sighandler_t signal(int signum, sighandler_t handler);
+
+
+<h3>CONFORMING TO
+</h3>       ANSI C
+
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=kill.htm>kill</a>, 
+<a href=kill.htm>kill</a>, 
+<a href=killpg.htm>killpg</a>, 
+<a href=pause.htm>pause</a>, 
+<a href=raise.htm>raise</a>, 
+<a href=tion.htm>tion</a>, 
+<a href=signal.htm>signal</a>, 
+<a href=sigsetops.htm>sigsetops</a>, 
+<a href=sigvec.htm>sigvec</a>, 
+<pre>
+
+
+
+
+
+
+
+
+<h3>Linux 1.0               24 September 1994                       1
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

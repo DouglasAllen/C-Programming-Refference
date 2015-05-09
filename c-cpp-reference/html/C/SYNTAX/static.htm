@@ -1,0 +1,175 @@
+<title>static functions</title>
+
+<head>
+<script language="JavaScript">
+</script>
+</head>
+
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>static functions</h1>
+</center>
+<hr>
+<p>
+
+<b>static functions</b> are functions that are only visable to other
+functions in the same file. Consider the following code.
+<p>
+<table border=2 bgcolor=ivory align=left>
+<th>
+main.c
+</th>
+<tr>
+<td>
+<pre>
+
+   #include <stdio.h>
+
+   main()
+   {
+     Func1();   
+
+     Func2();
+   }
+   
+</pre>
+</td>
+</tr>
+</table>
+
+<table border=2 bgcolor=ivory>
+<th>
+funcs.c
+</th>
+<tr>
+<td>
+<pre>
+
+   /*************************************
+    *
+    * Function declarations (prototypes).
+    *
+    *************************************/
+
+   /* Func1 is only visable to functions in this file. */   
+
+   <font color=red><i>static</i></font> void Func1(void);
+
+   /* Func2 is visable to all functions. */
+
+   void Func2(void); 
+
+   /*************************************
+    *
+    * Function definitions
+    *
+    *************************************/
+       
+   void Func1(void)
+   {
+     puts("Func1 called");
+   }
+   
+   /*************************************/
+   
+   void Func2(void)        
+   {
+     puts("Func2 called");
+   }
+   
+</pre>
+</td>
+</tr>
+</table>
+<p>
+If you attempted to compile this code with the following
+command,
+<p>
+
+<center>
+<table border=2 bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+   gcc main.c funcs.c   
+</pre>
+</td>
+</tr>
+</table>
+</center>
+<p>
+it will fail with an error simular to.....
+<p>
+
+<center>
+<table border=2 bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+   undefined reference to `Func1'  
+</pre>
+</td>
+</tr>
+</table>
+</center>
+<p>
+Because 'Func1' is declared as <font color=red><i>static</i></font>
+and cannot be 'seen' by 'main.c'.
+<p>
+<hr>
+<h2>Notes:</h2>
+For some reason, <font color=red><i>static</i></font> has different
+meanings in in different contexts.
+<ol>
+<li> When specified on a function declaration, it makes the
+function local to the file.
+<p>
+<li> When specified with a variable inside a function, it
+allows the vairable to retain its value between calls to
+the function. See
+<a href=../CONCEPT/storage_class.html#static>static variables</a>.
+</ol>
+It seems a little strange that the same keyword has such
+different meanings.... 
+
+<p>
+<hr>
+<h2>See Also:</h2>
+
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="../CONCEPT/storage_class.html#static">static variables</a><p>
+
+<font color=brown>
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="../../CPLUSPLUS/SYNTAX/static.htm">C++ extensions for </a>static<p>
+</font>
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

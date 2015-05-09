@@ -1,0 +1,331 @@
+
+                                 Lesson 5.
+
+                      The Pre-processor and Header Files.
+
+The pre-processor is activated by a '#' character in column one of the source
+code. There are several statements vis:
+
+#include
+
+#define
+#undef
+
+#if
+#else
+#endif
+
+#ifdef
+#ifndef
+
+#pragma
+
+  #include.
+
+  In the programming examples presented in the previous lessons you will
+probably have noticed that there is this statement:
+
+#include <stdio.h>
+
+right at the start of the program text. This statement tells the pre-processor
+to include the named file in the your program text. As far as the compiler is
+concerned this text appears just as if you had typed it yourself!
+
+  This is one of the more useful facilities provided by the 'C' language.
+The #include statement is frequently combined with the #if construct.
+In this program fragment the file "true.h" is included in your program
+if the pre-processor symbol FLAG is true, and "false.h" included if FLAG
+is false.
+
+#if ( FLAG )
+# include "true.h"
+#else
+# include "false.h"
+#endif
+
+This mechanism has many uses, one of which is to provide
+portability between all the 57,000 slightly different versions of unix and also
+other operating systems. Another use is to be able to alter the way in which
+your program behaves according to the preference of the user.
+
+Of course, you will be asking the question "Where is the file stored?".
+Well, if the filename is delimited by the "<" and ">" characters as in the
+example above the file comes from the /usr/include directory, but if the name
+of the file is delimited by quotes then the file is to be found in your current
+working directory. (This is not quite the whole truth as 'C' compilers allow
+you to extend the search path for the include files using command line option
+switches. - See your compiler manual for the whole story. )
+
+So, I would like to suggest that you to have a look around the /usr/include
+directory and its /sys sub-directory. You should use either your editor
+in 'view' mode or the pg utility. This will ensure that you can't have an
+accident and alter one of the files by mistake if you are slightly silly
+and just happen to be logged on as the super-user.
+
+A typical file to examine is usr/include/time.h.
+
+It's quite small so here it is.
+
+/*  Copyright (c) 1984 AT&T  */
+/*    All Rights Reserved    */
+
+/*  THIS IS UNPUBLISHED PROPRIETARY SOURCE CODE OF AT&T  */
+/*  The copyright notice above does not evidence any     */
+/*  actual or intended publication of such source code.  */
+
+#ident  "@(#)/usr/include/time.h.sl 1.5 4.2 04/20/87 18195 AT&T-SF"
+/*  3.0 SID #  1.2  */
+struct  tm {  /* see ctime(3) */
+  int  tm_sec;
+  int  tm_min;
+  int  tm_hour;
+  int  tm_mday;
+  int  tm_mon;
+  int  tm_year;
+  int  tm_wday;
+  int  tm_yday;
+  int  tm_isdst;
+};
+extern struct tm *gmtime(), *localtime();
+extern char *ctime(), *asctime();
+int  cftime(),  ascftime();
+extern void tzset();
+extern long timezone, altzone;
+extern int daylight;
+extern char *tzname[];
+
+  As you can see ( forgetting about the comments and #ident ) there are three
+different uses for the file.
+
+  a) The definition of data structures and types.
+  b) The declaration of functions which use the data structures.
+  c) The declaration of of external data objects.
+
+  These lines of code are all you need in your program in order to be able to
+use, in this case, the library routine to access the clock in the computer,
+but of course the paradigm applies to all programs which are created by one
+programmer and used by another member of the programming team.  Note that, by
+proxy, or whatever, the author of the library routines has in effect become
+a member of your programming team.
+
+  You might care to write a program or two which use this header file,
+and for those who are motivated it might be an idea to re-implement localtime
+so that it understands Summer Time in the Southern Hemisphere. (!)
+
+Using another totally trivial example in order to get the idea across please
+examine the hello world program printed immediately below.
+
+/* ------------------------------------------------------------ */
+
+#ident "@(#) hw_uc.h UPPER CASE version."
+
+#define HELLO_MESSAGE "HELLO WORLD...\n";
+
+/* ------------------------------------------------------------ */
+
+#ident "@(#) Hello World"
+
+#include <stdio.h>
+#include HW_H
+
+#if !defined( HELLO_MESSAGE )
+# error "You have forgotten to define the header file name."
+#endif
+
+char *format = "%s",
+     *hello = HELLO_MESSAGE;
+
+main()
+{
+  printf ( format, hello );
+  }
+
+/* ------------------------------------------------------------ */
+
+You will no doubt notice that the symbol HW_H is used instead of a header file
+name. This gives us the ability to force the inclusion of any file we wish by
+defining the symbol HW_H to be the desired file name. It can be done like this:
+
+cc -DHW_H="\"hw_uc.h\"" hello.c
+
+The compiler output is placed, by default, in the file a.out, so to execute it
+issue the command:
+
+a.out
+
+Which, fairly obviously, produces the output:
+
+HELLO WORLD...
+
+As we are going to generate another version of the program we had better move
+the executable image file to another file name:
+
+mv a.out hello_uc
+
+Now to produce the other version issue the command line:
+
+cc -DHW_H="\"hw_lc.h\"" hello.c; mv a.out hello_lc; hello_lc
+
+Which compiles the other version of the hello.c program, using this version of
+the include file:
+
+/* ------------------------------------------------------------ */
+#ident "@(#) hw_lc.h Lower Case version."
+
+#define HELLO_MESSAGE "Hello World...\n";
+/* ------------------------------------------------------------ */
+
+and then moves the executable image to a different file and executes it.
+Note that more than one command per line can be issued to the shell by
+separating the commands with the ';' delimiting character.
+Here - Surprise, Surprise - is the output of the second version.
+
+Hello World...
+
+I'd like to suggest that you use your editor to cut these example programs
+and the shell file below out of the mail file and have a play with them.
+
+/* ----------------------------------------- */
+
+# @(#) Shell file to do the compilations.
+
+cc -o hello_uc -DHW_H="\"hw_uc.h\"" hello.c
+cc -o hello_lc -DHW_H="\"hw_lc.h\"" hello.c
+
+/* ----------------------------------------- */
+
+
+#define
+
+  This statement allows you to set up macro definitions. The word immediately
+after the #define, together with its arguments, is expanded in the program
+text to the whole of the rest of the line.
+
+#define min(a, b) ((a<b) ? a : b )
+
+  Some things to note:
+
+  1) There isn't a space between the last character of the symbol being defined
+     and the opening parenthesis enclosing the arguments, and there MUST NOT BE
+     one.
+
+  2) The code into which the macro is expanded MUST always be enclosed in
+     parentheses and for safety always use parentheses to get the arithmetic
+     right.
+
+  3) Never EVER define a macro, and use it with a side effect. e.g.
+
+  c = min ( a++, b);                              /* DON'T _EVER_ DO THIS!!! */
+
+     Do you think that the value of 'a' will get advanced after the
+     macro is used? Well it WON'T. It gets incremented after the less
+     than test and before the values get assigned! I have written a tiny
+     program which uses the min macro above. Have a look at the output
+     from the pre-processor. Lesson One told you how to do this.
+     Now execute it and get an educative surprise!
+
+/* ----------------------------------------- */
+
+#include <stdio.h>
+#define min(a, b) ((a<b) ? a : b )
+
+main()
+{ int a,b,c;
+
+  a = 1;
+  b = 2;
+  c = min ( a++, b);                              /* DON'T _EVER_ DO THIS!!! */
+  printf ( "a: %d, b: %d, c: %d\n", a, b, c );
+  }
+
+/* ----------------------------------------- */
+
+  4) You can continue a macro on the next line by putting a \ ( back-slash )
+     as THE VERY LAST character on the line. NOTHING, not even a space may
+     follow, as your compiler just can't handle it. I spent far too long trying
+     to find one of those really difficult bugs, and it turned out that this
+     was the problem - spaces are transparent aren't they?
+
+  5) Using macros is fast and convenient, but they do take up a lot of memory
+     because the code is expanded and inserted into the output stream for
+     every occurrence of the macro in your code. There is a trade-off between
+     using a macro and a function.
+
+  The symbol does not have to be the handle for a macro expansion, but can just
+be equated to a single constant. This is done many times over in the header
+files provided by the operating system vendor. Have a look in
+/usr/include/sys/file.h for an example of this.
+
+#undef
+
+  Not surprisingly this preprocessor command removes a symbol WHICH IS BEING
+  USED BY THE PRE-PROCESSOR - don't confuse it with compiler proper symbols.
+
+  Note that the symbol can be a macro name, in which case the space
+  used for the code expansion is made available for re-use.
+
+#if ( FLAG )
+
+      /* Code in here is sent on to the compiler if FLAG is true. */
+
+#else
+
+      /* Code in here is sent on to the compiler if FLAG is false. */
+
+#endif
+
+  When the pre-processor encounters one of these, the lines of code between the
+#if and the corresponding #else or #endif are either skipped over or allowed to
+proceed to the compilation phase depending on the truth or falsity of the
+logical expression ( FLAG ). All the logical and boolean expressions available
+as part of the 'C' language are available here. You are also allowed to say:
+
+#if defined( FLAG )  or,
+#if !defined( FLAG )
+
+
+  The symbol FLAG may be an expression which reduces to a boolean value.
+
+  A convention which is adhered to quite well is that all pre-processor
+symbols are in UPPER_CASE so as to make them obvious.
+
+#ifdef FLAG  or,
+#ifndef FLAG
+
+  These two statements are the old fashioned way of testing whether a symbol is
+defined or not. They are absolutely the same as the previous example.
+
+  There are two more pre-processor statements, namely the #pragma and
+the "stringizing" operator. The #pragma is used to alter the way in which
+the compiler works on a block of code, but it is completely implementation
+dependant and you must refer to your compiler manual. I can't help as
+they are all different. The "stringizing" operator is quite an advanced
+technique and will be dealt with later on.
+
+Copyright notice:-
+
+(c) 1993 Christopher Sawtell.
+
+I assert the right to be known as the author, and owner of the
+intellectual property rights of all the files in this material,
+except for the quoted examples which have their individual
+copyright notices. Permission is granted for onward copying,
+but not modification, of this course and its use for personal
+study only, provided all the copyright notices are left in the
+text and are printed in full on any subsequent paper reproduction.
+
+--
+ +----------------------------------------------------------------------+
+ | NAME   Christopher Sawtell                                           |
+ | SMAIL  215 Ollivier's Road, Linwood, Christchurch, 8001. New Zealand.|
+ | EMAIL  chris@gerty.equinox.gen.nz                                    |
+ | PHONE  +64-3-389-3200   ( gmt +13 - your discretion is requested )   |
+ +----------------------------------------------------------------------+
+
+--
+ +----------------------------------------------------------------------+
+ | NAME   Christopher Sawtell                                           |
+ | SMAIL  215 Ollivier's Road, Linwood, Christchurch, 8001. New Zealand.|
+ | EMAIL  chris@gerty.equinox.gen.nz                                    |
+ | PHONE  +64-3-389-3200   ( gmt +13 - your discretion is requested )   |
+ +----------------------------------------------------------------------+

@@ -1,0 +1,80 @@
+<title>free function</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor=#ffffcc>
+<hr>
+<center>
+<h1>free function </h1>
+</center>
+<hr>
+<p>
+<b>free</b> is used to return allocated memory to the system. 
+<p>
+<hr>
+<pre>
+	Library:   <a href="funcref.htm#stdlib">sdlib.h</a>
+
+	Prototype: <a href="../SYNTAX/void.html">void</a> free(void *s);
+
+	Syntax:    char *StrPtr;
+		   StrPtr = (char *) malloc(100);
+                   free(StrPtr);
+
+</pre>
+<hr>
+<h2>Notes:</h2>
+<ul>
+<li>If you use <a href="malloc.html">malloc</a> inside a loop and dont <b>free</b>
+the memory, you run the risk of the program crashing. 
+<p>
+<li>If a program ends without issuing a <b>free</b>, any allocated memory 
+is returned to the system.
+</uL>
+<p>
+<hr>
+<h2>Examples:</h2>
+
+<img src=../../GRAPHICS/computer.gif><a href="../EXAMPLES/malloc.c"> example</a> 
+program.
+
+<hr>
+<h2>See Also:</h2>
+
+<img src=../../GRAPHICS/whiteball.gif>
+<a href="malloc.html">malloc</a> function.<p>
+
+<img src=../../GRAPHICS/whiteball.gif>
+<a href="../../CPLUSPLUS/SYNTAX/new.html">new</a> C++ replacement for malloc.<p>
+
+<img src=../../GRAPHICS/whiteball.gif>
+<a href="../../CPLUSPLUS/SYNTAX/delete.html">delete</a> C++ replacement for free.<p>
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>
+

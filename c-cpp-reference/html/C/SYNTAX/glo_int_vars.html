@@ -1,0 +1,214 @@
+<title>Global and Local variables declaration.</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>Global and Local variables.</h1>
+</center>
+<hr>
+<p>
+
+<h2>Local variables</h2>
+Local variables must always be 
+<a href="../glossary.html#definition">defined</a>
+at the top of a block.
+<p>
+<font color="brown">
+C++ has changed the rules regarding where you can define a
+local variable. 
+<a href=../../CPLUSPLUS/CONCEPT/local_var.html>Click here</a>
+for the low down.
+</font>
+<p>
+When a local variable is 
+<a href="../glossary.html#definition">defined</a> 
+- it is not initalised by the system, you
+must initalise it yourself.<p>
+A local variable is 
+<a href="../glossary.html#definition">defined</a>
+ inside a <b>block</b> and is only visable 
+from within the block.
+<p>
+<center>
+<table border=1 width="80%" bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+   main()
+   {
+       int i=4;
+       i++;
+   }
+
+</pre>
+</td>
+</tr>
+</table>
+</center>
+<p>
+When execution of the block starts the variable is
+available, and when the block ends the variable 'dies'.<p>
+A local variable is visible within nested blocks unless a variable with 
+the same name is 
+<a href="../glossary.html#definition">defined</a>
+ within the nested block.
+<p>
+<center>
+<table border=1 bgcolor=ivory width="80%">
+<tr>
+<td>
+<pre>
+
+   main()
+   {
+       int i=4;
+       int j=10;
+       
+       i++;
+      
+       if (j > 0)
+       {
+          printf("i is %d\n",i);      /* i defined in 'main' can be seen      */
+       }
+     
+       if (j > 0)
+       {
+          int i=100;                  /* 'i' is defined and so local to 
+                                       * this block */
+          printf("i is %d\n",i);      
+       }                              /* 'i' (value 100) dies here            */
+     
+       printf("i is %d\n",i);         /* 'i' (value 5) is now visable.        */
+   }
+
+</pre>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<a name="global">
+<hr width="50%" align=center>
+<h2>Global variables</h2>
+
+<font color="brown">
+C++ has enhanced the use of 
+<a href=../../CPLUSPLUS/CONCEPT/scope.html> global variables.</a>
+</font>
+<p>
+Global variables ARE initalised by the system when you 
+<a href="../glossary.html#definition">define</a>
+ them!
+<p>
+<center>
+<table border=2 width="50%" bgcolor=ivory>
+<tr align=center><td> Data Type </td><td>  Initialser </td> </tr>
+<tr align=center><td>   int     </td><td>  0    </td> </tr>
+<tr align=center><td>   char    </td><td>  '\0' </td> </tr>
+<tr align=center><td>   float   </td><td>  0    </td> </tr>
+<tr align=center><td>   pointer </td><td>  NULL </td> </tr>
+
+</table>
+</center>
+<p>
+In the next example <b>i</b> is a global variable, it can be seen and modified by
+<b> main </b>and any other functions that may reference it. 
+<p>
+<center>
+<table border=1 width="80%" bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+   int i=4;
+   
+   main()
+   {
+       i++;
+   }
+
+</pre>
+</td>
+</tr>
+</table>
+</center>
+<p>
+
+Now, this example has <b>global</b> and <b>Internal</b> variables.
+<p>
+<center>
+<table border=1 width="80%" bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+   int i=4;          /* Global definition   */
+   
+   main()
+   {
+       i++;          /* global variable     */
+       func
+   }
+
+   func()
+   {
+       int i=10;     /* Internal declaration */
+       i++;          /* Internal variable    */
+   }
+
+</pre>
+</td>
+</tr>
+</table>
+</center>
+<p>
+
+<b>i</b> in <b>main</b> is global and will be incremented to 5. <b>i</b> in
+<b>func</b> is internal and will be incremented to 11. When control returns
+to <b>main</b> the internal variable will die and and any reference to
+<b>i</b> will
+be to the global.<p>
+
+
+static variables can be 'seen' within all functions in this source file. At
+link time, the static variables defined here will not be seen by the object 
+modules that are brought in.<p>
+<hr>
+<h2>Example:</h2>
+<img src="../../GRAPHICS/computer.gif">
+<a href="../EXAMPLES/global.c">An Example program</a>.
+<hr>
+<h2>See Also:</h2>
+See <a href="../CONCEPT/storage_class.html">Storage classes</a> to see the more powerfull 
+features of variable declarations.
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>
+

@@ -1,0 +1,136 @@
+<title>Idioms</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>Idioms</h1>
+</center>
+<hr>
+<p>
+
+Here are some C idioms that may be usefull.
+
+<p><hr align=center width="50%"><p>
+Place <code>\0</code> at the location pointed to by <code>ptr</code>
+then increment <code>ptr</code>
+<p>
+<center>
+<table border=2 bgcolor=ivory>
+<tr><td>
+<pre>
+
+   *ptr++ = '\0';   
+</pre>
+</td></tr>
+</table>
+</center>
+
+<p><hr align=center width="50%"><p>
+Increment <code>ptr</code> then 
+place <code>\0</code> at the location pointed to by <code>ptr</code>
+<p>
+<center>
+<table border=2 bgcolor=ivory>
+<tr><td>
+<pre>
+
+   *++ptr = '\0';   
+</pre>
+</td></tr>
+</table>
+</center>
+
+<p><hr align=center width="50%"><p>
+This program will print its self! I guess its not of any real
+use, but I think its clever.
+<p>
+<center>
+<table border=2 bgcolor=ivory>
+<tr><td>
+<pre>
+
+  main(a) {a="main(a) {a=%c%s%c;printf(a,34,a,34);}";printf(a,34,a,34);}  
+</pre>
+</td></tr>
+</table>
+</center>
+
+<p><hr align=center width="50%"><p>
+This is something I saw out on the web. It swaps the value of two
+variables without
+using a third variable as a temporary store. 
+<p>
+<center>
+<table border=2 bgcolor=ivory>
+<tr><td>
+<pre>
+
+   one ^= two;   
+   two ^= one;
+   one ^= two;
+</pre>
+</td></tr>
+</table>
+</center>
+
+<a name=printf>
+<p><hr align=center width="50%"><p>
+
+Have you ever had a SEGV from <a href="../FUNCTIONS/printf.html">printf</a>
+because you passed a NULL pointer to a %s flag???. This idiom will put
+a stop to all that nonsence.
+<p>
+<center>
+<table border=2 bgcolor=ivory>
+<tr><td>
+<pre>
+
+   printf("%s\n", Str ? Str : "Null");   
+</pre>
+</td></tr>
+</table>
+</center>
+
+
+
+<p><hr align=center width="50%"><p>
+<p>
+<img src="../../GRAPHICS/computer.gif" alt="o">
+<a href=../EXAMPLES/swap.c>Program swapping the contents of two variables</a>.
+<p>
+
+<hr>
+<h2>See Also:</h2>
+
+<img src="../../GRAPHICS/whiteball.gif" alt="o">
+<a href="got_ya.html">Common Coding Errors</a>.<p>
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

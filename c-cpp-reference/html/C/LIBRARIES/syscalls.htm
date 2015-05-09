@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>System calls and library calls</title>
+<script language="JavaScript">
+</script>
+</head>
+
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>System calls and library calls</h1>
+</center>
+<hr>
+<p>
+
+I have wondered for sometime what the difference is between
+system calls (found in section 2 of the man pages)
+and library calls (in section 3).
+
+Its simple...
+
+<ul>
+<li>system calls are provided by the <i>system</i>
+and are executed in the system kernel. They are entry points
+into the kernel and are therefore NOT linked into your
+program. These are not portable
+calls.
+<li>Library calls include the ANSI C standard library and are
+therefore portable. These functions are linked into your program.
+</ul>
+
+It is worth noting that, because system calls are part of the
+O/S. The program has to make a context switch to the kernel
+when they are called and because of this, they have a high
+startup overhead. The upside is that the time executing these
+routines is assigned to the OS and not the user program.
+
+<p>
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

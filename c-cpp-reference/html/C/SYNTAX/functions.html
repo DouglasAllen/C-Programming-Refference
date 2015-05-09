@@ -1,0 +1,138 @@
+<title>Functions and passing arguments.</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor="#ffffcc">
+<center>
+<hr>
+<h1>Functions and passing arguments.</h1>
+<hr>
+</center>
+A function is a block of code that can be executed many times by other
+functions or its self.
+<ul>
+<li><a href=#2.1>Function basics.</a>
+<li><a href=#2.2>Declaration.</a>
+<li><a href=#2.3>Definition.</a>
+<li><a href=#2.4>Passing values.</a>
+<li><a href=#2.5>Passing pointers.</a>
+<li><a href=#2.6>Passing Arrays.</a>
+<li><a href=#2.7>Variable number of parms</a>
+<li><a href=#2.8>Function recurssion.</a>
+<li><a href=#2.9>Returning values.</a>
+<li><a href=#2.10>Returning pointers.</a>
+<font color="brown">
+<li> C++ <a href="../../CPLUSPLUS/CONCEPT/reference_variable.html">Reference variables</a> 
+<li> C++ <a href="../../CPLUSPLUS/CONCEPT/fundefault.html">Default parameters.</a> 
+<li> C++ <a href="../../CPLUSPLUS/CONCEPT/funcoverload.html">Function Overloading.</a> 
+</font>
+</ul>
+
+<hr>
+<a name=2.1><h2>Function Basics.</h2>
+You should already understand the concept of functions! If you don't, you 
+are a sad sad man....<p>
+Might expand on this one day.<p>
+P.S. main() is a function. 
+
+<a name=2.2><h2>Declaration.</h2>
+Just like variables, all functions have to be 
+<a href="../glossary.html#declaration">declared</a> before use. Here is an 
+example.
+<pre>
+        int add( int, int);
+</pre>
+This statement declares a function called <b>add</b>, it has two integer
+arguments and returns an integer.
+
+<a name=2.3><h2>Definition.</h2>
+The <a href="../glossary.html#definition">definition</a> is the meat of the 
+function. Heres an <a href="../EXAMPLES/function.c">example.</a>
+
+<a name=2.4><h2>Passing values.</h2>
+Passing values is known as <b>call by value.</b> You actually pass a copy
+of the variable to the function. If the function modifies the copy, the original 
+remains unaltered. The previous example demonstarted <b>call by value</b>
+<a name=2.5><h2>Passing pointers.</h2>
+This is known as <b>call by reference</b> and is an area worth spending some
+time on. We do not pass the data to the function, instead we pass a pointer
+to the data. This means that if the function alters the data, the original
+is altered.<p>
+<dd><img src="../../GRAPHICS/whiteball.gif">
+<a href="../EXAMPLES/pointer_func.c">  Example of passing a pointer to a scalar.</a>
+<p>
+
+<font color=brown>
+C++ has a nice feature called 
+<a href="../../CPLUSPLUS/CONCEPT/reference_variable.html">reference variables</a> 
+which is a tider
+approch to modifing the contents of a passed variable.
+</font>
+
+<a name=2.6><h2>Passing Arrays.</h2>
+<dd><img src="../../GRAPHICS/whiteball.gif">
+<a href="../EXAMPLES/pointer1_func.c">  Example of passing a pointer to an integer array.</a>
+<dd><img src="../../GRAPHICS/whiteball.gif">
+<a href="../EXAMPLES/pointer2_func.c">  Example of passing a pointer to a two 
+dimensional integer array.</a>
+<dd><img src="../../GRAPHICS/whiteball.gif">
+<a href="../EXAMPLES/pointer3_func.c">  Example of passing a pointer to a 
+character array.</a>
+<dd><img src="../../GRAPHICS/whiteball.gif">
+<a href="../EXAMPLES/pointer4_func.c">  Example of passing a two dimensional 
+character array.</a>
+<h2><a name=2.7>Variable number of parms (...)</a></h2>
+
+<dd><img src="../../GRAPHICS/whiteball.gif">
+<a href="../EXAMPLES/var_func.c">  Example of passing an unknown number
+of variables to a function</a>
+
+<dd><img src="../../GRAPHICS/man.gif">
+<a href="../MAN/va_start.htm">  Man page for va_start, va_end etc</a>
+
+<a name=2.8><h2>Function recurssion.</h2>
+<a name=2.9><h2>Returning values.</h2>
+
+Normally you would return an 'int', 'char', 'float', or 'double' using this 
+technic. The obvious time to return a value would be to return a completion
+code.
+<p>
+Here is an <a href="../EXAMPLES/function.c">example</a>
+<p>
+The contents of 'c' are copied into 'i'.
+
+<a name=2.10><h2>Returning pointers.</h2>
+
+Returning values is OK for the data types above but not very practical for 
+'char *' or structures. For these data types passing pointers can be more 
+appropriate. When using these pointers it is important to understand the
+'<a href="../CONCEPT/storage_class.html#static2">static</a>' storage class 
+otherwise you are going to get some unpredictable
+results.
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

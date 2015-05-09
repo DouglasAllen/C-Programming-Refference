@@ -1,0 +1,157 @@
+<title>Strings</title>
+<body bgcolor="#ffffcc">
+<hr>
+<center><h1>Strings.</h1></center>
+<hr>
+<p>
+<h2>Pointers to strings.</h2>
+
+C does not have a "string" <a href=data_types.html>datatype</a>.
+To create a string you have to use a <a href=arrays.html#char>char array</a>
+or a  <a href=data_types.html#char>char</a> pointer. 
+If you are not familur with <a href=arrays.html#char>char arrays</a> 
+I recomend that you read about them now. 
+<p>
+To recap, a <a href=data_types.html#char>char</a> pointer is 
+<a href=../glossary.html#definitions>defined</A> like this:
+<p>
+<table border=2 width=100% bgcolor=ivory>
+<tr><td>
+<pre>
+ 
+     main()
+     {
+       char *Text;
+     }
+     
+</pre>
+</td></tr>
+</table> 
+<p>
+
+All this program does is reserve storage that will hold an address.
+At this point the address could be anything. To initalize <b>Text</b>
+you can code:
+<p>
+<table border=2 width=100% bgcolor=ivory>
+<tr><td>
+<pre>
+    
+     main()
+     {
+       char *Text = "Thunder";
+     }
+     
+</td></tr></table>
+</pre>
+
+<b>Text</b> now has the address of the first character in <b>Thunder</B>.
+Graphically, things look like this.
+
+<pre>
+
+      (Address) (Data)
+      
+           ---- ----    
+          | F1 | 00 <------- Text   
+	  |----|----|               (Data) (Adress)
+          | F2 | 00 |                 -------------
+	  |----|----|         -------> 54 (T) | D1 |
+	  | F3 | 00 |        |       |--------|----|
+	  |----|----|  *Text |       | 68 (h) | D2 |
+	  | F4 | D1 | -------        |--------|----|
+	   ---------                 | 75 (u) | D3 |
+	                             |--------|----|
+				     | 6E (n) | D4 |
+				     |--------|----|
+                                     | 64 (d) | D5 |
+                                     |--------|----|
+                                     | 65 (e) | D6 |
+                                     |--------|----|
+                                     | 72 (r) | D7 |
+                                     |--------|----|     
+                                     | 00     | D8 |
+                                      -------------
+
+</pre>                          
+<p> 
+
+Please note the <b>00</b> at the end of <b>Thunder</b>. This is 
+the <a href=../SYNTAX/null.html>NULL</a> character and is used to mark the
+end of a string. 
+<p>
+If we wanted to O/P the data pointed to by a <b>char pointer</b>
+ we can code.
+<p>
+<table border=2 width=100% bgcolor=ivory>
+<tr align=center><td>
+<b>Source</b>
+</td></tr><tr><td>
+<pre>
+
+     main()
+     {
+       char *Text1 = "Thunder";          /* Define and initalize */
+       char *Text2;                      /* Define only          */
+       
+       Text2 = "Bird";                   /* Point to some text   */
+       
+       <a href=../FUNCTIONS/printf.html>printf</a>("%s%s\n", Text1, Text2);
+     }
+     
+</pre>
+</td></tr>
+<tr align=center><td>
+<b>Result</b>
+</td></tr><tr><td>
+<pre>
+
+      ThunderBird
+
+</pre>
+</td></tr></table>
+<p>
+
+This is all very well, but there is a MAJOR problem! <b>Thunder</b> 
+and <b>Bird</b> are 
+<a href=constants.html>constants</a>, they cannot be 
+changed in anyway. 
+We need a method of pointing to some storage that can be altered
+and true to form, C provides a function called 
+<a href=../FUNCTIONS/malloc.html>malloc</a> to do just that. 
+<p>
+
+<hr>
+<h2>See Also:</h2>
+
+<img src=../../GRAPHICS/whiteball.gif>
+<a href=../SYNTAX/void.html>VOID keyword.</a>
+<hr>
+<p>
+<center>
+<table border=2 width=80% bgcolor=ivory>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href="../FUNCTIONS/funcref.htm">Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+ 
+<hr>
+<address>Martin Leslie
+<script language="JavaScript">
+<!--  //
+document.write(document.lastModified);
+// -->
+</script>
+</address>
+
+

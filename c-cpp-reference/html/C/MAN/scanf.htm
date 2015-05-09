@@ -1,0 +1,365 @@
+<TITLE>scanf</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>SCANF(3)            Linux Programmer's Manual            SCANF(3)
+</h3>
+
+<h3>NAME
+</h3>       scanf,  fscanf,  sscanf,  vscanf, vsscanf, vfscanf - input
+       format conversion
+
+<h3>SYNOPSIS
+</h3>       #include &lt;stdio.h&gt;
+       int scanf( const char *format, ...);
+       int fscanf( FILE *stream, const char *format, ...);
+       int sscanf( const char *str, const char *format, ...);
+
+       #include &lt;stdarg.h&gt;
+       int vscanf( const char *format, va_list ap);
+       int vsscanf( const char *str, const char *format, va_list ap);
+       int vfscanf( FILE *stream, const char *format, va_list ap);
+
+<h3>DESCRIPTION
+</h3>       The scanf family of functions scans input according  to  a
+       format  as  described below.  This format may contain con-
+       version specifiers; the results from such conversions,  if
+       any,  are stored through the pointer arguments.  The scanf
+       function reads input from the standard input stream stdin,
+       fscanf  reads  input  from  the stream pointer stream, and
+       sscanf reads its input from the character  string  pointed
+       to by str.
+
+       The vfscanf function is analogous to vfprintf(3) and reads
+       input from the stream  pointer  stream  using  a  variable
+       argument  list  of  pointers  (see  stdarg(3).  The vscanf
+       function scans a variable argument list from the  standard
+       input  and  the  vsscanf  function scans it from a string;
+       these are analogous to the vprintf and vsprintf  functions
+       respectively.
+
+       Each  successive pointer argument must correspond properly
+       with each successive conversion specifier (but  see  `sup-
+       pression' below).  All conversions are introduced by the %
+       (percent sign) character.  The format string may also con-
+       tain other characters.  White space (such as blanks, tabs,
+       or newlines) in the format  string  match  any  amount  of
+       white  space,  including  none,  in the input.  Everything
+       else matches only itself.  Scanning stops  when  an  input
+       character  does  not match such a format character.  Scan-
+       ning also stops when an input conversion  cannot  be  made
+       (see below).
+
+<h3>CONVERSIONS
+</h3>       Following  the  % character introducing a conversion there
+       may be a number of flag characters, as follows:
+
+       *      Suppresses assignment.  The conversion that follows
+              occurs as usual, but no pointer is used; the result
+              of the conversion is simply discarded.
+
+       h      Indicates that the conversion will be one of  dioux
+
+
+
+<h3>BSD MANPAGE              29 November 1993                       1
+</h3>
+
+
+
+
+<h3>SCANF(3)            Linux Programmer's Manual            SCANF(3)
+</h3>
+
+              or  n  and the next pointer is a pointer to a short
+              int (rather than int).
+
+       l      Indicates either that the conversion will be one of
+              dioux  or  n and the next pointer is a pointer to a
+              long int (rather than int), or that the  conversion
+              will  be  one  of  efg  and  the  next pointer is a
+              pointer to double (rather than float).
+
+       L      Indicates that the conversion will be efg  and  the
+              next  pointer  is  a pointer to long double.  (This
+              type is not implemented; the L  flag  is  currently
+              ignored--this may not be true for Linux.)
+
+       In addition to these flags, there may be an optional maxi-
+       mum field width, expressed as a decimal  integer,  between
+       the % and the conversion.  If no width is given, a default
+       of `infinity' is used (with one exception, below);  other-
+       wise  at most this many characters are scanned in process-
+       ing the conversion.  Before conversion begins,  most  con-
+       versions skip white space; this white space is not counted
+       against the field width.
+
+       The following conversions are available:
+
+       %      Matches a literal `%'.  That is, `%%' in the format
+              string  matches  a  single input `%' character.  No
+              conversion is done, and assignment does not  occur.
+
+       d      Matches  an  optionally signed decimal integer; the
+              next pointer must be a pointer to int.
+
+       D      Equivalent to ld; this exists  only  for  backwards
+              compatibility.
+
+       i      Matches  an  optionally  signed  integer;  the next
+              pointer must be a pointer to int.  The  integer  is
+              read  in base 16 if it begins with `0x' or `0X', in
+              base 8 if it begins with `0', and in base 10 other-
+              wise.   Only characters that correspond to the base
+              are used.
+
+       o      Matches an octal integer; the next pointer must  be
+              a pointer to unsigned int.
+
+       O      Equivalent to lo; this exists for backwards compat-
+              ibility.
+
+       u      Matches an optionally signed decimal  integer;  the
+              next pointer must be a pointer to unsigned int.
+
+       x      Matches an optionally a signed hexadecimal integer;
+              the next pointer must be a pointer to unsigned int.
+
+
+
+
+<h3>BSD MANPAGE              29 November 1993                       2
+</h3>
+
+
+
+
+<h3>SCANF(3)            Linux Programmer's Manual            SCANF(3)
+</h3>
+
+       X      Equivalent   to   lx;   this   violates   the  ANSI
+              C3.159-1989 (``ANSI C'') but is backwards  compati-
+              ble  with  previous UNIX systems--I don't know what
+              Linux does with this.
+
+       f      Matches an optionally signed floating-point number;
+              the next pointer must be a pointer to float.
+
+       e      Equivalent to f.
+
+       g      Equivalent to f.
+
+       E      Equivalent   to   lf;   this   violates   the  ANSI
+              C3.159-1989 (``ANSI C'') but is backwards  compati-
+              ble  with  previous UNIX systems--I don't know what
+              Linux does with this.
+
+       F      Equivalent to lf; this exists  only  for  backwards
+              compatibility.
+
+       s      Matches  a  sequence of non-white-space characters;
+              the next pointer must be a pointer to char, and the
+              array  must  be  large  enough  to  accept  all the
+              sequence and the terminating  NUL  character.   The
+              input string stops at white space or at the maximum
+              field width, whichever occurs first.
+
+       c      Matches  a  sequence  of  width  count   characters
+              (default  1); the next pointer must be a pointer to
+              char, and there must be enough  room  for  all  the
+              characters  (no  terminating  NUL  is  added).  The
+              usual skip of leading white  space  is  suppressed.
+              To skip white space first, use an explicit space in
+              the format.
+
+       [      Matches a nonempty sequence of characters from  the
+              specified  set  of  accepted  characters;  the next
+              pointer must be a pointer to char, and  there  must
+              be  enough  room  for  all  the  characters  in the
+              string, plus  a  terminating  NUL  character.   The
+              usual  skip  of  leading white space is suppressed.
+              The string is to be made up of  characters  in  (or
+              not in) a particular set; the set is defined by the
+              characters between the open bracket [ character and
+              a  close  bracket  ]  character.   The set excludes
+              those characters if the first character  after  the
+              open bracket is a circumflex ^.  To include a close
+              bracket in the set, make  it  the  first  character
+              after the open bracket or the circumflex; any other
+              position will end the set.  The hyphen character  -
+              is  also  special;  when  placed  between two other
+              characters, it adds all intervening  characters  to
+              the  set.   To  include  a hyphen, make it the last
+              character before  the  final  close  bracket.   For
+
+
+
+<h3>BSD MANPAGE              29 November 1993                       3
+</h3>
+
+
+
+
+<h3>SCANF(3)            Linux Programmer's Manual            SCANF(3)
+</h3>
+
+              instance,  `[^]0-9-]'  means  the  set  `everything
+              except  close  bracket,  zero  through  nine,   and
+              hyphen'.   The string ends with the appearance of a
+              character not in the (or, with  a  circumflex,  in)
+              set or when the field width runs out.
+
+       p      Matches  a  pointer  value  (as  printed by `%p' in
+              printf(3); the next pointer must be  a  pointer  to
+              void.
+
+       n      Nothing is expected; instead, the number of charac-
+              ters consumed thus far from  the  input  is  stored
+              through  the  next pointer, which must be a pointer
+              to int.  This is not a conversion, although it  can
+              be suppressed with the * flag.
+
+       For  backwards  compatibility, other conversion characters
+       (except `\0') are taken as if they were `%d' or, if upper-
+       case, `%ld', and a `conversion' of `%\0' causes an immedi-
+       ate return of EOF.   The  F  and  X  conversions  will  be
+       changed in the future to conform to the
+        ANSI  C  standard,  after  which  they  will act like and
+       respectively.  The behavior of Linux on  the  non-standard
+       points is not known by this documenter.
+
+
+<h3>RETURN VALUES
+</h3>       These functions return the number of input items assigned,
+       which can be fewer than provided for, or even zero, in the
+       event  of  a matching failure.  Zero indicates that, while
+       there was input available, no conversions  were  assigned;
+       typically  this is due to an invalid input character, such
+       as an alphabetic character for  a  `%d'  conversion.   The
+       value  EOF  is  returned if an input failure occurs before
+       any conversion such as an end-of-file occurs. If an  error
+       or end-of-file occurs after conversion has begun, the num-
+       ber of conversions which were  successfully  completed  is
+       returned.
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=strtol.htm>strtol</a>, 
+<a href=strtoul.htm>strtoul</a>, 
+<a href=strtod.htm>strtod</a>, 
+<a href=getc.htm>getc</a>, 
+<a href=printf.htm>printf</a>, 
+<pre>
+
+<h3>STANDARDS
+</h3>       The  functions  fscanf,  scanf, and sscanf conform to ANSI
+       C3.159-1989 (``ANSI C'').
+
+<h3>BUGS
+</h3>       Differences for Linux are not known  at  this  time.   The
+       following is for the BSD version:
+
+       The current situation with %F and %X conversions is unfor-
+       tunate.
+
+       All of the backwards compatibility formats will be removed
+
+
+
+<h3>BSD MANPAGE              29 November 1993                       4
+</h3>
+
+
+
+
+<h3>SCANF(3)            Linux Programmer's Manual            SCANF(3)
+</h3>
+
+       in the future.
+
+       Numerical  strings  are  truncated  to 512 characters; for
+       example, %f and %d are implicitly %512f and %512d.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>BSD MANPAGE              29 November 1993                       5
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

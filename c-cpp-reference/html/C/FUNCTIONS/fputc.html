@@ -1,0 +1,77 @@
+<title>fputc function</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor="#ffffcc">
+<center>
+<hr>
+<h1>fputc function</h1>
+<hr>
+</center>
+<p>
+
+<b>fputc</b> writes one character to a file.<p>
+<hr>
+
+<pre>
+Library:   stdio.h
+
+Prototype: int fputc(int c,  FILE *stream);
+
+Syntax:    FILE *fp;
+           int  ch = 'a';
+
+           fp = <a href="fopen.html">fopen</a>("/tmp/file", "w");
+	   fputc(ch, fp);
+           <a href="fclose.html">fclose</a>(fp);
+
+</pre>
+
+<hr>
+<img src=../../GRAPHICS/computer.gif>
+<a href="../EXAMPLES/copy_file.c">
+Example program.</a> Copy a file.
+<p>
+<hr>
+<h2>Man pages</h2>
+<a href="../MAN/fputs.htm">fputc</a>
+<i>Write a character.</i>
+<p>
+<hr>
+<h2>See Also:</h2>
+<ul>
+<li><a href="fgetc.html">fgetc</a> Get a character from a file.
+<li><a href="fprintf.html">fprintf</a> Put a formatted line into a file.
+<li><a href="fopen.html">fopen</a> Open a file.
+<li><a href="popen.html">popen</a> Open a pipe.
+<li><a href="pclose.html">pclose</a> Close a pipe.
+</ul>
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>
+

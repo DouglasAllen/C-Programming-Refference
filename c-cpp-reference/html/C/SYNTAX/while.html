@@ -1,0 +1,160 @@
+<html>
+<head>
+<title>The WHILE keyword.</title>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor="#ffffcc">
+<hr>
+<center><h1>The WHILE keyword.</h1></center>
+<hr>
+The <b>while</b> keyword is related to <a href=do.html>do</a>
+and <a href=for.html>for</a>. Its purpose is to repeatedly execute
+a <a href="statements.html#blocks">block</a> of statements. Here is 
+an example :
+
+<p>
+<center>
+<table border=1 width="80%" bgcolor="ivory">
+<tr>
+<td>
+<pre>
+
+        main()
+        {
+            int i=5;
+
+            while(--i)
+            {
+                printf(" i is %d\n", i);
+            }
+        }
+</pre>
+</td>
+</tr>
+</table>
+</center>
+<p>
+
+The expression <b>i--</b> is evaluated and if its 
+<a href="../CONCEPT/true_false.html">true</a> the statements in the 
+<a href="statements.html#blocks">block</a> are executed. 
+The loop continues until the expression is false (zero).
+The result will look like this:
+
+<p>
+<center>
+<table border=1 width="80%" bgcolor="ivory">
+<tr>
+<td>
+<pre>
+                
+                i is 4
+                i is 3
+                i is 2
+                i is 1
+</pre>
+</td>
+</tr>
+</table>
+</center>
+<p>
+
+It is important to note that the statements 
+on a <b>while</b> will not get executed if the first evaluation of the
+expression is FALSE. If you do not want this to happen you may prefer
+to use the <a href="do.html">do</a> statement.
+
+<hr>
+<p>
+Now consider the next example.
+
+<p>
+<center>
+<table border=1 width="80%" bgcolor="ivory">
+<tr>
+<td>
+<pre>
+
+        main()
+        {
+            int i=5;
+
+            while(--i);
+            {
+                printf(" i is %d\n", i);
+            }
+        }
+</pre>
+</td>
+</tr>
+</table>
+</center>
+
+
+The result will look like this:
+
+
+<p>
+<center>
+<table border=1 width="80%" bgcolor="ivory">
+<tr>
+<td>
+<pre>
+
+                i is 0
+</pre>
+</td>
+</tr>
+</table>
+</center>
+
+<p>
+This is because of the <b>;</b> on the end of the <b>while</b>
+statement which means the <b>while</b> will loop (executing NULL statements)
+until <b>i</b> is zero. Execution will then continue down the program 
+(to the printf).
+<p>
+
+<hr>
+<h2>Examples:</h2>
+
+<img src="../../GRAPHICS/computer.gif" align=left alt="o">
+<a href="../EXAMPLES/while.c">Basic <b>while</b></a>.
+<br clear=left>
+
+<hr>
+<h2>See also:</h2>
+<ul>
+<li><a href="while.html">for</a> keyword.
+<li><a href="do.html">do</a> keyword.
+<li><a href="break.html">break</a> keyword.
+<li><a href="continue.html">continue</a> keyword.
+</ul>
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

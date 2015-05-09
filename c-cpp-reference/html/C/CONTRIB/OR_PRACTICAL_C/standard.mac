@@ -1,0 +1,100 @@
+#
+# This file contains the definitions for the built-in
+# macros used by troff
+#
+# The format of the file is
+#    macro <argument-list>
+#
+#    Arguments are:
+#       |       Vertical bar
+#       s       String
+#       n       Numeric expression
+#       c       Single character
+#       f       Font specification
+#       t       Three-part title
+#       
+#       If followed by a * they can be repeated 0 or more
+#       times
+#
+# Anything past a # is considered a comment
+br              # Break 
+ad s            # Adjust margins
+na              # No adjust
+nf              # No fill
+fi              # Fill
+nh              # No hyphen
+hy n            # Set hyphenation mode
+hw s*           # Specify how to hyphenate words
+hc c            # Hyphenation character
+ce n            # Center lines
+ul n            # Underline
+cu n            # Continuous underline
+uf f            # Select font for underline
+po | n          # Page offset
+ll n            # Line length
+in | n          # Indent
+ti | n          # Temporary indent
+pl | n          # Page length
+bp n            # Begin page
+pn n            # Page number
+ne n            # Specify need space
+mk s            # Mark current location
+sp | n          # Vertical space
+ps n            # Point size
+vs | n          # Vertical space
+ls n            # Line spacing
+sv n            # Save space
+os              # Output saved space
+ns              # Set no-space mode
+rs              # Set restore-space mode
+ss n            # Set character space size
+cs s n n        # Constant space mode
+ft f            # Specify font
+fp f n          # Set font position
+fz f n          # Font size request
+bd f n          # Specify how to bold a font
+lg n            # Select ligatures
+ta n*           # Specify tabs
+tc c            # Tab character
+lc c            # Leader character
+fc c s          # Field character
+lt | n          # Title length
+pc c            # Page character
+tl t            # Title
+so s            # Source another file
+nx s            # Change to another file
+pi s            # Pipe output to a program
+rd s            # Read data from keyboard
+ex s            # Exit
+tm s*           # Send message to standard output
+ds s s          # Define string
+as s s          # Append string
+de s s          # Define macro
+.               # End of macro
+rm s            # Remove macro
+rn s s          # Rename macro
+am s s          # Append to macro
+di s            # Divert to macro
+da s            # Append to diversion
+wh n s          # Set place to execute macro
+ch s n          # Change place macro executes
+dt n s          # Set diversion trap
+it n s          # Set input trap
+em s            # Set macro for end of input
+nr s n n        # Define number register
+af s c          # Assign format
+rr s            # Remove register
+mc c            # Margin character
+ec c            # Set escape character
+eo              # Turn off escape 
+cc c            # Set control character
+c2              # Set second control character
+tr s            # Translate characters
+nm n n n n      # Line number
+nn n            # No numbering
+ig s            # Ignore input
+pm s            # Print macros
+fl              # Flush output
+ab s            # Abort
+ev n            # Set environment
+\" s*           # Comment

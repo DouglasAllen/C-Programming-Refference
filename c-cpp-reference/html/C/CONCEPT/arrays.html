@@ -1,0 +1,212 @@
+<title>Arrays</title>
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>Arrays.</h1>
+</center>
+<hr>
+Arrays can be created from any of the C data types 
+<a href="data_types.html#int">int</a>,
+<a href="data_types.html#float">float</a>,
+<a href="data_types.html#char">char</a>. I start with <b>int</b> and 
+<b>float</b> 
+as these are the easiest to understand. Then move onto <b>int</b> 
+and <b>float</b> 
+multi dimentional arrays and finally <b>char</b> arrays
+<ul>
+<li><a href=#int><b>int</b> or <b>float</b> arrays.</a>
+<li><a href=#twod>two dimensional <b>int</b> or <b>float</b> arrays.</a>
+<li><a href=#char><b>char</b> arrays.</a>
+<li><a href=#chard><b>char</b> multidimentional arrays.</a>
+</ul>
+
+<a name="int">
+<hr>
+<h2>int and float arrays</h2>
+To <a href="../glossary.html#definition">define</a> an integer or 
+floating point variable you would say.
+<pre>
+	main()
+	{
+	  int   Count;		/* integer variable 		*/
+	  float Miles;		/* floating point variable	*/
+	}
+</pre>
+The syntax for an array is:
+<pre>
+	main()
+	{
+	  int   Count[5];	/* 5 element integer array	*/
+	  float Miles[10];	/* 10 element floating point array */
+	}
+</pre>
+
+Now, the <b>important</b> fact is that the elements start at 0 (ZERO), so, 
+'Count' above has elements 0, 1, 2, 3, 4. <p>
+To change the value of the 5th element we would code:
+<pre>
+	main()
+	{
+	  int Count[5];
+	  Count[4] = 20;	/* code 4 to update the 5th element */
+	}
+</pre>
+
+If we want to initalise 'Count' at <A HREF="../glossary.html#definition">definition</A> we can say:
+<pre>
+	main()
+	{
+	  int i;
+	  int Count[5]={10, 20, 30};
+	  for (i=0; i< 5; i++)
+      	  {
+   	    printf("%d ", Count[i]);
+   	  }
+	  puts("");
+	}
+</pre>
+
+The result will be:
+<pre>
+	10 20 30 0 0 
+</pre>
+We can see from the example above that the elements that have NOT been 
+initalised 
+have been set to zero.<p>
+One last thing to show you. If all the elements are being 
+initialized when the variable is being defined, the compiler can work out
+the number of elements for you. So this example will create an array 
+with 3 elements.
+<pre>
+	main()
+	{
+	  int i;
+	  int Count[]={10, 20, 30};
+	}
+</pre>
+
+Don't forget, all the stuff so far also applies to <b>float</b>.
+<p>
+
+<a name="twod">
+<hr>
+<h2>Two dimensional <b>int</b> and <b>float</b> arrays.</h2>
+
+C does not actually support multi-dimensional arrays, but you can 
+emulate them. 
+<pre>
+	main()
+	{
+	  int Count[5];
+	  int Matrix[10][4];
+	}
+</pre>
+<b>Count</b> has been seen before, it defines an array of 5 elements.<p>
+<b>Matrix</b> is defined as 10 arrays, all with 4 elements.<p>
+To initalise <b>Matrix</b> at definition, you would code the following.
+<pre>
+	main()
+	{
+	  int Matrix[4][2]={{1, 2},
+	  		    {3, 4},
+			    {5, 6},
+			    {7, 8}};
+	}
+</pre>
+Dont forget the last element will be <b>Matrix[3][1]</b>
+<p>
+
+<a name="char">
+<hr>
+<h2>char arrays.</h2>
+
+<b>char</b> arrays work in the same way as <b>int</b> and <b>float</b>
+<pre>
+	main()
+	{
+	  char Letter;
+	  char Letters[10];
+	}
+</pre>
+'Letter' can only hold one character but 'the 'Letters' array could hold 10.
+It is important to think of 'char' as an array and NOT a string.<p>
+To initalise 'char' variables you can use the following syntax.
+<pre>
+	main()
+	{
+	  char Letter='x';
+	  char Letters[10]='f','a','x',' ','m','o','d','e','m','\0';
+	  char Text[10]="fax modem";
+	}
+</pre>
+Note that the double quotes mean 'text string' and so they will add the 
+<a href=../SYNTAX/null.html>NULL</a>
+automatically. This is the only time that text can be loaded into an array
+in this way. If you want to change the contents of the array you should use 
+the function <a href=../FUNCTIONS/strcpy.html>strcpy</a>.
+<p>
+
+<a name="chard">
+<hr>
+<h2>Two dimensional char arrays.</h2>
+
+Two dimensional arrays are a different kettle of fish! We can follow the 
+rules above to define the array like this.
+<pre>
+	main()
+	{
+	  char Colours[3][6]={"red","green","blue"};
+
+	  printf ("%c \n", Colours[0][0]); 	/* O/P 'r' */
+	  printf ("%s \n", Colours[1]);    	/* O/P 'green' */
+	}
+</pre>
+
+The example above has reserved 18 consecutive bytes and created three 
+pointers into them.
+<pre>
+
+                  ---------------------
+                 |red  \0green\0blue \0|
+                  ---------------------
+                  A      A      A
+                  |      |      |
+   Colours[0] ----       |      |
+   Colours[1] -----------       |
+   Colours[2] ------------------
+
+</pre>
+<center>
+<p>
+<font size= +2>
+<a href=pointers.html>click here</a> for chat on pointers.
+</font>
+</center>
+<p>
+<hr>
+<p>
+<center>
+<table border=2 width=80% bgcolor=ivory>
+<tr align=center>
+<td width=25%>
+<a href="../cref.html">Top</a>
+</td><td width=25%>
+<a href="../master_index.html">Master Index</a>
+</td><td width=25%>
+<a href="../SYNTAX/keywords.html">Keywords</a>
+</td><td width=25%>
+<a href="../FUNCTIONS/funcref.htm">Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+ 	
+<hr>
+<address>Martin Leslie
+<script language="JavaScript">
+<!--  //
+document.write(document.lastModified);
+// -->
+</script>
+</address>

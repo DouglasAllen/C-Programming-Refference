@@ -1,0 +1,98 @@
+<TITLE>exp</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>EXP(3)              Linux Programmer's Manual              EXP(3)
+</h3>
+
+<h3>NAME
+</h3>       exp,  log, log10, pow - exponential, logarithmic and power
+       functions
+
+<h3>SYNOPSIS
+</h3>       #include &lt;math.h&gt;
+
+       double exp(double x);
+
+       double log(double x);
+
+       double log10(double x);
+
+       double pow(double x, double y);
+
+<h3>DESCRIPTION
+</h3>       The exp() function returns the value of  e  (the  base  of
+       natural logarithms) raised to the power of x.
+
+       The log() function returns the natural logarithm of x.
+
+       The log10() function returns the base-10 logarithm of x.
+
+       The  pow()  function  returns the value of x raised to the
+       power of y.
+
+<h3>ERRORS
+</h3>       The log() and log10() functions can return  the  following
+       errors:
+
+       EDOM   The argument x is negative.
+
+       ERANGE The  argument  x  is  zero.  The log of zero is not
+              defined.
+
+       The pow() function can return the following error:
+
+       EDOM   The argument x is negative and y is not an integral
+              value.  This would result in a complex number.
+
+<h3>CONFORMING TO
+</h3>       SVID 3, POSIX, BSD 4.3, ISO 9899
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=sqrt.htm>sqrt</a>, 
+<a href=cbrt.htm>cbrt</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>GNU                       June 16, 1993                         1
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href="../cref.html">Top</a>
+</td><td width=25%>
+<a href="../master_index.html">Master Index</a>
+</td><td width=25%>
+<a href="../SYNTAX/keywords.html">Keywords</a>
+</td><td width=25%>
+<a href="../FUNCTIONS/funcref.htm">Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

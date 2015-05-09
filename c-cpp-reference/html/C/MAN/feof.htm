@@ -1,0 +1,98 @@
+<TITLE>feof</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>FEOF(3)           Linux Programmer's Manual           FEOF(3)
+</h3>
+
+<h3>NAME
+</h3>       clearerr,  feof,  ferror,  fileno - check and reset stream
+       status
+
+<h3>SYNOPSIS
+</h3>       #include &lt;stdio.h&gt;
+
+       void clearerr( FILE *stream);
+       int feof( FILE *stream);
+       int ferror( FILE *stream);
+       int fileno( FILE *stream);
+
+<h3>DESCRIPTION
+</h3>       The function clearerr clears  the  end-of-file  and  error
+       indicators for the stream pointed to by stream.
+
+       The  function feof tests the end-of-file indicator for the
+       stream pointed to by stream, returning non-zero if  it  is
+       set.  The end-of-file indicator can only be cleared by the
+       function clearerr.
+
+       The function ferror tests  the  error  indicator  for  the
+       stream  pointed  to by stream, returning non-zero if it is
+       set.  The error indicator can only be reset by the  clear-
+       err function.
+
+       The  function  fileno  examines  the  argument  stream and
+       returns its integer descriptor.
+
+<h3>ERRORS
+</h3>       These functions should not fail and do not set the  exter-
+       nal variable errno.
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=open.htm>open</a>, 
+<a href=stdio.htm>stdio</a>, 
+<pre>
+
+<h3>STANDARDS
+</h3>       The  functions  clearerr,  feof,  and  ferror  conform  to
+       C3.159-1989 (``ANSI C'').
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>BSD MANPAGE              29 November 1993                       1
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

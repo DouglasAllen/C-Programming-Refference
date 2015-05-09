@@ -1,0 +1,187 @@
+<title>C Storage Classes</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+
+<body bgcolor="#ffffcc">
+<center>
+<hr>
+<h1>C Storage Classes.</h1>
+<hr>
+</center>
+<p>
+C has a concept of '<i>Storage classes</i>' which are used to define the 
+scope (visability) and life time of variables and/or functions.
+<p>
+So what Storage Classes are available?
+<p>
+<table border=2 bgcolor=ivory>
+<tr>
+<td><a href="#auto">auto</a>
+<td><a href="#register">register</a>
+<td><a href="#static">static</a>
+<td><a href="#extern">extern</a>
+<td><A HREF="../SYNTAX/typedef.html">typedef</A>
+</tr>
+</table>
+<p>
+<hr>
+<h2><a name="auto">auto - storage class</h2>
+<b>auto</b> is the default storage class for local variables.
+<pre>
+	{
+            int Count;
+            auto int Month;
+	}
+</pre>
+
+The example above defines two variables with the same storage class.
+auto can only be used within functions, i.e. local variables. <p>
+<hr>
+<h2><a name="register">register - Storage Class</h2>
+<b>register</b> is used to define local variables that should be stored 
+in a register instead of RAM. This means that the variable has a maximum size 
+equal to the register size (usually one word) and cant have the unary '&' 
+operator applied to it (as it does not have a memory location).
+<pre>
+	{
+            register int  Miles;
+	}
+</pre>
+Register should only be used for variables that require quick access - such
+as counters. It should also be noted that defining 'register' goes not mean
+that the variable will be stored in a register. It means that it MIGHT be stored
+in a register - depending on hardware and implimentation restrictions.<p>
+<hr>
+<h2><a name="static">static - Storage Class</h2>
+<b>static</b> is the default storage class for global variables. The two     
+variables below (count and road) both have a static storage class.
+<pre>
+	static int Count;
+        int Road;
+
+        {
+            printf("%d\n", Road);
+        }
+</pre>
+static variables can be 'seen' within all functions in this source file. At
+link time, the static variables defined here will not be seen by the object 
+modules that are brought in.<p>
+'static' can also be defined within a function! If this is done the variable
+is initalised at run time but is not reinitalized when the function is called.
+This is serious stuff - tread with care.
+
+<pre>
+	{
+	    static Count=1;
+        }
+</pre>
+Here is an <a href="../EXAMPLES/static.c">example</a><p>
+
+<a name="static2">
+There is one very important use for 'static'. Consider this bit of code.
+<pre>
+        char *func(void);
+
+        main()
+        {
+            char *Text1;
+            Text1 = func();
+        }
+
+        char *func(void)
+        {
+            char Text2[10]="martin";
+            return(Text2);
+        }
+</pre>
+
+Now, 'func' returns a pointer to the memory location where 'text2' starts
+BUT text2 has a storage class of 'auto' and will disappear when we exit the
+function and could be overwritten but something else. The answer is to specify
+<pre>
+	static char Text[10]="martin";
+</pre>
+The storage assigned to 'text2' will remain reserved for the duration if the 
+program.
+<p>
+<hr>
+<font color=brown>
+C++ has overloaded static, <a href="../../CPLUSPLUS/SYNTAX/static.htm">here
+are the details.</a>
+</font>
+<hr>
+<h2><a name="extern">extern - storage Class</h2>
+<b>extern</b> defines a global variable that is visable to ALL object 
+modules. When you use 'extern' the variable cannot be initalized as 
+all it does is point the variable name at a storage location that has 
+been previously defined.
+
+<table border=2 width="80%" bgcolor="ivory">
+<th align=center>
+Source 1
+</th>
+<th>
+Source 2
+</th>
+<tr>
+<td>
+<pre>
+
+extern int count;			int count=5;
+
+write()					main()
+{					{
+    printf("count is %d\n", count);         write();
+}					}
+</pre>
+</td>
+<td>
+test
+</td>
+</tr>
+</table>
+
+Count in 'source 1' will have a value of 5. If source 1 changes the 
+value of count - source 2 will see the new value. Here are some example 
+source files.
+<p>
+<a href="../EXAMPLES/extern1.c">Source 1</a><br>
+<a href="../EXAMPLES/extern2.c">Source 2</a><p>
+
+The compile command will look something like.<p>
+<pre>
+	gcc source1.c source2.c -o program
+</pre>
+
+<hr>
+<h2>See Also:</h2>
+<a href="../CONCEPT/data_types.html">Data types.</a>
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<title>True or False</title>
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>True or False.</h1>
+</center>
+<hr>
+The concept of an <a href="../CONCEPT/expressions.html">expression</a> evaluating to true or false is one of
+the corner stones of C. BUT the language derives true and false in an
+unusual way.<p>
+Basicly there is no boolean value. The number 0 is considered to be false
+and all other numbers are considered to be true....<p>
+
+Please consider the following expressions.
+
+<pre>
+	(1 == 1) 	true
+	(1 != 1)	false
+	(i  = 1)   	true
+	(i  = 0)   	false
+	(i  = 1 + 1) 	true
+</pre>
+The first two examples should be clear but the last ones need explanation .<p>
+The last three examples assign a value to a variable and a side effect of 
+assignment is to return the value assigned, it is <b>this</b> value that is tested 
+to be true or false.<p>
+Looking at the last example:
+<pre>
+	(i = 1 + 1)
+  	(i = 2)
+	(2)
+</pre>
+
+<ul>
+<li>The third expression assigns a value of 1 to <b>i</b>. 1 is considered to 
+be true because it is non-zero.
+<p>
+<li>The fourth expression assigns a value of 0 to <b>i</b>. 0 is considered to 
+be false.
+<p>
+<li>The fith expression assigns a value of 2 to <b>i</b>. 2 is considered to 
+be true, because it is non-zero.
+</ul>
+<p>
+<hr>
+<h2>See Also:</h2>
+<img src=../../GRAPHICS/whiteball.gif>
+<A HREF="../SYNTAX/enum.html">enum keyword</A>
+<hr>
+<p>
+<center>
+<table border=2 width=80% bgcolor=ivory>
+<tr align=center>
+<td width=25%>
+<a href="../cref.html">Top</a>
+</td><td width=25%>
+<a href="../master_index.html">Master Index</a>
+</td><td width=25%>
+<a href="../SYNTAX/keywords.html">Keywords</a>
+</td><td width=25%>
+<a href="../FUNCTIONS/funcref.htm">Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+ 
+<hr>
+<address>Martin Leslie
+<script language="JavaScript">
+<!--  //
+document.write(document.lastModified);
+// -->
+</script>
+</address> Corrections made by Christopher Wolf
+<! cwolf@tools.micro.ti.com>
+
+

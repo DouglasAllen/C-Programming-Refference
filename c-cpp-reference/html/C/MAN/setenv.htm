@@ -1,0 +1,98 @@
+<TITLE>setenv</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>SETENV(3)           Linux Programmer's Manual           SETENV(3)
+</h3>
+
+<h3>NAME
+</h3>       setenv - change or add an environment variable
+
+<h3>SYNOPSIS
+</h3>       #include &lt;stdlib.h&gt;
+
+       int setenv(const char *name, const char *value, int overwrite);
+
+       void unsetenv(const char *name);
+
+<h3>DESCRIPTION
+</h3>       The  setenv() function adds the variable name to the envi-
+       ronment with the value value, if  name  does  not  already
+       exist.   If  name  does exist in the environment, then its
+       value is changed to value if  overwrite  is  non-zero;  if
+       overwrite  is zero, then the value of name is not changed.
+
+       The unsetenv() function deletes the variable name from the
+       environment.
+
+<h3>RETURN VALUE
+</h3>       The  setenv()  function  returns zero on success, or -1 if
+       there was insufficient space in the environment.
+
+<h3>CONFORMING TO
+</h3>       BSD 4.3
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=getenv.htm>getenv</a>, 
+<a href=putenv.htm>putenv</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>BSD                       April 4, 1993                         1
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

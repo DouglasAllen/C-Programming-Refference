@@ -1,0 +1,168 @@
+<TITLE>unlink</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>UNLINK(2)           Linux Programmer's Manual           UNLINK(2)
+</h3>
+
+<h3>NAME
+</h3>       unlink - delete a name and possibly the file it refers to
+
+<h3>SYNOPSIS
+</h3>       #include &lt;unistd.h&gt;
+
+       int unlink(const char *pathname);
+
+<h3>DESCRIPTION
+</h3>       unlink  deletes  a  name from the filesystem. If that name
+       was the last link to a file and no processes have the file
+       open  the  file  is  deleted and the space it was using is
+       made available for reuse.
+
+       If the name was the last link to a file but any  processes
+       still have the file open the file will remain in existence
+       until the last file descriptor referring to it is  closed.
+
+       If  the  name  referred  to  a  symbolic  link the link is
+       removed.
+
+       If the name referred to a socket, fifo or device the  name
+       for it is removed but processes which have the object open
+       may continue to use it.
+
+<h3>RETURN VALUE
+</h3>       On success, zero is returned.  On error, -1  is  returned,
+       and errno is set appropriately.
+
+<h3>ERRORS
+</h3>       EFAULT  pathname  points  outside  your accessible address
+               space.
+
+       EACCES  Write access to the directory containing  pathname
+               is not allowed for the process's effective uid, or
+               one of the directories in pathname did  not  allow
+               search (execute) permission.
+
+       EPERM   The  directory containing pathname has the sticky-
+               bit (S_ISVTX) set and the process's effective  uid
+               is  neither  the uid of the file to be deleted nor
+               that of the directory containing it.
+
+       ENAMETOOLONG
+               pathname was too long.
+
+       ENOENT  A directory component in pathname does  not  exist
+               or is a dangling symbolic link.
+
+       ENOTDIR A  component  used  as  a directory in pathname is
+               not, in fact, a directory.
+
+       EISDIR  pathname refers to a directory.
+
+
+
+
+<h3>Linux                      24 July 1993                         1
+</h3>
+
+
+
+
+<h3>UNLINK(2)           Linux Programmer's Manual           UNLINK(2)
+</h3>
+
+       ENOMEM  Insufficient kernel memory was available.
+
+       EROFS   pathname refers to a file on a read-only  filesys-
+               tem.
+
+<h3>CONFORMING TO
+</h3>       SVID, AT&T, POSIX, X/OPEN, BSD 4.3
+
+<h3>BUGS
+</h3>       Infelicities  in the protocol underlying NFS can cause the
+       unexpected disappearance of files which  are  still  being
+       used.
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=link.htm>link</a>, 
+<a href=rename.htm>rename</a>, 
+<a href=../FUNCTIONS/open.html>open</a>, 
+<a href=rmdir.htm>rmdir</a>, 
+<a href=mknod.htm>mknod</a>, 
+<a href=remove.htm>remove</a>, 
+<a href=rm.htm>rm</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Linux                      24 July 1993                         2
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

@@ -1,0 +1,143 @@
+<title>Constants</title>
+<body bgcolor="#ffffcc">
+<hr>
+<center><h1>Constants</h1></center>
+<hr>
+Be sure you understand the difference between a 'constant' and a 
+<a href=../glossary.html#declaration>declaration</a>.
+A constant has a value that cannot be changed. For example:
+<pre>
+
+	1234
+	'x'
+	9.89
+	"String"
+
+</pre>
+Constants are used to assign a value to a variable. E.G
+<pre>
+	int i;		/* declare a variable called 'i'	*/
+	i=1234;		/* assign the constant value 1234 to 
+			 * the variable 'i'			*/
+        i++;		/* Change the value of the variable.	*/
+</pre>
+<ul>
+<li><a href="#int">Integer constants.</a>
+<li><a href="#float">Floating point constants.</a>
+<li><a href="#char">Character constants.</a>
+<li><a href="#str">String constants.</a>
+</ul>
+<hr>
+<h2><a name=int>Integer constants.</h2>
+Interger constants can be expressed in the following ways.
+<pre>
+	1234	(decimal)
+	0xff	(Hexidecimal)
+	0100	(Octal)
+	'\xf'	(Hex character)
+</pre>
+Examples of their use are:
+<pre>
+	int i=255;	/* i assigned the decimal value of 255	*/
+
+	i-=0xff		/* subtract 255 from i			*/
+
+	i+=010		/* Add Octal 10 (decimal 8)		*/
+
+			/* Print 15 - there are easier ways...	*/
+	printf ("%i \n", '\xf'); 
+
+</pre>
+Integer constants are assumed to have a datatype of 
+<a href=data_types.html#int> int</a>, if it will not fit into an 'int'
+the compiler will assume the constant is a 
+<a href=data_types.html#modifier>long</a>. You may also force the 
+compiler to use 'long' by putting an 'L' on the end of the 
+integer constant.
+<pre>
+        1234L           /* Long int constant (4 bytes)          */
+</pre>
+The other modifier is 'U' for Unsigned.
+<pre>
+        1234U           /* Unsigned int                         */
+</pre>
+and to complete the picture you can specify 'UL'
+<pre>
+        1234UL          /* Unsigned long int                    */
+</pre>
+
+<hr>
+<h2><a name=float>Floating point constants.</h2>
+Floating point constants contain a decimal point or exponent. By default
+they are <a href=data_types.html#double>double</a>.
+<pre>
+	123.4
+	1e-2
+
+	
+<hr>
+</pre>
+<h2><a name=char>Chararacter constants.</h2>
+Are actually integers.
+<pre>
+	'x'
+	'\000'
+	'\xhh'
+
+	<a href=../FUNCTIONS/escape.html>escape sequences</a>
+
+</pre>
+
+<hr>
+</pre>
+<h2><a name=str>String constants.</h2>
+
+Strings do not have a <a href=data_types.html>datatype</a> of their own. 
+They are actually a sequence of char items terminated with a 
+<a href=../SYNTAX/null.html>\0</a>. A string can be accessed with a 
+<b>char</b> pointer. 
+<p>
+An example of a string would be:
+<pre>
+
+	char *Str = "String Constant";
+
+</pre>
+
+See the discussion on <a href=../CONCEPT/string.html>
+strings</a> for more information.
+<p>
+
+<hr>
+<h2>Also see:</h2>
+<ul>
+<li><a href=../SYNTAX/define_preprocessor.html>#define</a>
+<li><a href=../CONCEPT/string.html>Strings</a>
+</ul>
+<hr>
+<p>
+<center>
+<table border=2 width=80% bgcolor=ivory>
+<tr align=center>
+<td width=25%>
+<a href="../cref.html">Top</a>
+</td><td width=25%>
+<a href="../master_index.html">Master Index</a>
+</td><td width=25%>
+<a href="../SYNTAX/keywords.html">Keywords</a>
+</td><td width=25%>
+<a href="../FUNCTIONS/funcref.htm">Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+ 
+<hr>
+<address>Martin Leslie
+<script language="JavaScript">
+<!--  //
+document.write(document.lastModified);
+// -->
+</script>
+</address>

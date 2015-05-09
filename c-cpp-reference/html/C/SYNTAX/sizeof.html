@@ -1,0 +1,130 @@
+<title>The sizeof operator</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>The sizeof operator</h1>
+</center>
+<hr>
+<p>
+<b>sizeof</b> will return the number of bytes reserved for a variable or 
+<a href="../CONCEPT/data_types.html">data type</a>. 
+<p>
+The following code shows <b>sizeof</b> returning the length of a data type. 
+<p>
+<table border=2 width="100%" bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+        /* How big is an int? expect an answer of 4. */
+	
+	main()
+ 	{
+	   printf("%d \n", sizeof(int));
+        }
+</pre>
+</td>
+</tr>
+</table>
+<p>
+	   
+<b>sizeof</b> will also return the number of bytes reserved for a 
+<a href="struct.html">structure</a>.
+<p>
+<table border=2 width="100%" bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+        /* Will print 8 on most machines. */
+	
+        main()
+	{
+	  struct 
+	  {
+	    int a;
+	    int b;
+	  } TwoInts;
+	
+	printf("%d \n", sizeof(TwoInts));
+	}
+	
+</pre>
+</td>
+</tr>
+</table>
+<p>
+Finally, <b>sizeof</b> will return the length of a variable. 
+
+<p>
+<table border=2 width="100%" bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+	main()
+	{
+	  char String[20];
+	  
+	  printf ("%d \n", sizeof String);
+ 	  printf ("%d \n", sizeof (String));
+        }
+
+</pre>
+</td>
+</tr>
+</table>
+<p>
+In the example above I have printed the size of 'String' twice. This is to 
+show that when dealing with variables, the brackets are optional. 
+
+I recommend that you always place the brackets around the sizeof argument.
+<p>
+<hr>
+<h2>Examples:</h2>
+<a href="../EXAMPLES/sizeof.c">Example 1</a> Data types.
+<p>
+<a href="../EXAMPLES/sizeof1.c">Example 2</a> Data objects.
+
+<p>
+<hr>
+<h2>See also:</h2>
+<img src="../../GRAPHICS/whiteball.gif">
+The <a href="../FUNCTIONS/strlen.html">strlen </a>function.
+<p>
+<img src="../../GRAPHICS/whiteball.gif">
+Other <a href="../CONCEPT/expressions.html">operators</a>
+<p>
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="../FUNCTIONS/malloc.html">malloc</a> function.
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

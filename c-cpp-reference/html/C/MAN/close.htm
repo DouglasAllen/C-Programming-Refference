@@ -1,0 +1,100 @@
+<TITLE>close</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>CLOSE(2)            Linux Programmer's Manual            CLOSE(2)
+</h3>
+
+<h3>NAME
+</h3>       close - close a file descriptor
+
+<h3>SYNOPSIS
+</h3>       #include &lt;unistd.h&gt;
+
+       int close(int fd);
+
+<h3>DESCRIPTION
+</h3>       close  closes  a  file  descriptor,  so  that it no longer
+       refers to any file and may be reused.
+
+       If fd is the last copy of a particular file descriptor the
+       resources  associated  with  it are freed; for example any
+       locks held are removed and if the descriptor was the  last
+       reference  to  a  file which has been removed using unlink
+       the file is deleted.
+
+<h3>RETURN VALUE
+</h3>       close returns zero on success, or -1 if an error occurred.
+
+<h3>ERRORS
+</h3>       EBADF  fd isn't a valid open file descriptor.
+
+<h3>CONFORMING TO
+</h3>       SVID, AT&T, POSIX, X/OPEN, BSD 4.3
+
+<h3>NOTES
+</h3>       Not  checking  the  return  value of close is a common but
+       nevertheless  serious  programming  error.   File   system
+       implementations  which  use techniques as ``write-behind''
+       to increase performance may lead to  write(2)  succeeding,
+       although  the  data  has  not been written yet.  The error
+       status may be reported at a later write operation, but  it
+       is  guaranteed  to  be  reported on closing the file.  Not
+       checking the return value when closing the file  may  lead
+       to  silent  loss of data.  This can especially be observed
+       with NFS and disk quotas.
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=../FUNCTIONS/open.html>open</a>, 
+<a href=fcntl.htm>fcntl</a>, 
+<a href=shutdown.htm>shutdown</a>, 
+<a href=unlink.htm>unlink</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        February 18, 1995                       1
+
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

@@ -1,0 +1,185 @@
+<title>CLASS keyword</title>
+<!-- Changed by: Martin Leslie, 14-Mar-1996 -->
+<body bgcolor=#dddddd>
+<font color=brown>
+<hr>
+<center><h1>class keyword</h1></center>
+<hr>
+<p>
+The concept of a class 
+allows you to 
+<a href=../../C/glossary.html#encapsulation>encapsulate</a>
+ a set of related variables and only 
+allow access to them via predetermined functions. 
+<p>
+
+The <b>class</b> keyword is used to declare the group of variables
+and functions and the visability of the variables and functions.
+Here is a basic example.
+
+<p>
+<center>
+<table width="80%" border="1" bgcolor="ivory">
+<tr>
+<td>
+<pre>
+
+    class String 
+    {
+    public:
+  
+        void Set(char *InputStr)   // Declare an Access function
+        { 
+            strcpy(Str, InputStr); 
+        }
+
+    private:
+        
+        char Str[80];      // Declare a hidden variable.
+  
+    };
+</pre>
+</td>
+</tr>
+</table>
+</center>
+<p>
+
+<ul>
+<li><b>private:</b> means that all variables and functions that 
+    follow are only visable from within the class.
+    
+<li><b>public:</b> all functions and variables that follow this
+    statement can be accessed from outside the class.
+</ul>
+
+Now we have declared a class called <b>String</b> we need to 
+use it.
+<p>
+<center>
+<table width="80%" border="1" bgcolor="ivory">
+<tr>
+<td>
+<pre>
+
+    main()
+    {
+        String Title;
+        
+        Title.Set("My First Masterpiece.");
+    }
+</pre>
+</td>
+</tr>
+</table>
+</center>
+<p>
+
+This code creates a String 
+<a href=../../C/glossary.html#class_object>object</a> 
+called Title and then uses the <b>Set</b> member function
+to initialise the value of <b>Str</b>. 
+<p>
+In C++ the member function <b>Set</b> is also known as a 
+<a href=../../C/glossary.html#method>method</a> 
+<p>
+This is the strength
+of object oriented programming, the ONLY way to change 
+<b>Str</b> is via the <b>Set</b> method.
+
+<p>
+
+The final code example brings the last two examples together
+ands a new method (called Get) that shows the contents of
+<b>Str</b>
+
+<p>
+<center>
+<table width="80%" border="1" bgcolor="ivory">
+<tr>
+<td>
+<pre>
+
+    #include &lt;stdlib.h&gt;
+    #include &lt;iostream.h&gt;               // Instead of stdio.h
+
+    class String 
+    {
+    public:
+  
+        void Set(char *InputStr)   // Declare an Access function
+        { 
+            strcpy(Str, InputStr); 
+        }
+    <b>    
+    char *Get(void)                // Declare an Access function
+        { 
+            return(Str); 
+        }
+    </b>    
+
+    private:
+        
+        char Str[80];      // Declare a hidden variable.
+  
+    };
+
+    main()
+    {
+        String Title;
+        
+        Title.Set("My First Masterpiece.");
+        
+        <b>cout << Title.Get() << endl;</b>
+    }
+</pre>
+</td>
+</tr>
+</table>
+</center>
+<p>
+
+ 
+<hr>
+<h2>Examples:</h2>
+<img src="../../GRAPHICS/computer.gif">
+<a href="../EXAMPLES/class1.cc">Example program.</a>
+<hr>
+<h2>See Also:</h2>
+
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="../CONCEPT/constructor.html">Constructors and destructors.</a>
+<p>
+<img src="../../GRAPHICS/whiteball.gif">
+<a href="../CONCEPT/inheritance.html">Class Inheritance.</a>
+<hr>
+
+</font>
+<font color=black>
+<h2>C References</h2>
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width=80% bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">Top</a>
+</td><td width="25%">
+<a href="../../C/master_index.html">Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">C++ Keywords</a>
+</td><td width="25%">
+<a href="../../C/FUNCTIONS/funcref.htm">Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<font color=brown>
+<address>Martin Leslie 
+08-Feb-96</address><p>
+</font>
+

@@ -1,0 +1,100 @@
+<TITLE>fflush</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>FFLUSH(3)           Linux Programmer's Manual           FFLUSH(3)
+</h3>
+
+<h3>NAME
+</h3>       fflush, fpurge - flush a stream
+
+<h3>SYNOPSIS
+</h3>       #include &lt;stdio.h&gt;
+
+       int fflush( FILE *stream);
+       int fpurge( FILE *stream);
+
+<h3>DESCRIPTION
+</h3>       The  function  fflush  forces a write of all buffered data
+       for the given output or update  stream  via  the  stream's
+       underlying  write function.  The open status of the stream
+       is unaffected.
+
+       If the stream argument is NULL, fflush  flushes  all  open
+       output streams. (Does this happen under Linux)
+
+       The function fpurge erases any input or output buffered in
+       the given stream.  For output streams  this  discards  any
+       unwritten  output.   For  input  streams this discards any
+       input read from the underlying object but not yet obtained
+       via  getc(3);  this  includes  any  text  pushed  back via
+       ungetc.
+
+<h3>RETURN VALUES
+</h3>       Upon successful completion 0 is returned.  Otherwise,  EOF
+       is  returned and the global variable errno is set to indi-
+       cate the error.
+
+<h3>ERRORS
+</h3>       EBADF  Stream is not an open stream, or, in  the  case  of
+              fflush, not a stream open for writing.
+
+       The function fflush may also fail and set errno for any of
+       the errors specified for the routine write(2).
+
+<h3>BUGS
+</h3>       Linux may not support fpurge.
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=write.htm>write</a>, 
+<a href=fopen.htm>fopen</a>, 
+<a href=fclose.htm>fclose</a>, 
+<a href=setbuf.htm>setbuf</a>, 
+<pre>
+
+<h3>STANDARDS
+</h3>       The fflush function conforms to ANSI  C3.159-1989  (``ANSI
+       C'').
+
+
+
+
+
+
+
+
+
+
+
+<h3>BSD MANPAGE              29 November 1993                       1
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

@@ -1,0 +1,165 @@
+<TITLE>lseek</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>LSEEK(2)            Linux Programmer's Manual            LSEEK(2)
+</h3>
+
+<h3>NAME
+</h3>       lseek - reposition read/write file offset
+
+<h3>SYNOPSIS
+</h3>       #include &lt;unistd.h&gt;
+
+       off_t lseek(int fildes, off_t offset, int whence);
+
+<h3>DESCRIPTION
+</h3>       The  lseek  function  repositions  the  offset of the file
+       descriptor fildes to the argument offset according to  the
+       directive  whence.   The  argument  fildes must be an open
+       file  descriptor.   Lseek  repositions  the  file  pointer
+       fildes as follows:
+
+              If  whence is SEEK_SET, the offset is set to offset
+              bytes.
+
+              If whence is SEEK_CUR, the offset  is  set  to  its
+              current location plus offset bytes.
+
+              If  whence  is  SEEK_END,  the offset is set to the
+              size of the file plus offset bytes.
+
+       The lseek function allows the file offset to be set beyond
+       the  end  of the existing end-of-file of the file. If data
+       is later written at this point, subsequent  reads  of  the
+       data in the gap return bytes of zeros (until data is actu-
+       ally written into the gap).
+
+       Some devices are incapable of seeking.  The value  of  the
+       pointer associated with such a device is undefined.
+
+<h3>RETURN VALUES
+</h3>       Upon  successful  completion,  lseek returns the resulting
+       offset location as measured in bytes from the beginning of
+       the  file.  Otherwise, a value of -1 is returned and errno
+       is set to indicate the error.
+
+<h3>ERRORS
+</h3>       EBADF  Fildes is not an open file descriptor.
+
+       ESPIPE Fildes is associated with a pipe, socket, or  FIFO.
+
+       EINVAL Whence is not a proper value.
+
+<h3>CONFORMS TO
+</h3>       POSIX, BSD 4.3
+
+<h3>BUGS
+</h3>       This  document's  use  of whence is incorrect English, but
+       maintained for historical reasons.
+
+
+
+
+
+<h3>Linux 1.2.9                10 June 1995                         1
+</h3>
+
+
+
+
+<h3>LSEEK(2)            Linux Programmer's Manual            LSEEK(2)
+</h3>
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=dup.htm>dup</a>, 
+<a href=open.htm>open</a>, 
+<a href=fseek.htm>fseek</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Linux 1.2.9                10 June 1995                         2
+</h3>
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

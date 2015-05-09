@@ -1,0 +1,36 @@
+Test file for the troff line program
+.tm this is a test
+    .tm test is more test
+.tm test once again
+.xx this is an error
+Test of macro that has no arguments
+.br
+Put an argument where there should be none
+.br
+Expect string argument
+.tm string
+Two strings
+.tm string string
+Integer
+.br
+12+34
+String where number expected
+.br
+test
+Vertical bar
+.lt |0
+No vertical bar
+.lt 0
+Font check
+Bad font check
+Character
+'left'middle'right'
+bad
+'bad
+'bad'bad
+'bad'bad'
+"quoted string"
+"almost quoted string
+.sp 12.0
+Cause an expression error
+.sp 12.0_12.0   

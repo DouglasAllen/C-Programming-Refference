@@ -1,0 +1,86 @@
+<title>time and date related functions</title>
+
+<head>
+<script language="JavaScript">
+</script>
+</head>
+
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>time and date related functions.</h1>
+</center>
+<hr>
+<p>
+The following information gives a taste of the date and time related functions.
+It stikes me that this is overly complicated, but what do I know...
+To review all the functions available in the standard library, 
+<a href="funcref.htm#time">click here</a>.
+<p>
+<center>
+<table border=2 bgcolor="ivory">
+<tr>
+<td>
+<pre>
+
+  Library:   time.h
+
+  Prototype: char *asctime( const struct tm *time);
+             char *ctime(const time_t *timer);
+             struct tm *localtime(const time_t *timer);
+             size_t strftime(char *s, 
+          		     size_t maxsize, 
+		   	     const *format,
+	   		     const struct tm *time);
+
+  Syntax:    
+
+</pre>
+</td>
+</tr>
+</table>
+</center>
+<p>
+The prototype list does NOT list all the functions that are 
+described in time.h - only the ones I have used and shown in the 
+example that follows.<p>
+
+<img src="../../GRAPHICS/computer.gif">
+<a href="../EXAMPLES/time.c">Example program.</a>
+<p>
+<img src=../../GRAPHICS/whiteball.gif>
+<a href=../PROBLEMS/problems.html#yesterday>Here is a time related problem.</a>
+<p>
+<hr>
+<h2>See also:</h2>
+<ul>
+<li><a href=funcref.htm#time>time.h</a> standard library.
+</ul>
+
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

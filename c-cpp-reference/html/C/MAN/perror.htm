@@ -1,0 +1,98 @@
+<TITLE>perror</TITLE>
+<body bgcolor="#ffffcc">
+<hr>
+<pre>
+
+
+
+<h3>PERROR(3)               Library functions               PERROR(3)
+</h3>
+
+<h3>NAME
+</h3>       perror - print a system error message
+
+<h3>SYNOPSIS
+</h3>       #include &lt;stdio.h&gt;
+
+       void perror(const char *s);
+
+<h3>DESCRIPTION
+</h3>       perror  produces  a  message on the standard error output,
+       describing the last error encountered during a call  to  a
+       system  or  library  function.   The  argument string s is
+       printed first, then a colon and a blank, then the  message
+       and  a  new-line.   To be of most use, the argument string
+       should include the name of the program that  incurred  the
+       error.   The error number is taken from the external vari-
+       able errno, which is set when errors occur but not cleared
+       when non-erroneous calls are made.
+
+<h3>CONFORMING TO
+</h3>       ANSI C, POSIX
+
+</pre>
+<hr>
+<h3>SEE ALSO
+</h3><p>
+<a href=errno.htm>errno</a>, 
+<a href=strerror.htm>strerror</a>, 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          March 16, 1995                        1
+
+
+</pre>
+<P>
+<hr>
+<p>
+<center>
+<table border=2 width=80%>
+<tr align=center>
+<td width=25%>
+<a href=../cref.html>Top</a>
+</td><td width=25%>
+<a href=../master_index.html>Master Index</a>
+</td><td width=25%>
+<a href=../SYNTAX/keywords.html>Keywords</a>
+</td><td width=25%>
+<a href=../FUNCTIONS/funcref.htm>Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+
+This manual page was brought to you by <i>mjl_man V-2.0</i>

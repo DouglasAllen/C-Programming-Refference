@@ -1,0 +1,134 @@
+<title>Directory functions.</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor="#ffffcc">
+<hr>
+<center>
+<h1>Directory functions</h1>
+</center>
+<hr>
+<p>
+
+OK. First things first. These functions are NOT part of the ANSI standard
+library. They may not be supported on your platform. 
+<p>
+
+Here is a quick summary of each function, they are listed in the order in 
+which you may want to execute them.
+</ul>
+<li><b>opendir</b> Open a directory stream.
+<li><b>readdir</b> read the current entry in the stream.
+<li><b>scandir</b> Find an entry in a direcory.
+<li><b>seekdir</b> Jump to a directory offset.
+<li><b>telldir</b> Return the current location within the directory stream.
+<li><b>rewinddir</b> Return to the start of the directory stream.
+<li><b>closedir</b> Close a directory.
+</ul>
+
+<hr>
+
+<table bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+  Library:   dirent.h
+
+  Prototype: DIR *opendir(const char *name);
+
+             struct dirent *readdir(DIR *dir);
+
+             int scandir(const char *dir, struct dirent ***namelist,  
+                 int (*select)(const struct dirent *),
+                 int (*compar)(const void *, const void *));
+		
+	     void seekdir(DIR *dir, off_t offset);
+
+	     off_t telldir(DIR *dir);
+
+	     void rewinddir(DIR *dir);
+
+	     int closedir(DIR *dir);
+</pre>
+</td>
+</tr>
+</table>
+
+The dirent structure does not seem to be documented in the man pages, 
+so here it is.
+<p>
+<table bgcolor=ivory>
+<tr>
+<td>
+<pre>
+
+	struct dirent 
+	{
+          long            d_ino;
+       	  off_t           d_off;
+       	  unsigned short  d_reclen;
+       	  char            d_name[NAME_MAX+1];
+	};
+</pre>
+</td>
+</tr>
+</table>
+
+<img src=../../GRAPHICS/computer.gif>
+<a href="../EXAMPLES/dir.c"> example program</a> using opendir, readdir and closedir.
+<p>
+<hr>
+<h2>See Also:</h2>
+<img src=../../GRAPHICS/whiteball.gif>
+<a href=stat.html>stat</a> function.
+<p>
+<hr>
+<h2>man Pages:</h2>
+<img src=../../GRAPHICS/man.gif>
+<a href="../MAN/opendir.htm">opendir</a>
+<img src=../../GRAPHICS/man.gif>
+<a href="../MAN/readdir.htm">readdir</a>
+<img src=../../GRAPHICS/man.gif>
+<a href="../MAN/scandir.htm">scandir</a>
+<img src=../../GRAPHICS/man.gif>
+<a href="../MAN/seekdir.htm">seekdir</a>
+<img src=../../GRAPHICS/man.gif>
+<a href="../MAN/telldir.htm">telldir</a>
+<img src=../../GRAPHICS/man.gif>
+<a href="../MAN/rewinddir.htm">rewinddir</a>
+<img src=../../GRAPHICS/man.gif>
+<a href="../MAN/closedir.htm">closedir</a>
+
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>
+
+
+
+
+

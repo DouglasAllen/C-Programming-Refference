@@ -1,0 +1,760 @@
+<html>
+<head>
+<title>C Functions - Quick Ref</title>
+
+<script language="JavaScript">
+
+function W(Str)
+{
+    document.writeln(Str);
+}
+
+function Line(Image, Href, Link, Desc)
+{
+    HSize = 14;
+    WSize = 26;
+    
+  if (Image == "man")
+  {
+    HSize = 21;
+    WSize = 26;
+  }
+
+  if (Image == "computer")
+  {
+    HSize = 30;
+    WSize = 27;
+  }
+  
+  var Text = "";
+  Text = "<dt> ";
+  Text += "<img src=\"../../GRAPHICS/" + Image + ".gif\" alt=\"o\" height=" + HSize +" width=" + WSize + "> ";
+  Text += "<dd>";
+  Text += "<a href=" + Href + " target=\"_top\">";
+  Text += Link + " </a>";
+  Text += Desc;
+  W(Text);
+}
+
+</script>
+
+</head>
+
+<body bgcolor="ffffcc">
+<hr>
+<center>
+<img src=../../GRAPHICS/function.gif alt="Functions">
+</center>
+<hr>
+<p>
+This is a summary of
+<a href="../glossary.html#ansi">ANSI</a> and         
+<a href="../glossary.html#posix">POSIX</a> functions grouped by library. If you want an alphabetical
+list, please use the <a href="../master_index.html">master index</a>.
+Please refer
+to a manual for a complete list of functions available to you.
+<p>
+ 
+  <ul>
+  <li><a href="#headers">ANSI standard library.</a>
+  <li><a href="#posix">POSIX library.</a>
+  <li><a href="#NONANSI">Non Standard functions from CONIO.H</a>
+  <li><a href="#NONANSIUNIX">Non ANSI Standard Unix functions</a>
+  <li><a href="#USER">User written functions.</a>
+  <li><a href="arglists.html">Variable length argument lists.</a>
+  </ul>
+  <p>
+
+  <hr>
+  <a name="ANSI">
+  <a name="headers">
+  <h2>ANSI standard library.</h2>
+
+  The ANSI library is declared in the following header files.
+  <p>
+  <table border=2 width=100% bgcolor=ivory>
+  <tr align=center><td>
+  <a href="#assert">assert.h</a>
+  </td><td>
+
+  <a href="#ctype">ctype.h</a>
+  </td><td>
+
+  <a href="#errno">errno.h</a>
+  </td><td>
+
+  <a href="#float">float.h</a> 
+  </td><td>
+
+  <a href="#limits">limits.h</a>
+  </td>
+  </tr><tr align=center>
+  <td>
+  <a href="#locale">locale.h</a>
+  </td><td>
+
+  <a href="#math">math.h</a>
+  </td><td>
+
+  <a href="#setjmp">setjmp.h</a>
+  </td><td>
+
+  <a href="#signal">signal.h</a>
+  </td><td>
+
+  <a href="#stdarg">stdarg.h</a>
+  </td>
+  </tr><tr align=center>
+  <td>
+  <a href="#stddef">stddef.h</a>
+  </td><td>
+
+  <a href="#stdio">stdio.h</a>
+  </td><td>
+
+  <a href="#stdlib">stdlib.h</a>
+  </td><td>
+
+  <a href="#string">string.h</a>
+  </td><td>
+
+  <a href="#time">time.h</a>
+  </td>
+  </tr>
+  </table>
+
+  <p>
+  <a name=posix>
+  <hr>
+  <h2>POSIX library</h2>
+  The <a href="../glossary.html#posix">POSIX</a> library contains 
+  the following headers.
+  <p>
+
+  <table border=2 width=100% bgcolor=ivory>
+  <tr align=center><td>
+  <a href="#cpio">cpio.h</a>
+  </td><td>
+
+  <a href="#dirent">dirent.h</a>
+  </td><td>
+
+  <a href="#fcntl">fcntl.h</a>
+  </td><td>
+
+  <a href="#grp">grp.h</a>
+  </td><td>
+
+  <a href="#pwd">pwd.h</a>
+  </td>
+  </tr><tr align=center>
+  <td>
+  <a href="#stat">sys/stat.h</a>
+  </td><td>
+
+  <a href="#times">sys/times.h</a>
+  </td><td>
+
+  <a href="#types">sys/types.h</a>
+  </td><td>
+
+  <a href="#utsname">sys/utsname.h</a>
+  </td><td>
+
+  <a href="#wait">sys/wait.h</a>
+  </td>
+  </tr><tr align=center>
+  <td>
+  <a href="#tar">tar.h</a>
+  </td><td>
+
+  <a href="#termios">termios.h</a>
+  </td><td>
+
+  <a href="#unistd">unistd.h</a>
+  </td><td>
+
+  <a href="#utime">utime.h</a>
+  </td><td>
+  </tr>
+  </table>
+  <p>
+
+<dl compact>
+
+<hr>
+
+<h2>ANSII Library headers</h2>
+<! ----------------------------------------------------------- >
+<! --- Should be complete and all entries are in master index  >
+<! ASSERT.H                                                    >
+<a name=assert>
+<dt><hr>
+<dt><h2>assert.h</h2>
+
+<script>
+Line("man",       "../MAN/assert.htm", "assert", "");
+</script>
+
+<! ----------------------------------------------------------- >
+<! --- Should be complete and all entries are in master index  >
+<! CTYPE.H                                                     >
+<a name=ctype>
+<dt><hr>
+<dt><h2>ctype.h</h2>
+
+<script>
+Line("whiteball", "../EXAMPLES/is_examp.c", "isalnum",  "Checks whether a character is alphanumeric (A-Z, a-z, 0-9)");
+Line("whiteball", "../EXAMPLES/is_examp.c", "isalpha",  "");
+Line("whiteball", "../EXAMPLES/is_examp.c", "iscntrl",  "Checks whether a character is a control character or delete ( decimal 0-31 and 127)");
+Line("whiteball", "../EXAMPLES/is_examp.c", "isdigit",  "Checks whether a character is a digit (0-9)");
+Line("whiteball", "../EXAMPLES/is_examp.c", "isgraph",  "Checks whether a character is a printable character, excluding the space (decimal 32)");
+Line("whiteball", "../EXAMPLES/is_examp.c", "islower",  "Checks whether a character is a lower case letter (a-z).");
+Line("whiteball", "../EXAMPLES/is_examp.c", "isprint",  "Checks whether a character is printable (decimal 32-126).");
+Line("whiteball", "../EXAMPLES/is_examp.c", "ispunct",  "Checks whether a character is punctuation (decimal 32-47, 58-63, 91-96, 123-126)");
+Line("whiteball", "../EXAMPLES/is_examp.c", "isspace",  "Checks whether a character is white space - space, CR HT VT NL, FF.");
+Line("whiteball", "../EXAMPLES/is_examp.c", "isupper",  "Checks whether a character is an upper case letter (A-Z).");
+Line("whiteball", "../EXAMPLES/is_examp.c", "isxdigit", "Checks whether a character is hex digit (0-9, A-F, a-f).");
+Line("man",       "../MAN/toupper.htm",                "toupper",  "Converts a lowercase character to uppercase.");
+Line("man",       "../MAN/toupper.htm",                "tolower",  "Convert an uppercase character to lowercase.");
+</script>
+
+<! ----------------------------------------------------------- >
+<! ERRNO.H                                                     >
+<a name=errno>
+<dt><hr>
+<h2>errno.h</h2>
+
+<script>
+Line("man",      "../FUNCTIONS/errno.htm", "errno", "");
+</script>
+
+<! ----------------------------------------------------------- >
+<! FLOAT.H                                                     >
+<a name=float>
+<dt><hr>
+<dt><h2>float.h</h2>
+
+No functions are <a href="../SYNTAX/functions.html#2.2">declared</a> in stddef.h. 
+<! ----------------------------------------------------------- >
+<! LIMITS.H                                                     >
+<a name=limits>
+<dt><hr>
+<dt><h2>limits.h</h2>
+
+No functions are <a href="../SYNTAX/functions.html#2.2">declared</a> in stddef.h. 
+<! ----------------------------------------------------------- >
+<! LOCALE.H                                                     >
+<a name=locale>
+<dt><hr>
+<dt><h2>locale.h</h2>
+
+<script>
+Line("man",      "../MAN/setlocale.htm",  "setlocale",  "");
+</script>
+
+<! ----------------------------------------------------------- >
+<! MATH.H                                                     >
+<! --- Should be complete. master index done  >
+<dt><hr>
+<a name=math>
+<dt><h2>math.h</h2>
+
+<script>
+Line("man",       "../MAN/acos.htm",       "acos",  "");
+Line("man",       "../MAN/asin.htm",       "asin",  "");
+Line("man",       "../MAN/atan.htm",       "atan",  "");
+Line("man",       "../MAN/atan2.htm",      "atan2", "");
+Line("man",       "../MAN/ceil.htm",       "ceil",  "smallest integral value not less than x");
+Line("man",       "../MAN/cos.htm",        "cos",   "Cosine.");
+Line("man",       "../MAN/cosh.htm",       "cosh",  "");
+Line("man",       "../MAN/exp.htm",        "exp",   ""); 
+Line("man",       "../MAN/fabs.htm",       "fabs",  "absolute value of floating-point number");
+Line("man",       "../MAN/floor.htm",      "floor", "largest integral value not greater than x");
+Line("man",       "../MAN/fmod.htm",       "fmod",  "floating-point remainder function");
+Line("man",       "../MAN/frexp.htm",      "frexp", "");
+Line("man",       "../MAN/ldexp.htm",      "ldexp", "");
+Line("man",       "../MAN/exp.htm",        "log",   "");
+Line("man",       "../MAN/exp.htm",        "log10", "");
+Line("man",       "../MAN/modf.htm",       "modf",  "");
+W("<a name=power>");
+Line("man",       "../MAN/exp.htm",        "pow",   "Raise a number by a power.");
+Line("man",       "../MAN/sin.htm",        "sin",   "The sine of an integer.");
+Line("man",       "../MAN/sinh.htm",       "sinh",  "");
+W("<a name=square>");
+Line("man",       "../MAN/sqrt.htm",       "sqrt",  "Square root of a number.");
+Line("man",       "../MAN/tan.htm",        "tan",   "Tangent.");
+Line("man",       "../MAN/tanh.htm",       "tanh",  "Hyperbolic tangent.");
+
+</script>
+
+<h3>Note</h3> For some reason <b>abs</b> is in <a href="#stdlib">stdlib.h</a>
+
+<! ----------------------------------------------------------- >
+<! SETJMP.H                                                     >
+<a name=setjmp>
+<dt><hr>
+
+<dt><h2>setjmp.h</h2>
+
+<script>
+Line("man",       "../MAN/setjmp.htm",  "setjmp",  "");
+Line("man",       "../MAN/longjmp.htm", "longjmp", "");
+</script>
+
+<! ----------------------------------------------------------- >
+<! SIGNAL.H                                                     >
+<a name=signal>
+<dt><hr>
+<dt><h2>signal.h</h2>
+
+<script>
+Line("man",       "../MAN/signal.htm",  "signal", "");
+Line("man",       "../MAN/raise.htm",   "raise",  "");
+</script>
+
+<! ----------------------------------------------------------- >
+<! STDARG.H                                                     >
+<a name=stdarg>
+<dt><hr>
+<dt><h2>stdarg.h</h2>
+
+<script>
+Line("man",       "../MAN/va_start.htm",   "va_start", "");
+Line("man",       "../MAN/va_start.htm",   "va_arg",   "");
+Line("man",       "../MAN/va_start.htm",   "va_end",   "");
+Line("whiteball", "../SYNTAX/functions.html#2.7",   "An example of use",   "");
+</script>
+<p>
+See also <a href=#stdio>vprintf vfprintf and vsprintf</a> which all print the contents of a va_list
+<! ----------------------------------------------------------- >
+<! STDDEF.H                                                     >
+<a name=stddef>
+<dt><hr>
+<dt><h2>stddef.h</h2>
+No functions are <a href="../SYNTAX/functions.html#2.2">declared</a> in stddef.h. 
+
+<! ----------------------------------------------------------- >
+<! --- Not complete. master index to be done  >
+<! STDIO.H                                                     >
+<a name=stdio>
+<dt><hr>
+<h2>stdio.h</h2>
+
+This header defines all the ANSI I/O functions that allow you to read
+and write to files and devices.
+<a href="../MISC/io.html#low">Low level</a> (non ANSI) functions are also available.
+<p>
+
+<script>
+Line("man",       "../MAN/ferror.htm",        "clearerr", "");
+Line("whiteball", "fclose.html",              "fclose",   "Close a file."); 
+Line("whiteball", "../EXAMPLES/continue.c",   "feof",     "Check for EOF while reading a file.");
+Line("man",       "../MAN/fflush.htm",        "fflush",   "");
+Line("whiteball", "fgetc.html",               "fgetc",    "Read a character from a file."); 
+Line("man",       "../MAN/fgetpos.htm",       "fgetpos",  "");
+Line("whiteball", "fgets.html",               "fgets",    "Read a record from a file (safer than fgetc).");
+Line("whiteball", "fopen.html",               "fopen",    "Open a file");
+Line("whiteball", "fprintf.html",             "fprintf",  "O/P a line of data to a file.");
+Line("whiteball", "files.html",               "fputc",    "Put a charater into a file.");
+Line("whiteball", "files.html",               "fputs",    "Put a string into a file.");
+Line("man",       "../MAN/fread.htm",         "fread",    "");
+Line("man",       "../MAN/freopen.htm",       "freopen",  "");
+Line("man",       "../MAN/fscanf.htm",        "fscanf",   "");
+Line("man",       "../MAN/fgetpos.htm",       "fseek",    "");
+Line("man",       "../MAN/fgetpos.htm",       "fsetpos",  ""); 
+Line("man",       "../MAN/fgetpos.htm",       "ftell",    "");
+Line("man",       "../MAN/fread.htm",         "fwrite",   "");
+Line("whiteball", "fgetc.html",               "getc",     "Get a character from an input stream.");
+Line("whiteball", "getchar.html",             "getchar",  "Get a character from the keyboard (STDIN).");
+Line("whiteball", "gets.html",                "gets",     "Get string (from keyboard).");
+Line("man",       "../MAN/perror.htm",        "perror",    "");
+Line("whiteball", "printf.html",              "printf",   "O/P data to the screen or a file.");
+Line("man",       "../MAN/puts.htm",          "putchar",  "O/P a character to STDOUT.");  
+Line("whiteball", "puts.html",                "puts",     "O/P data to the screen or a file.");
+Line("man",       "../MAN/remove.htm",        "remove",   "Remove a file.");
+Line("man",       "../MAN/fgetpos.htm",       "rewind",   "");
+Line("man",       "../MAN/scanf.htm",         "scanf",    "");
+Line("man",       "../MAN/setbuf.htm",        "setbuf",   "");
+Line("man",       "../MAN/setvbuf.htm",       "setvbuf",  "");
+Line("whiteball", "sprintf.html",             "sprintf",  "O/P data in tha same way as 'printf' but put it into a string.");
+Line("whiteball", "sscanf.html",              "sscanf",   "Extract fields from a string.");
+Line("man",       "../MAN/tmpfile.htm",       "tmpfile",  "");
+Line("man",       "../MAN/tmpnam.htm",        "tmpnam",   "");
+Line("man",       "../MAN/gets.htm",          "ungetc",   "");
+Line("man",       "../MAN/vfprintf.htm",      "vfprintf", "O/P a va_list to a file.");
+Line("man",       "../MAN/vfprintf.htm",      "vprintf",  "O/P a va_list to stdout.");
+Line("man",       "../MAN/vfprintf.htm",      "vsprintf", "O/P a va_list to a string.");
+</script>
+
+<! ----------------------------------------------------------- >
+<! --- Complete. master index to be done  >
+<! STDLIB.H -->
+<a name=stdlib>
+<dt><hr>
+<dt><h2>stdlib.h</h2>
+
+<script>
+Line("whiteball", "abort.htm",                   "abort",    "a program.");
+Line("man",       "../MAN/abs.htm",              "abs",      "compute the absolute value of an integer.");
+Line("whiteball", "atexit.htm",                             "atexit",   "Execute the named function when the program terminates.");
+Line("whiteball", "atof.html",                   "atof",      "convert a string to a double");
+Line("whiteball", "../EXAMPLES/exponent.c#atoi", "atoi",     "Accepts +-0123456789 leading blanks and converts to integer.");      
+Line("whiteball", "atol.html",                   "atol",     "convert a string to a long integer");
+Line("whiteball", "bsearch.html",                "bsearch",  "Binary chop.");
+Line("man",       "../MAN/calloc.htm",           "calloc",   "memory for an array.");
+Line("man",       "../MAN/div.htm",              "div",      "compute the quotient and remainder of integer division");
+Line("whiteball", "exit.html",                   "exit",     "Normally terminate a program.");
+Line("whiteball", "env.html",                    "getenv",   "Get an environmental variable.");
+Line("whiteball", "free.html",                   "free",     "memory allocated with malloc.");
+Line("man",       "../MAN/labs.htm",             "labs",     "compute the absolute value of a long integer");
+Line("man",       "../MAN/div.htm",              "ldiv",     "compute the quotient and remainder of long integer division.");
+Line("whiteball", "malloc.html",                 "malloc",    "dynamically allocate memory.");
+Line("man",       "../MAN/mblen.htm",            "mblen",    "determine the number of bytes in a character");
+Line("man",       "../MAN/mbstowcs.htm",         "mbstowcs", "convert a multibyte string to a wide character string.");
+Line("man",       "../MAN/mbtowc.htm",           "mbtowc",   "convert a multibyte character to a wide character");
+Line("whiteball", "qsort.html",                  "qsort",     "Sort an array.");
+Line("whiteball", "rand.html",                   "rand",      "Generate a random number.");
+Line("man",       "../MAN/realloc.htm",          "realloc",  "Reallocate memory.");
+Line("man",       "../MAN/strtod.htm",           "strtod",   "Convert a string to a double.");
+Line("whiteball", "strtol.html",                 "strtol",    "String to long integer conversion. Takes data in various number bases.");
+Line("whiteball", "strtoul.html",                "strtoul",   "Convert a string to an unsigned long. This can also perform number base conversion.");
+Line("whiteball", "srand.html",                  "srand",     "Seed a random number.");
+Line("whiteball", "system.html",                 "system",    "Issue a command to the operating system");
+Line("man",       "../MAN/wctomb.htm",           "wctomb",   "convert a wide character to a multibyte character.");
+Line("man",       "../MAN/wcstombs.htm",         "wcstombs", "convert a wide character string to a multibyte character string.");
+</script>
+
+
+<! ----------------------------------------------------------- >
+<! --- Complete. master index to be done  >
+<! STRING.H >
+<a name=string>
+<dt><hr>
+<dt><h2>string.h</h2>
+
+<script>
+Line("man",       "../MAN/memchr.htm",           "memchr",  "Copy a character into memory.");
+Line("man",       "../MAN/memcmp.htm",           "memcmp",  "Compare memory locations.");
+Line("whiteball", "memcpy.htm",                  "memcpy",  "Copy memory.");
+Line("man",       "../MAN/memmove.htm",          "memmove", "Move memory.");
+Line("man",       "../MAN/memset.htm",           "memset",  "Set memory.");
+Line("man",       "../MAN/strcat.htm",           "strcat",  "Concatinate two strings.");
+
+W("<a name=strchr>");
+Line("whiteball", "strchr.html",                 "strchr",  "Search for a character in a string.");
+
+Line("whiteball", "strcmp.html",                 "strcmp",   "Compare strings.");
+Line("man",       "../MAN/strcoll.htm",          "strcoll",  "");
+Line("whiteball", "strcpy.html",                 "strcpy",   "Copy strings.");
+Line("man",       "../MAN/strcspn.htm",          "strcspn",  "");
+Line("man",       "../MAN/strerror.htm",         "strerror", "");
+Line("whiteball", "strlen.html",                 "strlen",   "Length of a string.");
+Line("man",       "../MAN/strcat.htm",           "strncat",  "Concatinate two strings.");
+Line("whiteball", "strncmp.html",                "strncmp",  "Compare two strings.");
+Line("whiteball", "strncpy.html",                "strncpy",  "Copy part of a string.");
+Line("whiteball", "strpbrk.html",                "strpbrk",  "");
+Line("whiteball", "strchr.html",                 "strrchr",  "Search for a character in a string.");
+Line("man",       "../MAN/strspn.htm",           "strspn",   "");
+Line("whiteball", "strstr.html",                 "strstr",   "Search a string for a substring.");
+Line("whiteball", "strtok.html",                 "strtok",   "The books say this function splits a string into tokens. I think its function is best described as parsing a string.");
+Line("whiteball", "time.html",                   "strxfrm",  "");
+</script>
+
+<! ----------------------------------------------------------- >
+<! TIME.H                                                     >
+<! --- Should be complete. master index done  >
+<a name=time>
+<dt><hr>
+<dt><h2>time.h</h2>
+
+<script>
+Line("man",       "../MAN/asctime.htm",         "asctime",   "");
+Line("man",       "../MAN/clock.htm",           "clock",     "");
+Line("man",       "../MAN/asctime.htm",         "ctime",     "");
+Line("man",       "../MAN/difftime.htm",        "difftime",  "");
+Line("man",       "../MAN/asctime.htm",         "gmtime",    "");
+Line("man",       "../MAN/asctime.htm",         "localtime", "");
+Line("man",       "../MAN/asctime.htm",         "mktime",    "");
+Line("man",       "../MAN/strftime.htm",        "strftime",  "");
+Line("man",       "../MAN/time.htm",            "time",      "");
+Line("computer",  "../EXAMPLES/time.c",         "Example",   "program using some of the time functions.");
+</script>
+
+<dt><hr>
+<h2>POSIX functions start here....</h2>
+<! -------------------------------------------------->
+<a name=cpio>
+<dt><hr>
+
+<h2>cpio.h</h2>
+
+<! -------------------------------------------------->
+<a name=dirent>
+<dt><hr>
+
+<h2>dirent.h</h2>
+
+<script>
+Line("whiteball", "directory.html", "opendir",   "Open a directory.");
+Line("whiteball", "directory.html", "closedir",  "Close a directory.");
+Line("whiteball", "directory.html", "readdir",   "Read a directory entry.");
+Line("whiteball", "directory.html", "rewinddir", "Return to the beginning of a directory.");
+Line("whiteball", "directory.html", "scandir",   "Scan a directory for a matching entry.");
+Line("whiteball", "directory.html", "seekdir",   "Move to an offset in a directory.");
+Line("whiteball", "directory.html", "telldir",   "Return the location within a directory.");
+</script>
+
+<! -------------------------------------------------->
+<a name=fcntl>
+<dt><hr>
+
+<h2>fcntl.h</h2>
+
+<! -------------------------------------------------->
+<a name=grp>
+<dt><hr>
+
+<h2>grp.h</h2>
+
+<! -------------------------------------------------->
+<a name=pwd>
+<dt><hr>
+
+<h2>pwd.h</h2>
+
+<! -------------------------------------------------->
+<a name=stat>
+<dt><hr>
+
+<h2>sys/stat.h</h2>
+
+<! -------------------------------------------------->
+<a name=times>
+<dt><hr>
+
+<h2>sys/times.h</h2>
+
+<! -------------------------------------------------->
+<a name=types>
+<dt><hr>
+
+<h2>sys/types.h</h2>
+
+<! -------------------------------------------------->
+<a name=utsname>
+<dt><hr>
+
+<h2>sys/utsname.h</h2>
+
+<! -------------------------------------------------->
+<a name=wait>
+<dt><hr>
+
+<h2>sys/wait.h</h2>
+
+<! -------------------------------------------------->
+<a name=tar>
+<dt><hr>
+
+<h2>tar.h</h2>
+
+<! -------------------------------------------------->
+<a name=termios>
+<dt><hr>
+
+<h2>termios.h</h2>
+
+<! -------------------------------------------------->
+<a name=unistd>
+<dt><hr>
+
+<h2>unistd.h</h2>
+
+It seems that this library contains headers for many functions that originally came with the ANSII
+standard library but did not have headers.               
+<b>My documentation for this POSIX library is incomplete.</b>
+
+<script>
+Line("man",       "../MAN/access.htm",                  "access",      "");
+Line("man",       "../MAN/alarm.htm",                   "alarm",       "");
+Line("man",       "../MAN/chdir.htm",                   "chdir",       "Change the current working directory.");
+Line("man",       "../MAN/chown.htm",                   "chown",       "Change the ownership of a file.");
+Line("whiteball", "../FUNCTIONS/close.html",            "close",       "Close a file (see <a href=\"../MISC/io.html#low\">low level functions</a>)");
+Line("man",       "../MAN/chroot.htm",                  "chroot",      "Change the root directory I am not 100% sure this is supposed to be in unistd.");
+Line("man",       "../MAN/ctermid.htm",                 "ctermid",     "");
+Line("man",       "../MAN/cuserid.htm",                 "cuserid",     "");
+Line("man",       "../MAN/dup2.htm",                    "dup",         "duplicate a file descriptor");
+Line("man",       "../MAN/dup2.htm",                    "dup2",        "duplicate a file descriptor");
+Line("whiteball", "execl.html",                         "execl",       "");
+Line("whiteball", "execl.html",                         "execle",      "");
+Line("whiteball", "execl.html",                         "execlp",      "");
+Line("whiteball", "execl.html",                         "execv",       "");
+Line("whiteball", "execl.html",                         "execve",      "");
+Line("whiteball", "execl.html",                         "execvp",      "");
+Line("man",       "../MAN/chdir.htm",                   "fchdir",      "Change the current working directory.I am not 100% sure this is supposed to be in unistd.");
+Line("whiteball", "fork.html",                          "fork",        "Create a child process.");
+Line("man",       "../MAN/pathconf.htm",                "fpathconf",   "Change the current working directory.I am not 100% sure this is supposed to be in unistd.");
+Line("whiteball", "setuid.html",                        "getegid",     "Get the group ID of the process.");
+Line("whiteball", "setuid.html",                        "geteuid",     "Get the User ID of the process.");
+Line("man",       "../MAN/gethostname.htm",             "gethostname", "Name of the host (see <a href=\"#uname\">uname</a>). Not 100% sure this is in unistd");
+Line("whiteball", "../MAN/getopt.html",                 "getopt,",     "parse the command line Not 100% sure this is in unistd.");
+Line("man",       "../MAN/getgid.htm",                  "getgid",      "Get a group ID.");
+Line("man",       "../MAN/getgroups.htm",               "getgroups",   "");
+Line("man",       "../MAN/getlogin.htm",                "getlogin",    "");
+Line("man",       "../MAN/getpgrp.htm",                 "getpgrp",     "");
+Line("man",       "../MAN/getpid.htm",                  "getpid",      "get process ID.");
+Line("man",       "../MAN/getpid.htm",                  "getppid,",    "get parent process ID.");
+Line("whiteball", "setuid.html", "getuid",              "Get the User ID of the process.");
+Line("man",       "../MAN/isatty.htm",                  "isatty",      "");
+Line("man",       "../MAN/link.htm",                    "link",        "");
+Line("man",       "../MAN/lseek.htm",                   "lseek",       "");
+Line("man",       "../MAN/mkdir.htm",                   "mkdir",       "Make a directory");
+Line("whiteball", "open.html",                          "open",        "Open a file");
+Line("man",       "../MAN/fpathconf.htm",               "pathconf",    "");
+Line("man",       "../MAN/pause.htm",                   "pause",       "Put the program to sleep.");
+Line("whiteball", "pipe.html",                          "pipe",        "");
+Line("whiteball", "read.html",                          "read",        "Read a file descriptor.");
+Line("man",       "../MAN/rename.htm",                  "rename",      "Rename a file. This function can also be found in the ANSI stdio library. MAN PAGE.");
+Line("man",       "../MAN/rmdir.htm",                   "rmdir",       "Remove a directory");
+
+Line("whiteball", "setuid.html",                        "setgid",      "Set the Group ID of the process.");
+Line("man",       "../MAN/setpgid.htm",                 "setpgid",     "");
+Line("man",       "../MAN/setsid.htm",                  "setsid",      "");
+W("<a name=setuid>");
+Line("whiteball", "setuid.html",                        "setuid",      "Set the User ID of the process.");
+W("<a name=sleep>");
+Line("whiteball", "../MAN/sleep.htm",                   "sleep",       "Pause for a required number of seconds.");
+Line("man",       "../MAN/sysconf.htm",                 "sysconf",     "");
+Line("man",       "../MAN/tcgetpgrp.htm",               "tcgetpgrp",   "");
+Line("man",       "../MAN/tcgetpgrp.htm",               "tcsetpgrp",   "");
+Line("man",       "../MAN/ttyname.htm",                 "ttyname",     "");
+Line("man",       "../MAN/unlink.htm",                  "unlink",      "Remove a file");
+Line("whiteball", "write.html",                         "write",       "Write to a file descriptor.");
+</script>
+
+<! -------------------------------------------------->
+<a name=utime>
+<dt><hr>
+
+<h2>utime.h</h2>
+
+<dt><hr>
+<! -------------------------------------------------->
+<a name="NONANSI">
+<dt><hr>
+
+<h2>conio.h</h2>
+Dos Specific functions in conio.h Not very portable as conio.h 
+is NOT in the ANSI standard library and does not
+appear on the Sun or Linux machines.
+<p>
+
+<script>
+Line("whiteball", "clrscr.html",                "clrscr", "Clear screen"); 
+Line("whiteball", "",                           "getch",  "Get a character from the keyboard.");
+Line("whiteball", "",                           "getche", "Get a character from the keyboard.");
+</script>
+
+</dl>
+<hr><hr>
+
+<a name="NONANSIUNIX">
+<h2>Non ANSI Standard Unix Functions.</h2>
+These functions are not in the ANSI standard libraries but are handy 
+all the same.
+<p>
+
+<dl compact>
+<script>
+Line("whiteball", "#dirent",     "dirent.h",             "Functions performing actions on directories");
+Line("computer",  "../EXAMPLES/statfs.c",     "statfs",  "Filesystem statistics.");
+Line("whiteball", "#unistd",     "unistd.h",             "");
+Line("whiteball", "#hotchpotch", "Ungrouped functions.", "");
+</script>
+</dl>
+
+<! -------------------------------------------------->
+
+
+</dl>
+
+<! -------------------------------------------------->
+<a name="hotchpotch">
+<hr>
+<h2>Ungrouped functions</h2>
+<dl compact>
+
+<script>
+Line("whiteball", "passwd.html",              "endpwent",        "");
+Line("whiteball", "passwd.html",              "fgetpwent",       "");
+Line("whiteball", "passwd.html",              "getpw",           "Get a password entry.");
+Line("whiteball", "passwd.html",              "getpwent",        "Get a password entry.");
+Line("whiteball", "passwd.html",              "getpwnam",        "Get a record by keying on the user name.");
+Line("whiteball", "passwd.html",              "getpwuid",        "Get a record by keying on the UID (numeric).");
+Line("whiteball", "setuid.html",              "getuidx",         "Get the User ID of a process (RS/6000 only).");
+Line("whiteball", "strchr.html",              "index",           "Search for a character in a string (Use <a href=#strchr>strchr</a> to conform to the ANSI standard).");
+
+Line("whiteball", "passwd.html",              "putpwent",        "");
+Line("whiteball", "pclose.html",              "pclose",          "Close a pipe."); 
+Line("whiteball", "popen.html",               "popen",           "Open a Unix pipe."); 
+Line("whiteball", "env.html",                 "putenv",          "Change or create an environmental variable.");
+
+Line("whiteball", "env.html",                 "setenv",          "Change or create an environmental variable.");
+Line("whiteball", "passwd.html",              "setpwent",        "");
+Line("whiteball", "setuid.html",              "setreuid",        "Set the ID of the process calling process.");
+Line("whiteball", "stat.html",                "stat",            "Get status information on files (modification time, file size etc).");
+W("<a name=uname>");
+Line("whiteball", "uname.html",               "uname",           "Get information about the machine we are running on.");
+Line("whiteball", "env.html",                 "unsetenv",        "Remove an environmental variable."); 
+Line("whiteball", "setuid.html",              "setuidx",         "Set the User ID of the process (RS/6000 only).");
+Line("whiteball", "setuid.html",              "setegid setrgid", "Set the Group ID of the process.");
+W("<a name=setuid>");
+Line("whiteball", "setuid.html",              "seteuid setruid", "Set the User ID of the process.");
+Line("whiteball", "setuid.html",              "getruid",         "Get the User ID of the process.");
+Line("whiteball", "../SYNTAX/sizeof.html",    "sizeof",          "Return the storage allocation for a <a href=../CONCEPT/data_types.html>data type.</a>This is actually an operator! I have put it in here as it looks like a function and so you will probably look for it here....");  
+
+Line("computer",  "../EXAMPLES/sizeof.c",     "example",         "showing the size of data types"); 
+Line("computer",  "../EXAMPLES/sizeof1.c",    "example",         "showing the size of data objects."); 
+
+<dt>
+<hr>
+<a name="USER">
+<hr>
+<h2>User written functions <br>(and a few lifted from books)</h2>
+<hr>
+
+Line("computer",  "../EXAMPLES/clrscr.c",     "clrscr.",   "Clear the screen using VT escape sequence.");
+Line("computer",  "../EXAMPLES/convesc.c",    "convesc.",  "Insert escape codes into a text string.");
+Line("computer",  "../EXAMPLES/basename.c",   "basename.", "Strip directory information from a Unix file name.");
+Line("computer",  "../EXAMPLES/printenv.c",   "printenv.", "List the environmental variables.");
+Line("computer",  "../EXAMPLES/lenstr.c",     "lenstr",    "User written version of <a href=strlen.html>strlen</a>", "");
+Line("computer",  "../EXAMPLES/reverse.c",    "reverse",   "Reverse characters in a string.");
+
+<!-- Start of footer. -->
+</dl>
+
+<p>
+<hr>
+<p>
+<center>
+<table border=2 width=80% bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="../SYNTAX/keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="funcref.htm">     Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>

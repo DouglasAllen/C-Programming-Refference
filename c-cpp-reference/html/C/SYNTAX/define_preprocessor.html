@@ -1,0 +1,77 @@
+<title>define preprocessor</title>
+<head>
+<script language="JavaScript">
+</script>
+</head>
+<body bgcolor="#ffffcc">
+<hr>
+<center><h1>#define preprocessor</h1></center>
+<hr>
+<p>
+The <b>#define</b> preprocessor allows us to define symbolic names and constants.
+A quick example<p>
+<pre>
+	#define PI 3.14159
+</pre>
+This statement will translate every occurance of PI in the program to 3.14159.
+Here is a more complete example:<p>
+<pre>
+
+	#define PI 3.14159
+	main()
+	{
+   	   int r=10;
+	   float cir;
+	   cir = PI * (r*r);
+	}
+</pre>
+This feature is partically usefull for defining 'magic' numbers.<p>
+
+<hr>
+<h2>See Also:</h2>
+<ul>
+<li>A related C keyword is <a href=enum.html>enum</a> which can be used to 
+build lists of aliases.<p>
+
+<li>Another related C keyword is <a href=const.html>const</a>.
+<p>
+
+<li>An advanced use of #define is in the creation of <a href=macros.html>
+macros</a>.
+</ul>
+
+<hr>
+<h2>Examples:</h2>
+<a href="../EXAMPLES/define.c"><img src="../../GRAPHICS/computer.gif"></a>
+example program.<p>
+
+<a href="../EXAMPLES/enum5.c"><img src="../../GRAPHICS/computer.gif"></a>
+Conflict between enum and #define.<p>
+
+<p>
+
+<p>
+
+<hr>
+<p>
+<center>
+<table border=2 width="80%" bgcolor="ivory">
+<tr align=center>
+<td width="25%">
+<a href="../cref.html">                  Top</a>
+</td><td width="25%">
+<a href="../master_index.html">          Master Index</a>
+</td><td width="25%">
+<a href="keywords.html">                 Keywords</a>
+</td><td width="25%">
+<a href="../FUNCTIONS/funcref.htm">      Functions</a>
+</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<address>Martin Leslie 
+</address><p>
+</body>
+</html>
