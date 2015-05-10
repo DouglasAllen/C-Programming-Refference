@@ -24,9 +24,17 @@ int main()
    t.tm_mday   = 25;
    t.tm_mon    = 2;
    t.tm_year   = 89;
-   t.tm_wday;//   = 6;
+   t.tm_wday   = 6;
 
    puts(asctime(&t));
+	
+	time_t now;
+  time( &now );
+  /* Get the time (seconds since 1/1/70) */
+  printf( "Date: %.24s GMT\n", asctime( gmtime( &now ) ));
+	
+	puts(asctime( gmtime( &now )));
+
    
    return(0);
 }
