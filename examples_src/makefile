@@ -1,5 +1,6 @@
 CPP = gcc
-CPPFLAGS = 
+C++ = g++
+CPPFLAGS =
 OFLAG = -g -Wall -std=gnu99 -O3
 .SUFFIXES : .o .c
 .c.obj :
@@ -7,39 +8,40 @@ OFLAG = -g -Wall -std=gnu99 -O3
 
 all: \
   file2 \
-  fun1 \
-  fun2 \
-  fun3 \
+  intstack.o \
   lab6 \
-  scope \
-  static \
-  tstack
+  lab7 \
+  #~ scope \
+  #~ static \
+  #~ tstack
 
-# file2: file2.o file1.o
-	# $(CPP) file2.exe file2.o file1.o $(OFLAG)
+file2 : file2.o file1.o
+	$(CPP) -o file2 file2.o file1.o $(OFLAG)
+
+intstack.o:
+	$(C++)$(CPPFLAGS) -c intstack.cpp
 	
-# fun1: fun1.o
-	# $(CPP) $(OFLAG)fun1 fun1.o
+lab6: lab6.o employee.o
+	$(CPP) -o lab6 lab6.o employee.o $(OFLAG)
+lab6.o: employee.h	
+	$(CPP) -c lab6.c -o lab6.o $(OFLAG)
 	
-# fun2: fun2.obj
-	# $(CPP) $(OFLAG)fun2 fun2.o 
-	
-# fun3: fun3.o
-	# $(CPP) $(OFLAG)fun3 fun3.o 
-	
-# lab6: lab6.o employee.o
-	# $(CPP) $(OFLAG)lab6 lab6.o employee.o
-	
+lab7: lab7.o
+	$(CPP) -o lab7 lab7.o $(OFLAG)
+lab7.o: employ2.h	
+	$(CPP) -c lab7.c -o lab7.o $(OFLAG)
 # scope: scope.obj
 	# $(CPP) $(OFLAG)scope scope.o 
 	
 # static: static.obj
 	# $(CPP) $(OFLAG)static static.o 
 	
-# tstack: tstack.obj stack.o
-	# $(CPP) $(OFLAG)tstack tstack.o stack.o
+#~ tstack: tstack.obj stack.o
+	#~ $(CPP) -o tstack tstack.o stack.o $(OFLAG)
 
-# lab6.o: lab6.c employee.h
+
+
+
 # stack.o: stack.c stack.h
 # tstack.o: tstack.c stack.h
 # file1.o: file1.c
@@ -50,3 +52,11 @@ all: \
 # scope.o: scope.c
 # static.o: static.c
 
+.PHONY: clean
+clean:
+	rm *.o
+	
+.PHONY: delete
+delete:
+	rm 2d \
+	

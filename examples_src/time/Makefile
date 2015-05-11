@@ -6,11 +6,23 @@
 #~ SRCS_C = 
 #~ OBJS = $(SRCS_C:.c=.o)
 
-all: asctime clock_t clock_t1 ctime ctime1 difftime \
+all: asctime clock_t \
+      clock_t1 \
+			ctime \
+			ctime1 \
+			difftime \
       facebook_ruby \
-      gettime gettimeofday gmtime gmtime1\
-			localtime mktime strftime sunriset \
-      time time_t time_func yesterday
+      gettime \
+			gettimeofday \
+			gmtime  \
+			gmtime1\
+			localtime \
+			mktime \
+			strftime \
+			sunriset \
+      time time_t \
+			time_func \
+			yesterday
 			
 .PHONY : all
 
@@ -86,8 +98,22 @@ clean:
 
 .PHONY: delete
 delete:
-	rm asctime clock_t clock_t1 ctime ctime1 difftime \
+	rm asctime \
+	clock_t \
+	clock_t1 \
+	ctime \
+	ctime1 \
+	difftime \
 	facebook_ruby \
-	gettime gettimeofday gmtime gmtime1 \
-	localtime mktime strftime sunriset \
-	time time_t time_func yesterday			
+	gettime \
+	gettimeofday \
+	gmtime \
+	gmtime1 \
+	localtime \
+	mktime \
+	strftime \
+	sunriset \
+	time \
+	time_t \
+	time_func \
+	yesterday			

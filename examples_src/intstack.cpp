@@ -4,7 +4,7 @@ StackOfInt::StackOfInt(int stk_size)
 {
     data = new int[length = stk_size];
     ptr = 0;
-};
+}
 
 void StackOfInt::push(int x)
 {
@@ -39,5 +39,3 @@ StackOfInt::~StackOfInt()
 {
     delete [] data;
 }
-
-
