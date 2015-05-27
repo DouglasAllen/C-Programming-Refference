@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Assertions with gdk-pixbuf support</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutter Reference Manual">
+<link rel="up" href="writing-test.html" title="Writing test">
+<link rel="prev" href="cutter-GdkCutter-Pixbuf.html" title="GdkCutter Pixbuf">
+<link rel="next" href="cutter-SoupCutter.html" title="SoupCutter">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="cutter-GdkCutter-Pixbuf.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="writing-test.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutter Reference Manual</th>
+<td><a accesskey="n" href="cutter-SoupCutter.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#cutter-Assertions-with-gdk-pixbuf-support.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#cutter-Assertions-with-gdk-pixbuf-support.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="Assertions with gdk-pixbuf support">
+<a name="cutter-Assertions-with-gdk-pixbuf-support"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="cutter-Assertions-with-gdk-pixbuf-support.top_of_page"></a>Assertions with gdk-pixbuf support</span></h2>
+<p>Assertions with gdk-pixbuf support — Checks that your program works as you
+expect with gdk-pixbuf support.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="cutter-Assertions-with-gdk-pixbuf-support.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">void</span>                <a class="link" href="cutter-Assertions-with-gdk-pixbuf-support.html#gdkcut-pixbuf-assert-equal" title="gdkcut_pixbuf_assert_equal ()">gdkcut_pixbuf_assert_equal</a>          (<em class="parameter"><code>const <span class="type">GdkPixbuf</span> *expected</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GdkPixbuf</span> *actual</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> threshold</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="cutter-Assertions-with-gdk-pixbuf-support.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1" title="Details">
+<a name="cutter-Assertions-with-gdk-pixbuf-support.details"></a><h2>Details</h2>
+<div class="refsect2" title="gdkcut_pixbuf_assert_equal ()">
+<a name="gdkcut-pixbuf-assert-equal"></a><h3>gdkcut_pixbuf_assert_equal ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdkcut_pixbuf_assert_equal          (<em class="parameter"><code>const <span class="type">GdkPixbuf</span> *expected</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GdkPixbuf</span> *actual</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> threshold</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Passes if <em class="parameter"><code>expected</code></em> == <em class="parameter"><code>actual</code></em>. If difference of each
+corresponding pixel value is within threshold, <em class="parameter"><code>expected</code></em>
+and <em class="parameter"><code>actual</code></em> are treated as equal image.
+</p>
+<p>
+If threshold is 3, pixel value of <em class="parameter"><code>expected</code></em> at (1, 1) is
+127 and pixel value of <em class="parameter"><code>actual</code></em> at (1, 1) is 131, <em class="parameter"><code>actual</code></em>
+doesn't equals to <em class="parameter"><code>expected</code></em>. If pixel value of <em class="parameter"><code>actual</code></em> at
+(1, 1) is 130, <em class="parameter"><code>actual</code></em> may equal to <em class="parameter"><code>expected</code></em>. (All other
+corresponding pixel values are needed to fill this
+condition.)
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>expected</code></em> :</span></p></td>
+<td>an expected <span class="type">GdkPixbuf</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>actual</code></em> :</span></p></td>
+<td>an actual <span class="type">GdkPixbuf</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>threshold</code></em> :</span></p></td>
+<td>an threshold used for detecting pixel difference.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>optional message. See <a class="link" href="cutter-Cutter.html#cut-message" title="cut_message ()"><code class="function">cut_message()</code></a> for details.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.0.5</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

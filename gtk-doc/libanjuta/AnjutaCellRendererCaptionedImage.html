@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AnjutaCellRendererCaptionedImage</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="libanjuta-internal-api.html" title="libanjuta internal API">
+<link rel="prev" href="ESplash.html" title="ESplash">
+<link rel="next" href="plugin-interfaces.html" title="Plugin interfaces">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ESplash.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libanjuta-internal-api.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="plugin-interfaces.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AnjutaCellRendererCaptionedImage.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#AnjutaCellRendererCaptionedImage.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#AnjutaCellRendererCaptionedImage.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#AnjutaCellRendererCaptionedImage.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="AnjutaCellRendererCaptionedImage"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AnjutaCellRendererCaptionedImage.top_of_page"></a>AnjutaCellRendererCaptionedImage</span></h2>
+<p>AnjutaCellRendererCaptionedImage — Captioned image cell renderer</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="AnjutaCellRendererCaptionedImage.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="AnjutaCellRendererCaptionedImage.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/cell-renderer-captioned-image.h&gt;
+
+struct              <a class="link" href="AnjutaCellRendererCaptionedImage.html#AnjutaCellRendererCaptionedImage-struct" title="struct AnjutaCellRendererCaptionedImage">AnjutaCellRendererCaptionedImage</a>;
+struct              <a class="link" href="AnjutaCellRendererCaptionedImage.html#AnjutaCellRendererCaptionedImageClass" title="struct AnjutaCellRendererCaptionedImageClass">AnjutaCellRendererCaptionedImageClass</a>;
+<a href="http://library.gnome.org/devel/gtk/GtkCellRenderer.html"><span class="returnvalue">GtkCellRenderer</span></a> *   <a class="link" href="AnjutaCellRendererCaptionedImage.html#anjuta-cell-renderer-captioned-image-new" title="anjuta_cell_renderer_captioned_image_new ()">anjuta_cell_renderer_captioned_image_new</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="AnjutaCellRendererCaptionedImage.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk/GtkCellRenderer.html">GtkCellRenderer</a>
+               +----AnjutaCellRendererCaptionedImage
+</pre>
+</div>
+<div class="refsect1">
+<a name="AnjutaCellRendererCaptionedImage.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="AnjutaCellRendererCaptionedImage.html#AnjutaCellRendererCaptionedImage--pixbuf" title='The "pixbuf" property'>pixbuf</a>"                   <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a>*            : Read / Write
+  "<a class="link" href="AnjutaCellRendererCaptionedImage.html#AnjutaCellRendererCaptionedImage--text" title='The "text" property'>text</a>"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="AnjutaCellRendererCaptionedImage.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="AnjutaCellRendererCaptionedImage.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="AnjutaCellRendererCaptionedImage-struct"></a><h3>struct AnjutaCellRendererCaptionedImage</h3>
+<pre class="programlisting">struct AnjutaCellRendererCaptionedImage;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaCellRendererCaptionedImageClass"></a><h3>struct AnjutaCellRendererCaptionedImageClass</h3>
+<pre class="programlisting">struct AnjutaCellRendererCaptionedImageClass {
+	GtkCellRendererClass parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-cell-renderer-captioned-image-new"></a><h3>anjuta_cell_renderer_captioned_image_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/GtkCellRenderer.html"><span class="returnvalue">GtkCellRenderer</span></a> *   anjuta_cell_renderer_captioned_image_new
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="AnjutaCellRendererCaptionedImage.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="AnjutaCellRendererCaptionedImage--pixbuf"></a><h3>The <code class="literal">"pixbuf"</code> property</h3>
+<pre class="programlisting">  "pixbuf"                   <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a>*            : Read / Write</pre>
+<p>The pixbuf to render.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaCellRendererCaptionedImage--text"></a><h3>The <code class="literal">"text"</code> property</h3>
+<pre class="programlisting">  "text"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>Text to render.</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="clutter-imcontext Reference Manual" link="index.html" author="" name="clutter-imcontext" version="2" language="c">
+  <chapters>
+    <sub name="Overview" link="clutter-imcontext-overview.html"/>
+    <sub name="IMContext" link="ch02.html">
+      <sub name="ClutterIMMulticontext" link="ClutterIMMulticontext.html"/>
+      <sub name="ClutterIMContext" link="ClutterIMContext.html"/>
+      <sub name="ClutterIMContextSimple" link="ClutterIMContextSimple.html"/>
+    </sub>
+    <sub name="Widget" link="ch03.html">
+      <sub name="ClutterIMText" link="ClutterIMText.html"/>
+    </sub>
+    <sub name="Object Hierarchy" link="object-tree.html"/>
+    <sub name="API Index" link="api-index-full.html"/>
+  </chapters>
+  <functions>
+    <keyword type="struct" name="struct ClutterIMMulticontext" link="ClutterIMMulticontext.html#ClutterIMMulticontext-struct"/>
+    <keyword type="struct" name="struct ClutterIMMulticontextClass" link="ClutterIMMulticontext.html#ClutterIMMulticontextClass"/>
+    <keyword type="function" name="clutter_im_multicontext_new ()" link="ClutterIMMulticontext.html#clutter-im-multicontext-new"/>
+    <keyword type="struct" name="struct ClutterIMContext" link="ClutterIMContext.html#ClutterIMContext-struct"/>
+    <keyword type="struct" name="struct ClutterIMContextClass" link="ClutterIMContext.html#ClutterIMContextClass"/>
+    <keyword type="struct" name="struct ClutterIMRectangle" link="ClutterIMContext.html#ClutterIMRectangle"/>
+    <keyword type="function" name="clutter_im_context_delete_surrounding ()" link="ClutterIMContext.html#clutter-im-context-delete-surrounding"/>
+    <keyword type="function" name="clutter_im_context_filter_keypress ()" link="ClutterIMContext.html#clutter-im-context-filter-keypress"/>
+    <keyword type="function" name="clutter_im_context_focus_in ()" link="ClutterIMContext.html#clutter-im-context-focus-in"/>
+    <keyword type="function" name="clutter_im_context_focus_out ()" link="ClutterIMContext.html#clutter-im-context-focus-out"/>
+    <keyword type="function" name="clutter_im_context_get_preedit_string ()" link="ClutterIMContext.html#clutter-im-context-get-preedit-string"/>
+    <keyword type="function" name="clutter_im_context_get_surrounding ()" link="ClutterIMContext.html#clutter-im-context-get-surrounding"/>
+    <keyword type="function" name="clutter_im_context_hide ()" link="ClutterIMContext.html#clutter-im-context-hide"/>
+    <keyword type="function" name="clutter_im_context_reset ()" link="ClutterIMContext.html#clutter-im-context-reset"/>
+    <keyword type="function" name="clutter_im_context_set_cursor_location ()" link="ClutterIMContext.html#clutter-im-context-set-cursor-location"/>
+    <keyword type="function" name="clutter_im_context_set_surrounding ()" link="ClutterIMContext.html#clutter-im-context-set-surrounding"/>
+    <keyword type="function" name="clutter_im_context_set_use_preedit ()" link="ClutterIMContext.html#clutter-im-context-set-use-preedit"/>
+    <keyword type="function" name="clutter_im_context_show ()" link="ClutterIMContext.html#clutter-im-context-show"/>
+    <keyword type="signal" name="The &quot;commit&quot; signal" link="ClutterIMContext.html#ClutterIMContext-commit"/>
+    <keyword type="signal" name="The &quot;delete-surrounding&quot; signal" link="ClutterIMContext.html#ClutterIMContext-delete-surrounding"/>
+    <keyword type="signal" name="The &quot;preedit-changed&quot; signal" link="ClutterIMContext.html#ClutterIMContext-preedit-changed"/>
+    <keyword type="signal" name="The &quot;preedit-end&quot; signal" link="ClutterIMContext.html#ClutterIMContext-preedit-end"/>
+    <keyword type="signal" name="The &quot;preedit-start&quot; signal" link="ClutterIMContext.html#ClutterIMContext-preedit-start"/>
+    <keyword type="signal" name="The &quot;retrieve-surrounding&quot; signal" link="ClutterIMContext.html#ClutterIMContext-retrieve-surrounding"/>
+    <keyword type="struct" name="struct ClutterIMContextSimple" link="ClutterIMContextSimple.html#ClutterIMContextSimple-struct"/>
+    <keyword type="struct" name="struct ClutterIMContextSimpleClass" link="ClutterIMContextSimple.html#ClutterIMContextSimpleClass"/>
+    <keyword type="function" name="clutter_im_context_simple_new ()" link="ClutterIMContextSimple.html#clutter-im-context-simple-new"/>
+    <keyword type="struct" name="struct ClutterIMText" link="ClutterIMText.html#ClutterIMText-struct"/>
+    <keyword type="struct" name="struct ClutterIMTextClass" link="ClutterIMText.html#ClutterIMTextClass"/>
+    <keyword type="function" name="clutter_imtext_new ()" link="ClutterIMText.html#clutter-imtext-new"/>
+    <keyword type="function" name="clutter_imtext_set_autoshow_im ()" link="ClutterIMText.html#clutter-imtext-set-autoshow-im"/>
+  </functions>
+</book>

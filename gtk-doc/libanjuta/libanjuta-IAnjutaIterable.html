@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaIterable</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="libanjuta-IAnjutaIndicable.html" title="IAnjutaIndicable">
+<link rel="next" href="libanjuta-IAnjutaIterableTree.html" title="IAnjutaIterableTree">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-IAnjutaIndicable.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaIterableTree.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaIterable.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaIterable.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaIterable"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaIterable.top_of_page"></a>IAnjutaIterable</span></h2>
+<p>IAnjutaIterable — Implemented by objects that can iterate</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaIterable.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaIterable.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-iterable.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaIterable.html#IANJUTA-ITERABLE-ERROR:CAPS" title="IANJUTA_ITERABLE_ERROR">IANJUTA_ITERABLE_ERROR</a>
+struct              <a class="link" href="libanjuta-IAnjutaIterable.html#IAnjutaIterableIface" title="struct IAnjutaIterableIface">IAnjutaIterableIface</a>;
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaIterable.html#ianjuta-iterable-assign" title="ianjuta_iterable_assign ()">ianjuta_iterable_assign</a>             (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaIterable</span> *src_iter</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaIterable</span> *   <a class="link" href="libanjuta-IAnjutaIterable.html#ianjuta-iterable-clone" title="ianjuta_iterable_clone ()">ianjuta_iterable_clone</a>              (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="libanjuta-IAnjutaIterable.html#ianjuta-iterable-compare" title="ianjuta_iterable_compare ()">ianjuta_iterable_compare</a>            (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaIterable</span> *iter2</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="libanjuta-IAnjutaIterable.html#ianjuta-iterable-diff" title="ianjuta_iterable_diff ()">ianjuta_iterable_diff</a>               (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaIterable</span> *iter2</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaIterable.html#ianjuta-iterable-error-quark" title="ianjuta_iterable_error_quark ()">ianjuta_iterable_error_quark</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaIterable.html#ianjuta-iterable-first" title="ianjuta_iterable_first ()">ianjuta_iterable_first</a>              (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaIterable.html#ianjuta-iterable-foreach" title="ianjuta_iterable_foreach ()">ianjuta_iterable_foreach</a>            (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GFunc"><span class="type">GFunc</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="libanjuta-IAnjutaIterable.html#ianjuta-iterable-get-length" title="ianjuta_iterable_get_length ()">ianjuta_iterable_get_length</a>         (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="libanjuta-IAnjutaIterable.html#ianjuta-iterable-get-position" title="ianjuta_iterable_get_position ()">ianjuta_iterable_get_position</a>       (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaIterable.html#ianjuta-iterable-last" title="ianjuta_iterable_last ()">ianjuta_iterable_last</a>               (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaIterable.html#ianjuta-iterable-next" title="ianjuta_iterable_next ()">ianjuta_iterable_next</a>               (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaIterable.html#ianjuta-iterable-previous" title="ianjuta_iterable_previous ()">ianjuta_iterable_previous</a>           (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaIterable.html#ianjuta-iterable-set-position" title="ianjuta_iterable_set_position ()">ianjuta_iterable_set_position</a>       (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> position</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaIterable.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaIterable.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-ITERABLE-ERROR:CAPS"></a><h3>IANJUTA_ITERABLE_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_ITERABLE_ERROR ianjuta_iterable_error_quark()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaIterableIface"></a><h3>struct IAnjutaIterableIface</h3>
+<pre class="programlisting">struct IAnjutaIterableIface {
+	GTypeInterface g_iface;
+	
+
+	void (*assign) (IAnjutaIterable *obj, IAnjutaIterable *src_iter, GError **err);
+	IAnjutaIterable * (*clone) (IAnjutaIterable *obj, GError **err);
+	gint (*compare) (IAnjutaIterable *obj, IAnjutaIterable *iter2, GError **err);
+	gint (*diff) (IAnjutaIterable *obj, IAnjutaIterable *iter2, GError **err);
+	gboolean (*first) (IAnjutaIterable *obj, GError **err);
+	void (*foreach) (IAnjutaIterable *obj, GFunc callback,  gpointer user_data, GError **err);
+	gint (*get_length) (IAnjutaIterable *obj, GError **err);
+	gint (*get_position) (IAnjutaIterable *obj, GError **err);
+	gboolean (*last) (IAnjutaIterable *obj, GError **err);
+	gboolean (*next) (IAnjutaIterable *obj, GError **err);
+	gboolean (*previous) (IAnjutaIterable *obj, GError **err);
+	gboolean (*set_position) (IAnjutaIterable *obj, gint position, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-assign"></a><h3>ianjuta_iterable_assign ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_iterable_assign             (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaIterable</span> *src_iter</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Assigns the iter position from <em class="parameter"><code>src_iter</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src_iter</code></em> :</span></p></td>
+<td>Source iter from which to copy the assignment.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-clone"></a><h3>ianjuta_iterable_clone ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaIterable</span> *   ianjuta_iterable_clone              (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Clones the iterable. The returned iterable object must be unreffed
+when done.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new instance of this iterable pointing at the same location. <span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-compare"></a><h3>ianjuta_iterable_compare ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                ianjuta_iterable_compare            (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaIterable</span> *iter2</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Compares the position of <em class="parameter"><code>iter2</code></em> with this <em class="parameter"><code>obj</code></em>. Returns -1
+value if this <em class="parameter"><code>obj</code></em> is smaller than <em class="parameter"><code>iter2</code></em>. Returns +1 value
+if this <em class="parameter"><code>obj</code></em> is larger than <em class="parameter"><code>iter2</code></em>. And returns 0 if both are equal.
+If you want difference of the iter positions, use
+#<a class="link" href="libanjuta-IAnjutaIterable.html#ianjuta-iterable-diff" title="ianjuta_iterable_diff ()"><code class="function">ianjuta_iterable_diff()</code></a>. This method is meant for fast comparision.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>iter2</code></em> :</span></p></td>
+<td>Second iter to compare.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>0 if equal, -1 if <em class="parameter"><code>obj</code></em> is smaller than <em class="parameter"><code>iter2</code></em>
+or +1 if <em class="parameter"><code>obj</code></em> is larger than <em class="parameter"><code>iter2</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-diff"></a><h3>ianjuta_iterable_diff ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                ianjuta_iterable_diff               (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaIterable</span> *iter2</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Compares the position of <em class="parameter"><code>iter2</code></em> with this <em class="parameter"><code>obj</code></em> and returns difference
+in position of the two (<em class="parameter"><code>obj</code></em> - <em class="parameter"><code>iter2</code></em>).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>iter2</code></em> :</span></p></td>
+<td>Second iter to differenciate.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The position difference of <em class="parameter"><code>obj</code></em> - <em class="parameter"><code>iter2</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-error-quark"></a><h3>ianjuta_iterable_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_iterable_error_quark        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-first"></a><h3>ianjuta_iterable_first ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_iterable_first              (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Set iter to first element position. Returns FALSE if
+there is no element in the iterable (hence does not have first).
+The iter points to the first valid item.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if sucessful, other FALSE.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-foreach"></a><h3>ianjuta_iterable_foreach ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_iterable_foreach            (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GFunc"><span class="type">GFunc</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Call callback for each element in the list. Call back is passed the
+same iter, but with different position set (from first to last). This
+method does not affect current position. i.e. current position is
+restored at the end of this method.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Callback to call for each element.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data that is passed back to the callback.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-get-length"></a><h3>ianjuta_iterable_get_length ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                ianjuta_iterable_get_length         (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Length of the iterable (number of elements indexable by it).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>total length of the list.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-get-position"></a><h3>ianjuta_iterable_get_position ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                ianjuta_iterable_get_position       (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Index of the current iter in the iterable. It will be
+from 0 to length - 1 (<code class="function">ianjuta_iter_get_length()</code>) if iter is pointed
+at valid element. It will return -1 if iter is pointed at end-iter.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>integer index, or -1 for end-iter.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-last"></a><h3>ianjuta_iterable_last ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_iterable_last               (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Set iter position to end-iter (one past last element) position.
+Returns FALSE if there is no element in the iterable (already
+at end-iter).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if sucessful, other FALSE.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-next"></a><h3>ianjuta_iterable_next ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_iterable_next               (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Set the iter position to next element position. Iter can go until one
+item past the last item and lands in end-iter. end-iter does not point
+to any valid item and signifies end of the list. Returns FALSE if iter
+was already at end-iter (iter can not go past it) and remains pointed
+to the end-iter.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if sucessful, otherwise FALSE if already at end-iter.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-previous"></a><h3>ianjuta_iterable_previous ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_iterable_previous           (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Set the iter position to previous element position. Returns FALSE if
+there is no previous element and the iter remains pointed to the first
+element.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if sucessful, other FALSE.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-set-position"></a><h3>ianjuta_iterable_set_position ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_iterable_set_position       (<em class="parameter"><code><span class="type">IAnjutaIterable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> position</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Sets the current position of the iter to <em class="parameter"><code>position</code></em>. The given <em class="parameter"><code>position</code></em>
+must be from 0 to length - 1 (#<code class="function">ianjuta_iter_get_length()</code>) to point to
+a valid element. Passing <em class="parameter"><code>position</code></em> &lt; 0 will set it to end-iter. It
+returns TRUE for the above cases. FLASE will be returned, if
+out-of-range <em class="parameter"><code>position</code></em> is passed (<em class="parameter"><code>position</code></em> &gt; length - 1) and iter is
+set to end-iter.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
+<td>New position for the iter.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if successfully set (i.e. <em class="parameter"><code>position</code></em> is within the range or
+end-iter). otherwise returns FALSE (i.e. <em class="parameter"><code>position</code></em> is out of data range).</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

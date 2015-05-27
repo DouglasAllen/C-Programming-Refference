@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-Test-Utilities-with-GLib-support">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-Test-Utilities-with-GLib-support.top_of_page">GLibサポート付きテストユーティリティ</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GLibサポート付きテストユーティリティ</refname>
+<refpurpose>テストをもっと簡単に書くためのGLibサポート付きユーティリティ。</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-Test-Utilities-with-GLib-support.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis><link linkend="GObject"><returnvalue>GObject</returnvalue></link> *           <link linkend="gcut-take-object">gcut_take_object</link>                    (<parameter><link linkend="GObject"><type>GObject</type></link> *object</parameter>);
+<link linkend="GError"><returnvalue>GError</returnvalue></link> *            <link linkend="gcut-take-error">gcut_take_error</link>                     (<parameter><link linkend="GError"><type>GError</type></link> *error</parameter>);
+const <link linkend="GList"><returnvalue>GList</returnvalue></link> *       <link linkend="gcut-take-list">gcut_take_list</link>                      (<parameter>const <link linkend="GList"><type>GList</type></link> *list</parameter>,
+                                                         <parameter><link linkend="CutDestroyFunction"><type>CutDestroyFunction</type></link> destroy_function</parameter>);
+<link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link> *        <link linkend="gcut-take-hash-table">gcut_take_hash_table</link>                (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>);
+<link linkend="GString"><returnvalue>GString</returnvalue></link> *           <link linkend="gcut-take-string">gcut_take_string</link>                    (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>);
+<link linkend="GString"><returnvalue>GString</returnvalue></link> *           <link linkend="gcut-take-new-string">gcut_take_new_string</link>                (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);
+<link linkend="GList"><returnvalue>GList</returnvalue></link> *             <link linkend="gcut-list-new">gcut_list_new</link>                       (<parameter>const <link linkend="gpointer"><type>gpointer</type></link> element</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="GList"><returnvalue>GList</returnvalue></link> *             <link linkend="gcut-list-int-new">gcut_list_int_new</link>                   (<parameter><link linkend="guint"><type>guint</type></link> n</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> value</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="GList"><returnvalue>GList</returnvalue></link> *             <link linkend="gcut-list-uint-new">gcut_list_uint_new</link>                  (<parameter><link linkend="guint"><type>guint</type></link> n</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> value</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="GList"><returnvalue>GList</returnvalue></link> *             <link linkend="gcut-list-string-new">gcut_list_string_new</link>                (<parameter>const <link linkend="gchar"><type>gchar</type></link> *value</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="GList"><returnvalue>GList</returnvalue></link> *             <link linkend="gcut-list-string-new-array">gcut_list_string_new_array</link>          (<parameter>const <link linkend="gchar"><type>gchar</type></link> **strings</parameter>);
+const <link linkend="GList"><returnvalue>GList</returnvalue></link> *       <link linkend="gcut-take-new-list-int">gcut_take_new_list_int</link>              (<parameter><link linkend="guint"><type>guint</type></link> n</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> value</parameter>,
+                                                         <parameter>...</parameter>);
+const <link linkend="GList"><returnvalue>GList</returnvalue></link> *       <link linkend="gcut-take-new-list-uint">gcut_take_new_list_uint</link>             (<parameter><link linkend="guint"><type>guint</type></link> n</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> value</parameter>,
+                                                         <parameter>...</parameter>);
+const <link linkend="GList"><returnvalue>GList</returnvalue></link> *       <link linkend="gcut-take-new-list-string">gcut_take_new_list_string</link>           (<parameter>const <link linkend="gchar"><type>gchar</type></link> *value</parameter>,
+                                                         <parameter>...</parameter>);
+#define             <link linkend="gcut-take-new-list-string-backward-compatibility">gcut_take_new_list_string_backward_compatibility</link>(value,
+                                                         ...)
+const <link linkend="GList"><returnvalue>GList</returnvalue></link> *       <link linkend="gcut-take-new-list-string-array">gcut_take_new_list_string_array</link>     (<parameter>const <link linkend="gchar"><type>gchar</type></link> **strings</parameter>);
+#define             <link linkend="gcut-take-new-list-object">gcut_take_new_list_object</link>           (object,
+                                                         ...)
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-list-string-free">gcut_list_string_free</link>               (<parameter><link linkend="GList"><type>GList</type></link> *list</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-list-object-free">gcut_list_object_free</link>               (<parameter><link linkend="GList"><type>GList</type></link> *list</parameter>);
+<link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link> *        <link linkend="gcut-hash-table-string-string-new">gcut_hash_table_string_string_new</link>   (<parameter>const <link linkend="gchar"><type>gchar</type></link> *key</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link> *        <link linkend="gcut-hash-table-string-string-new-va-list">gcut_hash_table_string_string_new_va_list</link>
+                                                        (<parameter>const <link linkend="gchar"><type>gchar</type></link> *key</parameter>,
+                                                         <parameter><link linkend="va-list"><type>va_list</type></link> args</parameter>);
+<link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link> *        <link linkend="gcut-take-new-hash-table-string-string">gcut_take_new_hash_table_string_string</link>
+                                                        (<parameter>const <link linkend="gchar"><type>gchar</type></link> *key</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="GString"><returnvalue>GString</returnvalue></link> *           <link linkend="gcut-get-fixture-data">gcut_get_fixture_data</link>               (<parameter>const <link linkend="gchar"><type>gchar</type></link> *path</parameter>,
+                                                         <parameter>...</parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-Test-Utilities-with-GLib-support.description" role="desc">
+<title role="desc.title">説明</title>
+<para>テストを書くためには、テスト環境を前処理・後処理するコードや、検証する結果を準備するコードなどたくさんのコードを書く必要があります。Cutterはもっと簡単にテストを書くためにユーティリティを提供します。</para>
+<para>このユーティリティはGLibと一緒に使います。</para>
+</refsect1>
+<refsect1 id="cutter-Test-Utilities-with-GLib-support.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="gcut-take-object" role="function" condition="since:1.0.3">
+<title>gcut_take_object ()</title>
+<indexterm zone="gcut-take-object" role="1.0.3"><primary>gcut_take_object</primary></indexterm>
+<programlisting><link linkend="GObject"><returnvalue>GObject</returnvalue></link> *           gcut_take_object                    (<parameter><link linkend="GObject"><type>GObject</type></link> *object</parameter>);</programlisting>
+<para><parameter>object</parameter>の所有権をCutterに渡し、<parameter>object</parameter>を返します。</para><variablelist role="params">
+<varlistentry><term><parameter>object</parameter> :</term>
+<listitem><simpara>Cutterに所有権を渡す<link linkend="GObject"><type>GObject</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>Cutterが所有権をもつ<parameter>object</parameter>。<link linkend="g-object-unref"><function>g_object_unref()</function></link>しないでください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.3から</para></refsect2>
+<refsect2 id="gcut-take-error" role="function" condition="since:1.0.3">
+<title>gcut_take_error ()</title>
+<indexterm zone="gcut-take-error" role="1.0.3"><primary>gcut_take_error</primary></indexterm>
+<programlisting><link linkend="GError"><returnvalue>GError</returnvalue></link> *            gcut_take_error                     (<parameter><link linkend="GError"><type>GError</type></link> *error</parameter>);</programlisting>
+<para>Cutterに<parameter>error</parameter>の所有権を渡し、<parameter>error</parameter>それ自身を返します。</para><variablelist role="params">
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>Cutterに所有権を渡す<link linkend="GError"><type>GError</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>Cutterが所有権をもつ<link linkend="GError"><type>GError</type></link>。<link linkend="g-error-free"><function>g_error_free()</function></link>しないでください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.3から</para></refsect2>
+<refsect2 id="gcut-take-list" role="function" condition="since:1.0.3">
+<title>gcut_take_list ()</title>
+<indexterm zone="gcut-take-list" role="1.0.3"><primary>gcut_take_list</primary></indexterm>
+<programlisting>const <link linkend="GList"><returnvalue>GList</returnvalue></link> *       gcut_take_list                      (<parameter>const <link linkend="GList"><type>GList</type></link> *list</parameter>,
+                                                         <parameter><link linkend="CutDestroyFunction"><type>CutDestroyFunction</type></link> destroy_function</parameter>);</programlisting>
+<para><parameter>list</parameter>の所有権をCutterに渡し、<parameter>list</parameter>それ自身を返します。</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter> :</term>
+<listitem><simpara>Cutterに所有権を渡す<link linkend="GList"><type>GList</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>destroy_function</parameter> :</term>
+<listitem><simpara><parameter>list</parameter>の各要素を破棄する関数、または<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>Cutterが所有権を持つ<link linkend="GList"><type>GList</type></link>。<link linkend="g-list-free"><function>g_list_free()</function></link>しないでください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.3から</para></refsect2>
+<refsect2 id="gcut-take-hash-table" role="function" condition="since:1.0.4">
+<title>gcut_take_hash_table ()</title>
+<indexterm zone="gcut-take-hash-table" role="1.0.4"><primary>gcut_take_hash_table</primary></indexterm>
+<programlisting><link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link> *        gcut_take_hash_table                (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>);</programlisting>
+<para><parameter>hash_table</parameter>の所有権をCutterに渡し、<parameter>hash_table</parameter>それ自身を返します。</para><variablelist role="params">
+<varlistentry><term><parameter>hash_table</parameter> :</term>
+<listitem><simpara>Cutterに所有権を渡す<link linkend="GHashTable"><type>GHashTable</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>Cutterが所有権をもつ<link linkend="GHashTable"><type>GHashTable</type></link>。<link linkend="g-hash-table-unref"><function>g_hash_table_unref()</function></link>しないでください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.4から</para></refsect2>
+<refsect2 id="gcut-take-string" role="function" condition="since:1.1.6">
+<title>gcut_take_string ()</title>
+<indexterm zone="gcut-take-string" role="1.1.6"><primary>gcut_take_string</primary></indexterm>
+<programlisting><link linkend="GString"><returnvalue>GString</returnvalue></link> *           gcut_take_string                    (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>);</programlisting>
+<para><parameter>string</parameter>の所有権をCutterに渡し、<parameter>string</parameter>それ自身を返します。</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>Cutterに所有権を渡す<link linkend="GString"><type>GString</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>Cutterが所有権を持つ<link linkend="GString"><type>GString</type></link>。<link linkend="g-string-free"><function>g_string_free()</function></link>しないでください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+<refsect2 id="gcut-take-new-string" role="function" condition="since:1.1.6">
+<title>gcut_take_new_string ()</title>
+<indexterm zone="gcut-take-new-string" role="1.1.6"><primary>gcut_take_new_string</primary></indexterm>
+<programlisting><link linkend="GString"><returnvalue>GString</returnvalue></link> *           gcut_take_new_string                (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>渡された文字列から<link linkend="GString"><type>GString</type></link>を作成します。</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>文字列。<link linkend="NULL:CAPS"><literal>NULL</literal></link>も可。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>Cutterが所有権を持つ<link linkend="GString"><type>GString</type></link>。<link linkend="g-string-free"><function>g_string_free()</function></link>しないでください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+<refsect2 id="gcut-list-new" role="function" condition="since:1.1.1">
+<title>gcut_list_new ()</title>
+<indexterm zone="gcut-list-new" role="1.1.1"><primary>gcut_list_new</primary></indexterm>
+<programlisting><link linkend="GList"><returnvalue>GList</returnvalue></link> *             gcut_list_new                       (<parameter>const <link linkend="gpointer"><type>gpointer</type></link> element</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para>渡された要素を含むリストを作ります。</para>
+<para>例: <informalexample><programlisting>
+GCutEgg *echo_egg, *cat_egg;
+
+echo_egg = gcut_egg_new("echo", "Hello", NULL);
+cat_egg = gcut_egg_new("cat", "/etc/hosts", NULL);
+egg_list = gcut_list_new(echo_egg, cat_egg, NULL);
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>element</parameter> :</term>
+<listitem><simpara>最初の<link linkend="gpointer"><type>gpointer</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>パスの残りの要素。<link linkend="NULL:CAPS"><literal>NULL</literal></link>終端。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>新しく割り当てられた<link linkend="GList"><type>GList</type></link>。渡された要素を持ちます。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.1から</para></refsect2>
+<refsect2 id="gcut-list-int-new" role="function" condition="since:1.1.5">
+<title>gcut_list_int_new ()</title>
+<indexterm zone="gcut-list-int-new" role="1.1.5"><primary>gcut_list_int_new</primary></indexterm>
+<programlisting><link linkend="GList"><returnvalue>GList</returnvalue></link> *             gcut_list_int_new                   (<parameter><link linkend="guint"><type>guint</type></link> n</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> value</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para>渡された整数からリストを作ります。</para>
+<para>例: <informalexample><programlisting>
+gcut_list_int_new(3, -10, 1, 29); -&gt; (-10, 1, 29)
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>n</parameter> :</term>
+<listitem><simpara>整数の数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter> :</term>
+<listitem><simpara>最初の整数値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>リストの残りの整数値。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>渡された整数を含む<link linkend="GList"><type>GList</type></link>。<link linkend="g-list-free"><function>g_list_free()</function></link>で開放すること。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-list-uint-new" role="function" condition="since:1.1.5">
+<title>gcut_list_uint_new ()</title>
+<indexterm zone="gcut-list-uint-new" role="1.1.5"><primary>gcut_list_uint_new</primary></indexterm>
+<programlisting><link linkend="GList"><returnvalue>GList</returnvalue></link> *             gcut_list_uint_new                  (<parameter><link linkend="guint"><type>guint</type></link> n</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> value</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para>渡された符号無し整数からリストを作ります。</para>
+<para>例: <informalexample><programlisting>
+gcut_list_uint_new(3, 0, 1, 2); -&gt; (0, 1, 2)
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>n</parameter> :</term>
+<listitem><simpara>符号無し符号整数の数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter> :</term>
+<listitem><simpara>最初の符号無し符号整数値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>リストの残りの符号無し符号整数値。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>渡された符号無し整数を含む<link linkend="GList"><type>GList</type></link>。<link linkend="g-list-free"><function>g_list_free()</function></link>で開放すること。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-list-string-new" role="function" condition="since:1.0.3">
+<title>gcut_list_string_new ()</title>
+<indexterm zone="gcut-list-string-new" role="1.0.3"><primary>gcut_list_string_new</primary></indexterm>
+<programlisting><link linkend="GList"><returnvalue>GList</returnvalue></link> *             gcut_list_string_new                (<parameter>const <link linkend="gchar"><type>gchar</type></link> *value</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para>渡された文字列からリストを作ります。</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter> :</term>
+<listitem><simpara>最初の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>リストの残りの文字列。<link linkend="NULL:CAPS"><literal>NULL</literal></link>終端。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>渡された文字列を含む<link linkend="GList"><type>GList</type></link>。<link linkend="gcut-list-string-free"><function>gcut_list_string_free()</function></link>で開放すること。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.3から</para></refsect2>
+<refsect2 id="gcut-list-string-new-array" role="function" condition="since:1.0.6">
+<title>gcut_list_string_new_array ()</title>
+<indexterm zone="gcut-list-string-new-array" role="1.0.6"><primary>gcut_list_string_new_array</primary></indexterm>
+<programlisting><link linkend="GList"><returnvalue>GList</returnvalue></link> *             gcut_list_string_new_array          (<parameter>const <link linkend="gchar"><type>gchar</type></link> **strings</parameter>);</programlisting>
+<para>渡された文字列配列からリストを作ります。</para><variablelist role="params">
+<varlistentry><term><parameter>strings</parameter> :</term>
+<listitem><simpara>文字列の配列。<link linkend="NULL:CAPS"><literal>NULL</literal></link>終端。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>渡された文字列配列と同じ内容の<link linkend="GList"><type>GList</type></link>。<link linkend="gcut-list-string-free"><function>gcut_list_string_free()</function></link>で開放すること。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-take-new-list-int" role="function" condition="since:1.1.5">
+<title>gcut_take_new_list_int ()</title>
+<indexterm zone="gcut-take-new-list-int" role="1.1.5"><primary>gcut_take_new_list_int</primary></indexterm>
+<programlisting>const <link linkend="GList"><returnvalue>GList</returnvalue></link> *       gcut_take_new_list_int              (<parameter><link linkend="guint"><type>guint</type></link> n</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> value</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para>渡された整数からリストを作ります。作られたリストはCutterが所有権を持ちます。</para>
+<para>例: <informalexample><programlisting>
+gcut_take_new_list_int(3, -10, 1, 29); -&gt; (-10, 1, 29)
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>n</parameter> :</term>
+<listitem><simpara>整数の数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter> :</term>
+<listitem><simpara>最初の整数値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>リストの残りの文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>渡された整数と同じ内容の<link linkend="GList"><type>GList</type></link>。Cutterが所有権を持ちます。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-take-new-list-uint" role="function" condition="since:1.1.5">
+<title>gcut_take_new_list_uint ()</title>
+<indexterm zone="gcut-take-new-list-uint" role="1.1.5"><primary>gcut_take_new_list_uint</primary></indexterm>
+<programlisting>const <link linkend="GList"><returnvalue>GList</returnvalue></link> *       gcut_take_new_list_uint             (<parameter><link linkend="guint"><type>guint</type></link> n</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> value</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para>渡された符号無し整数からリストを作ります。作られたリストはCutterが所有権を持ちます。</para>
+<para>例: <informalexample><programlisting>
+gcut_take_new_list_uint(3, 0, 1, 2); -&gt; (0, 1, 2)
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>n</parameter> :</term>
+<listitem><simpara>符号無し符号整数の数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter> :</term>
+<listitem><simpara>最初の符号無し符号整数値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>リストの残りの文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>渡された符号無し整数と同じ内容の<link linkend="GList"><type>GList</type></link>。Cutterが所有権を持ちます。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-take-new-list-string" role="function" condition="since:1.0.5">
+<title>gcut_take_new_list_string ()</title>
+<indexterm zone="gcut-take-new-list-string" role="1.0.5"><primary>gcut_take_new_list_string</primary></indexterm>
+<programlisting>const <link linkend="GList"><returnvalue>GList</returnvalue></link> *       gcut_take_new_list_string           (<parameter>const <link linkend="gchar"><type>gchar</type></link> *value</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para>渡された文字列からリストを作ります。作られたリストはCutterが所有権を持ちます。</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter> :</term>
+<listitem><simpara>最初の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>リストの残りの文字列。<link linkend="NULL:CAPS"><literal>NULL</literal></link>終端。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>渡された文字列と同じ内容の<link linkend="GList"><type>GList</type></link>。Cutterが所有権を持ちます。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-take-new-list-string-backward-compatibility" role="macro" condition="deprecated:">
+<title>gcut_take_new_list_string_backward_compatibility()</title>
+<indexterm zone="gcut-take-new-list-string-backward-compatibility" role="deprecated"><primary>gcut_take_new_list_string_backward_compatibility</primary></indexterm>
+<programlisting>#define             gcut_take_new_list_string_backward_compatibility(value, ...)</programlisting>
+<warning><para><literal>gcut_take_new_list_string_backward_compatibility</literal>は非推奨です。新しいコードでは使わないでください。</para></warning>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-take-new-list-string-array" role="function" condition="since:1.0.6">
+<title>gcut_take_new_list_string_array ()</title>
+<indexterm zone="gcut-take-new-list-string-array" role="1.0.6"><primary>gcut_take_new_list_string_array</primary></indexterm>
+<programlisting>const <link linkend="GList"><returnvalue>GList</returnvalue></link> *       gcut_take_new_list_string_array     (<parameter>const <link linkend="gchar"><type>gchar</type></link> **strings</parameter>);</programlisting>
+<para>渡された文字列の配列からリストを作ります。Cutterが所有権を持ちます。</para><variablelist role="params">
+<varlistentry><term><parameter>strings</parameter> :</term>
+<listitem><simpara>文字列の配列。<link linkend="NULL:CAPS"><literal>NULL</literal></link>終端。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>渡された文字列の配列と同じ内容の<link linkend="GList"><type>GList</type></link>。Cutterが所有。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-take-new-list-object" role="macro" condition="since:1.1.1">
+<title>gcut_take_new_list_object()</title>
+<indexterm zone="gcut-take-new-list-object" role="1.1.1"><primary>gcut_take_new_list_object</primary></indexterm>
+<programlisting>#define             gcut_take_new_list_object(object, ...)</programlisting>
+<para>渡されたオブジェクトからリストを作ります。作られたリストはCutterが所有権を持ちます。</para><variablelist role="params">
+<varlistentry><term><parameter>object</parameter> :</term>
+<listitem><simpara>最初の<link linkend="GObject"><type>GObject</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>リストの残りのオブジェクト。<link linkend="NULL:CAPS"><literal>NULL</literal></link>終端。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>新しく割り当てられた<link linkend="GList"><type>GList</type></link>。リストには渡されたオブジェクトが含まれます。Cutterが所有権を持ちます。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.1から</para></refsect2>
+<refsect2 id="gcut-list-string-free" role="function" condition="since:1.0.3">
+<title>gcut_list_string_free ()</title>
+<indexterm zone="gcut-list-string-free" role="1.0.3"><primary>gcut_list_string_free</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_list_string_free               (<parameter><link linkend="GList"><type>GList</type></link> *list</parameter>);</programlisting>
+<para><parameter>list</parameter>と<parameter>list</parameter>内にある文字列を開放します。</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter> :</term>
+<listitem><simpara>開放する文字列のリスト。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.3から</para></refsect2>
+<refsect2 id="gcut-list-object-free" role="function" condition="since:1.1.1">
+<title>gcut_list_object_free ()</title>
+<indexterm zone="gcut-list-object-free" role="1.1.1"><primary>gcut_list_object_free</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_list_object_free               (<parameter><link linkend="GList"><type>GList</type></link> *list</parameter>);</programlisting>
+<para><parameter>list</parameter>と中のオブジェクトを破棄します。<parameter>list</parameter>に<link linkend="NULL:CAPS"><literal>NULL</literal></link>が含まれていても大丈夫です。</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter> :</term>
+<listitem><simpara>リファレンスを減らしたい<link linkend="GObject"><type>GObject</type></link>を含んだリスト。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.1から</para></refsect2>
+<refsect2 id="gcut-hash-table-string-string-new" role="function" condition="since:1.0.4">
+<title>gcut_hash_table_string_string_new ()</title>
+<indexterm zone="gcut-hash-table-string-string-new" role="1.0.4"><primary>gcut_hash_table_string_string_new</primary></indexterm>
+<programlisting><link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link> *        gcut_hash_table_string_string_new   (<parameter>const <link linkend="gchar"><type>gchar</type></link> *key</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para>引数で指定されたキーと値のペアから、文字列のキーと値を持つハッシュテーブルを作成します。</para><variablelist role="params">
+<varlistentry><term><parameter>key</parameter> :</term>
+<listitem><simpara>最初のキー文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>残りの引数の<link linkend="NULL:CAPS"><literal>NULL</literal></link>終端のリスト。まず、最初のキーの文字列値を指定します。続いて、任意の数だけキー・値のペアを指定します。最後に<link linkend="NULL:CAPS"><literal>NULL</literal></link>を指定しなければいけません。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>渡されたキー・値を持つ<link linkend="GHashTable"><type>GHashTable</type></link>。<link linkend="g-hash-table-unref"><function>g_hash_table_unref()</function></link>で開放してください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.4から</para></refsect2>
+<refsect2 id="gcut-hash-table-string-string-new-va-list" role="function" condition="since:1.0.5">
+<title>gcut_hash_table_string_string_new_va_list ()</title>
+<indexterm zone="gcut-hash-table-string-string-new-va-list" role="1.0.5"><primary>gcut_hash_table_string_string_new_va_list</primary></indexterm>
+<programlisting><link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link> *        gcut_hash_table_string_string_new_va_list
+                                                        (<parameter>const <link linkend="gchar"><type>gchar</type></link> *key</parameter>,
+                                                         <parameter><link linkend="va-list"><type>va_list</type></link> args</parameter>);</programlisting>
+<para>引数で指定されたキーと値のペアから、文字列のキーと値を持つハッシュテーブルを作成します。</para><variablelist role="params">
+<varlistentry><term><parameter>key</parameter> :</term>
+<listitem><simpara>最初のキー文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>args</parameter> :</term>
+<listitem><simpara>残りの引数の<link linkend="NULL:CAPS"><literal>NULL</literal></link>終端のリスト。まず、最初のキーの文字列値を指定します。続いて、任意の数だけキー・値のペアを指定します。最後に<link linkend="NULL:CAPS"><literal>NULL</literal></link>を指定しなければいけません。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>渡されたキー・値を持つ<link linkend="GHashTable"><type>GHashTable</type></link>。<link linkend="g-hash-table-unref"><function>g_hash_table_unref()</function></link>で開放してください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-take-new-hash-table-string-string" role="function" condition="since:1.0.5">
+<title>gcut_take_new_hash_table_string_string ()</title>
+<indexterm zone="gcut-take-new-hash-table-string-string" role="1.0.5"><primary>gcut_take_new_hash_table_string_string</primary></indexterm>
+<programlisting><link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link> *        gcut_take_new_hash_table_string_string
+                                                        (<parameter>const <link linkend="gchar"><type>gchar</type></link> *key</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para>渡されたキー・値のペアから文字列のキー・値を持つハッシュテーブルを作成します。作成されたハッシュテーブルはCutterが所有権を持つので、<link linkend="g-hash-table-unref"><function>g_hash_table_unref()</function></link>を呼ばないでください。</para><variablelist role="params">
+<varlistentry><term><parameter>key</parameter> :</term>
+<listitem><simpara>最初のキー文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>残りの引数の<link linkend="NULL:CAPS"><literal>NULL</literal></link>終端のリスト。まず、最初のキーの文字列値を指定します。続いて、任意の数だけキー・値のペアを指定します。最後に<link linkend="NULL:CAPS"><literal>NULL</literal></link>を指定しなければいけません。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>渡されたキー・値を持つ<link linkend="GHashTable"><type>GHashTable</type></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-get-fixture-data" role="function" condition="since:1.1.6">
+<title>gcut_get_fixture_data ()</title>
+<indexterm zone="gcut-get-fixture-data" role="1.1.6"><primary>gcut_get_fixture_data</primary></indexterm>
+<programlisting><link linkend="GString"><returnvalue>GString</returnvalue></link> *           gcut_get_fixture_data               (<parameter>const <link linkend="gchar"><type>gchar</type></link> *path</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>path</parameter>/..."にあるフィクスチャデータを読み込み、<link linkend="GString"><type>GString</type></link>として返します。GStringはCutterが所持します。<link linkend="cut-build-fixture-data-path"><function>cut_build_fixture_data_path()</function></link>の説明にはフィクスチャデータのパスがどのように決定されるかが書かれています。</para><variablelist role="params">
+<varlistentry><term><parameter>path</parameter> :</term>
+<listitem><simpara>フィクスチャデータのパスの最初の要素。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>パスの残りの要素。<link linkend="NULL:CAPS"><literal>NULL</literal></link>終端が必須です。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>フィクスチャデータの内容が入った<link linkend="GString"><type>GString</type></link>。GStringはCutterが所持します。開放しないでください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaFileSavable</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="libanjuta-IAnjutaFileManager.html" title="IAnjutaFileManager">
+<link rel="next" href="libanjuta-IAnjutaHelp.html" title="IAnjutaHelp">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-IAnjutaFileManager.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaHelp.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaFileSavable.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaFileSavable.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaFileSavable"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaFileSavable.top_of_page"></a>IAnjutaFileSavable</span></h2>
+<p>IAnjutaFileSavable — Implemented by plugins that can save files.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaFileSavable.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaFileSavable.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-file-savable.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaFileSavable.html#IANJUTA-FILE-SAVABLE-ERROR:CAPS" title="IANJUTA_FILE_SAVABLE_ERROR">IANJUTA_FILE_SAVABLE_ERROR</a>
+struct              <a class="link" href="libanjuta-IAnjutaFileSavable.html#IAnjutaFileSavableIface" title="struct IAnjutaFileSavableIface">IAnjutaFileSavableIface</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaFileSavable.html#ianjuta-file-savable-error-quark" title="ianjuta_file_savable_error_quark ()">ianjuta_file_savable_error_quark</a>    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaFileSavable.html#ianjuta-file-savable-is-conflict" title="ianjuta_file_savable_is_conflict ()">ianjuta_file_savable_is_conflict</a>    (<em class="parameter"><code><span class="type">IAnjutaFileSavable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaFileSavable.html#ianjuta-file-savable-is-dirty" title="ianjuta_file_savable_is_dirty ()">ianjuta_file_savable_is_dirty</a>       (<em class="parameter"><code><span class="type">IAnjutaFileSavable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaFileSavable.html#ianjuta-file-savable-is-read-only" title="ianjuta_file_savable_is_read_only ()">ianjuta_file_savable_is_read_only</a>   (<em class="parameter"><code><span class="type">IAnjutaFileSavable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaFileSavable.html#ianjuta-file-savable-save" title="ianjuta_file_savable_save ()">ianjuta_file_savable_save</a>           (<em class="parameter"><code><span class="type">IAnjutaFileSavable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaFileSavable.html#ianjuta-file-savable-save-as" title="ianjuta_file_savable_save_as ()">ianjuta_file_savable_save_as</a>        (<em class="parameter"><code><span class="type">IAnjutaFileSavable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaFileSavable.html#ianjuta-file-savable-set-dirty" title="ianjuta_file_savable_set_dirty ()">ianjuta_file_savable_set_dirty</a>      (<em class="parameter"><code><span class="type">IAnjutaFileSavable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> dirty</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaFileSavable.description"></a><h2>Description</h2>
+<p>
+Plugins implementing <span class="type">IAnjutaFile</span> inteface that can also save files
+should also implement this interface.
+</p>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaFileSavable.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-FILE-SAVABLE-ERROR:CAPS"></a><h3>IANJUTA_FILE_SAVABLE_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_FILE_SAVABLE_ERROR ianjuta_file_savable_error_quark()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaFileSavableIface"></a><h3>struct IAnjutaFileSavableIface</h3>
+<pre class="programlisting">struct IAnjutaFileSavableIface {
+	IAnjutaFileIface g_iface;
+	
+	/* Signal */
+	void (*saved) (IAnjutaFileSavable *obj, GFile* file);
+	/* Signal */
+	void (*update_save_ui) (IAnjutaFileSavable *obj);
+
+	gboolean (*is_conflict) (IAnjutaFileSavable *obj, GError **err);
+	gboolean (*is_dirty) (IAnjutaFileSavable *obj, GError **err);
+	gboolean (*is_read_only) (IAnjutaFileSavable *obj, GError **err);
+	void (*save) (IAnjutaFileSavable *obj, GError **err);
+	void (*save_as) (IAnjutaFileSavable *obj, GFile* file, GError **err);
+	void (*set_dirty) (IAnjutaFileSavable *obj, gboolean dirty, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-file-savable-error-quark"></a><h3>ianjuta_file_savable_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_file_savable_error_quark    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-file-savable-is-conflict"></a><h3>ianjuta_file_savable_is_conflict ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_file_savable_is_conflict    (<em class="parameter"><code><span class="type">IAnjutaFileSavable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Return is the file is in conflict. It means the file
+has been modified externally and the user needs to
+tell which version he wants to use.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if conflict, FALSE otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-file-savable-is-dirty"></a><h3>ianjuta_file_savable_is_dirty ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_file_savable_is_dirty       (<em class="parameter"><code><span class="type">IAnjutaFileSavable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Returns the dirty status of the content.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if dirty, FALSE otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-file-savable-is-read-only"></a><h3>ianjuta_file_savable_is_read_only ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_file_savable_is_read_only   (<em class="parameter"><code><span class="type">IAnjutaFileSavable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Return is the file is read-only
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if read-only, FALSE otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-file-savable-save"></a><h3>ianjuta_file_savable_save ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_file_savable_save           (<em class="parameter"><code><span class="type">IAnjutaFileSavable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Saves the content to the original file from which it was loaded.
+The signal saved is always emitted even if the save fails.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-file-savable-save-as"></a><h3>ianjuta_file_savable_save_as ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_file_savable_save_as        (<em class="parameter"><code><span class="type">IAnjutaFileSavable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Saves the content to a different File.
+The signal saved is always emitted even if the save fails.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>File to save the content.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-file-savable-set-dirty"></a><h3>ianjuta_file_savable_set_dirty ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_file_savable_set_dirty      (<em class="parameter"><code><span class="type">IAnjutaFileSavable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> dirty</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+if <em class="parameter"><code>dirty</code></em> is TRUE, sets dirty for the content. Save point will be
+left and the content will be considered not saved. Otherwise,
+content will considered saved and save-point will be entered.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dirty</code></em> :</span></p></td>
+<td>Whether the file was edited or not</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaFileSavable.see-also"></a><h2>See Also</h2>
+<span class="type">IAnjutaFile</span>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

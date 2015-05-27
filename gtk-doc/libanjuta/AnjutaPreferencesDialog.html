@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AnjutaPreferencesDialog</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="libanjuta-api.html" title="libanjuta API">
+<link rel="prev" href="AnjutaPreferences.html" title="AnjutaPreferences">
+<link rel="next" href="AnjutaUI.html" title="AnjutaUI">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AnjutaPreferences.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libanjuta-api.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="AnjutaUI.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AnjutaPreferencesDialog.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#AnjutaPreferencesDialog.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#AnjutaPreferencesDialog.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#AnjutaPreferencesDialog.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="AnjutaPreferencesDialog"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AnjutaPreferencesDialog.top_of_page"></a>AnjutaPreferencesDialog</span></h2>
+<p>AnjutaPreferencesDialog — Preferences dialog</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="AnjutaPreferencesDialog.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="AnjutaPreferencesDialog.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/anjuta-preferences-dialog.h&gt;
+
+struct              <a class="link" href="AnjutaPreferencesDialog.html#AnjutaPreferencesDialog-struct" title="struct AnjutaPreferencesDialog">AnjutaPreferencesDialog</a>;
+struct              <a class="link" href="AnjutaPreferencesDialog.html#AnjutaPreferencesDialogClass" title="struct AnjutaPreferencesDialogClass">AnjutaPreferencesDialogClass</a>;
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaPreferencesDialog.html#anjuta-preferences-dialog-add-page" title="anjuta_preferences_dialog_add_page ()">anjuta_preferences_dialog_add_page</a>  (<em class="parameter"><code><a class="link" href="AnjutaPreferencesDialog.html" title="AnjutaPreferencesDialog"><span class="type">AnjutaPreferencesDialog</span></a> *dlg</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *title</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *page</code></em>);
+<a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="AnjutaPreferencesDialog.html#anjuta-preferences-dialog-new" title="anjuta_preferences_dialog_new ()">anjuta_preferences_dialog_new</a>       (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaPreferencesDialog.html#anjuta-preferences-dialog-remove-page" title="anjuta_preferences_dialog_remove_page ()">anjuta_preferences_dialog_remove_page</a>
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaPreferencesDialog.html" title="AnjutaPreferencesDialog"><span class="type">AnjutaPreferencesDialog</span></a> *dlg</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *title</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="AnjutaPreferencesDialog.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk/GtkWidget.html">GtkWidget</a>
+               +----<a href="http://library.gnome.org/devel/gtk/GtkContainer.html">GtkContainer</a>
+                     +----<a href="http://library.gnome.org/devel/gtk/GtkBin.html">GtkBin</a>
+                           +----<a href="http://library.gnome.org/devel/gtk/GtkWindow.html">GtkWindow</a>
+                                 +----<a href="http://library.gnome.org/devel/gtk/GtkDialog.html">GtkDialog</a>
+                                       +----AnjutaPreferencesDialog
+</pre>
+</div>
+<div class="refsect1">
+<a name="AnjutaPreferencesDialog.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+AnjutaPreferencesDialog implements
+ AtkImplementorIface and  <a href="http://library.gnome.org/devel/gtk/GtkBuildable.html">GtkBuildable</a>.</p>
+</div>
+<div class="refsect1">
+<a name="AnjutaPreferencesDialog.description"></a><h2>Description</h2>
+<p>
+Plugins can added preferences page with <a class="link" href="AnjutaPreferencesDialog.html#anjuta-preferences-dialog-add-page" title="anjuta_preferences_dialog_add_page ()"><code class="function">anjuta_preferences_dialog_add_page()</code></a>.
+However, read <a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> for adding proper preferences pages.
+</p>
+</div>
+<div class="refsect1">
+<a name="AnjutaPreferencesDialog.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="AnjutaPreferencesDialog-struct"></a><h3>struct AnjutaPreferencesDialog</h3>
+<pre class="programlisting">struct AnjutaPreferencesDialog;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaPreferencesDialogClass"></a><h3>struct AnjutaPreferencesDialogClass</h3>
+<pre class="programlisting">struct AnjutaPreferencesDialogClass {
+	GtkDialogClass parent;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-preferences-dialog-add-page"></a><h3>anjuta_preferences_dialog_add_page ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_preferences_dialog_add_page  (<em class="parameter"><code><a class="link" href="AnjutaPreferencesDialog.html" title="AnjutaPreferencesDialog"><span class="type">AnjutaPreferencesDialog</span></a> *dlg</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *title</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *page</code></em>);</pre>
+<p>
+Adds a widget page in preferences dialog. Name and icon appears
+on the left icon list where differnt pages are selected.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dlg</code></em> :</span></p></td>
+<td>A <a class="link" href="AnjutaPreferencesDialog.html" title="AnjutaPreferencesDialog"><span class="type">AnjutaPreferencesDialog</span></a> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>Name of the preferences page.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>title</code></em> :</span></p></td>
+<td>Title of the page</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>Icon file name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page</code></em> :</span></p></td>
+<td>page widget.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-preferences-dialog-new"></a><h3>anjuta_preferences_dialog_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         anjuta_preferences_dialog_new       (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a new <a class="link" href="AnjutaPreferencesDialog.html" title="AnjutaPreferencesDialog"><span class="type">AnjutaPreferencesDialog</span></a> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="AnjutaPreferencesDialog.html" title="AnjutaPreferencesDialog"><span class="type">AnjutaPreferencesDialog</span></a> object.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-preferences-dialog-remove-page"></a><h3>anjuta_preferences_dialog_remove_page ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_preferences_dialog_remove_page
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaPreferencesDialog.html" title="AnjutaPreferencesDialog"><span class="type">AnjutaPreferencesDialog</span></a> *dlg</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *title</code></em>);</pre>
+<p>
+Removes a preferences page.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dlg</code></em> :</span></p></td>
+<td>A <a class="link" href="AnjutaPreferencesDialog.html" title="AnjutaPreferencesDialog"><span class="type">AnjutaPreferencesDialog</span></a> object.g_signal_handler</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>title</code></em> :</span></p></td>
+<td>Name of the preferences page.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="AnjutaPreferencesDialog.see-also"></a><h2>See Also</h2>
+<a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Convenience HTTP client API</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutter Reference Manual">
+<link rel="up" href="writing-test.html" title="Writing test">
+<link rel="prev" href="cutter-Assertions-for-HTTP-client-and-server.html" title="Assertions for HTTP client and server">
+<link rel="next" href="cutter-Convenience-HTTP-server-API.html" title="Convenience HTTP server API">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="cutter-Assertions-for-HTTP-client-and-server.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="writing-test.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutter Reference Manual</th>
+<td><a accesskey="n" href="cutter-Convenience-HTTP-server-API.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#SoupCutClient.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#SoupCutClient.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#SoupCutClient.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#SoupCutClient.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="Convenience HTTP client API">
+<a name="SoupCutClient"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="SoupCutClient.top_of_page"></a>Convenience HTTP client API</span></h2>
+<p>Convenience HTTP client API — API to work as HTTP client.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="SoupCutClient.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="SoupCutClient.html#SoupCutClient-struct" title="SoupCutClient">SoupCutClient</a>;
+                    <a class="link" href="SoupCutClient.html#SoupCutClientClass" title="SoupCutClientClass">SoupCutClientClass</a>;
+<a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="returnvalue">SoupCutClient</span></a> *     <a class="link" href="SoupCutClient.html#soupcut-client-new" title="soupcut_client_new ()">soupcut_client_new</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="SoupCutClient.html#soupcut-client-set-base" title="soupcut_client_set_base ()">soupcut_client_set_base</a>             (<em class="parameter"><code><a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uri</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="SoupCutClient.html#soupcut-client-send-message" title="soupcut_client_send_message ()">soupcut_client_send_message</a>         (<em class="parameter"><code><a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">SoupMessage</span> *message</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="SoupCutClient.html#soupcut-client-get" title="soupcut_client_get ()">soupcut_client_get</a>                  (<em class="parameter"><code><a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uri</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *first_query_name</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="SoupCutClient.html#soupcut-client-get-n-messages" title="soupcut_client_get_n_messages ()">soupcut_client_get_n_messages</a>       (<em class="parameter"><code><a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a> *client</code></em>);
+<span class="returnvalue">SoupMessage</span> *       <a class="link" href="SoupCutClient.html#soupcut-client-get-latest-message" title="soupcut_client_get_latest_message ()">soupcut_client_get_latest_message</a>   (<em class="parameter"><code><a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a> *client</code></em>);
+<span class="returnvalue">GMainContext</span> *      <a class="link" href="SoupCutClient.html#soupcut-client-get-async-context" title="soupcut_client_get_async_context ()">soupcut_client_get_async_context</a>    (<em class="parameter"><code><a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a> *client</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="SoupCutClient.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----SoupCutClient
+</pre>
+</div>
+<div class="refsect1" title="Properties">
+<a name="SoupCutClient.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="SoupCutClient.html#SoupCutClient--async" title='The "async" property'>async</a>"                    <span class="type">gboolean</span>              : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="SoupCutClient.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a> works as a HTTP client. It accepts
+multiple requests and responses are managed by
+<a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a>. <a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a> related assertions are
+also provided.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="SoupCutClient.details"></a><h2>Details</h2>
+<div class="refsect2" title="SoupCutClient">
+<a name="SoupCutClient-struct"></a><h3>SoupCutClient</h3>
+<pre class="programlisting">typedef struct _SoupCutClient SoupCutClient;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="SoupCutClientClass">
+<a name="SoupCutClientClass"></a><h3>SoupCutClientClass</h3>
+<pre class="programlisting">typedef struct {
+    GObjectClass parent_class;
+} SoupCutClientClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="soupcut_client_new ()">
+<a name="soupcut-client-new"></a><h3>soupcut_client_new ()</h3>
+<pre class="programlisting"><a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="returnvalue">SoupCutClient</span></a> *     soupcut_client_new                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates and returns a new <a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a>.
+
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.0.8</p>
+</div>
+<hr>
+<div class="refsect2" title="soupcut_client_set_base ()">
+<a name="soupcut-client-set-base"></a><h3>soupcut_client_set_base ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                soupcut_client_set_base             (<em class="parameter"><code><a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uri</code></em>);</pre>
+<p>
+Set <em class="parameter"><code>uri</code></em> as a base uri of <em class="parameter"><code>client</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>a <a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>a base uri.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.0.8</p>
+</div>
+<hr>
+<div class="refsect2" title="soupcut_client_send_message ()">
+<a name="soupcut-client-send-message"></a><h3>soupcut_client_send_message ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               soupcut_client_send_message         (<em class="parameter"><code><a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">SoupMessage</span> *message</code></em>);</pre>
+<p>
+Send <em class="parameter"><code>message</code></em> with <em class="parameter"><code>client</code></em>. <em class="parameter"><code>client</code></em> remebers all the messages it sent.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>a <a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>a <span class="type">SoupMessage</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a status code of the response.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.0.8</p>
+</div>
+<hr>
+<div class="refsect2" title="soupcut_client_get ()">
+<a name="soupcut-client-get"></a><h3>soupcut_client_get ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               soupcut_client_get                  (<em class="parameter"><code><a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uri</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *first_query_name</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Send a GET request to <em class="parameter"><code>uri</code></em> with queries. If the base URI of <em class="parameter"><code>client</code></em>
+is set by <a class="link" href="SoupCutClient.html#soupcut-client-set-base" title="soupcut_client_set_base ()"><code class="function">soupcut_client_set_base()</code></a>, the destination URI is composed of the base URI and <em class="parameter"><code>uri</code></em>. If not, <em class="parameter"><code>uri</code></em> must be a fully qualified URI.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>a <a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>an URI string.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>first_query_name</code></em> :</span></p></td>
+<td>the name of the first query parameter.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>pairs of query parameter names and values, starting with <em class="parameter"><code>first_query_name</code></em>, terminated by <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a status code of the response.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.0.8</p>
+</div>
+<hr>
+<div class="refsect2" title="soupcut_client_get_n_messages ()">
+<a name="soupcut-client-get-n-messages"></a><h3>soupcut_client_get_n_messages ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               soupcut_client_get_n_messages       (<em class="parameter"><code><a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a> *client</code></em>);</pre>
+<p>
+Returns the number of messages <em class="parameter"><code>client</code></em> sent.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>a <a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the number of messages.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.0.8</p>
+</div>
+<hr>
+<div class="refsect2" title="soupcut_client_get_latest_message ()">
+<a name="soupcut-client-get-latest-message"></a><h3>soupcut_client_get_latest_message ()</h3>
+<pre class="programlisting"><span class="returnvalue">SoupMessage</span> *       soupcut_client_get_latest_message   (<em class="parameter"><code><a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a> *client</code></em>);</pre>
+<p>
+Returns the latest <span class="type">SoupMessage</span> <em class="parameter"><code>client</code></em> sent.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>a <a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the latest <span class="type">SoupMessage</span>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.0.8</p>
+</div>
+<hr>
+<div class="refsect2" title="soupcut_client_get_async_context ()">
+<a name="soupcut-client-get-async-context"></a><h3>soupcut_client_get_async_context ()</h3>
+<pre class="programlisting"><span class="returnvalue">GMainContext</span> *      soupcut_client_get_async_context    (<em class="parameter"><code><a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a> *client</code></em>);</pre>
+<p>
+Returns the asynch_context of <em class="parameter"><code>client</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>a <a class="link" href="SoupCutClient.html" title="Convenience HTTP client API"><span class="type">SoupCutClient</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <span class="type">GMainContext</span> of <em class="parameter"><code>client</code></em>, which may be <code class="literal">NULL</code>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.0.8</p>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="SoupCutClient.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "async" property'>
+<a name="SoupCutClient--async"></a><h3>The <code class="literal">"async"</code> property</h3>
+<pre class="programlisting">  "async"                    <span class="type">gboolean</span>              : Read / Write</pre>
+<p>True if the session is asynchronous.</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="SoupCutClient.see-also"></a><h2>See Also</h2>
+<a class="link" href="cutter-Assertions-for-HTTP-client-and-server.html" title="Assertions for HTTP client and server">
+           Assertions for HTTP client and server</a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

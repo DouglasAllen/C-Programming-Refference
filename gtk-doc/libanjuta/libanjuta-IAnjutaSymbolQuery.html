@@ -1,0 +1,950 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaSymbolQuery</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="libanjuta-IAnjutaSymbol.html" title="IAnjutaSymbol">
+<link rel="next" href="libanjuta-IAnjutaSymbolManager.html" title="IAnjutaSymbolManager">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-IAnjutaSymbol.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaSymbolManager.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaSymbolQuery.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaSymbolQuery.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaSymbolQuery.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaSymbolQuery"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaSymbolQuery.top_of_page"></a>IAnjutaSymbolQuery</span></h2>
+<p>IAnjutaSymbolQuery — Source code symbol query interface</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaSymbolQuery.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaSymbolQuery.synopsis"></a><h2>Synopsis</h2>
+<a name="IAnjutaSymbolQueryDb"></a><a name="IAnjutaSymbolQueryFileScope"></a><a name="IAnjutaSymbolQueryMode"></a><a name="IAnjutaSymbolQueryName"></a><pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-symbol-query.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IANJUTA-SYMBOL-QUERY-ERROR:CAPS" title="IANJUTA_SYMBOL_QUERY_ERROR">IANJUTA_SYMBOL_QUERY_ERROR</a>
+enum                <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryDb-enum" title="enum IAnjutaSymbolQueryDb">IAnjutaSymbolQueryDb</a>;
+enum                <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryFileScope-enum" title="enum IAnjutaSymbolQueryFileScope">IAnjutaSymbolQueryFileScope</a>;
+struct              <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryIface" title="struct IAnjutaSymbolQueryIface">IAnjutaSymbolQueryIface</a>;
+enum                <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryMode-enum" title="enum IAnjutaSymbolQueryMode">IAnjutaSymbolQueryMode</a>;
+enum                <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryName-enum" title="enum IAnjutaSymbolQueryName">IAnjutaSymbolQueryName</a>;
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-cancel" title="ianjuta_symbol_query_cancel ()">ianjuta_symbol_query_cancel</a>         (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-error-quark" title="ianjuta_symbol_query_error_quark ()">ianjuta_symbol_query_error_quark</a>    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">IAnjutaIterable</span> *   <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-search" title="ianjuta_symbol_query_search ()">ianjuta_symbol_query_search</a>         (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *pattern</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaIterable</span> *   <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-search-all" title="ianjuta_symbol_query_search_all ()">ianjuta_symbol_query_search_all</a>     (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaIterable</span> *   <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-search-class-parents" title="ianjuta_symbol_query_search_class_parents ()">ianjuta_symbol_query_search_class_parents</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaSymbol</span> *symbol</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaIterable</span> *   <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-search-file" title="ianjuta_symbol_query_search_file ()">ianjuta_symbol_query_search_file</a>    (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *pattern</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaIterable</span> *   <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-search-id" title="ianjuta_symbol_query_search_id ()">ianjuta_symbol_query_search_id</a>      (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> symbol_id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaIterable</span> *   <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-search-in-scope" title="ianjuta_symbol_query_search_in_scope ()">ianjuta_symbol_query_search_in_scope</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *pattern</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaSymbol</span> *scope</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaIterable</span> *   <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-search-members" title="ianjuta_symbol_query_search_members ()">ianjuta_symbol_query_search_members</a> (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaSymbol</span> *symbol</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaIterable</span> *   <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-search-parent-scope" title="ianjuta_symbol_query_search_parent_scope ()">ianjuta_symbol_query_search_parent_scope</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaSymbol</span> *symbol</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaIterable</span> *   <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-search-parent-scope-file" title="ianjuta_symbol_query_search_parent_scope_file ()">ianjuta_symbol_query_search_parent_scope_file</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaSymbol</span> *symbol</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *file_path</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaIterable</span> *   <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-search-scope" title="ianjuta_symbol_query_search_scope ()">ianjuta_symbol_query_search_scope</a>   (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *file_path</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> line</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-fields" title="ianjuta_symbol_query_set_fields ()">ianjuta_symbol_query_set_fields</a>     (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_fields</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaSymbol.html#IAnjutaSymbolField"><span class="type">IAnjutaSymbolField</span></a> *fields</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-file-scope" title="ianjuta_symbol_query_set_file_scope ()">ianjuta_symbol_query_set_file_scope</a> (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryFileScope"><span class="type">IAnjutaSymbolQueryFileScope</span></a> filescope_search</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-filters" title="ianjuta_symbol_query_set_filters ()">ianjuta_symbol_query_set_filters</a>    (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaSymbol.html#IAnjutaSymbolType"><span class="type">IAnjutaSymbolType</span></a> filters</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> includes_types</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-group-by" title="ianjuta_symbol_query_set_group_by ()">ianjuta_symbol_query_set_group_by</a>   (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaSymbol.html#IAnjutaSymbolField"><span class="type">IAnjutaSymbolField</span></a> field</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-limit" title="ianjuta_symbol_query_set_limit ()">ianjuta_symbol_query_set_limit</a>      (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> limit</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-mode" title="ianjuta_symbol_query_set_mode ()">ianjuta_symbol_query_set_mode</a>       (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryMode"><span class="type">IAnjutaSymbolQueryMode</span></a> mode</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-offset" title="ianjuta_symbol_query_set_offset ()">ianjuta_symbol_query_set_offset</a>     (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> offset</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-order-by" title="ianjuta_symbol_query_set_order_by ()">ianjuta_symbol_query_set_order_by</a>   (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaSymbol.html#IAnjutaSymbolField"><span class="type">IAnjutaSymbolField</span></a> field</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaSymbolQuery.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GEnum
+   +----IAnjutaSymbolQueryDb
+</pre>
+<pre class="synopsis">
+  GEnum
+   +----IAnjutaSymbolQueryFileScope
+</pre>
+<pre class="synopsis">
+  GEnum
+   +----IAnjutaSymbolQueryMode
+</pre>
+<pre class="synopsis">
+  GEnum
+   +----IAnjutaSymbolQueryName
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaSymbolQuery.description"></a><h2>Description</h2>
+<p>
+A query object will have this interface that allows to tweak various
+query parameters. Except for the <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryName"><span class="type">IAnjutaSymbolQueryName</span></a> and
+<a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryDb"><span class="type">IAnjutaSymbolQueryDb</span></a> parameters, everything else is changable
+post-creation.
+</p>
+<p>
+Note that chaning a query parameter, except for limit and offset will
+result in re-preparing the query the next time it is executed, so it is
+not advisable to change it each time the query is executed. For such
+cases, create different queries with different parameters.
+</p>
+<p>
+A query is signified by a name enumeration (<a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryName"><span class="type">IAnjutaSymbolQueryName</span></a>) which
+practically determines the query type and its execution condition. Each
+query name is assigned to pre-defined query statement and can only be
+set during creation time. Then only its specific ianjuta_symbol_query_search_*()
+can be used to execute the query. These specific execution methods are
+provided to make it convenient to pass query parameters easily and to
+ensure all the needed parameters are given.
+</p>
+<p>
+A query can run in different modes, defined by <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryMode"><span class="type">IAnjutaSymbolQueryMode</span></a>, by
+default it is executed in synchrounous mode <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IANJUTA-SYMBOL-QUERY-MODE-SYNC:CAPS"><span class="type">IANJUTA_SYMBOL_QUERY_MODE_SYNC</span></a>
+and can be changed using <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-mode" title="ianjuta_symbol_query_set_mode ()"><code class="function">ianjuta_symbol_query_set_mode()</code></a>.
+<a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IANJUTA-SYMBOL-QUERY-MODE-ASYNC:CAPS"><span class="type">IANJUTA_SYMBOL_QUERY_MODE_ASYNC</span></a> runs it in asynchronous mode in a separate
+thread and can be canceled with <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-cancel" title="ianjuta_symbol_query_cancel ()"><code class="function">ianjuta_symbol_query_cancel()</code></a>.
+</p>
+<p>
+A query runs on a database, defined by <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryDb"><span class="type">IAnjutaSymbolQueryDb</span></a>, and can be
+only selected at creatation time.
+</p>
+<p>
+In addition, there are many other filters that can be set to the query
+to refine the query results. For example, <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-fields" title="ianjuta_symbol_query_set_fields ()"><code class="function">ianjuta_symbol_query_set_fields()</code></a>
+is used to set the needed symbol fields to retrieve, <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-filters" title="ianjuta_symbol_query_set_filters ()"><code class="function">ianjuta_symbol_query_set_filters()</code></a>
+is used to filter the results with symbol types, <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-file-scope" title="ianjuta_symbol_query_set_file_scope ()"><code class="function">ianjuta_symbol_query_set_file_scope()</code></a>
+limits the results to either public or private scope within the source file,
+<a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-group-by" title="ianjuta_symbol_query_set_group_by ()"><code class="function">ianjuta_symbol_query_set_group_by()</code></a> is used to group the results on a given
+field, ianjuta_symbol_query_set_order_by is used to order the results on a
+given field.
+</p>
+<p>
+<a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-limit" title="ianjuta_symbol_query_set_limit ()"><code class="function">ianjuta_symbol_query_set_limit()</code></a> and <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#ianjuta-symbol-query-set-offset" title="ianjuta_symbol_query_set_offset ()"><code class="function">ianjuta_symbol_query_set_offset()</code></a> are
+used to change limit and offset of the resultset. Note again that these
+parameters do not require re-preparation of query, so can be safely used
+any time without performance hit.
+</p>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaSymbolQuery.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-SYMBOL-QUERY-ERROR:CAPS"></a><h3>IANJUTA_SYMBOL_QUERY_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_SYMBOL_QUERY_ERROR ianjuta_symbol_query_error_quark()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaSymbolQueryDb-enum"></a><h3>enum IAnjutaSymbolQueryDb</h3>
+<pre class="programlisting">typedef enum {
+	IANJUTA_SYMBOL_QUERY_DB_PROJECT,
+	IANJUTA_SYMBOL_QUERY_DB_SYSTEM
+} IAnjutaSymbolQueryDb;
+</pre>
+<p>
+Sets the database to use for the query. System database is where
+all system library symbols are found. While project database is where
+currently open project's symbols are found.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-DB-PROJECT:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_DB_PROJECT</code></span></p></td>
+<td>Select project database.
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-DB-SYSTEM:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_DB_SYSTEM</code></span></p></td>
+<td>Select system database.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaSymbolQueryFileScope-enum"></a><h3>enum IAnjutaSymbolQueryFileScope</h3>
+<pre class="programlisting">typedef enum {
+	IANJUTA_SYMBOL_QUERY_SEARCH_FS_IGNORE,
+	IANJUTA_SYMBOL_QUERY_SEARCH_FS_PUBLIC,
+	IANJUTA_SYMBOL_QUERY_SEARCH_FS_PRIVATE
+} IAnjutaSymbolQueryFileScope;
+</pre>
+<p>
+Defines file scope of symbols to query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-SEARCH-FS-IGNORE:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_SEARCH_FS_IGNORE</code></span></p></td>
+<td>Ignore file scope
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-SEARCH-FS-PUBLIC:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_SEARCH_FS_PUBLIC</code></span></p></td>
+<td>Only public symbols visible to rest of project.
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-SEARCH-FS-PRIVATE:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_SEARCH_FS_PRIVATE</code></span></p></td>
+<td>Only private symbols visible inside a file.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaSymbolQueryIface"></a><h3>struct IAnjutaSymbolQueryIface</h3>
+<pre class="programlisting">struct IAnjutaSymbolQueryIface {
+	GTypeInterface g_iface;
+	
+	/* Signal */
+	void (*async_result) (IAnjutaSymbolQuery *obj, GObject* result);
+
+	void (*cancel) (IAnjutaSymbolQuery *obj, GError **err);
+	IAnjutaIterable* (*search) (IAnjutaSymbolQuery *obj, const gchar *pattern, GError **err);
+	IAnjutaIterable* (*search_all) (IAnjutaSymbolQuery *obj, GError **err);
+	IAnjutaIterable* (*search_class_parents) (IAnjutaSymbolQuery *obj, IAnjutaSymbol *symbol, GError **err);
+	IAnjutaIterable* (*search_file) (IAnjutaSymbolQuery *obj, const gchar *pattern,  const GFile *file, GError **err);
+	IAnjutaIterable* (*search_id) (IAnjutaSymbolQuery *obj, gint symbol_id, GError **err);
+	IAnjutaIterable* (*search_in_scope) (IAnjutaSymbolQuery *obj, const gchar *pattern,  IAnjutaSymbol *scope, GError **err);
+	IAnjutaIterable* (*search_members) (IAnjutaSymbolQuery *obj, IAnjutaSymbol *symbol, GError **err);
+	IAnjutaIterable* (*search_parent_scope) (IAnjutaSymbolQuery *obj, IAnjutaSymbol *symbol, GError **err);
+	IAnjutaIterable* (*search_parent_scope_file) (IAnjutaSymbolQuery *obj, IAnjutaSymbol *symbol,  const gchar *file_path, GError **err);
+	IAnjutaIterable* (*search_scope) (IAnjutaSymbolQuery *obj, const gchar *file_path,  gint line, GError **err);
+	void (*set_fields) (IAnjutaSymbolQuery *obj, gint n_fields,  IAnjutaSymbolField *fields, GError **err);
+	void (*set_file_scope) (IAnjutaSymbolQuery *obj, IAnjutaSymbolQueryFileScope filescope_search, GError **err);
+	void (*set_filters) (IAnjutaSymbolQuery *obj, IAnjutaSymbolType filters,  gboolean includes_types, GError **err);
+	void (*set_group_by) (IAnjutaSymbolQuery *obj, IAnjutaSymbolField field, GError **err);
+	void (*set_limit) (IAnjutaSymbolQuery *obj, gint limit, GError **err);
+	void (*set_mode) (IAnjutaSymbolQuery *obj, IAnjutaSymbolQueryMode mode, GError **err);
+	void (*set_offset) (IAnjutaSymbolQuery *obj, gint offset, GError **err);
+	void (*set_order_by) (IAnjutaSymbolQuery *obj, IAnjutaSymbolField field, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaSymbolQueryMode-enum"></a><h3>enum IAnjutaSymbolQueryMode</h3>
+<pre class="programlisting">typedef enum {
+	IANJUTA_SYMBOL_QUERY_MODE_SYNC,
+	IANJUTA_SYMBOL_QUERY_MODE_ASYNC,
+	IANJUTA_SYMBOL_QUERY_MODE_QUEUED
+} IAnjutaSymbolQueryMode;
+</pre>
+<p>
+This parameter determines the mode of query execution. By default,
+IANJUTA_SYMBOL_QUERY_MODE_SYNC is selected.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-MODE-SYNC:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_MODE_SYNC</code></span></p></td>
+<td>Syncronous query. The result is immediately
+    available as retrun value of search call.
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-MODE-ASYNC:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_MODE_ASYNC</code></span></p></td>
+<td>Asynchronous query. The search call
+    return immediately and result delievered as a signal later. The actual
+    query is done in a separate thread.
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-MODE-QUEUED:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_MODE_QUEUED</code></span></p></td>
+<td>If the database is busy
+    scanning, then the query is performed later when database is ready.
+    It returns NULL and result is delivered through async-result signal.
+    Only query can stay queued, so calling search multiple times would
+    result in only the last one being active.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaSymbolQueryName-enum"></a><h3>enum IAnjutaSymbolQueryName</h3>
+<pre class="programlisting">typedef enum {
+	IANJUTA_SYMBOL_QUERY_SEARCH,
+	IANJUTA_SYMBOL_QUERY_SEARCH_ALL,
+	IANJUTA_SYMBOL_QUERY_SEARCH_FILE,
+	IANJUTA_SYMBOL_QUERY_SEARCH_IN_SCOPE,
+	IANJUTA_SYMBOL_QUERY_SEARCH_ID,
+	IANJUTA_SYMBOL_QUERY_SEARCH_MEMBERS,
+	IANJUTA_SYMBOL_QUERY_SEARCH_CLASS_PARENTS,
+	IANJUTA_SYMBOL_QUERY_SEARCH_SCOPE,
+	IANJUTA_SYMBOL_QUERY_SEARCH_PARENT_SCOPE,
+	IANJUTA_SYMBOL_QUERY_SEARCH_PARENT_SCOPE_FILE
+} IAnjutaSymbolQueryName;
+</pre>
+<p>
+Names of query that defined what kind of query it is.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-SEARCH:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_SEARCH</code></span></p></td>
+<td>Query to perform basic substring search.
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-SEARCH-ALL:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_SEARCH_ALL</code></span></p></td>
+<td>Query to get all symbols
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-SEARCH-FILE:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_SEARCH_FILE</code></span></p></td>
+<td>Query to perform substring search in a file.
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-SEARCH-IN-SCOPE:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_SEARCH_IN_SCOPE</code></span></p></td>
+<td>Query to perform substring search in a scope.
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-SEARCH-ID:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_SEARCH_ID</code></span></p></td>
+<td>Query to find the symbol of given ID.
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-SEARCH-MEMBERS:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_SEARCH_MEMBERS</code></span></p></td>
+<td>Query to find members of a scope (eg. class).
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-SEARCH-CLASS-PARENTS:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_SEARCH_CLASS_PARENTS</code></span></p></td>
+<td>Query to get parents of a class.
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-SEARCH-SCOPE:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_SEARCH_SCOPE</code></span></p></td>
+<td>Query to find scope name of a file position.
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-SEARCH-PARENT-SCOPE:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_SEARCH_PARENT_SCOPE</code></span></p></td>
+<td>Query to get the parent scope of a symbol.
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-SYMBOL-QUERY-SEARCH-PARENT-SCOPE-FILE:CAPS"></a><span class="term"><code class="literal">IANJUTA_SYMBOL_QUERY_SEARCH_PARENT_SCOPE_FILE</code></span></p></td>
+<td>Query to get the parent scope of a symbol in the file.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-cancel"></a><h3>ianjuta_symbol_query_cancel ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_symbol_query_cancel         (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-error-quark"></a><h3>ianjuta_symbol_query_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_symbol_query_error_quark    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-search"></a><h3>ianjuta_symbol_query_search ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaIterable</span> *   ianjuta_symbol_query_search         (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *pattern</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Executes <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IANJUTA-SYMBOL-QUERY-SEARCH:CAPS"><span class="type">IANJUTA_SYMBOL_QUERY_SEARCH</span></a> query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pattern</code></em> :</span></p></td>
+<td>Search pattern in compliance with SQL LIKE syntax</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-search-all"></a><h3>ianjuta_symbol_query_search_all ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaIterable</span> *   ianjuta_symbol_query_search_all     (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Executes <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IANJUTA-SYMBOL-QUERY-SEARCH-ALL:CAPS"><span class="type">IANJUTA_SYMBOL_QUERY_SEARCH_ALL</span></a> query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-search-class-parents"></a><h3>ianjuta_symbol_query_search_class_parents ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaIterable</span> *   ianjuta_symbol_query_search_class_parents
+                                                        (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaSymbol</span> *symbol</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Executes <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IANJUTA-SYMBOL-QUERY-SEARCH-CLASS-PARENTS:CAPS"><span class="type">IANJUTA_SYMBOL_QUERY_SEARCH_CLASS_PARENTS</span></a> query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>symbol</code></em> :</span></p></td>
+<td>The class symbol whose parents to get.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-search-file"></a><h3>ianjuta_symbol_query_search_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaIterable</span> *   ianjuta_symbol_query_search_file    (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *pattern</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Executes <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IANJUTA-SYMBOL-QUERY-SEARCH-FILE:CAPS"><span class="type">IANJUTA_SYMBOL_QUERY_SEARCH_FILE</span></a> query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pattern</code></em> :</span></p></td>
+<td>Search pattern in compliance with SQL LIKE syntax</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>The file whose symbols are searched.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-search-id"></a><h3>ianjuta_symbol_query_search_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaIterable</span> *   ianjuta_symbol_query_search_id      (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> symbol_id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Executes <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IANJUTA-SYMBOL-QUERY-SEARCH-ID:CAPS"><span class="type">IANJUTA_SYMBOL_QUERY_SEARCH_ID</span></a> query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-search-in-scope"></a><h3>ianjuta_symbol_query_search_in_scope ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaIterable</span> *   ianjuta_symbol_query_search_in_scope
+                                                        (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *pattern</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaSymbol</span> *scope</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Executes <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IANJUTA-SYMBOL-QUERY-SEARCH-IN-SCOPE:CAPS"><span class="type">IANJUTA_SYMBOL_QUERY_SEARCH_IN_SCOPE</span></a> query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pattern</code></em> :</span></p></td>
+<td>Search pattern in compliance with SQL LIKE syntax</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>scope</code></em> :</span></p></td>
+<td>The scope inside which symbols are searched.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-search-members"></a><h3>ianjuta_symbol_query_search_members ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaIterable</span> *   ianjuta_symbol_query_search_members (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaSymbol</span> *symbol</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Executes <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IANJUTA-SYMBOL-QUERY-SEARCH-MEMBERS:CAPS"><span class="type">IANJUTA_SYMBOL_QUERY_SEARCH_MEMBERS</span></a> query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>symbol</code></em> :</span></p></td>
+<td>The symbol whose members to get.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-search-parent-scope"></a><h3>ianjuta_symbol_query_search_parent_scope ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaIterable</span> *   ianjuta_symbol_query_search_parent_scope
+                                                        (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaSymbol</span> *symbol</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Executes <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IANJUTA-SYMBOL-QUERY-SEARCH-PARENT-SCOPE:CAPS"><span class="type">IANJUTA_SYMBOL_QUERY_SEARCH_PARENT_SCOPE</span></a> query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>symbol</code></em> :</span></p></td>
+<td>The symbol whose parent scope is to be found.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-search-parent-scope-file"></a><h3>ianjuta_symbol_query_search_parent_scope_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaIterable</span> *   ianjuta_symbol_query_search_parent_scope_file
+                                                        (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaSymbol</span> *symbol</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *file_path</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Executes <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IANJUTA-SYMBOL-QUERY-SEARCH-PARENT-SCOPE-FILE:CAPS"><span class="type">IANJUTA_SYMBOL_QUERY_SEARCH_PARENT_SCOPE_FILE</span></a> query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>symbol</code></em> :</span></p></td>
+<td>The symbol whose parent scope is to be found.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_path</code></em> :</span></p></td>
+<td>The file where the parent scope is to be found.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-search-scope"></a><h3>ianjuta_symbol_query_search_scope ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaIterable</span> *   ianjuta_symbol_query_search_scope   (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *file_path</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> line</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Executes <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IANJUTA-SYMBOL-QUERY-SEARCH-SCOPE:CAPS"><span class="type">IANJUTA_SYMBOL_QUERY_SEARCH_SCOPE</span></a> query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_path</code></em> :</span></p></td>
+<td>The file where the scope is.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>line</code></em> :</span></p></td>
+<td>The line where the scope is.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-set-fields"></a><h3>ianjuta_symbol_query_set_fields ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_symbol_query_set_fields     (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_fields</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaSymbol.html#IAnjutaSymbolField"><span class="type">IAnjutaSymbolField</span></a> *fields</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Sets the fields of Query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_fields</code></em> :</span></p></td>
+<td>Then number of fields to retrieve.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fields</code></em> :</span></p></td>
+<td>The fields to retrieve in the query. The array length must
+be <em class="parameter"><code>n_fields</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-set-file-scope"></a><h3>ianjuta_symbol_query_set_file_scope ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_symbol_query_set_file_scope (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryFileScope"><span class="type">IAnjutaSymbolQueryFileScope</span></a> filescope_search</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Sets the filescope search of Query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filescope_search</code></em> :</span></p></td>
+<td>The filescope to search.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-set-filters"></a><h3>ianjuta_symbol_query_set_filters ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_symbol_query_set_filters    (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaSymbol.html#IAnjutaSymbolType"><span class="type">IAnjutaSymbolType</span></a> filters</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> includes_types</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Sets the bit mask of symbol type filters. if <em class="parameter"><code>include_types</code></em> is TRUE,
+symbols satisfying the given symbol types are selected, otherwise
+they are excluded.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filters</code></em> :</span></p></td>
+<td>The mode of query.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-set-group-by"></a><h3>ianjuta_symbol_query_set_group_by ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_symbol_query_set_group_by   (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaSymbol.html#IAnjutaSymbolField"><span class="type">IAnjutaSymbolField</span></a> field</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Sets the field with which result of query is grouped. As a result
+there will be no duplicates of with this field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>The field to group results.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-set-limit"></a><h3>ianjuta_symbol_query_set_limit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_symbol_query_set_limit      (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> limit</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Sets the limit of Query results. No more than <em class="parameter"><code>limit</code></em> results are
+returned.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>limit</code></em> :</span></p></td>
+<td>The limit of query.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-set-mode"></a><h3>ianjuta_symbol_query_set_mode ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_symbol_query_set_mode       (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryMode"><span class="type">IAnjutaSymbolQueryMode</span></a> mode</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Sets the mode of Query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>The mode of query.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-set-offset"></a><h3>ianjuta_symbol_query_set_offset ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_symbol_query_set_offset     (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> offset</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Sets the offset index of Query results.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
+<td>Offset of the resultset.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-symbol-query-set-order-by"></a><h3>ianjuta_symbol_query_set_order_by ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_symbol_query_set_order_by   (<em class="parameter"><code><span class="type">IAnjutaSymbolQuery</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaSymbol.html#IAnjutaSymbolField"><span class="type">IAnjutaSymbolField</span></a> field</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Sets the field with which result of query is ordered.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>The field to order the result.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaSymbolQuery.see-also"></a><h2>See Also</h2>
+<span class="type">IAnjutaSymbolManager</span>, <span class="type">IAnjutaSymbol</span>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

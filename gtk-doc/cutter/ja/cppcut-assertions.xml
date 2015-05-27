@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-Assertions-with-C++-support">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-Assertions-with-C++-support.top_of_page">C++サポート付きの検証</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>C++サポート付きの検証</refname>
+<refpurpose>C++サポート付きであなたのプログラムが期待通りに動作しているかを検証します。</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-Assertions-with-C++-support.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis>#define             <link linkend="cppcut-assert-equal">cppcut_assert_equal</link>                 (expected,
+                                                         actual,
+                                                         ...)
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-Assertions-with-C++-support.description" role="desc">
+<title role="desc.title">説明</title>
+
+</refsect1>
+<refsect1 id="cutter-Assertions-with-C++-support.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="cppcut-assert-equal" role="macro" condition="since:1.0.9">
+<title>cppcut_assert_equal()</title>
+<indexterm zone="cppcut-assert-equal" role="1.0.9"><primary>cppcut_assert_equal</primary></indexterm>
+<programlisting>#define             cppcut_assert_equal(expected, actual, ...)</programlisting>
+<para>この検証はテンプレートを利用しています。任意のオブジェクトのリファレンスを<parameter>expected</parameter>と<parameter>actual</parameter>に渡せます。</para>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para>
+<para>例: <informalexample><programlisting>
+cppcut_assert_equal(3, 1 + 2);
+cppcut_assert_equal(3, 1 + 2, cppcut_message("easy expression"));
+cppcut_assert_equal(3, 1 + 2, cppcut_message() &lt;&lt; "easy expression"));
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cppcut-message"><function>cppcut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.9から</para></refsect2>
+
+</refsect1>
+
+</refentry>

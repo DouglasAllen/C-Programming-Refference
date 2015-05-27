@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-Assertions-with-GLib-support">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-Assertions-with-GLib-support.top_of_page">GLibサポート付きの検証</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GLibサポート付きの検証</refname>
+<refpurpose>GLibサポート付きであなたのプログラムが期待通りに動作しているかを検証します。</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-Assertions-with-GLib-support.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis><link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-type">gcut_assert_equal_type</link>              (<parameter><link linkend="GType"><type>GType</type></link> expected</parameter>,
+                                                         <parameter><link linkend="GType"><type>GType</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="cut-assert-equal-g-type">cut_assert_equal_g_type</link>             (<parameter><link linkend="GType"><type>GType</type></link> expected</parameter>,
+                                                         <parameter><link linkend="GType"><type>GType</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-value">gcut_assert_equal_value</link>             (<parameter><link linkend="GValue"><type>GValue</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GValue"><type>GValue</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="cut-assert-equal-g-value">cut_assert_equal_g_value</link>            (<parameter><link linkend="GValue"><type>GValue</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GValue"><type>GValue</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-list">gcut_assert_equal_list</link>              (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> equal_function</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> inspect_function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> inspect_user_data</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-list-int">gcut_assert_equal_list_int</link>          (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="cut-assert-equal-g-list-int">cut_assert_equal_g_list_int</link>         (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-list-uint">gcut_assert_equal_list_uint</link>         (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-list-string">gcut_assert_equal_list_string</link>       (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="cut-assert-equal-g-list-string">cut_assert_equal_g_list_string</link>      (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-list-object">gcut_assert_equal_list_object</link>       (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-list-object-custom">gcut_assert_equal_list_object_custom</link>
+                                                        (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> equal_function</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-list-enum">gcut_assert_equal_list_enum</link>         (<parameter><link linkend="GType"><type>GType</type></link> type</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-list-flags">gcut_assert_equal_list_flags</link>        (<parameter><link linkend="GType"><type>GType</type></link> type</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-hash-table">gcut_assert_equal_hash_table</link>        (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GHashTable"><type>GHashTable</type></link> *actual</parameter>,
+                                                         <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> equal_function</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> key_inspect_function</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> value_inspect_function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> inspect_user_data</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-hash-table-string-string">gcut_assert_equal_hash_table_string_string</link>
+                                                        (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GHashTable"><type>GHashTable</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-error">gcut_assert_error</link>                   (<parameter><link linkend="GError"><type>GError</type></link> *error</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="cut-assert-g-error">cut_assert_g_error</link>                  (<parameter><link linkend="GError"><type>GError</type></link> *error</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-error">gcut_assert_equal_error</link>             (<parameter><link linkend="GError"><type>GError</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-remove-path">gcut_assert_remove_path</link>             (<parameter>const <link linkend="gchar"><type>gchar</type></link> *path</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="cut-assert-remove-path">cut_assert_remove_path</link>              (<parameter>const <link linkend="gchar"><type>gchar</type></link> *path</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-time-val">gcut_assert_equal_time_val</link>          (<parameter><link linkend="GTimeVal"><type>GTimeVal</type></link> expected</parameter>,
+                                                         <parameter><link linkend="GTimeVal"><type>GTimeVal</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-enum">gcut_assert_equal_enum</link>              (<parameter><link linkend="GType"><type>GType</type></link> enum_type</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> expected</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-flags">gcut_assert_equal_flags</link>             (<parameter><link linkend="GType"><type>GType</type></link> flags_type</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> expected</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-object">gcut_assert_equal_object</link>            (<parameter><link linkend="GObject"><type>GObject</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GObject"><type>GObject</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-object-custom">gcut_assert_equal_object_custom</link>     (<parameter><link linkend="GObject"><type>GObject</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GObject"><type>GObject</type></link> *actual</parameter>,
+                                                         <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> equal_function</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-int64">gcut_assert_equal_int64</link>             (<parameter><link linkend="gint64"><type>gint64</type></link> expected</parameter>,
+                                                         <parameter><link linkend="gint64"><type>gint64</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-not-equal-int64">gcut_assert_not_equal_int64</link>         (<parameter><link linkend="gint64"><type>gint64</type></link> expected</parameter>,
+                                                         <parameter><link linkend="gint64"><type>gint64</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-uint64">gcut_assert_equal_uint64</link>            (<parameter><link linkend="guint64"><type>guint64</type></link> expected</parameter>,
+                                                         <parameter><link linkend="guint64"><type>guint64</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-not-equal-uint64">gcut_assert_not_equal_uint64</link>        (<parameter><link linkend="guint64"><type>guint64</type></link> expected</parameter>,
+                                                         <parameter><link linkend="guint64"><type>guint64</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-pid">gcut_assert_equal_pid</link>               (<parameter><link linkend="GPid"><type>GPid</type></link> expected</parameter>,
+                                                         <parameter><link linkend="GPid"><type>GPid</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-not-equal-pid">gcut_assert_not_equal_pid</link>           (<parameter><link linkend="GPid"><type>GPid</type></link> expected</parameter>,
+                                                         <parameter><link linkend="GPid"><type>GPid</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-assert-equal-string">gcut_assert_equal_string</link>            (<parameter><link linkend="GString"><type>GString</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GString"><type>GString</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-Assertions-with-GLib-support.description" role="desc">
+<title role="desc.title">説明</title>
+
+</refsect1>
+<refsect1 id="cutter-Assertions-with-GLib-support.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="gcut-assert-equal-type" role="function" condition="since:1.0.3">
+<title>gcut_assert_equal_type ()</title>
+<indexterm zone="gcut-assert-equal-type" role="1.0.3"><primary>gcut_assert_equal_type</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_type              (<parameter><link linkend="GType"><type>GType</type></link> expected</parameter>,
+                                                         <parameter><link linkend="GType"><type>GType</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.3から</para></refsect2>
+<refsect2 id="cut-assert-equal-g-type" role="function" condition="deprecated:1.0.3: Use gcut_assert_equal_type() instead.">
+<title>cut_assert_equal_g_type ()</title>
+<indexterm zone="cut-assert-equal-g-type" role="deprecated"><primary>cut_assert_equal_g_type</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                cut_assert_equal_g_type             (<parameter><link linkend="GType"><type>GType</type></link> expected</parameter>,
+                                                         <parameter><link linkend="GType"><type>GType</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<warning><para><literal>cut_assert_equal_g_type</literal>はバージョン1.0.3から非推奨になりました。新しく書くコードでは使わないでください。代わりに<link linkend="gcut-assert-equal-type"><function>gcut_assert_equal_type()</function></link>を使ってください。</para></warning>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-assert-equal-value" role="function" condition="since:1.0.3">
+<title>gcut_assert_equal_value ()</title>
+<indexterm zone="gcut-assert-equal-value" role="1.0.3"><primary>gcut_assert_equal_value</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_value             (<parameter><link linkend="GValue"><type>GValue</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GValue"><type>GValue</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.3から</para></refsect2>
+<refsect2 id="cut-assert-equal-g-value" role="function" condition="deprecated:1.0.3: Use gcut_assert_equal_value() instead.">
+<title>cut_assert_equal_g_value ()</title>
+<indexterm zone="cut-assert-equal-g-value" role="deprecated"><primary>cut_assert_equal_g_value</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                cut_assert_equal_g_value            (<parameter><link linkend="GValue"><type>GValue</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GValue"><type>GValue</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<warning><para><literal>cut_assert_equal_g_value</literal>はバージョン1.0.3から非推奨になりました。新しく書くコードでは使わないでください。代わりに<link linkend="gcut-assert-equal-value"><function>gcut_assert_equal_value()</function></link>を使ってください。</para></warning>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-assert-equal-list" role="function" condition="since:1.0.6">
+<title>gcut_assert_equal_list ()</title>
+<indexterm zone="gcut-assert-equal-list" role="1.0.6"><primary>gcut_assert_equal_list</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_list              (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> equal_function</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> inspect_function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> inspect_user_data</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>equal_function</parameter>(<parameter>expected</parameter>, <parameter>actual</parameter>) == <link linkend="CUT-TRUE:CAPS"><literal>CUT_TRUE</literal></link>のときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待するリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実際のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>equal_function</parameter> :</term>
+<listitem><simpara><parameter>expected</parameter>リストと<parameter>actual</parameter>リストの各要素を比較する関数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>inspect_function</parameter> :</term>
+<listitem><simpara><parameter>expected</parameter>リストと<parameter>actual</parameter>リスとの詳細を示す関数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>inspect_user_data</parameter> :</term>
+<listitem><simpara><parameter>inspect_function</parameter>に渡されるデータ。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-assert-equal-list-int" role="function" condition="since:1.0.3">
+<title>gcut_assert_equal_list_int ()</title>
+<indexterm zone="gcut-assert-equal-list-int" role="1.0.3"><primary>gcut_assert_equal_list_int</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_list_int          (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待する整数のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実際の整数のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.3から</para></refsect2>
+<refsect2 id="cut-assert-equal-g-list-int" role="function" condition="deprecated:1.0.3: Use gcut_assert_equal_list_int() instead.|since:0.8">
+<title>cut_assert_equal_g_list_int ()</title>
+<indexterm zone="cut-assert-equal-g-list-int" role="deprecated"><primary>cut_assert_equal_g_list_int</primary></indexterm><indexterm zone="cut-assert-equal-g-list-int" role="0.8"><primary>cut_assert_equal_g_list_int</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                cut_assert_equal_g_list_int         (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<warning><para><literal>cut_assert_equal_g_string_list_int</literal>はバージョン1.0.3から非推奨になりました。新しく書くコードでは使わないでください。代わりに<link linkend="gcut-assert-equal-list-int"><function>gcut_assert_equal_list_int()</function></link>を使ってください。</para></warning>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待する整数のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実際の整数のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">0.8から</para></refsect2>
+<refsect2 id="gcut-assert-equal-list-uint" role="function" condition="since:1.0.3">
+<title>gcut_assert_equal_list_uint ()</title>
+<indexterm zone="gcut-assert-equal-list-uint" role="1.0.3"><primary>gcut_assert_equal_list_uint</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_list_uint         (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待する符号無し整数のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実際の符号無し整数のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.3から</para></refsect2>
+<refsect2 id="gcut-assert-equal-list-string" role="function" condition="since:1.0.3">
+<title>gcut_assert_equal_list_string ()</title>
+<indexterm zone="gcut-assert-equal-list-string" role="1.0.3"><primary>gcut_assert_equal_list_string</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_list_string       (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待する文字列のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実際の文字列のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.3から</para></refsect2>
+<refsect2 id="cut-assert-equal-g-list-string" role="function" condition="deprecated:1.0.3: Use gcut_assert_equal_list_string() instead.|since:0.8">
+<title>cut_assert_equal_g_list_string ()</title>
+<indexterm zone="cut-assert-equal-g-list-string" role="deprecated"><primary>cut_assert_equal_g_list_string</primary></indexterm><indexterm zone="cut-assert-equal-g-list-string" role="0.8"><primary>cut_assert_equal_g_list_string</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                cut_assert_equal_g_list_string      (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<warning><para><literal>cut_assert_equal_g_list_string</literal>はバージョン1.0.3から非推奨になりました。新しく書くコードでは使わないでください。代わりに<link linkend="gcut-assert-equal-list-string"><function>gcut_assert_equal_list_string()</function></link>を使ってください。</para></warning>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待する文字列のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実際の文字列のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">0.8から</para></refsect2>
+<refsect2 id="gcut-assert-equal-list-object" role="function" condition="since:1.0.5">
+<title>gcut_assert_equal_list_object ()</title>
+<indexterm zone="gcut-assert-equal-list-object" role="1.0.5"><primary>gcut_assert_equal_list_object</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_list_object       (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter>と<parameter>actual</parameter>が同じGObject *を同じ順番で持っているときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待する<link linkend="GObject"><type>GObject</type></link>のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実際の<link linkend="GObject"><type>GObject</type></link>のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-assert-equal-list-object-custom" role="function" condition="since:1.0.5">
+<title>gcut_assert_equal_list_object_custom ()</title>
+<indexterm zone="gcut-assert-equal-list-object-custom" role="1.0.5"><primary>gcut_assert_equal_list_object_custom</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_list_object_custom
+                                                        (<parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> equal_function</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter>と<parameter>actual</parameter>が等しい<link linkend="GObject"><type>GObject</type></link>を同じ順序で持っているときパスします。それぞれの<link linkend="GObject"><type>GObject</type></link>の比較には<parameter>equal_function</parameter>を使います。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待する<link linkend="GObject"><type>GObject</type></link>のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実際の<link linkend="GObject"><type>GObject</type></link>のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>equal_function</parameter> :</term>
+<listitem><simpara>ふたつの<link linkend="GObject"><type>GObject</type></link>を比較する関数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-assert-equal-list-enum" role="function" condition="since:1.0.5">
+<title>gcut_assert_equal_list_enum ()</title>
+<indexterm zone="gcut-assert-equal-list-enum" role="1.0.5"><primary>gcut_assert_equal_list_enum</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_list_enum         (<parameter><link linkend="GType"><type>GType</type></link> type</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter>と<parameter>actual</parameter>が同じ列挙値を同じ順序で持っているときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>type</parameter> :</term>
+<listitem><simpara><link linkend="GEnum"><type>GEnum</type></link>の型。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待する列挙値のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実際の列挙値のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-assert-equal-list-flags" role="function" condition="since:1.0.5">
+<title>gcut_assert_equal_list_flags ()</title>
+<indexterm zone="gcut-assert-equal-list-flags" role="1.0.5"><primary>gcut_assert_equal_list_flags</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_list_flags        (<parameter><link linkend="GType"><type>GType</type></link> type</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GList"><type>GList</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter>と<parameter>actual</parameter>が同じフラグ値を同じ順序で持っているときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>type</parameter> :</term>
+<listitem><simpara><link linkend="GFlags"><type>GFlags</type></link>の型。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待するフラグ値のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実際のフラグ値のリスト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-assert-equal-hash-table" role="function" condition="since:1.0.6">
+<title>gcut_assert_equal_hash_table ()</title>
+<indexterm zone="gcut-assert-equal-hash-table" role="1.0.6"><primary>gcut_assert_equal_hash_table</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_hash_table        (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GHashTable"><type>GHashTable</type></link> *actual</parameter>,
+                                                         <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> equal_function</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> key_inspect_function</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> value_inspect_function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> inspect_user_data</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待する文字列の<link linkend="GHashTable"><type>GHashTable</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実際の文字列の<link linkend="GHashTable"><type>GHashTable</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>equal_function</parameter> :</term>
+<listitem><simpara><parameter>expected</parameter>ハッシュテーブルと<parameter>actual</parameter>ハッシュテーブルのそれぞれの値を比較する関数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key_inspect_function</parameter> :</term>
+<listitem><simpara><parameter>expected</parameter>ハッシュテーブルと<parameter>actual</parameter>ハッシュテーブルのそれぞれのキーの詳細を示す関数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value_inspect_function</parameter> :</term>
+<listitem><simpara><parameter>expected</parameter>ハッシュテーブルと<parameter>actual</parameter>ハッシュテーブルのそれぞれの値の詳細を示す関数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>inspect_user_data</parameter> :</term>
+<listitem><simpara><parameter>inspect_function</parameter>に渡されるデータ。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-assert-equal-hash-table-string-string" role="function" condition="since:1.0.4">
+<title>gcut_assert_equal_hash_table_string_string ()</title>
+<indexterm zone="gcut-assert-equal-hash-table-string-string" role="1.0.4"><primary>gcut_assert_equal_hash_table_string_string</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_hash_table_string_string
+                                                        (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GHashTable"><type>GHashTable</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待する文字列の<link linkend="GHashTable"><type>GHashTable</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実際の文字列の<link linkend="GHashTable"><type>GHashTable</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.4から</para></refsect2>
+<refsect2 id="gcut-assert-error" role="function" condition="since:1.0.3">
+<title>gcut_assert_error ()</title>
+<indexterm zone="gcut-assert-error" role="1.0.3"><primary>gcut_assert_error</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_error                   (<parameter><link linkend="GError"><type>GError</type></link> *error</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>error</parameter> == <link linkend="NULL:CAPS"><literal>NULL</literal></link>のときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>検証対象の<link linkend="GError"><type>GError</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.3から</para></refsect2>
+<refsect2 id="cut-assert-g-error" role="function" condition="deprecated:1.0.3: Use gcut_assert_error() instead.|since:1.0">
+<title>cut_assert_g_error ()</title>
+<indexterm zone="cut-assert-g-error" role="deprecated"><primary>cut_assert_g_error</primary></indexterm><indexterm zone="cut-assert-g-error" role="1.0"><primary>cut_assert_g_error</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                cut_assert_g_error                  (<parameter><link linkend="GError"><type>GError</type></link> *error</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<warning><para><literal>cut_assert_g_error</literal>はバージョン1.0.3から非推奨になりました。新しく書くコードでは使わないでください。代わりに<link linkend="gcut-assert-error"><function>gcut_assert_error()</function></link>を使ってください。</para></warning>
+<para><parameter>error</parameter> == <link linkend="NULL:CAPS"><literal>NULL</literal></link>のときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>検証対象の<link linkend="GError"><type>GError</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0から</para></refsect2>
+<refsect2 id="gcut-assert-equal-error" role="function" condition="since:1.0.5">
+<title>gcut_assert_equal_error ()</title>
+<indexterm zone="gcut-assert-equal-error" role="1.0.5"><primary>gcut_assert_equal_error</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_error             (<parameter><link linkend="GError"><type>GError</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-assert-remove-path" role="function" condition="since:1.0.3">
+<title>gcut_assert_remove_path ()</title>
+<indexterm zone="gcut-assert-remove-path" role="1.0.3"><primary>gcut_assert_remove_path</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_remove_path             (<parameter>const <link linkend="gchar"><type>gchar</type></link> *path</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para>cut_utils_build_path(<parameter>path</parameter>, ...)の削除に成功するとパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>path</parameter> :</term>
+<listitem><simpara>削除するパスの最初の要素。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>パスの残りの要素。NULL終端。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.3から</para></refsect2>
+<refsect2 id="cut-assert-remove-path" role="function" condition="deprecated:1.0.3: Use gcut_assert_remove_path() instead.|since:1.0.2">
+<title>cut_assert_remove_path ()</title>
+<indexterm zone="cut-assert-remove-path" role="deprecated"><primary>cut_assert_remove_path</primary></indexterm><indexterm zone="cut-assert-remove-path" role="1.0.2"><primary>cut_assert_remove_path</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                cut_assert_remove_path              (<parameter>const <link linkend="gchar"><type>gchar</type></link> *path</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<warning><para><literal>cut_assert_remove_path</literal>はバージョン1.0.3から非推奨になりました。新しく書くコードでは使わないでください。代わりに<link linkend="gcut-assert-remove-path"><function>gcut_assert_remove_path()</function></link>を使ってください。</para></warning>
+<para>cut_utils_build_path(<parameter>path</parameter>, ...)の削除に成功するとパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>path</parameter> :</term>
+<listitem><simpara>削除するパスの最初の要素。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>パスの残りの要素。NULL終端。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.2から</para></refsect2>
+<refsect2 id="gcut-assert-equal-time-val" role="function" condition="since:1.0.4">
+<title>gcut_assert_equal_time_val ()</title>
+<indexterm zone="gcut-assert-equal-time-val" role="1.0.4"><primary>gcut_assert_equal_time_val</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_time_val          (<parameter><link linkend="GTimeVal"><type>GTimeVal</type></link> expected</parameter>,
+                                                         <parameter><link linkend="GTimeVal"><type>GTimeVal</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.4から</para></refsect2>
+<refsect2 id="gcut-assert-equal-enum" role="function" condition="since:1.0.5">
+<title>gcut_assert_equal_enum ()</title>
+<indexterm zone="gcut-assert-equal-enum" role="1.0.5"><primary>gcut_assert_equal_enum</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_enum              (<parameter><link linkend="GType"><type>GType</type></link> enum_type</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> expected</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para>
+<para>例: <informalexample><programlisting>
+gcut_assert_equal_enum(GTK_TYPE_DIRECTION_TYPE,
+                          GTK_DIR_LEFT, GTK_DIR_LEFT); -&gt; パス
+gcut_assert_equal_enum(GTK_TYPE_DIRECTION_TYPE,
+                          GTK_DIR_DOWN, GTK_DIR_LEFT); -&gt; 失敗
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter> :</term>
+<listitem><simpara><link linkend="GEnum"><type>GEnum</type></link>の型。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-assert-equal-flags" role="function" condition="since:1.0.5">
+<title>gcut_assert_equal_flags ()</title>
+<indexterm zone="gcut-assert-equal-flags" role="1.0.5"><primary>gcut_assert_equal_flags</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_flags             (<parameter><link linkend="GType"><type>GType</type></link> flags_type</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> expected</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para>
+<para>例: <informalexample><programlisting>
+gcut_assert_equal_flags(GTK_TYPE_DIALOG_FLAGS,
+                        GTK_DIALOG_DESTROY_MODAL |
+                          GTK_DIALOG_DESTROY_WITH_PARENT,
+                        GTK_DIALOG_DESTROY_MODAL |
+                          GTK_DIALOG_DESTROY_WITH_PARENT); -&gt; パス
+gcut_assert_equal_flags(GTK_TYPE_DIALOG_FLAGS,
+                        GTK_DIALOG_DESTROY_MODAL |
+                          GTK_DIALOG_DESTROY_WITH_PARENT,
+                        GTK_DIALOG_DESTROY_MODAL); -&gt; 失敗
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>flags_type</parameter> :</term>
+<listitem><simpara><link linkend="GFlags"><type>GFlags</type></link>の型。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-assert-equal-object" role="function" condition="since:1.0.5">
+<title>gcut_assert_equal_object ()</title>
+<indexterm zone="gcut-assert-equal-object" role="1.0.5"><primary>gcut_assert_equal_object</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_object            (<parameter><link linkend="GObject"><type>GObject</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GObject"><type>GObject</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>のときパスします。等価条件を変更する必要がある場合は<link linkend="gcut-assert-equal-object-custom"><function>gcut_assert_equal_object_custom()</function></link>見てください。</para>
+<para>例: <informalexample><programlisting>
+gcut_assert_equal_object(object, object);   -&gt; パス
+gcut_assert_equal_object(object1, object2); -&gt; 失敗
+gcut_assert_equal_object(NULL, NULL);       -&gt; パス
+gcut_assert_equal_object(object1, NULL);    -&gt; 失敗
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-assert-equal-object-custom" role="function" condition="since:1.0.5">
+<title>gcut_assert_equal_object_custom ()</title>
+<indexterm zone="gcut-assert-equal-object-custom" role="1.0.5"><primary>gcut_assert_equal_object_custom</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_object_custom     (<parameter><link linkend="GObject"><type>GObject</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GObject"><type>GObject</type></link> *actual</parameter>,
+                                                         <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> equal_function</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>equal_function</parameter>(<parameter>expected</parameter>, <parameter>actual</parameter>) == <link linkend="CUT-TRUE:CAPS"><literal>CUT_TRUE</literal></link>のときパスします。</para>
+<para>例: <informalexample><programlisting>
+static gboolean
+equal_name (gconstpointer data1, gconstpointer data2)
+{
+    return g_str_equal(my_object_get_name(MY_OBJECT(data1)),
+                       my_object_get_name(MY_OBJECT(data2)));
+}
+
+gcut_assert_equal_object_custom(object, object, equal_name);   -&gt; パス
+gcut_assert_equal_object_custom(same_name_object1,
+                                same_name_object2,
+                                equal_name);                   -&gt; パス
+gcut_assert_equal_object_custom(different_name_object1,
+                                different_name_object2,
+                                equal_name);                   -&gt; 失敗
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>equal_function</parameter> :</term>
+<listitem><simpara>ふたつのオブジェクトを比較する関数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-assert-equal-int64" role="function" condition="since:1.0.5">
+<title>gcut_assert_equal_int64 ()</title>
+<indexterm zone="gcut-assert-equal-int64" role="1.0.5"><primary>gcut_assert_equal_int64</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_int64             (<parameter><link linkend="gint64"><type>gint64</type></link> expected</parameter>,
+                                                         <parameter><link linkend="gint64"><type>gint64</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-assert-not-equal-int64" role="function" condition="since:1.1.4">
+<title>gcut_assert_not_equal_int64 ()</title>
+<indexterm zone="gcut-assert-not-equal-int64" role="1.1.4"><primary>gcut_assert_not_equal_int64</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_not_equal_int64         (<parameter><link linkend="gint64"><type>gint64</type></link> expected</parameter>,
+                                                         <parameter><link linkend="gint64"><type>gint64</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> != <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.4から</para></refsect2>
+<refsect2 id="gcut-assert-equal-uint64" role="function" condition="since:1.0.5">
+<title>gcut_assert_equal_uint64 ()</title>
+<indexterm zone="gcut-assert-equal-uint64" role="1.0.5"><primary>gcut_assert_equal_uint64</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_uint64            (<parameter><link linkend="guint64"><type>guint64</type></link> expected</parameter>,
+                                                         <parameter><link linkend="guint64"><type>guint64</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-assert-not-equal-uint64" role="function" condition="since:1.1.4">
+<title>gcut_assert_not_equal_uint64 ()</title>
+<indexterm zone="gcut-assert-not-equal-uint64" role="1.1.4"><primary>gcut_assert_not_equal_uint64</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_not_equal_uint64        (<parameter><link linkend="guint64"><type>guint64</type></link> expected</parameter>,
+                                                         <parameter><link linkend="guint64"><type>guint64</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> != <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.4から</para></refsect2>
+<refsect2 id="gcut-assert-equal-pid" role="function" condition="since:1.0.6">
+<title>gcut_assert_equal_pid ()</title>
+<indexterm zone="gcut-assert-equal-pid" role="1.0.6"><primary>gcut_assert_equal_pid</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_pid               (<parameter><link linkend="GPid"><type>GPid</type></link> expected</parameter>,
+                                                         <parameter><link linkend="GPid"><type>GPid</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-assert-not-equal-pid" role="function" condition="since:1.0.7">
+<title>gcut_assert_not_equal_pid ()</title>
+<indexterm zone="gcut-assert-not-equal-pid" role="1.0.7"><primary>gcut_assert_not_equal_pid</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_not_equal_pid           (<parameter><link linkend="GPid"><type>GPid</type></link> expected</parameter>,
+                                                         <parameter><link linkend="GPid"><type>GPid</type></link> actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> != <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.7から</para></refsect2>
+<refsect2 id="gcut-assert-equal-string" role="function" condition="since:1.1.5">
+<title>gcut_assert_equal_string ()</title>
+<indexterm zone="gcut-assert-equal-string" role="1.1.5"><primary>gcut_assert_equal_string</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_assert_equal_string            (<parameter><link linkend="GString"><type>GString</type></link> *expected</parameter>,
+                                                         <parameter><link linkend="GString"><type>GString</type></link> *actual</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>expected</parameter> == <parameter>actual</parameter>が成り立つときパスします。</para><variablelist role="params">
+<varlistentry><term><parameter>expected</parameter> :</term>
+<listitem><simpara>期待値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual</parameter> :</term>
+<listitem><simpara>実測値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>追加メッセージ（省略可能）。詳細は<link linkend="cut-message"><function>cut_message()</function></link>を見てください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+
+</refsect1>
+
+</refentry>

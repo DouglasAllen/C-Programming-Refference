@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GCutter</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutterリファレンスマニュアル">
+<link rel="up" href="writing-test.html" title="テスト作成">
+<link rel="prev" href="cutter-Multi-Process.html" title="マルチプロセス">
+<link rel="next" href="cutter-Assertions-with-GLib-support.html" title="GLibサポート付きの検証">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="cutter-Multi-Process.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="writing-test.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutterリファレンスマニュアル</th>
+<td><a accesskey="n" href="cutter-Assertions-with-GLib-support.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#cutter-GCutter.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#cutter-GCutter.description" class="shortcut">説明</a>
+</td></tr>
+</table>
+<div class="refentry" title="GCutter">
+<a name="cutter-GCutter"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="cutter-GCutter.top_of_page"></a>GCutter</span></h2>
+<p>GCutter — GLibサポート付きのCutter。</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="概要">
+<a name="cutter-GCutter.synopsis"></a><h2>概要</h2>
+<pre class="synopsis">#define             <a class="link" href="cutter-GCutter.html#GCUTTER-ENABLED:CAPS" title="GCUTTER_ENABLED">GCUTTER_ENABLED</a>
+</pre>
+</div>
+<div class="refsect1" title="説明">
+<a name="cutter-GCutter.description"></a><h2>説明</h2>
+<p>GCutterはGLibベースのたくさんの便利な機能をCutterに追加します。より簡単にテストを書きたい場合はGCutterの使用を検討してください。</p>
+<p>GCutterを使うことは簡単です。&lt;cutter.h&gt;の代わりに&lt;gcutter.h&gt;をinlcudeして、cutter.pcの代わりにgcutter.pcを使うだけです。</p>
+<p>
+test-xxx.c:
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">-</span><span class="preproc">#include &lt;cutter.h&gt;</span>
+<span class="symbol">+</span><span class="preproc">#include &lt;gcutter.h&gt;</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+<p>
+configure.ac:
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">-</span>AC_CHECK_CUTTER
+<span class="symbol">+</span>AC_CHECK_GCUTTER</pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+<p>
+Makefile.am:
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">-</span>XXX_CFLAGS <span class="symbol">=</span> $<span class="symbol">(</span>CUTTER_CFLAGS<span class="symbol">)</span>
+<span class="symbol">-</span>XXX_LIBS <span class="symbol">=</span> $<span class="symbol">(</span>CUTTER_LIBS<span class="symbol">)</span>
+<span class="symbol">+</span>XXX_CFLAGS <span class="symbol">=</span> $<span class="symbol">(</span>GCUTTER_CFLAGS<span class="symbol">)</span>
+<span class="symbol">+</span>XXX_LIBS <span class="symbol">=</span> $<span class="symbol">(</span>GCUTTER_LIBS<span class="symbol">)</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+</div>
+<div class="refsect1" title="詳細">
+<a name="cutter-GCutter.details"></a><h2>詳細</h2>
+<div class="refsect2" title="GCUTTER_ENABLED">
+<a name="GCUTTER-ENABLED:CAPS"></a><h3>GCUTTER_ENABLED</h3>
+<pre class="programlisting">#define GCUTTER_ENABLED 1
+</pre>
+<p>GCutterが有効なとき定義されます。</p>
+<p class="since">1.0.6から</p>
+</div>
+</div>
+<div class="refsect1" title="参考">
+<a name="cutter-GCutter.see-also"></a><h2>参考</h2>
+<a class="link" href="cutter-Assertions-with-GLib-support.html" title="GLibサポート付きの検証">GLibサポート付きの検証</a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

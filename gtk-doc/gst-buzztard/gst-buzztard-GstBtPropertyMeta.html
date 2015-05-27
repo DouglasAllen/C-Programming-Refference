@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GstBtPropertyMeta</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GStreamer Buzztard Reference Manual">
+<link rel="up" href="ch02.html" title="GStreamer Buzztard interfaces">
+<link rel="prev" href="gst-buzztard-GstBtHelp.html" title="GstBtHelp">
+<link rel="next" href="gst-buzztard-GstBtTempo.html" title="GstBtTempo">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gst-buzztard-GstBtHelp.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GStreamer Buzztard Reference Manual</th>
+<td><a accesskey="n" href="gst-buzztard-GstBtTempo.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gst-buzztard-GstBtPropertyMeta.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gst-buzztard-GstBtPropertyMeta.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gst-buzztard-GstBtPropertyMeta"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gst-buzztard-GstBtPropertyMeta.top_of_page"></a>GstBtPropertyMeta</span></h2>
+<p>GstBtPropertyMeta — helper interface for extended gstreamer element meta data</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gst-buzztard-GstBtPropertyMeta.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">enum                <a class="link" href="gst-buzztard-GstBtPropertyMeta.html#GstBtPropertyMetaFlags" title="enum GstBtPropertyMetaFlags">GstBtPropertyMetaFlags</a>;
+<span class="returnvalue">gchar</span> *             <a class="link" href="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-describe-property" title="gstbt_property_meta_describe_property ()">gstbt_property_meta_describe_property</a>
+                                                        (<em class="parameter"><code><span class="type">GstBtPropertyMeta</span> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">glong</span> index</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *value</code></em>);
+extern GQuark       <a class="link" href="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-quark" title="gstbt_property_meta_quark">gstbt_property_meta_quark</a>;
+extern GQuark       <a class="link" href="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-quark-min-val" title="gstbt_property_meta_quark_min_val">gstbt_property_meta_quark_min_val</a>;
+extern GQuark       <a class="link" href="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-quark-max-val" title="gstbt_property_meta_quark_max_val">gstbt_property_meta_quark_max_val</a>;
+extern GQuark       <a class="link" href="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-quark-def-val" title="gstbt_property_meta_quark_def_val">gstbt_property_meta_quark_def_val</a>;
+extern GQuark       <a class="link" href="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-quark-no-val" title="gstbt_property_meta_quark_no_val">gstbt_property_meta_quark_no_val</a>;
+extern GQuark       <a class="link" href="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-quark-flags" title="gstbt_property_meta_quark_flags">gstbt_property_meta_quark_flags</a>;
+</pre>
+</div>
+<div class="refsect1">
+<a name="gst-buzztard-GstBtPropertyMeta.description"></a><h2>Description</h2>
+<p>
+This interface standardises some additional meta-data that is attached to
+<span class="type">GObject</span> properties.
+</p>
+<p>
+Furthermore it adds the <a class="link" href="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-describe-property" title="gstbt_property_meta_describe_property ()"><code class="function">gstbt_property_meta_describe_property()</code></a> method that
+builds a string description of a property value.
+</p>
+</div>
+<div class="refsect1">
+<a name="gst-buzztard-GstBtPropertyMeta.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GstBtPropertyMetaFlags"></a><h3>enum GstBtPropertyMetaFlags</h3>
+<pre class="programlisting">typedef enum {
+  GSTBT_PROPERTY_META_NONE=0,
+  GSTBT_PROPERTY_META_WAVE=1,		/* parameter value references a wavetable slot */
+  GSTBT_PROPERTY_META_STATE=2,		/* parameter is continuously changing (not used for notes and triggers) */
+  GSTBT_PROPERTY_META_TICK_ON_EDIT=4 /* causes the host to send you a Tick() message immediatly after the user enters a value in the pattern or machine editor */
+} GstBtPropertyMetaFlags;
+</pre>
+<p>
+Parameter flags to describe their behaviour.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="GSTBT-PROPERTY-META-NONE:CAPS"></a><span class="term"><code class="literal">GSTBT_PROPERTY_META_NONE</code></span></p></td>
+<td>no special treatment needed
+</td>
+</tr>
+<tr>
+<td><p><a name="GSTBT-PROPERTY-META-WAVE:CAPS"></a><span class="term"><code class="literal">GSTBT_PROPERTY_META_WAVE</code></span></p></td>
+<td>parameter value references a wavetable slot
+</td>
+</tr>
+<tr>
+<td><p><a name="GSTBT-PROPERTY-META-STATE:CAPS"></a><span class="term"><code class="literal">GSTBT_PROPERTY_META_STATE</code></span></p></td>
+<td>parameter is continuously changing (not used for notes and triggers)
+</td>
+</tr>
+<tr>
+<td><p><a name="GSTBT-PROPERTY-META-TICK-ON-EDIT:CAPS"></a><span class="term"><code class="literal">GSTBT_PROPERTY_META_TICK_ON_EDIT</code></span></p></td>
+<td>need to call tick after editing it
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gstbt-property-meta-describe-property"></a><h3>gstbt_property_meta_describe_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             gstbt_property_meta_describe_property
+                                                        (<em class="parameter"><code><span class="type">GstBtPropertyMeta</span> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">glong</span> index</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *value</code></em>);</pre>
+<p>
+Formats the gives value as a human readable string. The method is useful to
+display a property value in a user interface.
+It privides a default implementation.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <span class="type">GObject</span> that implements <span class="type">GstBtPropertyMeta</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>the property index</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the current property value</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a string with the value in humand readable form, free memory when
+done</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gstbt-property-meta-quark"></a><h3>gstbt_property_meta_quark</h3>
+<pre class="programlisting">extern GQuark gstbt_property_meta_quark;
+</pre>
+<p>
+Only if this is set to TRUE, there is property meta data for this property..
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gstbt-property-meta-quark-min-val"></a><h3>gstbt_property_meta_quark_min_val</h3>
+<pre class="programlisting">extern GQuark gstbt_property_meta_quark_min_val;
+</pre>
+<p>
+Minimum property value (excluding default and no-value).
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gstbt-property-meta-quark-max-val"></a><h3>gstbt_property_meta_quark_max_val</h3>
+<pre class="programlisting">extern GQuark gstbt_property_meta_quark_max_val;
+</pre>
+<p>
+Maximum property value (excluding default and no-value).
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gstbt-property-meta-quark-def-val"></a><h3>gstbt_property_meta_quark_def_val</h3>
+<pre class="programlisting">extern GQuark gstbt_property_meta_quark_def_val;
+</pre>
+<p>
+Default property value (used initialy).
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gstbt-property-meta-quark-no-val"></a><h3>gstbt_property_meta_quark_no_val</h3>
+<pre class="programlisting">extern GQuark gstbt_property_meta_quark_no_val;
+</pre>
+<p>
+Property value (used in trigger style properties, when there is no current
+value)
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gstbt-property-meta-quark-flags"></a><h3>gstbt_property_meta_quark_flags</h3>
+<pre class="programlisting">extern GQuark gstbt_property_meta_quark_flags;
+</pre>
+<p>
+Application specific flags giving more hints about the property.
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

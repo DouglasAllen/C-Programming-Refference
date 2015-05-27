@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaEditorLanguage</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="libanjuta-IAnjutaEditorHover.html" title="IAnjutaEditorHover">
+<link rel="next" href="libanjuta-IAnjutaEditorLineMode.html" title="IAnjutaEditorLineMode">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-IAnjutaEditorHover.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaEditorLineMode.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaEditorLanguage.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaEditorLanguage.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaEditorLanguage"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaEditorLanguage.top_of_page"></a>IAnjutaEditorLanguage</span></h2>
+<p>IAnjutaEditorLanguage — Text editor language interface</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorLanguage.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaEditorLanguage.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-editor-language.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaEditorLanguage.html#IANJUTA-EDITOR-LANGUAGE-ERROR:CAPS" title="IANJUTA_EDITOR_LANGUAGE_ERROR">IANJUTA_EDITOR_LANGUAGE_ERROR</a>
+struct              <a class="link" href="libanjuta-IAnjutaEditorLanguage.html#IAnjutaEditorLanguageIface" title="struct IAnjutaEditorLanguageIface">IAnjutaEditorLanguageIface</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaEditorLanguage.html#ianjuta-editor-language-error-quark" title="ianjuta_editor_language_error_quark ()">ianjuta_editor_language_error_quark</a> (<em class="parameter"><code><span class="type">void</span></code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="libanjuta-IAnjutaEditorLanguage.html#ianjuta-editor-language-get-language" title="ianjuta_editor_language_get_language ()">ianjuta_editor_language_get_language</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaEditorLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="libanjuta-IAnjutaEditorLanguage.html#ianjuta-editor-language-get-language-name" title="ianjuta_editor_language_get_language_name ()">ianjuta_editor_language_get_language_name</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaEditorLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *language</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *       <a class="link" href="libanjuta-IAnjutaEditorLanguage.html#ianjuta-editor-language-get-supported-languages" title="ianjuta_editor_language_get_supported_languages ()">ianjuta_editor_language_get_supported_languages</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaEditorLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaEditorLanguage.html#ianjuta-editor-language-set-language" title="ianjuta_editor_language_set_language ()">ianjuta_editor_language_set_language</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaEditorLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *language</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorLanguage.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorLanguage.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-EDITOR-LANGUAGE-ERROR:CAPS"></a><h3>IANJUTA_EDITOR_LANGUAGE_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_EDITOR_LANGUAGE_ERROR ianjuta_editor_language_error_quark()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaEditorLanguageIface"></a><h3>struct IAnjutaEditorLanguageIface</h3>
+<pre class="programlisting">struct IAnjutaEditorLanguageIface {
+	IAnjutaEditorIface g_iface;
+	
+	/* Signal */
+	void (*language_changed) (IAnjutaEditorLanguage *obj, const gchar *language);
+
+	const gchar * (*get_language) (IAnjutaEditorLanguage *obj, GError **err);
+	const gchar * (*get_language_name) (IAnjutaEditorLanguage *obj, const gchar* language, GError **err);
+	const GList* (*get_supported_languages) (IAnjutaEditorLanguage *obj, GError **err);
+	void (*set_language) (IAnjutaEditorLanguage *obj, const gchar* language, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-language-error-quark"></a><h3>ianjuta_editor_language_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_editor_language_error_quark (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-language-get-language"></a><h3>ianjuta_editor_language_get_language ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       ianjuta_editor_language_get_language
+                                                        (<em class="parameter"><code><span class="type">IAnjutaEditorLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Return the name of the currently used language
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-language-get-language-name"></a><h3>ianjuta_editor_language_get_language_name ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       ianjuta_editor_language_get_language_name
+                                                        (<em class="parameter"><code><span class="type">IAnjutaEditorLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *language</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-language-get-supported-languages"></a><h3>ianjuta_editor_language_get_supported_languages ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *       ianjuta_editor_language_get_supported_languages
+                                                        (<em class="parameter"><code><span class="type">IAnjutaEditorLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Return a list of languages supported by the editor
+Note: These list contains the names in the form
+the editor implementation knows them
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>. <span class="annotation">[<a href="http://foldoc.org/element-type"><span class="acronym">element-type</span></a> utf8]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-language-set-language"></a><h3>ianjuta_editor_language_set_language ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_editor_language_set_language
+                                                        (<em class="parameter"><code><span class="type">IAnjutaEditorLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *language</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Force the editor to use a given language
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>language</code></em> :</span></p></td>
+<td>Language</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaIterableTree</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="libanjuta-IAnjutaIterable.html" title="IAnjutaIterable">
+<link rel="next" href="libanjuta-IAnjutaLanguage.html" title="IAnjutaLanguage">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-IAnjutaIterable.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaLanguage.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaIterableTree.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaIterableTree.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaIterableTree"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaIterableTree.top_of_page"></a>IAnjutaIterableTree</span></h2>
+<p>IAnjutaIterableTree — Implemented by tree objects that can iterate</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaIterableTree.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaIterableTree.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-iterable-tree.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaIterableTree.html#IANJUTA-ITERABLE-TREE-ERROR:CAPS" title="IANJUTA_ITERABLE_TREE_ERROR">IANJUTA_ITERABLE_TREE_ERROR</a>
+struct              <a class="link" href="libanjuta-IAnjutaIterableTree.html#IAnjutaIterableTreeIface" title="struct IAnjutaIterableTreeIface">IAnjutaIterableTreeIface</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaIterableTree.html#ianjuta-iterable-tree-children" title="ianjuta_iterable_tree_children ()">ianjuta_iterable_tree_children</a>      (<em class="parameter"><code><span class="type">IAnjutaIterableTree</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaIterableTree.html#ianjuta-iterable-tree-error-quark" title="ianjuta_iterable_tree_error_quark ()">ianjuta_iterable_tree_error_quark</a>   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaIterableTree.html#ianjuta-iterable-tree-foreach-post" title="ianjuta_iterable_tree_foreach_post ()">ianjuta_iterable_tree_foreach_post</a>  (<em class="parameter"><code><span class="type">IAnjutaIterableTree</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GFunc"><span class="type">GFunc</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaIterableTree.html#ianjuta-iterable-tree-foreach-pre" title="ianjuta_iterable_tree_foreach_pre ()">ianjuta_iterable_tree_foreach_pre</a>   (<em class="parameter"><code><span class="type">IAnjutaIterableTree</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GFunc"><span class="type">GFunc</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaIterableTree.html#ianjuta-iterable-tree-has-children" title="ianjuta_iterable_tree_has_children ()">ianjuta_iterable_tree_has_children</a>  (<em class="parameter"><code><span class="type">IAnjutaIterableTree</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaIterableTree.html#ianjuta-iterable-tree-parent" title="ianjuta_iterable_tree_parent ()">ianjuta_iterable_tree_parent</a>        (<em class="parameter"><code><span class="type">IAnjutaIterableTree</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaIterableTree.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaIterableTree.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-ITERABLE-TREE-ERROR:CAPS"></a><h3>IANJUTA_ITERABLE_TREE_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_ITERABLE_TREE_ERROR ianjuta_iterable_tree_error_quark()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaIterableTreeIface"></a><h3>struct IAnjutaIterableTreeIface</h3>
+<pre class="programlisting">struct IAnjutaIterableTreeIface {
+	IAnjutaIterableIface g_iface;
+	
+
+	gboolean (*children) (IAnjutaIterableTree *obj, GError **err);
+	void (*foreach_post) (IAnjutaIterableTree *obj, GFunc callback,  gpointer user_data, GError **err);
+	void (*foreach_pre) (IAnjutaIterableTree *obj, GFunc callback,  gpointer user_data, GError **err);
+	gboolean (*has_children) (IAnjutaIterableTree *obj, GError **err);
+	gboolean (*parent) (IAnjutaIterableTree *obj, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-tree-children"></a><h3>ianjuta_iterable_tree_children ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_iterable_tree_children      (<em class="parameter"><code><span class="type">IAnjutaIterableTree</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Iter position set to first child of current iter. If there is no
+children, return NULL (iter position is not changed).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if sucessful, otherwise FALSE.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-tree-error-quark"></a><h3>ianjuta_iterable_tree_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_iterable_tree_error_quark   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-tree-foreach-post"></a><h3>ianjuta_iterable_tree_foreach_post ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_iterable_tree_foreach_post  (<em class="parameter"><code><span class="type">IAnjutaIterableTree</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GFunc"><span class="type">GFunc</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Call callback for each element in post order.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Callback to call for each element.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data to pass back to callback.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-tree-foreach-pre"></a><h3>ianjuta_iterable_tree_foreach_pre ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_iterable_tree_foreach_pre   (<em class="parameter"><code><span class="type">IAnjutaIterableTree</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GFunc"><span class="type">GFunc</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Call callback for each element in pre order.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Callback to call for each element.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data to pass back to callback.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-tree-has-children"></a><h3>ianjuta_iterable_tree_has_children ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_iterable_tree_has_children  (<em class="parameter"><code><span class="type">IAnjutaIterableTree</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Returns true if current iter has children
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if there are children, otherwise FALSE.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-tree-parent"></a><h3>ianjuta_iterable_tree_parent ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_iterable_tree_parent        (<em class="parameter"><code><span class="type">IAnjutaIterableTree</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Set iter position to parent of curernt iter. If there is no parent,
+returns FALSE (current iter position is not changed)
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if sucessful, otherwise FALSE.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

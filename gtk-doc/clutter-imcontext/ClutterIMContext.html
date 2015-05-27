@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ClutterIMContext</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="clutter-imcontext Reference Manual">
+<link rel="up" href="ch02.html" title="IMContext">
+<link rel="prev" href="ClutterIMMulticontext.html" title="ClutterIMMulticontext">
+<link rel="next" href="ClutterIMContextSimple.html" title="ClutterIMContextSimple">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ClutterIMMulticontext.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">clutter-imcontext Reference Manual</th>
+<td><a accesskey="n" href="ClutterIMContextSimple.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ClutterIMContext.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ClutterIMContext.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#ClutterIMContext.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#ClutterIMContext.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ClutterIMContext"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ClutterIMContext.top_of_page"></a>ClutterIMContext</span></h2>
+<p>ClutterIMContext — Base class for input method contexts</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="ClutterIMContext.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="ClutterIMContext.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;clutter-imcontext/clutter-imcontext.h&gt;
+
+struct              <a class="link" href="ClutterIMContext.html#ClutterIMContext-struct" title="struct ClutterIMContext">ClutterIMContext</a>;
+struct              <a class="link" href="ClutterIMContext.html#ClutterIMContextClass" title="struct ClutterIMContextClass">ClutterIMContextClass</a>;
+struct              <a class="link" href="ClutterIMContext.html#ClutterIMRectangle" title="struct ClutterIMRectangle">ClutterIMRectangle</a>;
+<span class="returnvalue">gboolean</span>            <a class="link" href="ClutterIMContext.html#clutter-im-context-delete-surrounding" title="clutter_im_context_delete_surrounding ()">clutter_im_context_delete_surrounding</a>
+                                                        (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> n_chars</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ClutterIMContext.html#clutter-im-context-filter-keypress" title="clutter_im_context_filter_keypress ()">clutter_im_context_filter_keypress</a>  (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">ClutterKeyEvent</span> *event</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ClutterIMContext.html#clutter-im-context-focus-in" title="clutter_im_context_focus_in ()">clutter_im_context_focus_in</a>         (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ClutterIMContext.html#clutter-im-context-focus-out" title="clutter_im_context_focus_out ()">clutter_im_context_focus_out</a>        (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ClutterIMContext.html#clutter-im-context-get-preedit-string" title="clutter_im_context_get_preedit_string ()">clutter_im_context_get_preedit_string</a>
+                                                        (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **str</code></em>,
+                                                         <em class="parameter"><code><span class="type">PangoAttrList</span> **attrs</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *cursor_pos</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ClutterIMContext.html#clutter-im-context-get-surrounding" title="clutter_im_context_get_surrounding ()">clutter_im_context_get_surrounding</a>  (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *cursor_index</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ClutterIMContext.html#clutter-im-context-hide" title="clutter_im_context_hide ()">clutter_im_context_hide</a>             (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ClutterIMContext.html#clutter-im-context-reset" title="clutter_im_context_reset ()">clutter_im_context_reset</a>            (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ClutterIMContext.html#clutter-im-context-set-cursor-location" title="clutter_im_context_set_cursor_location ()">clutter_im_context_set_cursor_location</a>
+                                                        (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="ClutterIMContext.html#ClutterIMRectangle" title="struct ClutterIMRectangle"><span class="type">ClutterIMRectangle</span></a> *area</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ClutterIMContext.html#clutter-im-context-set-surrounding" title="clutter_im_context_set_surrounding ()">clutter_im_context_set_surrounding</a>  (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> len</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> cursor_index</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ClutterIMContext.html#clutter-im-context-set-use-preedit" title="clutter_im_context_set_use_preedit ()">clutter_im_context_set_use_preedit</a>  (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> use_preedit</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ClutterIMContext.html#clutter-im-context-show" title="clutter_im_context_show ()">clutter_im_context_show</a>             (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ClutterIMContext.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----ClutterIMContext
+         +----<a class="link" href="ClutterIMContextSimple.html" title="ClutterIMContextSimple">ClutterIMContextSimple</a>
+         +----<a class="link" href="ClutterIMMulticontext.html" title="ClutterIMMulticontext">ClutterIMMulticontext</a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="ClutterIMContext.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="ClutterIMContext.html#ClutterIMContext-commit" title='The "commit" signal'>commit</a>"                                         : <code class="literal">Run Last</code>
+  "<a class="link" href="ClutterIMContext.html#ClutterIMContext-delete-surrounding" title='The "delete-surrounding" signal'>delete-surrounding</a>"                             : <code class="literal">Run Last</code>
+  "<a class="link" href="ClutterIMContext.html#ClutterIMContext-preedit-changed" title='The "preedit-changed" signal'>preedit-changed</a>"                                : <code class="literal">Run Last</code>
+  "<a class="link" href="ClutterIMContext.html#ClutterIMContext-preedit-end" title='The "preedit-end" signal'>preedit-end</a>"                                    : <code class="literal">Run Last</code>
+  "<a class="link" href="ClutterIMContext.html#ClutterIMContext-preedit-start" title='The "preedit-start" signal'>preedit-start</a>"                                  : <code class="literal">Run Last</code>
+  "<a class="link" href="ClutterIMContext.html#ClutterIMContext-retrieve-surrounding" title='The "retrieve-surrounding" signal'>retrieve-surrounding</a>"                           : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="ClutterIMContext.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> is a base class for input method contexts.
+</p>
+</div>
+<div class="refsect1">
+<a name="ClutterIMContext.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ClutterIMContext-struct"></a><h3>struct ClutterIMContext</h3>
+<pre class="programlisting">struct ClutterIMContext;</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ClutterIMContextClass"></a><h3>struct ClutterIMContextClass</h3>
+<pre class="programlisting">struct ClutterIMContextClass {
+  GObjectClass parent_class;
+
+  /* Signals */
+  void     (*preedit_start)        (ClutterIMContext *context);
+  void     (*preedit_end)          (ClutterIMContext *context);
+  void     (*preedit_changed)      (ClutterIMContext *context);
+  void     (*commit)               (ClutterIMContext *context, const gchar *str);
+  gboolean (*retrieve_surrounding) (ClutterIMContext *context);
+  gboolean (*delete_surrounding)   (ClutterIMContext *context,
+				    gint          offset,
+				    gint          n_chars);
+
+  /* Virtual functions */
+  void     (*get_preedit_string)  (ClutterIMContext   *context,
+				   gchar         **str,
+				   PangoAttrList **attrs,
+				   gint           *cursor_pos);
+  gboolean (*filter_keypress)     (ClutterIMContext   *context,
+			           ClutterKeyEvent    *event);
+  void     (*focus_in)            (ClutterIMContext   *context);
+  void     (*focus_out)           (ClutterIMContext   *context);
+  void     (*show)                (ClutterIMContext   *context);
+  void     (*hide)                (ClutterIMContext   *context);
+  void     (*reset)               (ClutterIMContext   *context);
+  void     (*set_cursor_location) (ClutterIMContext   *context,
+				   ClutterIMRectangle   *area);
+  void     (*set_use_preedit)     (ClutterIMContext   *context,
+				   gboolean        use_preedit);
+  void     (*set_surrounding)     (ClutterIMContext   *context,
+				   const gchar    *text,
+				   gint            len,
+				   gint            cursor_index);
+  gboolean (*get_surrounding)     (ClutterIMContext   *context,
+				   gchar         **text,
+				   gint           *cursor_index);
+
+  /* Padding for future expansion */
+  void (*_clutter_reserved1) (void);
+  void (*_clutter_reserved2) (void);
+  void (*_clutter_reserved3) (void);
+  void (*_clutter_reserved4) (void);
+  void (*_clutter_reserved5) (void);
+  void (*_clutter_reserved6) (void);
+};
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ClutterIMRectangle"></a><h3>struct ClutterIMRectangle</h3>
+<pre class="programlisting">struct ClutterIMRectangle {
+  gint x;
+  gint y;
+  gint width;
+  gint height;
+};
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="clutter-im-context-delete-surrounding"></a><h3>clutter_im_context_delete_surrounding ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            clutter_im_context_delete_surrounding
+                                                        (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> n_chars</code></em>);</pre>
+<p>
+Asks the widget that the input context is attached to to delete
+characters around the cursor position by emitting the
+ClutterIMContext::delete_surrounding signal. Note that <em class="parameter"><code>offset</code></em> and <em class="parameter"><code>n_chars</code></em>
+are in characters not in bytes which differs from the usage other
+places in <a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a>.
+</p>
+<p>
+In order to use this function, you should first call
+<a class="link" href="ClutterIMContext.html#clutter-im-context-get-surrounding" title="clutter_im_context_get_surrounding ()"><code class="function">clutter_im_context_get_surrounding()</code></a> to get the current context, and
+call this function immediately afterwards to make sure that you
+know what you are deleting. You should also account for the fact
+that even if the signal was handled, the input context might not
+have deleted all the characters that were requested to be deleted.
+</p>
+<p>
+This function is used by an input method that wants to make
+subsitutions in the existing text in response to new input. It is
+not useful for applications.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>a <a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
+<td>offset from cursor position in chars;
+a negative value means start before the cursor.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_chars</code></em> :</span></p></td>
+<td>number of characters to delete.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the signal was handled.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="clutter-im-context-filter-keypress"></a><h3>clutter_im_context_filter_keypress ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            clutter_im_context_filter_keypress  (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">ClutterKeyEvent</span> *event</code></em>);</pre>
+<p>
+Allow an input method to internally handle key press and release
+events. If this function returns <code class="literal">TRUE</code>, then no further processing
+should be done for this key event.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>a <a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>the key event</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the input method handled the key event.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="clutter-im-context-focus-in"></a><h3>clutter_im_context_focus_in ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                clutter_im_context_focus_in         (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>);</pre>
+<p>
+Notify the input method that the widget to which this
+input context corresponds has gained focus. The input method
+may, for example, change the displayed feedback to reflect
+this change.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>a <a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="clutter-im-context-focus-out"></a><h3>clutter_im_context_focus_out ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                clutter_im_context_focus_out        (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>);</pre>
+<p>
+Notify the input method that the widget to which this
+input context corresponds has lost focus. The input method
+may, for example, change the displayed feedback or reset the contexts
+state to reflect this change.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>a <a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="clutter-im-context-get-preedit-string"></a><h3>clutter_im_context_get_preedit_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                clutter_im_context_get_preedit_string
+                                                        (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **str</code></em>,
+                                                         <em class="parameter"><code><span class="type">PangoAttrList</span> **attrs</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *cursor_pos</code></em>);</pre>
+<p>
+Retrieve the current preedit string for the input context,
+and a list of attributes to apply to the string.
+This string should be displayed inserted at the insertion
+point.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>a <a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>location to store the retrieved string. The
+string retrieved must be freed with <code class="function">g_free()</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>location to store the retrieved attribute list.
+When you are done with this list, you must
+unreference it with <code class="function">pango_attr_list_unref()</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cursor_pos</code></em> :</span></p></td>
+<td>location to store position of cursor (in characters)
+within the preedit string.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="clutter-im-context-get-surrounding"></a><h3>clutter_im_context_get_surrounding ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            clutter_im_context_get_surrounding  (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *cursor_index</code></em>);</pre>
+<p>
+Retrieves context around the insertion point. Input methods
+typically want context in order to constrain input text based on
+existing text; this is important for languages such as Thai where
+only some sequences of characters are allowed.
+</p>
+<p>
+This function is implemented by emitting the
+ClutterIMContext::retrieve_surrounding signal on the input method; in
+response to this signal, a widget should provide as much context as
+is available, up to an entire paragraph, by calling
+<a class="link" href="ClutterIMContext.html#clutter-im-context-set-surrounding" title="clutter_im_context_set_surrounding ()"><code class="function">clutter_im_context_set_surrounding()</code></a>. Note that there is no obligation
+for a widget to respond to the ::retrieve_surrounding signal, so input
+methods must be prepared to function without context.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>a <a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>location to store a UTF-8 encoded string of text
+holding context around the insertion point.
+If the function returns <code class="literal">TRUE</code>, then you must free
+the result stored in this location with <code class="function">g_free()</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cursor_index</code></em> :</span></p></td>
+<td>location to store byte index of the insertion cursor
+within <em class="parameter"><code>text</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if surrounding text was provided; in this case
+you must free the result stored in *text.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="clutter-im-context-hide"></a><h3>clutter_im_context_hide ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                clutter_im_context_hide             (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>);</pre>
+<p>
+Notify the input method that the IM UI need to be hidden
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>a <a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="clutter-im-context-reset"></a><h3>clutter_im_context_reset ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                clutter_im_context_reset            (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>);</pre>
+<p>
+Notify the input method that a change such as a change in cursor
+position has been made. This will typically cause the input
+method to clear the preedit state.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>a <a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="clutter-im-context-set-cursor-location"></a><h3>clutter_im_context_set_cursor_location ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                clutter_im_context_set_cursor_location
+                                                        (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="ClutterIMContext.html#ClutterIMRectangle" title="struct ClutterIMRectangle"><span class="type">ClutterIMRectangle</span></a> *area</code></em>);</pre>
+<p>
+Notify the input method that a change in cursor
+position has been made. The location is relative to the client
+window.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>a <a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>area</code></em> :</span></p></td>
+<td>new location</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="clutter-im-context-set-surrounding"></a><h3>clutter_im_context_set_surrounding ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                clutter_im_context_set_surrounding  (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> len</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> cursor_index</code></em>);</pre>
+<p>
+Sets surrounding context around the insertion point and preedit
+string. This function is expected to be called in response to the
+ClutterIMContext::retrieve_surrounding signal, and will likely have no
+effect if called at other times.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>a <a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>text surrounding the insertion point, as UTF-8.
+the preedit string should not be included within
+<em class="parameter"><code>text</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>the length of <em class="parameter"><code>text</code></em>, or -1 if <em class="parameter"><code>text</code></em> is nul-terminated</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cursor_index</code></em> :</span></p></td>
+<td>the byte index of the insertion cursor within <em class="parameter"><code>text</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="clutter-im-context-set-use-preedit"></a><h3>clutter_im_context_set_use_preedit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                clutter_im_context_set_use_preedit  (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> use_preedit</code></em>);</pre>
+<p>
+Sets whether the IM context should use the preedit string
+to display feedback. If <em class="parameter"><code>use_preedit</code></em> is FALSE (default
+is TRUE), then the IM context may use some other method to display
+feedback, such as displaying it in a child of the root window.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>a <a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>use_preedit</code></em> :</span></p></td>
+<td>whether the IM context should use the preedit string.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="clutter-im-context-show"></a><h3>clutter_im_context_show ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                clutter_im_context_show             (<em class="parameter"><code><a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context</code></em>);</pre>
+<p>
+Notify the input method that the IM UI need to be shown
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>a <a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="ClutterIMContext.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="ClutterIMContext-commit"></a><h3>The <code class="literal">"commit"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context,
+                                                        <span class="type">gchar</span>            *str,
+                                                        <span class="type">gpointer</span>          user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+The ::commit signal is emitted when input method have some data to commit
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>The context object that receive this signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>The UTF_8 string been committed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ClutterIMContext-delete-surrounding"></a><h3>The <code class="literal">"delete-surrounding"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context,
+                                                        <span class="type">gint</span>              offset,
+                                                        <span class="type">gint</span>              n_chars,
+                                                        <span class="type">gpointer</span>          user_data)      : <code class="literal">Run Last</code></pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>The context object that receive this signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
+<td>offset from cursor position in chars;
+a negative value means start before the cursor.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_chars</code></em> :</span></p></td>
+<td>number of characters to delete.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ClutterIMContext-preedit-changed"></a><h3>The <code class="literal">"preedit-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context,
+                                                        <span class="type">gpointer</span>          user_data)      : <code class="literal">Run Last</code></pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>The context object that receive this signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ClutterIMContext-preedit-end"></a><h3>The <code class="literal">"preedit-end"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context,
+                                                        <span class="type">gpointer</span>          user_data)      : <code class="literal">Run Last</code></pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>The context object that receive this signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ClutterIMContext-preedit-start"></a><h3>The <code class="literal">"preedit-start"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context,
+                                                        <span class="type">gpointer</span>          user_data)      : <code class="literal">Run Last</code></pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>The context object that receive this signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ClutterIMContext-retrieve-surrounding"></a><h3>The <code class="literal">"retrieve-surrounding"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="ClutterIMContext.html" title="ClutterIMContext"><span class="type">ClutterIMContext</span></a> *context,
+                                                        <span class="type">gpointer</span>          user_data)      : <code class="literal">Run Last</code></pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>The context object that receive this signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>mrpday</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Libplanner Reference Manual">
+<link rel="up" href="ch01.html" title="Libplanner API">
+<link rel="prev" href="libplanner-mrp-time.html" title="mrptime">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libplanner-mrp-time.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libplanner Reference Manual</th>
+<td> </td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libplanner-mrp-day.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libplanner-mrp-day.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libplanner-mrp-day"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libplanner-mrp-day.top_of_page"></a>mrpday</span></h2>
+<p>mrpday — represents a day type in the project.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libplanner-mrp-day.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libplanner/planner.h&gt;
+
+                    <a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay">MrpDay</a>;
+<a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="returnvalue">MrpDay</span></a> *            <a class="link" href="libplanner-mrp-day.html#mrp-day-add" title="mrp_day_add ()">mrp_day_add</a>                         (<em class="parameter"><code><a class="link" href="libplanner-mrp-project.html#MrpProject"><span class="type">MrpProject</span></a> *project</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *description</code></em>);
+<span class="returnvalue">GList</span> *             <a class="link" href="libplanner-mrp-day.html#mrp-day-get-all" title="mrp_day_get_all ()">mrp_day_get_all</a>                     (<em class="parameter"><code><a class="link" href="libplanner-mrp-project.html#MrpProject"><span class="type">MrpProject</span></a> *project</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-day.html#mrp-day-remove" title="mrp_day_remove ()">mrp_day_remove</a>                      (<em class="parameter"><code><a class="link" href="libplanner-mrp-project.html#MrpProject"><span class="type">MrpProject</span></a> *project</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="libplanner-mrp-day.html#mrp-day-get-id" title="mrp_day_get_id ()">mrp_day_get_id</a>                      (<em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libplanner-mrp-day.html#mrp-day-get-name" title="mrp_day_get_name ()">mrp_day_get_name</a>                    (<em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-day.html#mrp-day-set-name" title="mrp_day_set_name ()">mrp_day_set_name</a>                    (<em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libplanner-mrp-day.html#mrp-day-get-description" title="mrp_day_get_description ()">mrp_day_get_description</a>             (<em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-day.html#mrp-day-set-description" title="mrp_day_set_description ()">mrp_day_set_description</a>             (<em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *description</code></em>);
+<a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="returnvalue">MrpDay</span></a> *            <a class="link" href="libplanner-mrp-day.html#mrp-day-ref" title="mrp_day_ref ()">mrp_day_ref</a>                         (<em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-day.html#mrp-day-unref" title="mrp_day_unref ()">mrp_day_unref</a>                       (<em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>);
+<a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="returnvalue">MrpDay</span></a> *            <a class="link" href="libplanner-mrp-day.html#mrp-day-get-work" title="mrp_day_get_work ()">mrp_day_get_work</a>                    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="returnvalue">MrpDay</span></a> *            <a class="link" href="libplanner-mrp-day.html#mrp-day-get-nonwork" title="mrp_day_get_nonwork ()">mrp_day_get_nonwork</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="returnvalue">MrpDay</span></a> *            <a class="link" href="libplanner-mrp-day.html#mrp-day-get-use-base" title="mrp_day_get_use_base ()">mrp_day_get_use_base</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-day.description"></a><h2>Description</h2>
+<p>
+A day is a specific type of day, such as working day or non-working
+day. Other examples might be custom types like half day, or a holiday.
+</p>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-day.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="MrpDay"></a><h3>MrpDay</h3>
+<pre class="programlisting">typedef struct _MrpDay MrpDay;</pre>
+<p>
+Object representing a day in the project.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-day-add"></a><h3>mrp_day_add ()</h3>
+<pre class="programlisting"><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="returnvalue">MrpDay</span></a> *            mrp_day_add                         (<em class="parameter"><code><a class="link" href="libplanner-mrp-project.html#MrpProject"><span class="type">MrpProject</span></a> *project</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *description</code></em>);</pre>
+<p>
+Adds a new day type to <em class="parameter"><code>project</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>project</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-project.html#MrpProject"><span class="type">MrpProject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name of the day type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>description</code></em> :</span></p></td>
+<td>human readable description of the day type</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the newly created <a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-day-get-all"></a><h3>mrp_day_get_all ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *             mrp_day_get_all                     (<em class="parameter"><code><a class="link" href="libplanner-mrp-project.html#MrpProject"><span class="type">MrpProject</span></a> *project</code></em>);</pre>
+<p>
+Fetches a list of all available day types in <em class="parameter"><code>project</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>project</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-project.html#MrpProject"><span class="type">MrpProject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the list of all available day types in <em class="parameter"><code>project</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-day-remove"></a><h3>mrp_day_remove ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_day_remove                      (<em class="parameter"><code><a class="link" href="libplanner-mrp-project.html#MrpProject"><span class="type">MrpProject</span></a> *project</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>);</pre>
+<p>
+Remove <em class="parameter"><code>day</code></em> from available day types in <em class="parameter"><code>project</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>project</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-project.html#MrpProject"><span class="type">MrpProject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-day-get-id"></a><h3>mrp_day_get_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                mrp_day_get_id                      (<em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>);</pre>
+<p>
+Fetches the id of <em class="parameter"><code>day</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the id of <em class="parameter"><code>day</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-day-get-name"></a><h3>mrp_day_get_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       mrp_day_get_name                    (<em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>);</pre>
+<p>
+Fetches the name of <em class="parameter"><code>day</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the name of <em class="parameter"><code>day</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-day-set-name"></a><h3>mrp_day_set_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_day_set_name                    (<em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+<p>
+Sets the name of <em class="parameter"><code>day</code></em> to <em class="parameter"><code>name</code></em> and emits the "day-changed" signal
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the new name</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-day-get-description"></a><h3>mrp_day_get_description ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       mrp_day_get_description             (<em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>);</pre>
+<p>
+Fetches the description of <em class="parameter"><code>day</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the description of <em class="parameter"><code>day</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-day-set-description"></a><h3>mrp_day_set_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_day_set_description             (<em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *description</code></em>);</pre>
+<p>
+Sets the description of <em class="parameter"><code>day</code></em> to <em class="parameter"><code>description</code></em> and emits the "day-changed"
+signal
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>description</code></em> :</span></p></td>
+<td>the new description</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-day-ref"></a><h3>mrp_day_ref ()</h3>
+<pre class="programlisting"><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="returnvalue">MrpDay</span></a> *            mrp_day_ref                         (<em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>);</pre>
+<p>
+Add a reference to <em class="parameter"><code>day</code></em>. User should call this when storing a reference to
+a day.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a></td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the day</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-day-unref"></a><h3>mrp_day_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_day_unref                       (<em class="parameter"><code><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a> *day</code></em>);</pre>
+<p>
+Remove a reference from property. If the reference count reaches 0 the
+property will be freed. User should not use it's reference after calling
+<a class="link" href="libplanner-mrp-day.html#mrp-day-unref" title="mrp_day_unref ()"><code class="function">mrp_day_unref()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="type">MrpDay</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-day-get-work"></a><h3>mrp_day_get_work ()</h3>
+<pre class="programlisting"><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="returnvalue">MrpDay</span></a> *            mrp_day_get_work                    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Fetches the builtin day type work.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the builtin day type work</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-day-get-nonwork"></a><h3>mrp_day_get_nonwork ()</h3>
+<pre class="programlisting"><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="returnvalue">MrpDay</span></a> *            mrp_day_get_nonwork                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Fetches the builtin day type nonwork.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the builtin day type nowork</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-day-get-use-base"></a><h3>mrp_day_get_use_base ()</h3>
+<pre class="programlisting"><a class="link" href="libplanner-mrp-day.html#MrpDay" title="MrpDay"><span class="returnvalue">MrpDay</span></a> *            mrp_day_get_use_base                (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Fetches the builtin day type user base
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the builtin day type use base</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GCutEventLoop">
+<refmeta>
+<refentrytitle role="top_of_page" id="GCutEventLoop.top_of_page">抽象化されたイベントループ</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>抽象化されたイベントループ</refname>
+<refpurpose>GCutterで使うイベントループをカスタマイズするための抽象化されたイベントループAPI。</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="GCutEventLoop.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis>#define             <link linkend="GCUT-EVENT-LOOP-ERROR:CAPS">GCUT_EVENT_LOOP_ERROR</link>
+                    <link linkend="GCutEventLoop-struct">GCutEventLoop</link>;
+                    <link linkend="GCutEventLoopClass">GCutEventLoopClass</link>;
+<link linkend="GQuark"><returnvalue>GQuark</returnvalue></link>              <link linkend="gcut-event-loop-error-quark">gcut_event_loop_error_quark</link>         (<parameter><type>void</type></parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-event-loop-run">gcut_event_loop_run</link>                 (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>);
+<link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="gcut-event-loop-iterate">gcut_event_loop_iterate</link>             (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="gboolean"><type>gboolean</type></link> may_block</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-event-loop-quit">gcut_event_loop_quit</link>                (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="gcut-event-loop-watch-io">gcut_event_loop_watch_io</link>            (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>,
+                                                         <parameter><link linkend="GIOCondition"><type>GIOCondition</type></link> condition</parameter>,
+                                                         <parameter><link linkend="GIOFunc"><type>GIOFunc</type></link> function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="gcut-event-loop-watch-child">gcut_event_loop_watch_child</link>         (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="GPid"><type>GPid</type></link> pid</parameter>,
+                                                         <parameter><link linkend="GChildWatchFunc"><type>GChildWatchFunc</type></link> function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="gcut-event-loop-watch-child-full">gcut_event_loop_watch_child_full</link>    (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> priority</parameter>,
+                                                         <parameter><link linkend="GPid"><type>GPid</type></link> pid</parameter>,
+                                                         <parameter><link linkend="GChildWatchFunc"><type>GChildWatchFunc</type></link> function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> notify</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="gcut-event-loop-add-timeout">gcut_event_loop_add_timeout</link>         (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="gdouble"><type>gdouble</type></link> interval_in_seconds</parameter>,
+                                                         <parameter><link linkend="GSourceFunc"><type>GSourceFunc</type></link> function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="gcut-event-loop-add-timeout-full">gcut_event_loop_add_timeout_full</link>    (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> priority</parameter>,
+                                                         <parameter><link linkend="gdouble"><type>gdouble</type></link> interval_in_seconds</parameter>,
+                                                         <parameter><link linkend="GSourceFunc"><type>GSourceFunc</type></link> function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> notify</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="gcut-event-loop-add-idle">gcut_event_loop_add_idle</link>            (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="GSourceFunc"><type>GSourceFunc</type></link> function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="gcut-event-loop-add-idle-full">gcut_event_loop_add_idle_full</link>       (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> priority</parameter>,
+                                                         <parameter><link linkend="GSourceFunc"><type>GSourceFunc</type></link> function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> notify</parameter>);
+<link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="gcut-event-loop-remove">gcut_event_loop_remove</link>              (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> tag</parameter>);
+</synopsis>
+</refsynopsisdiv>
+<refsect1 id="GCutEventLoop.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">オブジェクト階層</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GCutEventLoop
+</synopsis>
+</refsect1>
+
+<refsect1 id="GCutEventLoop.description" role="desc">
+<title role="desc.title">説明</title>
+<para><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>はイベントループをカプセル化します。イベントループは<link linkend="GCutProcess"><type>GCutProcess</type></link>で使われています。GCutProcessはデフォルトではGLibのデフォルトGMainContextを使います。</para>
+<para>ふつうはカスタム<link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>は必要ありません。必要になるのは特別な場合だけです。例えば、イベントループのバックエンドにGLibのGMainLoopではなく、libevのイベントループに使っている場合です。</para>
+<para>GCutterはGLibのGMainContextとGMainLoop用の<link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>である<link linkend="GCutGLibEventLoop"><type>GCutGLibEventLoop</type></link>を提供します。</para>
+</refsect1>
+<refsect1 id="GCutEventLoop.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="GCUT-EVENT-LOOP-ERROR:CAPS" role="macro">
+<title>GCUT_EVENT_LOOP_ERROR</title>
+<indexterm zone="GCUT-EVENT-LOOP-ERROR:CAPS"><primary>GCUT_EVENT_LOOP_ERROR</primary></indexterm>
+<programlisting>#define GCUT_EVENT_LOOP_ERROR           (gcut_event_loop_error_quark())
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="GCutEventLoop-struct" role="struct">
+<title>GCutEventLoop</title>
+<indexterm zone="GCutEventLoop-struct"><primary>GCutEventLoop</primary></indexterm>
+<programlisting>typedef struct _GCutEventLoop GCutEventLoop;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="GCutEventLoopClass" role="struct">
+<title>GCutEventLoopClass</title>
+<indexterm zone="GCutEventLoopClass"><primary>GCutEventLoopClass</primary></indexterm>
+<programlisting>typedef struct {
+    GObjectClass parent_class;
+
+    void     (*run)              (GCutEventLoop   *loop);
+    gboolean (*iterate)          (GCutEventLoop   *loop,
+                                  gboolean         may_block);
+    void     (*quit)             (GCutEventLoop   *loop);
+
+    guint    (*watch_io)         (GCutEventLoop   *loop,
+                                  GIOChannel      *channel,
+                                  GIOCondition     condition,
+                                  GIOFunc          function,
+                                  gpointer         data);
+    guint    (*watch_child_full) (GCutEventLoop   *loop,
+                                  gint             priority,
+                                  GPid             pid,
+                                  GChildWatchFunc  function,
+                                  gpointer         data,
+                                  GDestroyNotify   notify);
+    guint    (*add_timeout_full) (GCutEventLoop   *loop,
+                                  gint             priority,
+                                  gdouble          interval_in_seconds,
+                                  GSourceFunc      function,
+                                  gpointer         data,
+                                  GDestroyNotify   notify);
+    guint    (*add_idle_full)    (GCutEventLoop   *loop,
+                                  gint             priority,
+                                  GSourceFunc      function,
+                                  gpointer         data,
+                                  GDestroyNotify   notify);
+    gboolean (*remove)           (GCutEventLoop   *loop,
+                                  guint            tag);
+} GCutEventLoopClass;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="gcut-event-loop-error-quark" role="function">
+<title>gcut_event_loop_error_quark ()</title>
+<indexterm zone="gcut-event-loop-error-quark"><primary>gcut_event_loop_error_quark</primary></indexterm>
+<programlisting><link linkend="GQuark"><returnvalue>GQuark</returnvalue></link>              gcut_event_loop_error_quark         (<parameter><type>void</type></parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-event-loop-run" role="function" condition="since:1.1.6">
+<title>gcut_event_loop_run ()</title>
+<indexterm zone="gcut-event-loop-run" role="1.1.6"><primary>gcut_event_loop_run</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_event_loop_run                 (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>);</programlisting>
+<para><link linkend="gcut-event-loop-quit"><function>gcut_event_loop_quit()</function></link>が呼ばれるまでイベントループを回します。</para><variablelist role="params">
+<varlistentry><term><parameter>loop</parameter> :</term>
+<listitem><simpara><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+<refsect2 id="gcut-event-loop-iterate" role="function" condition="since:1.1.6">
+<title>gcut_event_loop_iterate ()</title>
+<indexterm zone="gcut-event-loop-iterate" role="1.1.6"><primary>gcut_event_loop_iterate</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            gcut_event_loop_iterate             (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="gboolean"><type>gboolean</type></link> may_block</parameter>);</programlisting>
+<para>イベントループを1回だけ回します。もし、イベントがなく<parameter>may_block</parameter>が<link linkend="TRUE:CAPS"><literal>TRUE</literal></link>なら、イベントがくるまで待ちつづけます。<parameter>may_block</parameter>が<link linkend="FALSE:CAPS"><literal>FALSE</literal></link>なら、イベントがくるのを待ちません。</para><variablelist role="params">
+<varlistentry><term><parameter>loop</parameter> :</term>
+<listitem><simpara><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>may_block</parameter> :</term>
+<listitem><simpara>呼び出しがブロックするかどうか。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>イベントを処理したら<link linkend="TRUE:CAPS"><literal>TRUE</literal></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+<refsect2 id="gcut-event-loop-quit" role="function" condition="since:1.1.6">
+<title>gcut_event_loop_quit ()</title>
+<indexterm zone="gcut-event-loop-quit" role="1.1.6"><primary>gcut_event_loop_quit</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_event_loop_quit                (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>);</programlisting>
+<para>実行中の<parameter>loop</parameter>を止めます。</para><variablelist role="params">
+<varlistentry><term><parameter>loop</parameter> :</term>
+<listitem><simpara><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+<refsect2 id="gcut-event-loop-watch-io" role="function" condition="since:1.1.6">
+<title>gcut_event_loop_watch_io ()</title>
+<indexterm zone="gcut-event-loop-watch-io" role="1.1.6"><primary>gcut_event_loop_watch_io</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               gcut_event_loop_watch_io            (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>,
+                                                         <parameter><link linkend="GIOCondition"><type>GIOCondition</type></link> condition</parameter>,
+                                                         <parameter><link linkend="GIOFunc"><type>GIOFunc</type></link> function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para><parameter>channel</parameter>をデフォルトの優先度で<parameter>loop</parameter>に追加します。<parameter>channel</parameter>に<parameter>condition</parameter>イベントが発生したら<parameter>function</parameter>が呼ばれます。</para><variablelist role="params">
+<varlistentry><term><parameter>loop</parameter> :</term>
+<listitem><simpara><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>channel</parameter> :</term>
+<listitem><simpara><link linkend="GIOChannel"><type>GIOChannel</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>condition</parameter> :</term>
+<listitem><simpara>監視する状態。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>function</parameter> :</term>
+<listitem><simpara>呼び出される関数</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara><parameter>function</parameter>に渡されるデータ</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>イベントID。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+<refsect2 id="gcut-event-loop-watch-child" role="function" condition="since:1.1.6">
+<title>gcut_event_loop_watch_child ()</title>
+<indexterm zone="gcut-event-loop-watch-child" role="1.1.6"><primary>gcut_event_loop_watch_child</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               gcut_event_loop_watch_child         (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="GPid"><type>GPid</type></link> pid</parameter>,
+                                                         <parameter><link linkend="GChildWatchFunc"><type>GChildWatchFunc</type></link> function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para><parameter>pid</parameter>の子プロセスが終了した時に呼ばれる<parameter>function</parameter>をデフォルトの優先度で<parameter>loop</parameter>に追加します。</para><variablelist role="params">
+<varlistentry><term><parameter>loop</parameter> :</term>
+<listitem><simpara><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pid</parameter> :</term>
+<listitem><simpara>監視するプロセスのID</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>function</parameter> :</term>
+<listitem><simpara>呼び出される関数</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara><parameter>function</parameter>に渡されるデータ</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>イベントID。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+<refsect2 id="gcut-event-loop-watch-child-full" role="function" condition="since:1.1.6">
+<title>gcut_event_loop_watch_child_full ()</title>
+<indexterm zone="gcut-event-loop-watch-child-full" role="1.1.6"><primary>gcut_event_loop_watch_child_full</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               gcut_event_loop_watch_child_full    (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> priority</parameter>,
+                                                         <parameter><link linkend="GPid"><type>GPid</type></link> pid</parameter>,
+                                                         <parameter><link linkend="GChildWatchFunc"><type>GChildWatchFunc</type></link> function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> notify</parameter>);</programlisting>
+<para><parameter>pid</parameter>の子プロセスが終了した時に呼ばれる<parameter>function</parameter>をデフォルトの優先度で<parameter>loop</parameter>に追加します。</para><variablelist role="params">
+<varlistentry><term><parameter>loop</parameter> :</term>
+<listitem><simpara><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>priority</parameter> :</term>
+<listitem><simpara>このイベントの優先度。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pid</parameter> :</term>
+<listitem><simpara>監視するプロセスのID</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>function</parameter> :</term>
+<listitem><simpara>呼び出される関数</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara><parameter>function</parameter>に渡されるデータ</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>notify</parameter> :</term>
+<listitem><simpara>このイベントが削除された時に呼ばれる関数または<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>イベントID。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+<refsect2 id="gcut-event-loop-add-timeout" role="function" condition="since:1.1.6">
+<title>gcut_event_loop_add_timeout ()</title>
+<indexterm zone="gcut-event-loop-add-timeout" role="1.1.6"><primary>gcut_event_loop_add_timeout</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               gcut_event_loop_add_timeout         (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="gdouble"><type>gdouble</type></link> interval_in_seconds</parameter>,
+                                                         <parameter><link linkend="GSourceFunc"><type>GSourceFunc</type></link> function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>一定間隔で呼び出される<parameter>function</parameter>をデフォルト優先度で追加します。</para><variablelist role="params">
+<varlistentry><term><parameter>loop</parameter> :</term>
+<listitem><simpara><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>interval_in_seconds</parameter> :</term>
+<listitem><simpara><parameter>function</parameter>を呼び出す感覚。単位は秒。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>function</parameter> :</term>
+<listitem><simpara>呼び出される関数</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara><parameter>function</parameter>に渡されるデータ</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>イベントID。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+<refsect2 id="gcut-event-loop-add-timeout-full" role="function" condition="since:1.1.6">
+<title>gcut_event_loop_add_timeout_full ()</title>
+<indexterm zone="gcut-event-loop-add-timeout-full" role="1.1.6"><primary>gcut_event_loop_add_timeout_full</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               gcut_event_loop_add_timeout_full    (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> priority</parameter>,
+                                                         <parameter><link linkend="gdouble"><type>gdouble</type></link> interval_in_seconds</parameter>,
+                                                         <parameter><link linkend="GSourceFunc"><type>GSourceFunc</type></link> function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> notify</parameter>);</programlisting>
+<para>定期的に呼び出される関数を優先度<parameter>priority</parameter>で追加します。</para><variablelist role="params">
+<varlistentry><term><parameter>loop</parameter> :</term>
+<listitem><simpara><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>priority</parameter> :</term>
+<listitem><simpara>このイベントの優先度。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>interval_in_seconds</parameter> :</term>
+<listitem><simpara><parameter>function</parameter>を呼び出す感覚。単位は秒。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>function</parameter> :</term>
+<listitem><simpara>呼び出される関数</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara><parameter>function</parameter>に渡されるデータ</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>notify</parameter> :</term>
+<listitem><simpara>このイベントが削除された時に呼ばれる関数または<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>イベントID。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+<refsect2 id="gcut-event-loop-add-idle" role="function" condition="since:1.1.6">
+<title>gcut_event_loop_add_idle ()</title>
+<indexterm zone="gcut-event-loop-add-idle" role="1.1.6"><primary>gcut_event_loop_add_idle</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               gcut_event_loop_add_idle            (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="GSourceFunc"><type>GSourceFunc</type></link> function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>デフォルト優先度より高い優先度がない場合に呼び出される関数<parameter>function</parameter>を追加します。</para><variablelist role="params">
+<varlistentry><term><parameter>loop</parameter> :</term>
+<listitem><simpara><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>function</parameter> :</term>
+<listitem><simpara>呼び出される関数</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara><parameter>function</parameter>に渡されるデータ</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>イベントID。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+<refsect2 id="gcut-event-loop-add-idle-full" role="function" condition="since:1.1.6">
+<title>gcut_event_loop_add_idle_full ()</title>
+<indexterm zone="gcut-event-loop-add-idle-full" role="1.1.6"><primary>gcut_event_loop_add_idle_full</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               gcut_event_loop_add_idle_full       (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> priority</parameter>,
+                                                         <parameter><link linkend="GSourceFunc"><type>GSourceFunc</type></link> function</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> notify</parameter>);</programlisting>
+<para>優先度<parameter>priority</parameter>より高い優先度のイベントがない場合に呼び出される関数<parameter>function</parameter>を追加します。</para><variablelist role="params">
+<varlistentry><term><parameter>loop</parameter> :</term>
+<listitem><simpara><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>priority</parameter> :</term>
+<listitem><simpara>このイベントの優先度。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>function</parameter> :</term>
+<listitem><simpara>呼び出される関数</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara><parameter>function</parameter>に渡されるデータ</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>notify</parameter> :</term>
+<listitem><simpara>このイベントが削除された時に呼ばれる関数または<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>イベントID。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+<refsect2 id="gcut-event-loop-remove" role="function" condition="since:1.1.6">
+<title>gcut_event_loop_remove ()</title>
+<indexterm zone="gcut-event-loop-remove" role="1.1.6"><primary>gcut_event_loop_remove</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            gcut_event_loop_remove              (<parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> tag</parameter>);</programlisting>
+<para>IDが<parameter>tag</parameter>のイベントを削除します。</para><variablelist role="params">
+<varlistentry><term><parameter>loop</parameter> :</term>
+<listitem><simpara><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tag</parameter> :</term>
+<listitem><simpara>削除するソースのID。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>ソースが見つかって削除されたら<link linkend="TRUE:CAPS"><literal>TRUE</literal></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+
+</refsect1>
+
+</refentry>

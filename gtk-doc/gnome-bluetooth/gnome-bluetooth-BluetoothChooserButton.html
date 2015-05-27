@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>BluetoothChooserButton</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="gnome-bluetooth Reference Manual">
+<link rel="up" href="ch01.html" title="API Reference">
+<link rel="prev" href="BluetoothChooser.html" title="BluetoothChooser">
+<link rel="next" href="BluetoothChooserCombo.html" title="BluetoothChooserCombo">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="BluetoothChooser.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">gnome-bluetooth Reference Manual</th>
+<td><a accesskey="n" href="BluetoothChooserCombo.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gnome-bluetooth-BluetoothChooserButton.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gnome-bluetooth-BluetoothChooserButton.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gnome-bluetooth-BluetoothChooserButton"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gnome-bluetooth-BluetoothChooserButton.top_of_page"></a>BluetoothChooserButton</span></h2>
+<p>BluetoothChooserButton — a Bluetooth chooser button</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="gnome-bluetooth-BluetoothChooserButton.stability-level"></a><h2>Stability Level</h2>
+Stable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="gnome-bluetooth-BluetoothChooserButton.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;bluetooth-chooser-button.h&gt;
+
+struct              <a class="link" href="gnome-bluetooth-BluetoothChooserButton.html#BluetoothChooserButtonClass" title="struct BluetoothChooserButtonClass">BluetoothChooserButtonClass</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gnome-bluetooth-BluetoothChooserButton.html#bluetooth-chooser-button-available" title="bluetooth_chooser_button_available ()">bluetooth_chooser_button_available</a>  (<em class="parameter"><code><span class="type">BluetoothChooserButton</span> *button</code></em>);
+<a href="http://developer.gnome.org/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gnome-bluetooth-BluetoothChooserButton.html#bluetooth-chooser-button-new" title="bluetooth_chooser_button_new ()">bluetooth_chooser_button_new</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gnome-bluetooth-BluetoothChooserButton.description"></a><h2>Description</h2>
+<p>
+A button used to select Bluetooth devices which will pop-up a
+<a class="link" href="BluetoothChooser.html" title="BluetoothChooser"><span class="type">BluetoothChooser</span></a> widget inside a dialogue when clicked.
+</p>
+</div>
+<div class="refsect1">
+<a name="gnome-bluetooth-BluetoothChooserButton.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="BluetoothChooserButtonClass"></a><h3>struct BluetoothChooserButtonClass</h3>
+<pre class="programlisting">struct BluetoothChooserButtonClass {
+  GtkButtonClass parent_class;
+
+  void (*chooser_created) (BluetoothChooserButton *self, GtkWidget *chooser);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bluetooth-chooser-button-available"></a><h3>bluetooth_chooser_button_available ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            bluetooth_chooser_button_available  (<em class="parameter"><code><span class="type">BluetoothChooserButton</span> *button</code></em>);</pre>
+<p>
+Returns whether there is a powered Bluetooth adapter.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>a <span class="type">BluetoothChooserButton</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if there is a powered Bluetooth adapter available, and the button should be sensitive.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bluetooth-chooser-button-new"></a><h3>bluetooth_chooser_button_new ()</h3>
+<pre class="programlisting"><a href="http://developer.gnome.org/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         bluetooth_chooser_button_new        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns a new <span class="type">BluetoothChooserButton</span> widget.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <span class="type">BluetoothChooserButton</span> widget.</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

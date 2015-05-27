@@ -1,0 +1,706 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GLibサポート付きテストユーティリティ</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutterリファレンスマニュアル">
+<link rel="up" href="writing-test.html" title="テスト作成">
+<link rel="prev" href="cutter-Assertions-with-GLib-support.html" title="GLibサポート付きの検証">
+<link rel="next" href="cutter-Types-for-GLib-support.html" title="GLibサポート用の型">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="cutter-Assertions-with-GLib-support.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="writing-test.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutterリファレンスマニュアル</th>
+<td><a accesskey="n" href="cutter-Types-for-GLib-support.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#cutter-Test-Utilities-with-GLib-support.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#cutter-Test-Utilities-with-GLib-support.description" class="shortcut">説明</a>
+</td></tr>
+</table>
+<div class="refentry" title="GLibサポート付きテストユーティリティ">
+<a name="cutter-Test-Utilities-with-GLib-support"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="cutter-Test-Utilities-with-GLib-support.top_of_page"></a>GLibサポート付きテストユーティリティ</span></h2>
+<p>GLibサポート付きテストユーティリティ — テストをもっと簡単に書くためのGLibサポート付きユーティリティ。</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="概要">
+<a name="cutter-Test-Utilities-with-GLib-support.synopsis"></a><h2>概要</h2>
+<pre class="synopsis"><span class="returnvalue">GObject</span> *           <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-take-object" title="gcut_take_object ()">gcut_take_object</a>                    (<em class="parameter"><code><span class="type">GObject</span> *object</code></em>);
+<span class="returnvalue">GError</span> *            <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-take-error" title="gcut_take_error ()">gcut_take_error</a>                     (<em class="parameter"><code><span class="type">GError</span> *error</code></em>);
+const <span class="returnvalue">GList</span> *       <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-take-list" title="gcut_take_list ()">gcut_take_list</a>                      (<em class="parameter"><code>const <span class="type">GList</span> *list</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="cutter-Types.html#CutDestroyFunction" title="CutDestroyFunction ()"><span class="type">CutDestroyFunction</span></a> destroy_function</code></em>);
+<span class="returnvalue">GHashTable</span> *        <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-take-hash-table" title="gcut_take_hash_table ()">gcut_take_hash_table</a>                (<em class="parameter"><code><span class="type">GHashTable</span> *hash_table</code></em>);
+<span class="returnvalue">GString</span> *           <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-take-string" title="gcut_take_string ()">gcut_take_string</a>                    (<em class="parameter"><code><span class="type">GString</span> *string</code></em>);
+<span class="returnvalue">GString</span> *           <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-string" title="gcut_take_new_string ()">gcut_take_new_string</a>                (<em class="parameter"><code>const <span class="type">gchar</span> *string</code></em>);
+<span class="returnvalue">GList</span> *             <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-list-new" title="gcut_list_new ()">gcut_list_new</a>                       (<em class="parameter"><code>const <span class="type">gpointer</span> element</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">GList</span> *             <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-list-int-new" title="gcut_list_int_new ()">gcut_list_int_new</a>                   (<em class="parameter"><code><span class="type">guint</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> value</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">GList</span> *             <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-list-uint-new" title="gcut_list_uint_new ()">gcut_list_uint_new</a>                  (<em class="parameter"><code><span class="type">guint</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> value</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">GList</span> *             <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-list-string-new" title="gcut_list_string_new ()">gcut_list_string_new</a>                (<em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">GList</span> *             <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-list-string-new-array" title="gcut_list_string_new_array ()">gcut_list_string_new_array</a>          (<em class="parameter"><code>const <span class="type">gchar</span> **strings</code></em>);
+const <span class="returnvalue">GList</span> *       <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-list-int" title="gcut_take_new_list_int ()">gcut_take_new_list_int</a>              (<em class="parameter"><code><span class="type">guint</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> value</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+const <span class="returnvalue">GList</span> *       <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-list-uint" title="gcut_take_new_list_uint ()">gcut_take_new_list_uint</a>             (<em class="parameter"><code><span class="type">guint</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> value</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+const <span class="returnvalue">GList</span> *       <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-list-string" title="gcut_take_new_list_string ()">gcut_take_new_list_string</a>           (<em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+#define             <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-list-string-backward-compatibility" title="gcut_take_new_list_string_backward_compatibility()">gcut_take_new_list_string_backward_compatibility</a>(value,
+                                                         ...)
+const <span class="returnvalue">GList</span> *       <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-list-string-array" title="gcut_take_new_list_string_array ()">gcut_take_new_list_string_array</a>     (<em class="parameter"><code>const <span class="type">gchar</span> **strings</code></em>);
+#define             <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-list-object" title="gcut_take_new_list_object()">gcut_take_new_list_object</a>           (object,
+                                                         ...)
+<span class="returnvalue">void</span>                <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-list-string-free" title="gcut_list_string_free ()">gcut_list_string_free</a>               (<em class="parameter"><code><span class="type">GList</span> *list</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-list-object-free" title="gcut_list_object_free ()">gcut_list_object_free</a>               (<em class="parameter"><code><span class="type">GList</span> *list</code></em>);
+<span class="returnvalue">GHashTable</span> *        <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-hash-table-string-string-new" title="gcut_hash_table_string_string_new ()">gcut_hash_table_string_string_new</a>   (<em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">GHashTable</span> *        <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-hash-table-string-string-new-va-list" title="gcut_hash_table_string_string_new_va_list ()">gcut_hash_table_string_string_new_va_list</a>
+                                                        (<em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> args</code></em>);
+<span class="returnvalue">GHashTable</span> *        <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-hash-table-string-string" title="gcut_take_new_hash_table_string_string ()">gcut_take_new_hash_table_string_string</a>
+                                                        (<em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">GString</span> *           <a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-get-fixture-data" title="gcut_get_fixture_data ()">gcut_get_fixture_data</a>               (<em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="説明">
+<a name="cutter-Test-Utilities-with-GLib-support.description"></a><h2>説明</h2>
+<p>テストを書くためには、テスト環境を前処理・後処理するコードや、検証する結果を準備するコードなどたくさんのコードを書く必要があります。Cutterはもっと簡単にテストを書くためにユーティリティを提供します。</p>
+<p>このユーティリティはGLibと一緒に使います。</p>
+</div>
+<div class="refsect1" title="詳細">
+<a name="cutter-Test-Utilities-with-GLib-support.details"></a><h2>詳細</h2>
+<div class="refsect2" title="gcut_take_object ()">
+<a name="gcut-take-object"></a><h3>gcut_take_object ()</h3>
+<pre class="programlisting"><span class="returnvalue">GObject</span> *           gcut_take_object                    (<em class="parameter"><code><span class="type">GObject</span> *object</code></em>);</pre>
+<p><em class="parameter"><code>object</code></em>の所有権をCutterに渡し、<em class="parameter"><code>object</code></em>を返します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>Cutterに所有権を渡す<span class="type">GObject</span>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有権をもつ<em class="parameter"><code>object</code></em>。<code class="function">g_object_unref()</code>しないでください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.3から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_take_error ()">
+<a name="gcut-take-error"></a><h3>gcut_take_error ()</h3>
+<pre class="programlisting"><span class="returnvalue">GError</span> *            gcut_take_error                     (<em class="parameter"><code><span class="type">GError</span> *error</code></em>);</pre>
+<p>Cutterに<em class="parameter"><code>error</code></em>の所有権を渡し、<em class="parameter"><code>error</code></em>それ自身を返します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Cutterに所有権を渡す<span class="type">GError</span>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有権をもつ<span class="type">GError</span>。<code class="function">g_error_free()</code>しないでください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.3から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_take_list ()">
+<a name="gcut-take-list"></a><h3>gcut_take_list ()</h3>
+<pre class="programlisting">const <span class="returnvalue">GList</span> *       gcut_take_list                      (<em class="parameter"><code>const <span class="type">GList</span> *list</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="cutter-Types.html#CutDestroyFunction" title="CutDestroyFunction ()"><span class="type">CutDestroyFunction</span></a> destroy_function</code></em>);</pre>
+<p><em class="parameter"><code>list</code></em>の所有権をCutterに渡し、<em class="parameter"><code>list</code></em>それ自身を返します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>Cutterに所有権を渡す<span class="type">GList</span>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>destroy_function</code></em> :</span></p></td>
+<td>
+<em class="parameter"><code>list</code></em>の各要素を破棄する関数、または<code class="literal">NULL</code>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有権を持つ<span class="type">GList</span>。<code class="function">g_list_free()</code>しないでください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.3から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_take_hash_table ()">
+<a name="gcut-take-hash-table"></a><h3>gcut_take_hash_table ()</h3>
+<pre class="programlisting"><span class="returnvalue">GHashTable</span> *        gcut_take_hash_table                (<em class="parameter"><code><span class="type">GHashTable</span> *hash_table</code></em>);</pre>
+<p><em class="parameter"><code>hash_table</code></em>の所有権をCutterに渡し、<em class="parameter"><code>hash_table</code></em>それ自身を返します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
+<td>Cutterに所有権を渡す<span class="type">GHashTable</span>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有権をもつ<span class="type">GHashTable</span>。<code class="function">g_hash_table_unref()</code>しないでください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.4から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_take_string ()">
+<a name="gcut-take-string"></a><h3>gcut_take_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">GString</span> *           gcut_take_string                    (<em class="parameter"><code><span class="type">GString</span> *string</code></em>);</pre>
+<p><em class="parameter"><code>string</code></em>の所有権をCutterに渡し、<em class="parameter"><code>string</code></em>それ自身を返します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>Cutterに所有権を渡す<span class="type">GString</span>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有権を持つ<span class="type">GString</span>。<code class="function">g_string_free()</code>しないでください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.6から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_take_new_string ()">
+<a name="gcut-take-new-string"></a><h3>gcut_take_new_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">GString</span> *           gcut_take_new_string                (<em class="parameter"><code>const <span class="type">gchar</span> *string</code></em>);</pre>
+<p>渡された文字列から<span class="type">GString</span>を作成します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>文字列。<code class="literal">NULL</code>も可。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有権を持つ<span class="type">GString</span>。<code class="function">g_string_free()</code>しないでください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.6から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_list_new ()">
+<a name="gcut-list-new"></a><h3>gcut_list_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *             gcut_list_new                       (<em class="parameter"><code>const <span class="type">gpointer</span> element</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>渡された要素を含むリストを作ります。</p>
+<p>例: </p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5</pre></td>
+        <td class="listing_code"><pre class="programlisting">GCutEgg <span class="symbol">*</span>echo_egg<span class="symbol">, *</span>cat_egg<span class="symbol">;</span>
+
+echo_egg <span class="symbol">=</span> <span class="function"><a href="../cutter/ja/GCutEgg.html#gcut-egg-new">gcut_egg_new</a></span><span class="symbol">(</span><span class="string">&quot;echo&quot;</span><span class="symbol">,</span> <span class="string">&quot;Hello&quot;</span><span class="symbol">,</span> NULL<span class="symbol">);</span>
+cat_egg <span class="symbol">=</span> <span class="function"><a href="../cutter/ja/GCutEgg.html#gcut-egg-new">gcut_egg_new</a></span><span class="symbol">(</span><span class="string">&quot;cat&quot;</span><span class="symbol">,</span> <span class="string">&quot;/etc/hosts&quot;</span><span class="symbol">,</span> NULL<span class="symbol">);</span>
+egg_list <span class="symbol">=</span> <span class="function"><a href="../cutter/ja/cutter-Test-Utilities-with-GLib-support.html#gcut-list-new">gcut_list_new</a></span><span class="symbol">(</span>echo_egg<span class="symbol">,</span> cat_egg<span class="symbol">,</span> NULL<span class="symbol">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>element</code></em> :</span></p></td>
+<td>最初の<span class="type">gpointer</span>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>パスの残りの要素。<code class="literal">NULL</code>終端。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>新しく割り当てられた<span class="type">GList</span>。渡された要素を持ちます。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.1から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_list_int_new ()">
+<a name="gcut-list-int-new"></a><h3>gcut_list_int_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *             gcut_list_int_new                   (<em class="parameter"><code><span class="type">guint</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> value</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>渡された整数からリストを作ります。</p>
+<p>例: </p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="../cutter/ja/cutter-Test-Utilities-with-GLib-support.html#gcut-list-int-new">gcut_list_int_new</a></span><span class="symbol">(</span><span class="number">3</span><span class="symbol">, -</span><span class="number">10</span><span class="symbol">,</span> <span class="number">1</span><span class="symbol">,</span> <span class="number">29</span><span class="symbol">); -&gt; (-</span><span class="number">10</span><span class="symbol">,</span> <span class="number">1</span><span class="symbol">,</span> <span class="number">29</span><span class="symbol">)</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>整数の数。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>最初の整数値。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>リストの残りの整数値。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>渡された整数を含む<span class="type">GList</span>。<code class="function">g_list_free()</code>で開放すること。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_list_uint_new ()">
+<a name="gcut-list-uint-new"></a><h3>gcut_list_uint_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *             gcut_list_uint_new                  (<em class="parameter"><code><span class="type">guint</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> value</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>渡された符号無し整数からリストを作ります。</p>
+<p>例: </p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="../cutter/ja/cutter-Test-Utilities-with-GLib-support.html#gcut-list-uint-new">gcut_list_uint_new</a></span><span class="symbol">(</span><span class="number">3</span><span class="symbol">,</span> <span class="number">0</span><span class="symbol">,</span> <span class="number">1</span><span class="symbol">,</span> <span class="number">2</span><span class="symbol">); -&gt; (</span><span class="number">0</span><span class="symbol">,</span> <span class="number">1</span><span class="symbol">,</span> <span class="number">2</span><span class="symbol">)</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>符号無し符号整数の数。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>最初の符号無し符号整数値。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>リストの残りの符号無し符号整数値。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>渡された符号無し整数を含む<span class="type">GList</span>。<code class="function">g_list_free()</code>で開放すること。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_list_string_new ()">
+<a name="gcut-list-string-new"></a><h3>gcut_list_string_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *             gcut_list_string_new                (<em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>渡された文字列からリストを作ります。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>最初の文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>リストの残りの文字列。<code class="literal">NULL</code>終端。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>渡された文字列を含む<span class="type">GList</span>。<a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-list-string-free" title="gcut_list_string_free ()"><code class="function">gcut_list_string_free()</code></a>で開放すること。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.3から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_list_string_new_array ()">
+<a name="gcut-list-string-new-array"></a><h3>gcut_list_string_new_array ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *             gcut_list_string_new_array          (<em class="parameter"><code>const <span class="type">gchar</span> **strings</code></em>);</pre>
+<p>渡された文字列配列からリストを作ります。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>strings</code></em> :</span></p></td>
+<td>文字列の配列。<code class="literal">NULL</code>終端。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>渡された文字列配列と同じ内容の<span class="type">GList</span>。<a class="link" href="cutter-Test-Utilities-with-GLib-support.html#gcut-list-string-free" title="gcut_list_string_free ()"><code class="function">gcut_list_string_free()</code></a>で開放すること。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.6から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_take_new_list_int ()">
+<a name="gcut-take-new-list-int"></a><h3>gcut_take_new_list_int ()</h3>
+<pre class="programlisting">const <span class="returnvalue">GList</span> *       gcut_take_new_list_int              (<em class="parameter"><code><span class="type">guint</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> value</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>渡された整数からリストを作ります。作られたリストはCutterが所有権を持ちます。</p>
+<p>例: </p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="../cutter/ja/cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-list-int">gcut_take_new_list_int</a></span><span class="symbol">(</span><span class="number">3</span><span class="symbol">, -</span><span class="number">10</span><span class="symbol">,</span> <span class="number">1</span><span class="symbol">,</span> <span class="number">29</span><span class="symbol">); -&gt; (-</span><span class="number">10</span><span class="symbol">,</span> <span class="number">1</span><span class="symbol">,</span> <span class="number">29</span><span class="symbol">)</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>整数の数。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>最初の整数値。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>リストの残りの文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>渡された整数と同じ内容の<span class="type">GList</span>。Cutterが所有権を持ちます。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_take_new_list_uint ()">
+<a name="gcut-take-new-list-uint"></a><h3>gcut_take_new_list_uint ()</h3>
+<pre class="programlisting">const <span class="returnvalue">GList</span> *       gcut_take_new_list_uint             (<em class="parameter"><code><span class="type">guint</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> value</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>渡された符号無し整数からリストを作ります。作られたリストはCutterが所有権を持ちます。</p>
+<p>例: </p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="../cutter/ja/cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-list-uint">gcut_take_new_list_uint</a></span><span class="symbol">(</span><span class="number">3</span><span class="symbol">,</span> <span class="number">0</span><span class="symbol">,</span> <span class="number">1</span><span class="symbol">,</span> <span class="number">2</span><span class="symbol">); -&gt; (</span><span class="number">0</span><span class="symbol">,</span> <span class="number">1</span><span class="symbol">,</span> <span class="number">2</span><span class="symbol">)</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>符号無し符号整数の数。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>最初の符号無し符号整数値。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>リストの残りの文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>渡された符号無し整数と同じ内容の<span class="type">GList</span>。Cutterが所有権を持ちます。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_take_new_list_string ()">
+<a name="gcut-take-new-list-string"></a><h3>gcut_take_new_list_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">GList</span> *       gcut_take_new_list_string           (<em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>渡された文字列からリストを作ります。作られたリストはCutterが所有権を持ちます。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>最初の文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>リストの残りの文字列。<code class="literal">NULL</code>終端。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>渡された文字列と同じ内容の<span class="type">GList</span>。Cutterが所有権を持ちます。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_take_new_list_string_backward_compatibility()">
+<a name="gcut-take-new-list-string-backward-compatibility"></a><h3>gcut_take_new_list_string_backward_compatibility()</h3>
+<pre class="programlisting">#define             gcut_take_new_list_string_backward_compatibility(value, ...)</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gcut_take_new_list_string_backward_compatibility</code>は非推奨です。新しいコードでは使わないでください。</p>
+</div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gcut_take_new_list_string_array ()">
+<a name="gcut-take-new-list-string-array"></a><h3>gcut_take_new_list_string_array ()</h3>
+<pre class="programlisting">const <span class="returnvalue">GList</span> *       gcut_take_new_list_string_array     (<em class="parameter"><code>const <span class="type">gchar</span> **strings</code></em>);</pre>
+<p>渡された文字列の配列からリストを作ります。Cutterが所有権を持ちます。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>strings</code></em> :</span></p></td>
+<td>文字列の配列。<code class="literal">NULL</code>終端。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>渡された文字列の配列と同じ内容の<span class="type">GList</span>。Cutterが所有。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.6から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_take_new_list_object()">
+<a name="gcut-take-new-list-object"></a><h3>gcut_take_new_list_object()</h3>
+<pre class="programlisting">#define             gcut_take_new_list_object(object, ...)</pre>
+<p>渡されたオブジェクトからリストを作ります。作られたリストはCutterが所有権を持ちます。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>最初の<span class="type">GObject</span>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>リストの残りのオブジェクト。<code class="literal">NULL</code>終端。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>新しく割り当てられた<span class="type">GList</span>。リストには渡されたオブジェクトが含まれます。Cutterが所有権を持ちます。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.1から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_list_string_free ()">
+<a name="gcut-list-string-free"></a><h3>gcut_list_string_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcut_list_string_free               (<em class="parameter"><code><span class="type">GList</span> *list</code></em>);</pre>
+<p><em class="parameter"><code>list</code></em>と<em class="parameter"><code>list</code></em>内にある文字列を開放します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>開放する文字列のリスト。</td>
+</tr></tbody>
+</table></div>
+<p class="since">1.0.3から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_list_object_free ()">
+<a name="gcut-list-object-free"></a><h3>gcut_list_object_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcut_list_object_free               (<em class="parameter"><code><span class="type">GList</span> *list</code></em>);</pre>
+<p><em class="parameter"><code>list</code></em>と中のオブジェクトを破棄します。<em class="parameter"><code>list</code></em>に<code class="literal">NULL</code>が含まれていても大丈夫です。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>リファレンスを減らしたい<span class="type">GObject</span>を含んだリスト。</td>
+</tr></tbody>
+</table></div>
+<p class="since">1.1.1から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_hash_table_string_string_new ()">
+<a name="gcut-hash-table-string-string-new"></a><h3>gcut_hash_table_string_string_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">GHashTable</span> *        gcut_hash_table_string_string_new   (<em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>引数で指定されたキーと値のペアから、文字列のキーと値を持つハッシュテーブルを作成します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>最初のキー文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>残りの引数の<code class="literal">NULL</code>終端のリスト。まず、最初のキーの文字列値を指定します。続いて、任意の数だけキー・値のペアを指定します。最後に<code class="literal">NULL</code>を指定しなければいけません。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>渡されたキー・値を持つ<span class="type">GHashTable</span>。<code class="function">g_hash_table_unref()</code>で開放してください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.4から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_hash_table_string_string_new_va_list ()">
+<a name="gcut-hash-table-string-string-new-va-list"></a><h3>gcut_hash_table_string_string_new_va_list ()</h3>
+<pre class="programlisting"><span class="returnvalue">GHashTable</span> *        gcut_hash_table_string_string_new_va_list
+                                                        (<em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> args</code></em>);</pre>
+<p>引数で指定されたキーと値のペアから、文字列のキーと値を持つハッシュテーブルを作成します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>最初のキー文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
+<td>残りの引数の<code class="literal">NULL</code>終端のリスト。まず、最初のキーの文字列値を指定します。続いて、任意の数だけキー・値のペアを指定します。最後に<code class="literal">NULL</code>を指定しなければいけません。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>渡されたキー・値を持つ<span class="type">GHashTable</span>。<code class="function">g_hash_table_unref()</code>で開放してください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_take_new_hash_table_string_string ()">
+<a name="gcut-take-new-hash-table-string-string"></a><h3>gcut_take_new_hash_table_string_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">GHashTable</span> *        gcut_take_new_hash_table_string_string
+                                                        (<em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>渡されたキー・値のペアから文字列のキー・値を持つハッシュテーブルを作成します。作成されたハッシュテーブルはCutterが所有権を持つので、<code class="function">g_hash_table_unref()</code>を呼ばないでください。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>最初のキー文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>残りの引数の<code class="literal">NULL</code>終端のリスト。まず、最初のキーの文字列値を指定します。続いて、任意の数だけキー・値のペアを指定します。最後に<code class="literal">NULL</code>を指定しなければいけません。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>渡されたキー・値を持つ<span class="type">GHashTable</span>。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_get_fixture_data ()">
+<a name="gcut-get-fixture-data"></a><h3>gcut_get_fixture_data ()</h3>
+<pre class="programlisting"><span class="returnvalue">GString</span> *           gcut_get_fixture_data               (<em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p><em class="parameter"><code>path</code></em>/..."にあるフィクスチャデータを読み込み、<span class="type">GString</span>として返します。GStringはCutterが所持します。<a class="link" href="cutter-Test-Utilities.html#cut-build-fixture-data-path" title="cut_build_fixture_data_path ()"><code class="function">cut_build_fixture_data_path()</code></a>の説明にはフィクスチャデータのパスがどのように決定されるかが書かれています。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>フィクスチャデータのパスの最初の要素。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>パスの残りの要素。<code class="literal">NULL</code>終端が必須です。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>フィクスチャデータの内容が入った<span class="type">GString</span>。GStringはCutterが所持します。開放しないでください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.6から</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

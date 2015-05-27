@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-Experimental">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-Experimental.top_of_page">実験</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>実験</refname>
+<refpurpose>実験的なAPI</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-Experimental.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis>#define             <link linkend="cut-fork">cut_fork</link>
+#define             <link linkend="cut-wait-process">cut_wait_process</link>                    (pid,
+                                                         usec_timeout)
+#define             <link linkend="cut-fork-get-stdout-message">cut_fork_get_stdout_message</link>         (pid)
+#define             <link linkend="cut-fork-get-stderr-message">cut_fork_get_stderr_message</link>         (pid)
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-Experimental.description" role="desc">
+<title role="desc.title">説明</title>
+<para>将来、このAPIは変更されるかもしれません。</para>
+</refsect1>
+<refsect1 id="cutter-Experimental.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="cut-fork" role="macro" condition="since:0.8">
+<title>cut_fork</title>
+<indexterm zone="cut-fork" role="0.8"><primary>cut_fork</primary></indexterm>
+<programlisting>#define             cut_fork()</programlisting>
+<para>子プロセスを生成します。</para>
+<para>例: <informalexample><programlisting>
+int pid;
+pid = cut_fork();
+cut_assert_errno();
+
+if (pid == 0) {
+  do_something_for_child_process();
+  _exit(EXIT_SUCCESS);
+}
+
+do_something_for_parent_process();
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>プロセスID。</simpara></listitem></varlistentry>
+</variablelist><para role="since">0.8から</para></refsect2>
+<refsect2 id="cut-wait-process" role="macro" condition="since:0.8">
+<title>cut_wait_process()</title>
+<indexterm zone="cut-wait-process" role="0.8"><primary>cut_wait_process</primary></indexterm>
+<programlisting>#define             cut_wait_process(pid, usec_timeout)</programlisting>
+<para><parameter>pid</parameter>で指定されたプロセスの終了を待ちます。</para>
+<para>例: <informalexample><programlisting>
+int pid;
+pid = cut_fork();
+cut_assert_errno();
+
+if (pid == 0) {
+  do_something_for_child_process();
+  _exit(EXIT_SUCCESS);
+}
+
+do_something_for_parent_process();
+cut_assert_equal_int(EXIT_SUCCESS, cut_wait_process(pid, 100));
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>pid</parameter> :</term>
+<listitem><simpara>終了を待つプロセスのID。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>usec_timeout</parameter> :</term>
+<listitem><simpara>タイムアウトする時間。100万分の1秒単位で指定。</simpara></listitem></varlistentry>
+</variablelist><para role="since">0.8から</para></refsect2>
+<refsect2 id="cut-fork-get-stdout-message" role="macro" condition="since:0.8">
+<title>cut_fork_get_stdout_message()</title>
+<indexterm zone="cut-fork-get-stdout-message" role="0.8"><primary>cut_fork_get_stdout_message</primary></indexterm>
+<programlisting>#define             cut_fork_get_stdout_message(pid)</programlisting>
+<para><parameter>pid</parameter>で指定されたプロセスからメッセージを読みます。</para>
+<para>例: <informalexample><programlisting>
+int pid;
+pid = cut_fork();
+cut_assert_errno();
+
+if (pid == 0) {
+  g_print("I'm a child.");
+  _exit(EXIT_SUCCESS);
+}
+
+cut_assert_equal_string("I'm a child.", cut_fork_get_stdout_message(pid));
+cut_assert_equal_int(EXIT_SUCCESS, cut_wait_process(pid, 100));
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>pid</parameter> :</term>
+<listitem><simpara>プロセスID。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>pid</parameter>で指定されたプロセスの標準出力から読み込まれたメッセージ。</simpara></listitem></varlistentry>
+</variablelist><para role="since">0.8から</para></refsect2>
+<refsect2 id="cut-fork-get-stderr-message" role="macro" condition="since:0.8">
+<title>cut_fork_get_stderr_message()</title>
+<indexterm zone="cut-fork-get-stderr-message" role="0.8"><primary>cut_fork_get_stderr_message</primary></indexterm>
+<programlisting>#define             cut_fork_get_stderr_message(pid)</programlisting>
+<para><parameter>pid</parameter>で指定されたプロセスからメッセージを読みます。</para>
+<para>例: <informalexample><programlisting>
+int pid;
+pid = cut_fork();
+cut_assert_errno();
+
+if (pid == 0) {
+  g_print("I'm a child.");
+  _exit(EXIT_SUCCESS);
+}
+
+cut_assert_equal_string("I'm a child.", cut_fork_get_stderr_message(pid));
+cut_assert_equal_int(EXIT_SUCCESS, cut_wait_process(pid, 100));
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>pid</parameter> :</term>
+<listitem><simpara>プロセスID。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>pid</parameter>で指定されたプロセスの標準エラー出力から読み込まれたメッセージ。</simpara></listitem></varlistentry>
+</variablelist><para role="since">0.8から</para></refsect2>
+
+</refsect1>
+
+</refentry>

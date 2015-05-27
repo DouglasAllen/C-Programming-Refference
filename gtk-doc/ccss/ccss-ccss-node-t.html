@@ -1,0 +1,822 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ccss_node_t</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="CCSS Reference Manual">
+<link rel="up" href="basic.html" title="Basic Usage">
+<link rel="prev" href="ccss-ccss-grammar-t.html" title="ccss_grammar_t">
+<link rel="next" href="ccss-ccss-property-t.html" title="ccss_property_t">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ccss-ccss-grammar-t.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="basic.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">CCSS Reference Manual</th>
+<td><a accesskey="n" href="ccss-ccss-property-t.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ccss-ccss-node-t.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ccss-ccss-node-t.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ccss-ccss-node-t"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ccss-ccss-node-t.top_of_page"></a>ccss_node_t</span></h2>
+<p>ccss_node_t</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="ccss-ccss-node-t.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">typedef             <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t">ccss_grammar_t</a>;
+<a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="returnvalue">ccss_grammar_t</span></a> *    <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-create-css" title="ccss_grammar_create_css ()">ccss_grammar_create_css</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="returnvalue">ccss_grammar_t</span></a> *    <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-create-generic" title="ccss_grammar_create_generic ()">ccss_grammar_create_generic</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-destroy" title="ccss_grammar_destroy ()">ccss_grammar_destroy</a>                (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> *self</code></em>);
+<a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="returnvalue">ccss_grammar_t</span></a> *    <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-reference" title="ccss_grammar_reference ()">ccss_grammar_reference</a>              (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> *self</code></em>);
+unsigned <span class="returnvalue">int</span>        <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-get-reference-count" title="ccss_grammar_get_reference_count ()">ccss_grammar_get_reference_count</a>    (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> const *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-add-properties" title="ccss_grammar_add_properties ()">ccss_grammar_add_properties</a>         (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ccss-ccss-property-t.html#ccss-property-class-t" title="ccss_property_class_t"><span class="type">ccss_property_class_t</span></a> const *properties</code></em>);
+<a class="link" href="ccss-ccss-property-t.html#ccss-property-class-t" title="ccss_property_class_t"><span class="returnvalue">ccss_property_class_t</span></a> const * <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-lookup-property" title="ccss_grammar_lookup_property ()">ccss_grammar_lookup_property</a>
+                                                        (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-add-functions" title="ccss_grammar_add_functions ()">ccss_grammar_add_functions</a>          (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ccss-ccss-function-t.html#ccss-function-t" title="ccss_function_t"><span class="type">ccss_function_t</span></a> const *functions</code></em>);
+<a class="link" href="ccss-ccss-function-t.html#ccss-function-t" title="ccss_function_t"><span class="returnvalue">ccss_function_t</span></a> const * <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-lookup-function" title="ccss_grammar_lookup_function ()">ccss_grammar_lookup_function</a>    (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>);
+<a class="link" href="ccss-ccss-stylesheet-t.html#ccss-stylesheet-t" title="ccss_stylesheet_t"><span class="returnvalue">ccss_stylesheet_t</span></a> * <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-create-stylesheet" title="ccss_grammar_create_stylesheet ()">ccss_grammar_create_stylesheet</a>      (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> *self</code></em>);
+<a class="link" href="ccss-ccss-stylesheet-t.html#ccss-stylesheet-t" title="ccss_stylesheet_t"><span class="returnvalue">ccss_stylesheet_t</span></a> * <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-create-stylesheet-from-buffer" title="ccss_grammar_create_stylesheet_from_buffer ()">ccss_grammar_create_stylesheet_from_buffer</a>
+                                                        (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *buffer</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> size</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *user_data</code></em>);
+<a class="link" href="ccss-ccss-stylesheet-t.html#ccss-stylesheet-t" title="ccss_stylesheet_t"><span class="returnvalue">ccss_stylesheet_t</span></a> * <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-create-stylesheet-from-file" title="ccss_grammar_create_stylesheet_from_file ()">ccss_grammar_create_stylesheet_from_file</a>
+                                                        (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *css_file</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *user_data</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-invoke-function" title="ccss_grammar_invoke_function ()">ccss_grammar_invoke_function</a>        (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *function_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">CRTerm</span> const *values</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *user_data</code></em>);
+typedef             <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t">ccss_node_t</a>;
+                    <a class="link" href="ccss-ccss-node-t.html#ccss-node-class-t" title="ccss_node_class_t">ccss_node_class_t</a>;
+<span class="returnvalue">bool</span>                (<a class="link" href="ccss-ccss-node-t.html#ccss-node-is-a-f" title="ccss_node_is_a_f ()">*ccss_node_is_a_f</a>)                 (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *type_name</code></em>);
+<a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="returnvalue">ccss_node_t</span></a> *       (<a class="link" href="ccss-ccss-node-t.html#ccss-node-get-container-f" title="ccss_node_get_container_f ()">*ccss_node_get_container_f</a>)        (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>);
+<a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="returnvalue">ccss_node_t</span></a> *       (<a class="link" href="ccss-ccss-node-t.html#ccss-node-get-base-style-f" title="ccss_node_get_base_style_f ()">*ccss_node_get_base_style_f</a>)       (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>);
+<span class="returnvalue">ptrdiff_t</span>           (<a class="link" href="ccss-ccss-node-t.html#ccss-node-get-instance-f" title="ccss_node_get_instance_f ()">*ccss_node_get_instance_f</a>)         (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>);
+const <span class="returnvalue">char</span> *        (<a class="link" href="ccss-ccss-node-t.html#ccss-node-get-id-f" title="ccss_node_get_id_f ()">*ccss_node_get_id_f</a>)               (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>);
+const <span class="returnvalue">char</span> *        (<a class="link" href="ccss-ccss-node-t.html#ccss-node-get-type-f" title="ccss_node_get_type_f ()">*ccss_node_get_type_f</a>)             (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>);
+const <span class="returnvalue">char</span> *        (<a class="link" href="ccss-ccss-node-t.html#ccss-node-get-class-f" title="ccss_node_get_class_f ()">*ccss_node_get_class_f</a>)            (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>);
+<span class="returnvalue">char</span> *              (<a class="link" href="ccss-ccss-node-t.html#ccss-node-get-attribute-f" title="ccss_node_get_attribute_f ()">*ccss_node_get_attribute_f</a>)        (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>);
+const <span class="returnvalue">char</span> *        (<a class="link" href="ccss-ccss-node-t.html#ccss-node-get-style-f" title="ccss_node_get_style_f ()">*ccss_node_get_style_f</a>)            (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> descriptor</code></em>);
+<span class="returnvalue">bool</span>                (<a class="link" href="ccss-ccss-node-t.html#ccss-node-get-viewport-f" title="ccss_node_get_viewport_f ()">*ccss_node_get_viewport_f</a>)         (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *height</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="ccss-ccss-node-t.html#ccss-node-release-f" title="ccss_node_release_f ()">*ccss_node_release_f</a>)              (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ccss-ccss-node-t.html#ccss-node-init" title="ccss_node_init ()">ccss_node_init</a>                      (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-class-t" title="ccss_node_class_t"><span class="type">ccss_node_class_t</span></a> *node_class</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ccss-ccss-node-t.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="ccss-ccss-node-t.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ccss-grammar-t"></a><h3>ccss_grammar_t</h3>
+<pre class="programlisting">typedef struct ccss_grammar_ ccss_grammar_t;
+</pre>
+<p>
+Represents a context for the creation of stylesheets of similar kind.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-grammar-create-css"></a><h3>ccss_grammar_create_css ()</h3>
+<pre class="programlisting"><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="returnvalue">ccss_grammar_t</span></a> *    ccss_grammar_create_css             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Create a new grammar instance that interprets suppported CSS rules.
+</p>
+<p>
+Grammar objects provide a factory to create stylesheets of the same class.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> instance.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-grammar-create-generic"></a><h3>ccss_grammar_create_generic ()</h3>
+<pre class="programlisting"><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="returnvalue">ccss_grammar_t</span></a> *    ccss_grammar_create_generic         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Create a new grammar instance.
+</p>
+<p>
+Grammar objects provide a factory to create stylesheets of the same class.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> instance.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-grammar-destroy"></a><h3>ccss_grammar_destroy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ccss_grammar_destroy                (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> *self</code></em>);</pre>
+<p>
+Decreases the reference count on <em class="parameter"><code>self</code></em> by one. If the result is zero, then
+<em class="parameter"><code>self</code></em> and all associated resources are freed. See <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-reference" title="ccss_grammar_reference ()"><code class="function">ccss_grammar_reference()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-grammar-reference"></a><h3>ccss_grammar_reference ()</h3>
+<pre class="programlisting"><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="returnvalue">ccss_grammar_t</span></a> *    ccss_grammar_reference              (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> *self</code></em>);</pre>
+<p>
+Increases the reference count on <em class="parameter"><code>self</code></em> by one. This prevents <em class="parameter"><code>self</code></em> from being
+destroyed until a matching call to <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-destroy" title="ccss_grammar_destroy ()"><code class="function">ccss_grammar_destroy()</code></a> is made.
+</p>
+<p>
+The number of references to a <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> can be acquired using
+<a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-get-reference-count" title="ccss_grammar_get_reference_count ()"><code class="function">ccss_grammar_get_reference_count()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the referenced <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-grammar-get-reference-count"></a><h3>ccss_grammar_get_reference_count ()</h3>
+<pre class="programlisting">unsigned <span class="returnvalue">int</span>        ccss_grammar_get_reference_count    (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> const *self</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the current reference count of <em class="parameter"><code>self</code></em>.
+If <em class="parameter"><code>self</code></em> is a nil object, 0 will be returned.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-grammar-add-properties"></a><h3>ccss_grammar_add_properties ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ccss_grammar_add_properties         (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ccss-ccss-property-t.html#ccss-property-class-t" title="ccss_property_class_t"><span class="type">ccss_property_class_t</span></a> const *properties</code></em>);</pre>
+<p>
+Register a set of custom CSS properties with the grammar.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>properties</code></em> :</span></p></td>
+<td>Null-terminated array of <a class="link" href="ccss-ccss-property-t.html#ccss-property-class-t" title="ccss_property_class_t"><span class="type">ccss_property_class_t</span></a> to register.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-grammar-lookup-property"></a><h3>ccss_grammar_lookup_property ()</h3>
+<pre class="programlisting"><a class="link" href="ccss-ccss-property-t.html#ccss-property-class-t" title="ccss_property_class_t"><span class="returnvalue">ccss_property_class_t</span></a> const * ccss_grammar_lookup_property
+                                                        (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>);</pre>
+<p>
+Look up a property handler by name.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>name of the property class to look  up.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the property handler or <code class="literal">NULL</code> if not found.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-grammar-add-functions"></a><h3>ccss_grammar_add_functions ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ccss_grammar_add_functions          (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ccss-ccss-function-t.html#ccss-function-t" title="ccss_function_t"><span class="type">ccss_function_t</span></a> const *functions</code></em>);</pre>
+<p>
+Register a set of custom css function handlers with the grammar.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>functions</code></em> :</span></p></td>
+<td>Null-terminated array of <a class="link" href="ccss-ccss-function-t.html#ccss-function-t" title="ccss_function_t"><span class="type">ccss_function_t</span></a> to register.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-grammar-lookup-function"></a><h3>ccss_grammar_lookup_function ()</h3>
+<pre class="programlisting"><a class="link" href="ccss-ccss-function-t.html#ccss-function-t" title="ccss_function_t"><span class="returnvalue">ccss_function_t</span></a> const * ccss_grammar_lookup_function    (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>);</pre>
+<p>
+Look up a function handler by name.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>name of the function handler to look  up.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the property handler or <code class="literal">NULL</code> if not found.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-grammar-create-stylesheet"></a><h3>ccss_grammar_create_stylesheet ()</h3>
+<pre class="programlisting"><a class="link" href="ccss-ccss-stylesheet-t.html#ccss-stylesheet-t" title="ccss_stylesheet_t"><span class="returnvalue">ccss_stylesheet_t</span></a> * ccss_grammar_create_stylesheet      (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> *self</code></em>);</pre>
+<p>
+Create an empty stylesheet associated with grammar <em class="parameter"><code>self</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an empty <a class="link" href="ccss-ccss-stylesheet-t.html#ccss-stylesheet-t" title="ccss_stylesheet_t"><span class="type">ccss_stylesheet_t</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-grammar-create-stylesheet-from-buffer"></a><h3>ccss_grammar_create_stylesheet_from_buffer ()</h3>
+<pre class="programlisting"><a class="link" href="ccss-ccss-stylesheet-t.html#ccss-stylesheet-t" title="ccss_stylesheet_t"><span class="returnvalue">ccss_stylesheet_t</span></a> * ccss_grammar_create_stylesheet_from_buffer
+                                                        (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *buffer</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> size</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *user_data</code></em>);</pre>
+<p>
+Create a new stylesheet instance based on a CSS string.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td>buffer to parse.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
+<td>size of the buffer.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user-data passed to property- and function-handlers.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-stylesheet-t.html#ccss-stylesheet-t" title="ccss_stylesheet_t"><span class="type">ccss_stylesheet_t</span></a> representation of the CSS string.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-grammar-create-stylesheet-from-file"></a><h3>ccss_grammar_create_stylesheet_from_file ()</h3>
+<pre class="programlisting"><a class="link" href="ccss-ccss-stylesheet-t.html#ccss-stylesheet-t" title="ccss_stylesheet_t"><span class="returnvalue">ccss_stylesheet_t</span></a> * ccss_grammar_create_stylesheet_from_file
+                                                        (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *css_file</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *user_data</code></em>);</pre>
+<p>
+Create a new stylesheet instance based on a CSS file.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>css_file</code></em> :</span></p></td>
+<td>file to parse.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user-data passed to property- and function-handlers.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-stylesheet-t.html#ccss-stylesheet-t" title="ccss_stylesheet_t"><span class="type">ccss_stylesheet_t</span></a> representation of the CSS file.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-grammar-invoke-function"></a><h3>ccss_grammar_invoke_function ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              ccss_grammar_invoke_function        (<em class="parameter"><code><a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *function_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">CRTerm</span> const *values</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *user_data</code></em>);</pre>
+<p>
+Invoke a registerd function handler. This API is meant to be used by property
+implementations, like when parsing properties like `background-image: url(foo.png)'.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-grammar-t.html#ccss-grammar-t" title="ccss_grammar_t"><span class="type">ccss_grammar_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>function_name</code></em> :</span></p></td>
+<td>name of the function to invoke, e.g. <code class="literal">url</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>values</code></em> :</span></p></td>
+<td>arguments passed to the function handler.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user-data passed to the function handler.
+Overrides the user-data assigned in the function handler's definition.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>string value passed back by the ccss API consumer.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-node-t"></a><h3>ccss_node_t</h3>
+<pre class="programlisting">typedef struct ccss_node_ ccss_node_t;
+</pre>
+<p>
+Stack-allocatable struct representing a document node. Used for querying the 
+<a class="link" href="ccss-ccss-stylesheet-t.html#ccss-stylesheet-t" title="ccss_stylesheet_t"><span class="type">ccss_stylesheet_t</span></a>.
+</p>
+<p>
+<span class="emphasis"><em>Memory management:</em></span> Unless specified otherwise, objects 
+of this kind are under the responsibility of the libccss consumer.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-node-class-t"></a><h3>ccss_node_class_t</h3>
+<pre class="programlisting">typedef struct {
+	ccss_node_is_a_f		is_a;
+	ccss_node_get_container_f get_container;
+	ccss_node_get_base_style_f get_base_style;
+	ccss_node_get_instance_f get_instance;
+	ccss_node_get_id_f		get_id;
+	ccss_node_get_type_f		get_type;
+	ccss_node_get_class_f		get_class;
+	ccss_node_get_pseudo_classes_f get_pseudo_classes;
+	ccss_node_get_attribute_f get_attribute;
+	ccss_node_get_style_f		get_style;
+	ccss_node_get_viewport_f get_viewport;
+	ccss_node_release_f		release;
+} ccss_node_class_t;
+</pre>
+<p>
+Dispatch table a CCSS consumer has to fill so the selection engine can 
+retrieve information about the document the document.
+</p>
+<p>
+The implemented dispatch table needs to be passed to <a class="link" href="ccss-ccss-node-t.html#ccss-node-init" title="ccss_node_init ()"><span class="type">ccss_node_init</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-node-t.html#ccss-node-is-a-f" title="ccss_node_is_a_f ()"><span class="type">ccss_node_is_a_f</span></a> <em class="structfield"><code><a name="ccss-node-class-t.is-a"></a>is_a</code></em>;</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-is-a-f" title="ccss_node_is_a_f ()"><span class="type">ccss_node_is_a_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-node-t.html#ccss-node-get-container-f" title="ccss_node_get_container_f ()"><span class="type">ccss_node_get_container_f</span></a> <em class="structfield"><code><a name="ccss-node-class-t.get-container"></a>get_container</code></em>;</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-get-container-f" title="ccss_node_get_container_f ()"><span class="type">ccss_node_get_container_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-node-t.html#ccss-node-get-base-style-f" title="ccss_node_get_base_style_f ()"><span class="type">ccss_node_get_base_style_f</span></a> <em class="structfield"><code><a name="ccss-node-class-t.get-base-style"></a>get_base_style</code></em>;</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-get-base-style-f" title="ccss_node_get_base_style_f ()"><span class="type">ccss_node_get_base_style_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-node-t.html#ccss-node-get-instance-f" title="ccss_node_get_instance_f ()"><span class="type">ccss_node_get_instance_f</span></a> <em class="structfield"><code><a name="ccss-node-class-t.get-instance"></a>get_instance</code></em>;</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-get-instance-f" title="ccss_node_get_instance_f ()"><span class="type">ccss_node_get_instance_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-node-t.html#ccss-node-get-id-f" title="ccss_node_get_id_f ()"><span class="type">ccss_node_get_id_f</span></a> <em class="structfield"><code><a name="ccss-node-class-t.get-id"></a>get_id</code></em>;</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-get-id-f" title="ccss_node_get_id_f ()"><span class="type">ccss_node_get_id_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-node-t.html#ccss-node-get-type-f" title="ccss_node_get_type_f ()"><span class="type">ccss_node_get_type_f</span></a> <em class="structfield"><code><a name="ccss-node-class-t.get-type"></a>get_type</code></em>;</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-get-type-f" title="ccss_node_get_type_f ()"><span class="type">ccss_node_get_type_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-node-t.html#ccss-node-get-class-f" title="ccss_node_get_class_f ()"><span class="type">ccss_node_get_class_f</span></a> <em class="structfield"><code><a name="ccss-node-class-t.get-class"></a>get_class</code></em>;</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-get-class-f" title="ccss_node_get_class_f ()"><span class="type">ccss_node_get_class_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">ccss_node_get_pseudo_classes_f</span> <em class="structfield"><code><a name="ccss-node-class-t.get-pseudo-classes"></a>get_pseudo_classes</code></em>;</span></p></td>
+<td>a <span class="type">ccss_node_get_pseudo_classes_f</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-node-t.html#ccss-node-get-attribute-f" title="ccss_node_get_attribute_f ()"><span class="type">ccss_node_get_attribute_f</span></a> <em class="structfield"><code><a name="ccss-node-class-t.get-attribute"></a>get_attribute</code></em>;</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-get-attribute-f" title="ccss_node_get_attribute_f ()"><span class="type">ccss_node_get_attribute_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-node-t.html#ccss-node-get-style-f" title="ccss_node_get_style_f ()"><span class="type">ccss_node_get_style_f</span></a> <em class="structfield"><code><a name="ccss-node-class-t.get-style"></a>get_style</code></em>;</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-get-style-f" title="ccss_node_get_style_f ()"><span class="type">ccss_node_get_style_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-node-t.html#ccss-node-get-viewport-f" title="ccss_node_get_viewport_f ()"><span class="type">ccss_node_get_viewport_f</span></a> <em class="structfield"><code><a name="ccss-node-class-t.get-viewport"></a>get_viewport</code></em>;</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-get-viewport-f" title="ccss_node_get_viewport_f ()"><span class="type">ccss_node_get_viewport_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-node-t.html#ccss-node-release-f" title="ccss_node_release_f ()"><span class="type">ccss_node_release_f</span></a> <em class="structfield"><code><a name="ccss-node-class-t.release"></a>release</code></em>;</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-release-f" title="ccss_node_release_f ()"><span class="type">ccss_node_release_f</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-node-is-a-f"></a><h3>ccss_node_is_a_f ()</h3>
+<pre class="programlisting"><span class="returnvalue">bool</span>                (*ccss_node_is_a_f)                 (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *type_name</code></em>);</pre>
+<p>
+Hook function to query whether a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> is of a certain type.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type_name</code></em> :</span></p></td>
+<td>name to match against, e.g. <code class="literal">div</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if matches.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-node-get-container-f"></a><h3>ccss_node_get_container_f ()</h3>
+<pre class="programlisting"><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="returnvalue">ccss_node_t</span></a> *       (*ccss_node_get_container_f)        (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>);</pre>
+<p>
+Hook function to query the container of a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>newly allocated container node or <code class="literal">NULL</code>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-node-get-base-style-f"></a><h3>ccss_node_get_base_style_f ()</h3>
+<pre class="programlisting"><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="returnvalue">ccss_node_t</span></a> *       (*ccss_node_get_base_style_f)       (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>);</pre>
+<p>
+Hook function to query the name of the style a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> derives from.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>base style or <code class="literal">NULL</code>. The returned value must be valid until
+it is released.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-node-get-instance-f"></a><h3>ccss_node_get_instance_f ()</h3>
+<pre class="programlisting"><span class="returnvalue">ptrdiff_t</span>           (*ccss_node_get_instance_f)         (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>);</pre>
+<p>
+Hook function to query for a unique numerical representation of a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>unique numerical id or 0. If 0 is returned, node-based css style will not be considered.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-node-get-id-f"></a><h3>ccss_node_get_id_f ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        (*ccss_node_get_id_f)               (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>);</pre>
+<p>
+Hook function to query the ID of a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>node ID or <code class="literal">NULL</code>. The returned value must be valid until
+the current stylesheet query returns.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-node-get-type-f"></a><h3>ccss_node_get_type_f ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        (*ccss_node_get_type_f)             (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>);</pre>
+<p>
+Hook function to query the type name of a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>node type name or <code class="literal">NULL</code>. The returned value must be valid until
+the current stylesheet query returns.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-node-get-class-f"></a><h3>ccss_node_get_class_f ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        (*ccss_node_get_class_f)            (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>);</pre>
+<p>
+Hook function to query the class name of a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>node class name or <code class="literal">NULL</code>. The returned value must be valid until
+the current stylesheet query returns.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-node-get-attribute-f"></a><h3>ccss_node_get_attribute_f ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              (*ccss_node_get_attribute_f)        (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>);</pre>
+<p>
+Hook function to query a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>'s attributes.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>attribute name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>attribute value or <code class="literal">NULL</code>. The returned value must be valid until
+the current stylesheet query returns.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-node-get-style-f"></a><h3>ccss_node_get_style_f ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        (*ccss_node_get_style_f)            (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> descriptor</code></em>);</pre>
+<p>
+Hook function to query a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>'s inline CSS style.
+</p>
+<p>
+See: <a class="link" href="ccss-ccss-stylesheet-t.html#ccss-stylesheet-unload" title="ccss_stylesheet_unload ()"><code class="function">ccss_stylesheet_unload()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>descriptor</code></em> :</span></p></td>
+<td>handle to unload this style from the stylesheet later on.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the node's CSS properties or <code class="literal">NULL</code>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-node-get-viewport-f"></a><h3>ccss_node_get_viewport_f ()</h3>
+<pre class="programlisting"><span class="returnvalue">bool</span>                (*ccss_node_get_viewport_f)         (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *height</code></em>);</pre>
+<p>
+Hook function to determine the position of a node in the viewport.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>horizontal position.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>vertical position.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>width of viewport.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>height of viewport.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if a valid viewport position has been assigned to the out parameters.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-node-release-f"></a><h3>ccss_node_release_f ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*ccss_node_release_f)              (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> *self</code></em>);</pre>
+<p>
+Hook function to deallocate a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> instance.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-node-init"></a><h3>ccss_node_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ccss_node_init                      (<em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ccss-ccss-node-t.html#ccss-node-class-t" title="ccss_node_class_t"><span class="type">ccss_node_class_t</span></a> *node_class</code></em>);</pre>
+<p>
+Initializes <em class="parameter"><code>node_class</code></em> by filling unset functions with the default
+implementations and attaches it to <em class="parameter"><code>self</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-t" title="ccss_node_t"><span class="type">ccss_node_t</span></a> embedding structure.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node_class</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-node-t.html#ccss-node-class-t" title="ccss_node_class_t"><span class="type">ccss_node_class_t</span></a> vtable.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

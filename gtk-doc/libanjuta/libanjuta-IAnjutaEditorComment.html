@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaEditorComment</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="libanjuta-IAnjutaEditorCellStyle.html" title="IAnjutaEditorCellStyle">
+<link rel="next" href="libanjuta-IAnjutaEditorConvert.html" title="IAnjutaEditorConvert">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-IAnjutaEditorCellStyle.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaEditorConvert.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaEditorComment.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaEditorComment.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaEditorComment"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaEditorComment.top_of_page"></a>IAnjutaEditorComment</span></h2>
+<p>IAnjutaEditorComment — Text editor comment interface</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorComment.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaEditorComment.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-editor-comment.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaEditorComment.html#IANJUTA-EDITOR-COMMENT-ERROR:CAPS" title="IANJUTA_EDITOR_COMMENT_ERROR">IANJUTA_EDITOR_COMMENT_ERROR</a>
+struct              <a class="link" href="libanjuta-IAnjutaEditorComment.html#IAnjutaEditorCommentIface" title="struct IAnjutaEditorCommentIface">IAnjutaEditorCommentIface</a>;
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaEditorComment.html#ianjuta-editor-comment-block" title="ianjuta_editor_comment_block ()">ianjuta_editor_comment_block</a>        (<em class="parameter"><code><span class="type">IAnjutaEditorComment</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaEditorComment.html#ianjuta-editor-comment-box" title="ianjuta_editor_comment_box ()">ianjuta_editor_comment_box</a>          (<em class="parameter"><code><span class="type">IAnjutaEditorComment</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaEditorComment.html#ianjuta-editor-comment-error-quark" title="ianjuta_editor_comment_error_quark ()">ianjuta_editor_comment_error_quark</a>  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaEditorComment.html#ianjuta-editor-comment-stream" title="ianjuta_editor_comment_stream ()">ianjuta_editor_comment_stream</a>       (<em class="parameter"><code><span class="type">IAnjutaEditorComment</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorComment.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorComment.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-EDITOR-COMMENT-ERROR:CAPS"></a><h3>IANJUTA_EDITOR_COMMENT_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_EDITOR_COMMENT_ERROR ianjuta_editor_comment_error_quark()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaEditorCommentIface"></a><h3>struct IAnjutaEditorCommentIface</h3>
+<pre class="programlisting">struct IAnjutaEditorCommentIface {
+	IAnjutaEditorIface g_iface;
+	
+
+	void (*block) (IAnjutaEditorComment *obj, GError **err);
+	void (*box) (IAnjutaEditorComment *obj, GError **err);
+	void (*stream) (IAnjutaEditorComment *obj, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-comment-block"></a><h3>ianjuta_editor_comment_block ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_editor_comment_block        (<em class="parameter"><code><span class="type">IAnjutaEditorComment</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Comment/Uncomment out selected block
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-comment-box"></a><h3>ianjuta_editor_comment_box ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_editor_comment_box          (<em class="parameter"><code><span class="type">IAnjutaEditorComment</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Comment/Uncomment out selected block
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-comment-error-quark"></a><h3>ianjuta_editor_comment_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_editor_comment_error_quark  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-comment-stream"></a><h3>ianjuta_editor_comment_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_editor_comment_stream       (<em class="parameter"><code><span class="type">IAnjutaEditorComment</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Comment/Uncomment out selected block
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,813 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaDebuggerBreakpoint</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="libanjuta-IAnjutaDebugger.html" title="IAnjutaDebugger">
+<link rel="next" href="libanjuta-IAnjutaDebuggerInstruction.html" title="IAnjutaDebuggerInstruction">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-IAnjutaDebugger.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaDebuggerInstruction.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaDebuggerBreakpoint.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaDebuggerBreakpoint.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaDebuggerBreakpoint.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaDebuggerBreakpoint"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaDebuggerBreakpoint.top_of_page"></a>IAnjutaDebuggerBreakpoint</span></h2>
+<p>IAnjutaDebuggerBreakpoint — Breakpoint Debugger interface</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaDebuggerBreakpoint.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaDebuggerBreakpoint.synopsis"></a><h2>Synopsis</h2>
+<a name="IAnjutaDebuggerBreakpointMethod"></a><a name="IAnjutaDebuggerBreakpointType"></a><pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-debugger-breakpoint.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IANJUTA-DEBUGGER-BREAKPOINT-ERROR:CAPS" title="IANJUTA_DEBUGGER_BREAKPOINT_ERROR">IANJUTA_DEBUGGER_BREAKPOINT_ERROR</a>
+<span class="returnvalue">void</span>                (<a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()">*IAnjutaDebuggerBreakpointCallback</a>)
+                                                        (<em class="parameter"><code>const <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointItem" title="struct IAnjutaDebuggerBreakpointItem"><span class="type">IAnjutaDebuggerBreakpointItem</span></a> *data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *err</code></em>);
+struct              <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointIface" title="struct IAnjutaDebuggerBreakpointIface">IAnjutaDebuggerBreakpointIface</a>;
+struct              <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointItem" title="struct IAnjutaDebuggerBreakpointItem">IAnjutaDebuggerBreakpointItem</a>;
+enum                <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointMethod-enum" title="enum IAnjutaDebuggerBreakpointMethod">IAnjutaDebuggerBreakpointMethod</a>;
+enum                <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointType-enum" title="enum IAnjutaDebuggerBreakpointType">IAnjutaDebuggerBreakpointType</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#ianjuta-debugger-breakpoint-clear-breakpoint" title="ianjuta_debugger_breakpoint_clear_breakpoint ()">ianjuta_debugger_breakpoint_clear_breakpoint</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()"><span class="type">IAnjutaDebuggerBreakpointCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#ianjuta-debugger-breakpoint-condition-breakpoint" title="ianjuta_debugger_breakpoint_condition_breakpoint ()">ianjuta_debugger_breakpoint_condition_breakpoint</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> id</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *condition</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()"><span class="type">IAnjutaDebuggerBreakpointCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#ianjuta-debugger-breakpoint-enable-breakpoint" title="ianjuta_debugger_breakpoint_enable_breakpoint ()">ianjuta_debugger_breakpoint_enable_breakpoint</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enable</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()"><span class="type">IAnjutaDebuggerBreakpointCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#ianjuta-debugger-breakpoint-error-quark" title="ianjuta_debugger_breakpoint_error_quark ()">ianjuta_debugger_breakpoint_error_quark</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#ianjuta-debugger-breakpoint-ignore-breakpoint" title="ianjuta_debugger_breakpoint_ignore_breakpoint ()">ianjuta_debugger_breakpoint_ignore_breakpoint</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> ignore</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()"><span class="type">IAnjutaDebuggerBreakpointCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#ianjuta-debugger-breakpoint-implement-breakpoint" title="ianjuta_debugger_breakpoint_implement_breakpoint ()">ianjuta_debugger_breakpoint_implement_breakpoint</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#ianjuta-debugger-breakpoint-list-breakpoint" title="ianjuta_debugger_breakpoint_list_breakpoint ()">ianjuta_debugger_breakpoint_list_breakpoint</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebugger.html#IAnjutaDebuggerGListCallback" title="IAnjutaDebuggerGListCallback ()"><span class="type">IAnjutaDebuggerGListCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#ianjuta-debugger-breakpoint-set-breakpoint-at-address" title="ianjuta_debugger_breakpoint_set_breakpoint_at_address ()">ianjuta_debugger_breakpoint_set_breakpoint_at_address</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> address</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()"><span class="type">IAnjutaDebuggerBreakpointCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#ianjuta-debugger-breakpoint-set-breakpoint-at-function" title="ianjuta_debugger_breakpoint_set_breakpoint_at_function ()">ianjuta_debugger_breakpoint_set_breakpoint_at_function</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *file</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *function</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()"><span class="type">IAnjutaDebuggerBreakpointCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#ianjuta-debugger-breakpoint-set-breakpoint-at-line" title="ianjuta_debugger_breakpoint_set_breakpoint_at_line ()">ianjuta_debugger_breakpoint_set_breakpoint_at_line</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> line</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()"><span class="type">IAnjutaDebuggerBreakpointCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaDebuggerBreakpoint.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GEnum
+   +----IAnjutaDebuggerBreakpointMethod
+</pre>
+<pre class="synopsis">
+  GEnum
+   +----IAnjutaDebuggerBreakpointType
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaDebuggerBreakpoint.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaDebuggerBreakpoint.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-DEBUGGER-BREAKPOINT-ERROR:CAPS"></a><h3>IANJUTA_DEBUGGER_BREAKPOINT_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_DEBUGGER_BREAKPOINT_ERROR ianjuta_debugger_breakpoint_error_quark()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaDebuggerBreakpointCallback"></a><h3>IAnjutaDebuggerBreakpointCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*IAnjutaDebuggerBreakpointCallback)
+                                                        (<em class="parameter"><code>const <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointItem" title="struct IAnjutaDebuggerBreakpointItem"><span class="type">IAnjutaDebuggerBreakpointItem</span></a> *data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *err</code></em>);</pre>
+<p>
+This callback function is used to return a <span class="type">IAnjutaBreakpointItem</span>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>a <span class="type">IAnjutaBreakpointItem</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data passed to the function</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaDebuggerBreakpointIface"></a><h3>struct IAnjutaDebuggerBreakpointIface</h3>
+<pre class="programlisting">struct IAnjutaDebuggerBreakpointIface {
+	IAnjutaDebuggerIface g_iface;
+	
+
+	gboolean (*clear_breakpoint) (IAnjutaDebuggerBreakpoint *obj, guint id,  IAnjutaDebuggerBreakpointCallback callback,  gpointer user_data, GError **err);
+	gboolean (*condition_breakpoint) (IAnjutaDebuggerBreakpoint *obj, guint id,  const gchar* condition,  IAnjutaDebuggerBreakpointCallback callback,  gpointer user_data, GError **err);
+	gboolean (*enable_breakpoint) (IAnjutaDebuggerBreakpoint *obj, guint id,  gboolean enable,  IAnjutaDebuggerBreakpointCallback callback,  gpointer user_data, GError **err);
+	gboolean (*ignore_breakpoint) (IAnjutaDebuggerBreakpoint *obj, guint id,  guint ignore,  IAnjutaDebuggerBreakpointCallback callback,  gpointer user_data, GError **err);
+	gint (*implement_breakpoint) (IAnjutaDebuggerBreakpoint *obj, GError **err);
+	gboolean (*list_breakpoint) (IAnjutaDebuggerBreakpoint *obj, IAnjutaDebuggerGListCallback callback,  gpointer user_data, GError **err);
+	gboolean (*set_breakpoint_at_address) (IAnjutaDebuggerBreakpoint *obj, gulong address,  IAnjutaDebuggerBreakpointCallback callback,  gpointer user_data, GError **err);
+	gboolean (*set_breakpoint_at_function) (IAnjutaDebuggerBreakpoint *obj, const gchar* file,  const gchar* function,  IAnjutaDebuggerBreakpointCallback callback,  gpointer user_data, GError **err);
+	gboolean (*set_breakpoint_at_line) (IAnjutaDebuggerBreakpoint *obj, const gchar* file,  guint line,  IAnjutaDebuggerBreakpointCallback callback,  gpointer user_data, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaDebuggerBreakpointItem"></a><h3>struct IAnjutaDebuggerBreakpointItem</h3>
+<pre class="programlisting">struct IAnjutaDebuggerBreakpointItem {
+	gint type;
+	guint id;
+	gchar *file;
+	guint line;
+	gchar *function;
+	gulong address;
+	gboolean enable;
+	guint ignore;
+	guint times;
+	gchar *condition;
+	gboolean temporary;
+	gboolean pending;
+};
+</pre>
+<p>
+This structure keeps all information about a breakpoint.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="IAnjutaDebuggerBreakpointItem.type"></a>type</code></em>;</span></p></td>
+<td>type see <span class="type">IAnjutaBreakpointType</span> enumeration</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="IAnjutaDebuggerBreakpointItem.id"></a>id</code></em>;</span></p></td>
+<td>unique identifier</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="IAnjutaDebuggerBreakpointItem.file"></a>file</code></em>;</span></p></td>
+<td>source file where is the breakpoint</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="IAnjutaDebuggerBreakpointItem.line"></a>line</code></em>;</span></p></td>
+<td>corresponding source file line number</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="IAnjutaDebuggerBreakpointItem.function"></a>function</code></em>;</span></p></td>
+<td>corresponding function name</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> <em class="structfield"><code><a name="IAnjutaDebuggerBreakpointItem.address"></a>address</code></em>;</span></p></td>
+<td>corresponding address</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> <em class="structfield"><code><a name="IAnjutaDebuggerBreakpointItem.enable"></a>enable</code></em>;</span></p></td>
+<td>TRUE if the breakpoint is enabled</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="IAnjutaDebuggerBreakpointItem.ignore"></a>ignore</code></em>;</span></p></td>
+<td>TRUE if the breakpoint is ignored</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="IAnjutaDebuggerBreakpointItem.times"></a>times</code></em>;</span></p></td>
+<td>Count how many time the breakpoint is triggered</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="IAnjutaDebuggerBreakpointItem.condition"></a>condition</code></em>;</span></p></td>
+<td>Additional condition for triggering the breakpoint</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> <em class="structfield"><code><a name="IAnjutaDebuggerBreakpointItem.temporary"></a>temporary</code></em>;</span></p></td>
+<td>TRUE if the breakpoint is temporary</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> <em class="structfield"><code><a name="IAnjutaDebuggerBreakpointItem.pending"></a>pending</code></em>;</span></p></td>
+<td>TRUE if the breakpoint is pending</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaDebuggerBreakpointMethod-enum"></a><h3>enum IAnjutaDebuggerBreakpointMethod</h3>
+<pre class="programlisting">typedef enum {
+	IANJUTA_DEBUGGER_BREAKPOINT_SET_AT_ADDRESS = 1 &lt;&lt; 0,
+	IANJUTA_DEBUGGER_BREAKPOINT_SET_AT_FUNCTION = 1 &lt;&lt; 1,
+	IANJUTA_DEBUGGER_BREAKPOINT_ENABLE = 1 &lt;&lt; 2,
+	IANJUTA_DEBUGGER_BREAKPOINT_IGNORE = 1 &lt;&lt; 3,
+	IANJUTA_DEBUGGER_BREAKPOINT_CONDITION = 1 &lt;&lt; 4
+} IAnjutaDebuggerBreakpointMethod;
+</pre>
+<p>
+Defines which breakpoint characteristics are supported by the debugger
+backend.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-SET-AT-ADDRESS:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_SET_AT_ADDRESS</code></span></p></td>
+<td>Allow to set breakpoint on address
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-SET-AT-FUNCTION:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_SET_AT_FUNCTION</code></span></p></td>
+<td>Allow to set breakpoint on function name
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-ENABLE:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_ENABLE</code></span></p></td>
+<td>Allow to disable breakpoint
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-IGNORE:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_IGNORE</code></span></p></td>
+<td>Allow to ignore breakpoint
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-CONDITION:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_CONDITION</code></span></p></td>
+<td>Allow to add a condition on breakpoint
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaDebuggerBreakpointType-enum"></a><h3>enum IAnjutaDebuggerBreakpointType</h3>
+<pre class="programlisting">typedef enum {
+	IANJUTA_DEBUGGER_BREAKPOINT_REMOVED = 1 &lt;&lt; 0,
+	IANJUTA_DEBUGGER_BREAKPOINT_UPDATED = 1 &lt;&lt; 17,
+	IANJUTA_DEBUGGER_BREAKPOINT_ON_LINE = 1 &lt;&lt; 1,
+	IANJUTA_DEBUGGER_BREAKPOINT_ON_ADDRESS = 1 &lt;&lt; 2,
+	IANJUTA_DEBUGGER_BREAKPOINT_ON_FUNCTION = 1 &lt;&lt; 3,
+	IANJUTA_DEBUGGER_BREAKPOINT_ON_READ = 1 &lt;&lt; 4,
+	IANJUTA_DEBUGGER_BREAKPOINT_ON_WRITE = 1 &lt;&lt; 5,
+	IANJUTA_DEBUGGER_BREAKPOINT_WITH_ENABLE = 1 &lt;&lt; 16,
+	IANJUTA_DEBUGGER_BREAKPOINT_WITH_IGNORE = 1 &lt;&lt; 15,
+	IANJUTA_DEBUGGER_BREAKPOINT_WITH_TIME = 1 &lt;&lt; 11,
+	IANJUTA_DEBUGGER_BREAKPOINT_WITH_CONDITION = 1 &lt;&lt; 12,
+	IANJUTA_DEBUGGER_BREAKPOINT_WITH_TEMPORARY = 1 &lt;&lt; 13,
+	IANJUTA_DEBUGGER_BREAKPOINT_WITH_PENDING = 1 &lt;&lt; 14,
+} IAnjutaDebuggerBreakpointType;
+</pre>
+<p>
+This enumeration defined various characteristics of the breakpoint.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-REMOVED:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_REMOVED</code></span></p></td>
+<td>Set for removed breakpoint
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-UPDATED:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_UPDATED</code></span></p></td>
+<td>Set for changed breakpoint
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-ON-LINE:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_ON_LINE</code></span></p></td>
+<td>Set on source line
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-ON-ADDRESS:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_ON_ADDRESS</code></span></p></td>
+<td>Set on an addresse
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-ON-FUNCTION:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_ON_FUNCTION</code></span></p></td>
+<td>Set on a function name
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-ON-READ:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_ON_READ</code></span></p></td>
+<td>Set on read access
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-ON-WRITE:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_ON_WRITE</code></span></p></td>
+<td>Set on write access
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-WITH-ENABLE:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_WITH_ENABLE</code></span></p></td>
+<td>Has enable information
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-WITH-IGNORE:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_WITH_IGNORE</code></span></p></td>
+<td>Has ignore information,
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-WITH-TIME:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_WITH_TIME</code></span></p></td>
+<td>Has counter information
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-WITH-CONDITION:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_WITH_CONDITION</code></span></p></td>
+<td>Has a condition
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-WITH-TEMPORARY:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_WITH_TEMPORARY</code></span></p></td>
+<td>Temporary breakpoint, automatically removed when triggered
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-DEBUGGER-BREAKPOINT-WITH-PENDING:CAPS"></a><span class="term"><code class="literal">IANJUTA_DEBUGGER_BREAKPOINT_WITH_PENDING</code></span></p></td>
+<td>Pending breakpoint
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-debugger-breakpoint-clear-breakpoint"></a><h3>ianjuta_debugger_breakpoint_clear_breakpoint ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_debugger_breakpoint_clear_breakpoint
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()"><span class="type">IAnjutaDebuggerBreakpointCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Clear a breakpoint put by any set functions. The Id of the breakpoint
+is given in the callback of the set functions.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>Breakpoint identification number</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Callback to call when the breakpoint has been cleared</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data that is passed back to the callback</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the request succeed and the callback is called. If
+FALSE, the callback will not be called.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-debugger-breakpoint-condition-breakpoint"></a><h3>ianjuta_debugger_breakpoint_condition_breakpoint ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_debugger_breakpoint_condition_breakpoint
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> id</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *condition</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()"><span class="type">IAnjutaDebuggerBreakpointCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Add a condition, evaluate in the program context, on the breakpoint,
+the program will stop when it reachs the breakpoint only if the
+condition is true. This function is optional.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>Breakpoint identification number</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>condition</code></em> :</span></p></td>
+<td>expression that has to be true</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Callback to call when the breakpoint has been changed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data that is passed back to the callback</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the request succeed and the callback is called. If
+FALSE, the callback will not be called.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-debugger-breakpoint-enable-breakpoint"></a><h3>ianjuta_debugger_breakpoint_enable_breakpoint ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_debugger_breakpoint_enable_breakpoint
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enable</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()"><span class="type">IAnjutaDebuggerBreakpointCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Enable of disable a breakpoint. This function is optional.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>Breakpoint identification number</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enable</code></em> :</span></p></td>
+<td>TRUE to enable the breakpoint, FALSE to disable it</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Callback to call when the breakpoint has been changed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data that is passed back to the callback</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the request succeed and the callback is called. If
+FALSE, the callback will not be called.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-debugger-breakpoint-error-quark"></a><h3>ianjuta_debugger_breakpoint_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_debugger_breakpoint_error_quark
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-debugger-breakpoint-ignore-breakpoint"></a><h3>ianjuta_debugger_breakpoint_ignore_breakpoint ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_debugger_breakpoint_ignore_breakpoint
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> ignore</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()"><span class="type">IAnjutaDebuggerBreakpointCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+This allow to ignore the breakpoint a number of time before stopping.
+This function is optional.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>Breakpoint identification number</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ignore</code></em> :</span></p></td>
+<td>Number of time a breakpoint must be ignored</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Callback to call when the breakpoint has been changed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data that is passed back to the callback</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the request succeed and the callback is called. If
+FALSE, the callback will not be called.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-debugger-breakpoint-implement-breakpoint"></a><h3>ianjuta_debugger_breakpoint_implement_breakpoint ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                ianjuta_debugger_breakpoint_implement_breakpoint
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Return all implemented methods.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A OR of <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointMethod"><span class="type">IAnjutaDebuggerBreakpointMethod</span></a>
+corresponding to all implemented optional methods.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-debugger-breakpoint-list-breakpoint"></a><h3>ianjuta_debugger_breakpoint_list_breakpoint ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_debugger_breakpoint_list_breakpoint
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebugger.html#IAnjutaDebuggerGListCallback" title="IAnjutaDebuggerGListCallback ()"><span class="type">IAnjutaDebuggerGListCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+List all breakpoints set in the debugger. It is useful to
+know how many time a breakpoint has been hit.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Callback to call with the list of <span class="type">IAnjutaDebuggreBreakpointItem</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data that is passed back to the callback</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the request succeed and the callback is called. If
+FALSE, the callback will not be called.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-debugger-breakpoint-set-breakpoint-at-address"></a><h3>ianjuta_debugger_breakpoint_set_breakpoint_at_address ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_debugger_breakpoint_set_breakpoint_at_address
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> address</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()"><span class="type">IAnjutaDebuggerBreakpointCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Set a breakpoint at the specified address.
+This function is optional.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
+<td>Address of the breakpoint</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Callback to call when the breakpoint has been set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data that is passed back to the callback</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the request succeed and the callback is called. If
+FALSE, the callback will not be called.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-debugger-breakpoint-set-breakpoint-at-function"></a><h3>ianjuta_debugger_breakpoint_set_breakpoint_at_function ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_debugger_breakpoint_set_breakpoint_at_function
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *file</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *function</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()"><span class="type">IAnjutaDebuggerBreakpointCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Set a breakpoint at the beginning of the specified function.
+This function is optional.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>File containing the breakpoint</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>function</code></em> :</span></p></td>
+<td>Function name where the breakpoint is put</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Callback to call when the breakpoint has been set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data that is passed back to the callback</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the request succeed and the callback is called. If
+FALSE, the callback will not be called.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-debugger-breakpoint-set-breakpoint-at-line"></a><h3>ianjuta_debugger_breakpoint_set_breakpoint_at_line ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_debugger_breakpoint_set_breakpoint_at_line
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDebuggerBreakpoint</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> line</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointCallback" title="IAnjutaDebuggerBreakpointCallback ()"><span class="type">IAnjutaDebuggerBreakpointCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Set a breakpoint at the specified line in the file.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>File containing the breakpoint</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>line</code></em> :</span></p></td>
+<td>Line number where is the breakpoint</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Callback to call when the breakpoint has been set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data that is passed back to the callback</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the request succeed and the callback is called. If
+FALSE, the callback will not be called.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

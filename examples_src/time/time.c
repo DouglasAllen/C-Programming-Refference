@@ -23,7 +23,7 @@ int main()
   now = time((time_t *)NULL);		
 
 	/* Format data in 'now' NOTE that 'ctime' inserts a '\n' */
-  printf("%s", ctime(&now));	
+  printf("Calender Time now %s", ctime(&now));	
 
    /*********************************************************************/
 
@@ -32,15 +32,16 @@ int main()
   time(&now);
 
 	/* Format data in 'now'		*/
-  printf("%s", ctime(&now));	
+  printf("another Calender Time now %s", ctime(&now));	
 
    /*********************************************************************/
 
   {
     struct tm *l_time;
 		/* Convert 'calender time' to 'local time' 
-		    - return a pointer to the 'tm' structure. localtime
-				reserves the storage for us.	*/			 
+		    - return a pointer to the 'tm' structure. 
+		    localtime	reserves the storage for us.	
+		*/			 
     l_time = localtime(&now);		
     printf("%s", asctime(l_time));
   }

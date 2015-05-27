@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-gcut-string-io-channel">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-gcut-string-io-channel.top_of_page">gcut-string-io-channel</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>gcut-string-io-channel</refname>
+<refpurpose/>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-gcut-string-io-channel.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis><link linkend="GIOChannel"><returnvalue>GIOChannel</returnvalue></link> *        <link linkend="gcut-string-io-channel-new">gcut_string_io_channel_new</link>          (<parameter>const <link linkend="gchar"><type>gchar</type></link> *initial</parameter>);
+<link linkend="GString"><returnvalue>GString</returnvalue></link> *           <link linkend="gcut-string-io-channel-get-string">gcut_string_io_channel_get_string</link>   (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-string-io-channel-clear">gcut_string_io_channel_clear</link>        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>);
+<link linkend="gsize"><returnvalue>gsize</returnvalue></link>               <link linkend="gcut-string-io-channel-get-buffer-limit">gcut_string_io_channel_get_buffer_limit</link>
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-string-io-channel-set-buffer-limit">gcut_string_io_channel_set_buffer_limit</link>
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>,
+                                                         <parameter><link linkend="gsize"><type>gsize</type></link> limit</parameter>);
+<link linkend="gsize"><returnvalue>gsize</returnvalue></link>               <link linkend="gcut-string-io-channel-get-limit">gcut_string_io_channel_get_limit</link>    (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-string-io-channel-set-limit">gcut_string_io_channel_set_limit</link>    (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>,
+                                                         <parameter><link linkend="gsize"><type>gsize</type></link> limit</parameter>);
+<link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="gcut-string-io-channel-get-read-fail">gcut_string_io_channel_get_read_fail</link>
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-string-io-channel-set-read-fail">gcut_string_io_channel_set_read_fail</link>
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>,
+                                                         <parameter><link linkend="gboolean"><type>gboolean</type></link> read_fail</parameter>);
+<link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="gcut-string-io-channel-get-pipe-mode">gcut_string_io_channel_get_pipe_mode</link>
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-string-io-channel-set-pipe-mode">gcut_string_io_channel_set_pipe_mode</link>
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>,
+                                                         <parameter><link linkend="gboolean"><type>gboolean</type></link> pipe_mode</parameter>);
+<link linkend="GMainContext"><returnvalue>GMainContext</returnvalue></link> *      <link linkend="gcut-string-io-channel-get-main-context">gcut_string_io_channel_get_main_context</link>
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-string-io-channel-set-main-context">gcut_string_io_channel_set_main_context</link>
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>,
+                                                         <parameter><link linkend="GMainContext"><type>GMainContext</type></link> *main_context</parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-gcut-string-io-channel.description" role="desc">
+<title role="desc.title">説明</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="cutter-gcut-string-io-channel.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="gcut-string-io-channel-new" role="function">
+<title>gcut_string_io_channel_new ()</title>
+<indexterm zone="gcut-string-io-channel-new"><primary>gcut_string_io_channel_new</primary></indexterm>
+<programlisting><link linkend="GIOChannel"><returnvalue>GIOChannel</returnvalue></link> *        gcut_string_io_channel_new          (<parameter>const <link linkend="gchar"><type>gchar</type></link> *initial</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>initial</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-string-io-channel-get-string" role="function">
+<title>gcut_string_io_channel_get_string ()</title>
+<indexterm zone="gcut-string-io-channel-get-string"><primary>gcut_string_io_channel_get_string</primary></indexterm>
+<programlisting><link linkend="GString"><returnvalue>GString</returnvalue></link> *           gcut_string_io_channel_get_string   (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>channel</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-string-io-channel-clear" role="function">
+<title>gcut_string_io_channel_clear ()</title>
+<indexterm zone="gcut-string-io-channel-clear"><primary>gcut_string_io_channel_clear</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_string_io_channel_clear        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>channel</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-string-io-channel-get-buffer-limit" role="function">
+<title>gcut_string_io_channel_get_buffer_limit ()</title>
+<indexterm zone="gcut-string-io-channel-get-buffer-limit"><primary>gcut_string_io_channel_get_buffer_limit</primary></indexterm>
+<programlisting><link linkend="gsize"><returnvalue>gsize</returnvalue></link>               gcut_string_io_channel_get_buffer_limit
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>channel</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-string-io-channel-set-buffer-limit" role="function">
+<title>gcut_string_io_channel_set_buffer_limit ()</title>
+<indexterm zone="gcut-string-io-channel-set-buffer-limit"><primary>gcut_string_io_channel_set_buffer_limit</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_string_io_channel_set_buffer_limit
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>,
+                                                         <parameter><link linkend="gsize"><type>gsize</type></link> limit</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>channel</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>limit</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-string-io-channel-get-limit" role="function">
+<title>gcut_string_io_channel_get_limit ()</title>
+<indexterm zone="gcut-string-io-channel-get-limit"><primary>gcut_string_io_channel_get_limit</primary></indexterm>
+<programlisting><link linkend="gsize"><returnvalue>gsize</returnvalue></link>               gcut_string_io_channel_get_limit    (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>channel</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-string-io-channel-set-limit" role="function">
+<title>gcut_string_io_channel_set_limit ()</title>
+<indexterm zone="gcut-string-io-channel-set-limit"><primary>gcut_string_io_channel_set_limit</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_string_io_channel_set_limit    (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>,
+                                                         <parameter><link linkend="gsize"><type>gsize</type></link> limit</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>channel</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>limit</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-string-io-channel-get-read-fail" role="function">
+<title>gcut_string_io_channel_get_read_fail ()</title>
+<indexterm zone="gcut-string-io-channel-get-read-fail"><primary>gcut_string_io_channel_get_read_fail</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            gcut_string_io_channel_get_read_fail
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>channel</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-string-io-channel-set-read-fail" role="function">
+<title>gcut_string_io_channel_set_read_fail ()</title>
+<indexterm zone="gcut-string-io-channel-set-read-fail"><primary>gcut_string_io_channel_set_read_fail</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_string_io_channel_set_read_fail
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>,
+                                                         <parameter><link linkend="gboolean"><type>gboolean</type></link> read_fail</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>channel</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>read_fail</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-string-io-channel-get-pipe-mode" role="function">
+<title>gcut_string_io_channel_get_pipe_mode ()</title>
+<indexterm zone="gcut-string-io-channel-get-pipe-mode"><primary>gcut_string_io_channel_get_pipe_mode</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            gcut_string_io_channel_get_pipe_mode
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>channel</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-string-io-channel-set-pipe-mode" role="function">
+<title>gcut_string_io_channel_set_pipe_mode ()</title>
+<indexterm zone="gcut-string-io-channel-set-pipe-mode"><primary>gcut_string_io_channel_set_pipe_mode</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_string_io_channel_set_pipe_mode
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>,
+                                                         <parameter><link linkend="gboolean"><type>gboolean</type></link> pipe_mode</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>channel</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pipe_mode</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-string-io-channel-get-main-context" role="function">
+<title>gcut_string_io_channel_get_main_context ()</title>
+<indexterm zone="gcut-string-io-channel-get-main-context"><primary>gcut_string_io_channel_get_main_context</primary></indexterm>
+<programlisting><link linkend="GMainContext"><returnvalue>GMainContext</returnvalue></link> *      gcut_string_io_channel_get_main_context
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>channel</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-string-io-channel-set-main-context" role="function">
+<title>gcut_string_io_channel_set_main_context ()</title>
+<indexterm zone="gcut-string-io-channel-set-main-context"><primary>gcut_string_io_channel_set_main_context</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_string_io_channel_set_main_context
+                                                        (<parameter><link linkend="GIOChannel"><type>GIOChannel</type></link> *channel</parameter>,
+                                                         <parameter><link linkend="GMainContext"><type>GMainContext</type></link> *main_context</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>channel</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>main_context</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+</refentry>

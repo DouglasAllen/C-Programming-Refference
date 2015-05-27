@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Bononbo</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GSF Reference Manual">
+<link rel="up" href="sources.html" title="Stream Sources">
+<link rel="prev" href="gsf-GIO.html" title="GIO">
+<link rel="next" href="parsers.html" title="Stream Parsers">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gsf-GIO.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="sources.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GSF Reference Manual</th>
+<td><a accesskey="n" href="parsers.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gsf-Bononbo.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gsf-Bononbo.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gsf-Bononbo"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gsf-Bononbo.top_of_page"></a>Bononbo</span></h2>
+<p>Bononbo</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gsf-Bononbo.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="gsf-Bononbo.html#GsfInputBonobo" title="GsfInputBonobo">GsfInputBonobo</a>;
+<a class="link" href="gsf-Input-from-unstructured-files.html#GsfInput"><span class="returnvalue">GsfInput</span></a> *          <a class="link" href="gsf-Bononbo.html#gsf-input-bonobo-new" title="gsf_input_bonobo_new ()">gsf_input_bonobo_new</a>                (<em class="parameter"><code><span class="type">Bonobo_Stream</span> const stream</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                    <a class="link" href="gsf-Bononbo.html#GsfOutputBonobo" title="GsfOutputBonobo">GsfOutputBonobo</a>;
+<a class="link" href="gsf-Output-to-unstructured-files.html#GsfOutput"><span class="returnvalue">GsfOutput</span></a> *         <a class="link" href="gsf-Bononbo.html#gsf-output-bonobo-new" title="gsf_output_bonobo_new ()">gsf_output_bonobo_new</a>               (<em class="parameter"><code><span class="type">Bonobo_Stream</span> const stream</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+struct              <a class="link" href="gsf-Bononbo.html#GsfSharedBonoboStream" title="struct GsfSharedBonoboStream">GsfSharedBonoboStream</a>;
+<a class="link" href="gsf-Bononbo.html#GsfSharedBonoboStream" title="struct GsfSharedBonoboStream"><span class="returnvalue">GsfSharedBonoboStream</span></a> * <a class="link" href="gsf-Bononbo.html#gsf-shared-bonobo-stream-new" title="gsf_shared_bonobo_stream_new ()">gsf_shared_bonobo_stream_new</a>    (<em class="parameter"><code><span class="type">Bonobo_Stream</span> stream</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gsf-Bononbo.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gsf-Bononbo.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GsfInputBonobo"></a><h3>GsfInputBonobo</h3>
+<pre class="programlisting">typedef struct _GsfInputBonobo GsfInputBonobo;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gsf-input-bonobo-new"></a><h3>gsf_input_bonobo_new ()</h3>
+<pre class="programlisting"><a class="link" href="gsf-Input-from-unstructured-files.html#GsfInput"><span class="returnvalue">GsfInput</span></a> *          gsf_input_bonobo_new                (<em class="parameter"><code><span class="type">Bonobo_Stream</span> const stream</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GsfOutputBonobo"></a><h3>GsfOutputBonobo</h3>
+<pre class="programlisting">typedef struct _GsfOutputBonobo GsfOutputBonobo;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gsf-output-bonobo-new"></a><h3>gsf_output_bonobo_new ()</h3>
+<pre class="programlisting"><a class="link" href="gsf-Output-to-unstructured-files.html#GsfOutput"><span class="returnvalue">GsfOutput</span></a> *         gsf_output_bonobo_new               (<em class="parameter"><code><span class="type">Bonobo_Stream</span> const stream</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GsfSharedBonoboStream"></a><h3>struct GsfSharedBonoboStream</h3>
+<pre class="programlisting">struct GsfSharedBonoboStream {
+	GObject g_object;
+	Bonobo_Stream stream;
+	CORBA_long pos;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gsf-shared-bonobo-stream-new"></a><h3>gsf_shared_bonobo_stream_new ()</h3>
+<pre class="programlisting"><a class="link" href="gsf-Bononbo.html#GsfSharedBonoboStream" title="struct GsfSharedBonoboStream"><span class="returnvalue">GsfSharedBonoboStream</span></a> * gsf_shared_bonobo_stream_new    (<em class="parameter"><code><span class="type">Bonobo_Stream</span> stream</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

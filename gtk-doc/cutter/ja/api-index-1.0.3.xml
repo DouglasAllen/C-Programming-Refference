@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<indexdiv>
+<indexdiv><title>A</title>
+<indexentry><primaryie linkends="gcut-assert-equal-list-int"><link linkend="gcut-assert-equal-list-int">gcut_assert_equal_list_int</link>, function in <link linkend="cutter-Assertions-with-GLib-support">GLibサポート付きの検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-assert-equal-list-string"><link linkend="gcut-assert-equal-list-string">gcut_assert_equal_list_string</link>, function in <link linkend="cutter-Assertions-with-GLib-support">GLibサポート付きの検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-assert-equal-list-uint"><link linkend="gcut-assert-equal-list-uint">gcut_assert_equal_list_uint</link>, function in <link linkend="cutter-Assertions-with-GLib-support">GLibサポート付きの検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-assert-equal-type"><link linkend="gcut-assert-equal-type">gcut_assert_equal_type</link>, function in <link linkend="cutter-Assertions-with-GLib-support">GLibサポート付きの検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-assert-equal-value"><link linkend="gcut-assert-equal-value">gcut_assert_equal_value</link>, function in <link linkend="cutter-Assertions-with-GLib-support">GLibサポート付きの検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-assert-error"><link linkend="gcut-assert-error">gcut_assert_error</link>, function in <link linkend="cutter-Assertions-with-GLib-support">GLibサポート付きの検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-assert-remove-path"><link linkend="gcut-assert-remove-path">gcut_assert_remove_path</link>, function in <link linkend="cutter-Assertions-with-GLib-support">GLibサポート付きの検証</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>C</title>
+<indexentry><primaryie linkends="cut-add-data"><link linkend="cut-add-data">cut_add_data</link>, macro in <link linkend="cutter-Cutter">Cutter</link></primaryie></indexentry>
+<indexentry><primaryie linkends="cut-append-diff"><link linkend="cut-append-diff">cut_append_diff</link>, function in <link linkend="cutter-Assertion-writing-helper">検証作成の補助</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>L</title>
+<indexentry><primaryie linkends="gcut-list-string-free"><link linkend="gcut-list-string-free">gcut_list_string_free</link>, function in <link linkend="cutter-Test-Utilities-with-GLib-support">GLibサポート付きテストユーティリティ</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-list-string-new"><link linkend="gcut-list-string-new">gcut_list_string_new</link>, function in <link linkend="cutter-Test-Utilities-with-GLib-support">GLibサポート付きテストユーティリティ</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>T</title>
+<indexentry><primaryie linkends="gcut-take-error"><link linkend="gcut-take-error">gcut_take_error</link>, function in <link linkend="cutter-Test-Utilities-with-GLib-support">GLibサポート付きテストユーティリティ</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-take-list"><link linkend="gcut-take-list">gcut_take_list</link>, function in <link linkend="cutter-Test-Utilities-with-GLib-support">GLibサポート付きテストユーティリティ</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-take-object"><link linkend="gcut-take-object">gcut_take_object</link>, function in <link linkend="cutter-Test-Utilities-with-GLib-support">GLibサポート付きテストユーティリティ</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

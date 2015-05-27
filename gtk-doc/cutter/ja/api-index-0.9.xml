@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<indexdiv>
+<indexdiv><title>C</title>
+<indexentry><primaryie linkends="cut-assert-equal-string-array-with-free"><link linkend="cut-assert-equal-string-array-with-free">cut_assert_equal_string_array_with_free</link>, function in <link linkend="cutter-Assertions">検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="cut-assert-false"><link linkend="cut-assert-false">cut_assert_false</link>, function in <link linkend="cutter-Assertions">検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="cut-assert-file-exist"><link linkend="cut-assert-file-exist">cut_assert_file_exist</link>, function in <link linkend="cutter-Assertions">検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="cut-assert-true"><link linkend="cut-assert-true">cut_assert_true</link>, function in <link linkend="cutter-Assertions">検証</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

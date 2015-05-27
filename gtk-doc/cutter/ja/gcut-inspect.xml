@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-Object-inspection-functions">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-Object-inspection-functions.top_of_page">オブジェクト調査関数</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>オブジェクト調査関数</refname>
+<refpurpose>デバッグ用にオブジェクトの詳細を示す関数です。</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-Object-inspection-functions.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis><link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-inspect-direct">gcut_inspect_direct</link>                 (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-inspect-int">gcut_inspect_int</link>                    (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-inspect-uint">gcut_inspect_uint</link>                   (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-inspect-int64">gcut_inspect_int64</link>                  (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-inspect-uint64">gcut_inspect_uint64</link>                 (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-inspect-size">gcut_inspect_size</link>                   (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-inspect-char">gcut_inspect_char</link>                   (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-inspect-string">gcut_inspect_string</link>                 (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-inspect-type">gcut_inspect_type</link>                   (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-inspect-flags">gcut_inspect_flags</link>                  (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-inspect-enum">gcut_inspect_enum</link>                   (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-inspect-pointer">gcut_inspect_pointer</link>                (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-inspect-boolean">gcut_inspect_boolean</link>                (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-inspect-double">gcut_inspect_double</link>                 (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-Object-inspection-functions.description" role="desc">
+<title role="desc.title">説明</title>
+<para>デバッグするために、テスト結果ではオブジェクトの詳細を示す必要があります。このセクションの関数はオブジェクトの詳細を示す場合に役立ちます。</para>
+</refsect1>
+<refsect1 id="cutter-Object-inspection-functions.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="gcut-inspect-direct" role="function" condition="since:1.0.6">
+<title>gcut_inspect_direct ()</title>
+<indexterm zone="gcut-inspect-direct" role="1.0.6"><primary>gcut_inspect_direct</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_inspect_direct                 (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>符号なし整数として<parameter>data</parameter>の詳細を示します。</para>
+<para>例: <informalexample><programlisting>
+gcut_inspect_direct(string, GUINT_TO_POINTER(100), NULL) -&gt; "100"
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>出力の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>関心のある対象。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>ユーザが渡したデータ。（無視されます）</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-inspect-int" role="function" condition="since:1.0.6">
+<title>gcut_inspect_int ()</title>
+<indexterm zone="gcut-inspect-int" role="1.0.6"><primary>gcut_inspect_int</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_inspect_int                    (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>整数として<parameter>data</parameter>の詳細を示します。</para>
+<para>例: <informalexample><programlisting>
+gint int_value = 100;
+gcut_inspect_int(string, &amp;int_value, NULL) -&gt; "100"
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>出力の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>関心のある対象。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>ユーザが渡したデータ。（無視されます）</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-inspect-uint" role="function" condition="since:1.0.6">
+<title>gcut_inspect_uint ()</title>
+<indexterm zone="gcut-inspect-uint" role="1.0.6"><primary>gcut_inspect_uint</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_inspect_uint                   (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>符号なし整数として<parameter>data</parameter>の詳細を示します。</para>
+<para>例: <informalexample><programlisting>
+guint uint_value = 100;
+gcut_inspect_uint(string, &amp;uint_value, NULL) -&gt; "100"
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>出力の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>関心のある対象。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>ユーザが渡したデータ。（無視されます）</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-inspect-int64" role="function" condition="since:1.1.3">
+<title>gcut_inspect_int64 ()</title>
+<indexterm zone="gcut-inspect-int64" role="1.1.3"><primary>gcut_inspect_int64</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_inspect_int64                  (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>64bit整数として<parameter>data</parameter>の詳細を示します。</para>
+<para>例: <informalexample><programlisting>
+gint64 int64_value = 100;
+gcut_inspect_int64(string, &amp;int64_value, NULL) -&gt; "100"
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>出力の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>関心のある対象。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>ユーザが渡したデータ。（無視されます）</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.3から</para></refsect2>
+<refsect2 id="gcut-inspect-uint64" role="function" condition="since:1.1.3">
+<title>gcut_inspect_uint64 ()</title>
+<indexterm zone="gcut-inspect-uint64" role="1.1.3"><primary>gcut_inspect_uint64</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_inspect_uint64                 (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>64bit符号なし整数として<parameter>data</parameter>の詳細を示します。</para>
+<para>例: <informalexample><programlisting>
+guint64 uint64_value = 100;
+gcut_inspect_uint64(string, &amp;uint64_value, NULL) -&gt; "100"
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>出力の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>関心のある対象。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>ユーザが渡したデータ。（無視されます）</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.3から</para></refsect2>
+<refsect2 id="gcut-inspect-size" role="function" condition="since:1.1.3">
+<title>gcut_inspect_size ()</title>
+<indexterm zone="gcut-inspect-size" role="1.1.3"><primary>gcut_inspect_size</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_inspect_size                   (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>符号なし整数として<parameter>data</parameter>の詳細を示します。</para>
+<para>例: <informalexample><programlisting>
+gsize size_value = 100;
+gcut_inspect_size(string, &amp;size_value, NULL) -&gt; "100"
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>出力の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>関心のある対象。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>ユーザが渡したデータ。（無視されます）</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.3から</para></refsect2>
+<refsect2 id="gcut-inspect-char" role="function" condition="since:1.1.3">
+<title>gcut_inspect_char ()</title>
+<indexterm zone="gcut-inspect-char" role="1.1.3"><primary>gcut_inspect_char</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_inspect_char                   (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>文字として<parameter>data</parameter>の詳細を示します。</para>
+<para>例: <informalexample><programlisting>
+gcut_inspect_char(string, 'C', NULL) -&gt; "'C'"
+gcut_inspect_char(string, '\0', NULL) -&gt; "'\0'"
+gcut_inspect_char(string, '\n', NULL) -&gt; "'\n'"
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>出力の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>関心のある対象。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>ユーザが渡したデータ。（無視されます）</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.3から</para></refsect2>
+<refsect2 id="gcut-inspect-string" role="function" condition="since:1.0.6">
+<title>gcut_inspect_string ()</title>
+<indexterm zone="gcut-inspect-string" role="1.0.6"><primary>gcut_inspect_string</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_inspect_string                 (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>文字列として<parameter>data</parameter>の詳細を示します。<link linkend="NULL:CAPS"><literal>NULL</literal></link>でも構いません。</para>
+<para>例: <informalexample><programlisting>
+gcut_inspect_string(string, "string", NULL) -&gt; "\"string\""
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>出力の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>関心のある対象。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>ユーザが渡したデータ。（無視されます）</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-inspect-type" role="function" condition="since:1.0.6">
+<title>gcut_inspect_type ()</title>
+<indexterm zone="gcut-inspect-type" role="1.0.6"><primary>gcut_inspect_type</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_inspect_type                   (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para><link linkend="GType"><literal>GType</literal></link>として<parameter>data</parameter>の詳細を示します。</para>
+<para>例: <informalexample><programlisting>
+gcut_inspect_type(string, GTK_TYPE_WINDOW, NULL) -&gt; "&lt;GtkWindow&gt;"
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>出力の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>関心のある対象。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>ユーザが渡したデータ。（無視されます）</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-inspect-flags" role="function" condition="since:1.0.6">
+<title>gcut_inspect_flags ()</title>
+<indexterm zone="gcut-inspect-flags" role="1.0.6"><primary>gcut_inspect_flags</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_inspect_flags                  (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>GFlagsの型の値として<parameter>data</parameter>の詳細を示します。</para>
+<para>例: <informalexample><programlisting>
+GType flags_type;
+GtkWidgetFlags flags;
+
+flags_type = GTK_TYPE_WIDGET_FLAGS;
+flags = GTK_TOPLEVEL | GTK_VISIBLE;
+gcut_inspect_flags(string, &amp;flags, &amp;flags_type);
+-&gt; #&lt;GtkWidgetFlags: toplevel|visible (GTK_TOPLEVEL:0x10)|(GTK_VISIBLE:0x100)&gt;
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>出力の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>関心のある対象。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>GFlagsの型のポインタ。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-inspect-enum" role="function" condition="since:1.0.6">
+<title>gcut_inspect_enum ()</title>
+<indexterm zone="gcut-inspect-enum" role="1.0.6"><primary>gcut_inspect_enum</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_inspect_enum                   (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>GEnumの型の値として<parameter>data</parameter>の詳細を示します。</para>
+<para>例: <informalexample><programlisting>
+GType enum_type;
+GtkWidgetHelpType value;
+
+enum_type = GTK_TYPE_WIDGET_HELP_TYPE;
+value = GTK_WIDGET_HELP_TOOLTIP;
+gcut_inspect_enum(string, &amp;value, &amp;enum_type);
+-&gt; #&lt;GtkWidgetHelpType: tooltip(GTK_WIDGET_HELP_TOOLTIP:0)&gt;
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>出力の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>関心のある対象。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>GEnumの型のポインタ。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-inspect-pointer" role="function" condition="since:1.0.6">
+<title>gcut_inspect_pointer ()</title>
+<indexterm zone="gcut-inspect-pointer" role="1.0.6"><primary>gcut_inspect_pointer</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_inspect_pointer                (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>ポインタとして<parameter>data</parameter>の詳細を示します。</para>
+<para>例: <informalexample><programlisting>
+memory = malloc(1);
+gcut_inspect_pointer(string, memory, NULL) -&gt; "#&lt;0xXXXXXXX&gt;"
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>出力の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>関心のある対象。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>ユーザが渡したデータ。（無視されます）</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-inspect-boolean" role="function" condition="since:1.1.3">
+<title>gcut_inspect_boolean ()</title>
+<indexterm zone="gcut-inspect-boolean" role="1.1.3"><primary>gcut_inspect_boolean</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_inspect_boolean                (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>真偽値として<parameter>data</parameter>の詳細を示します。</para>
+<para>例: <informalexample><programlisting>
+gboolean boolean_value;
+
+boolean_value = TRUE;
+gcut_inspect_boolean(string, &amp;boolean_value, NULL) -&gt; "TRUE"
+boolean_value = FALSE;
+gcut_inspect_boolean(string, &amp;boolean_value, NULL) -&gt; "FALSE"
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>出力の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>関心のある対象。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>ユーザが渡したデータ。（無視されます）</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.3から</para></refsect2>
+<refsect2 id="gcut-inspect-double" role="function" condition="since:1.1.3">
+<title>gcut_inspect_double ()</title>
+<indexterm zone="gcut-inspect-double" role="1.1.3"><primary>gcut_inspect_double</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_inspect_double                 (<parameter><link linkend="GString"><type>GString</type></link> *string</parameter>,
+                                                         <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>倍精度浮動小数点数として<parameter>data</parameter>の詳細を示します。</para>
+<para>例: <informalexample><programlisting>
+gdouble double_value = 2.9;
+gcut_inspect_double(string, &amp;double_value, NULL) -&gt; "2.9"
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter> :</term>
+<listitem><simpara>出力の文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>関心のある対象。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>ユーザが渡したデータ。（無視されます）</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.3から</para></refsect2>
+
+</refsect1>
+
+</refentry>

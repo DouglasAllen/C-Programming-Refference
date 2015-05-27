@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaLanguage</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="libanjuta-IAnjutaIterableTree.html" title="IAnjutaIterableTree">
+<link rel="next" href="libanjuta-IAnjutaLoader.html" title="IAnjutaLoader">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-IAnjutaIterableTree.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaLoader.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaLanguage.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaLanguage.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaLanguage"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaLanguage.top_of_page"></a>IAnjutaLanguage</span></h2>
+<p>IAnjutaLanguage — Interface to manage multiple programming languages</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaLanguage.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaLanguage.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-language.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaLanguage.html#IANJUTA-LANGUAGE-ERROR:CAPS" title="IANJUTA_LANGUAGE_ERROR">IANJUTA_LANGUAGE_ERROR</a>
+typedef             <a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId">IAnjutaLanguageId</a>;
+struct              <a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageIface" title="struct IAnjutaLanguageIface">IAnjutaLanguageIface</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaLanguage.html#ianjuta-language-error-quark" title="ianjuta_language_error_quark ()">ianjuta_language_error_quark</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId"><span class="returnvalue">IAnjutaLanguageId</span></a>   <a class="link" href="libanjuta-IAnjutaLanguage.html#ianjuta-language-get-from-editor" title="ianjuta_language_get_from_editor ()">ianjuta_language_get_from_editor</a>    (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorLanguage</span> *editor</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId"><span class="returnvalue">IAnjutaLanguageId</span></a>   <a class="link" href="libanjuta-IAnjutaLanguage.html#ianjuta-language-get-from-mime-type" title="ianjuta_language_get_from_mime_type ()">ianjuta_language_get_from_mime_type</a> (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mime_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId"><span class="returnvalue">IAnjutaLanguageId</span></a>   <a class="link" href="libanjuta-IAnjutaLanguage.html#ianjuta-language-get-from-string" title="ianjuta_language_get_from_string ()">ianjuta_language_get_from_string</a>    (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *string</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="libanjuta-IAnjutaLanguage.html#ianjuta-language-get-languages" title="ianjuta_language_get_languages ()">ianjuta_language_get_languages</a>      (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="libanjuta-IAnjutaLanguage.html#ianjuta-language-get-make-target" title="ianjuta_language_get_make_target ()">ianjuta_language_get_make_target</a>    (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId"><span class="type">IAnjutaLanguageId</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="libanjuta-IAnjutaLanguage.html#ianjuta-language-get-mime-types" title="ianjuta_language_get_mime_types ()">ianjuta_language_get_mime_types</a>     (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId"><span class="type">IAnjutaLanguageId</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="libanjuta-IAnjutaLanguage.html#ianjuta-language-get-name" title="ianjuta_language_get_name ()">ianjuta_language_get_name</a>           (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId"><span class="type">IAnjutaLanguageId</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="libanjuta-IAnjutaLanguage.html#ianjuta-language-get-name-from-editor" title="ianjuta_language_get_name_from_editor ()">ianjuta_language_get_name_from_editor</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorLanguage</span> *editor</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="libanjuta-IAnjutaLanguage.html#ianjuta-language-get-strings" title="ianjuta_language_get_strings ()">ianjuta_language_get_strings</a>        (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId"><span class="type">IAnjutaLanguageId</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaLanguage.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaLanguage.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-LANGUAGE-ERROR:CAPS"></a><h3>IANJUTA_LANGUAGE_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_LANGUAGE_ERROR ianjuta_language_error_quark()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaLanguageId"></a><h3>IAnjutaLanguageId</h3>
+<pre class="programlisting">typedef gint IAnjutaLanguageId;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaLanguageIface"></a><h3>struct IAnjutaLanguageIface</h3>
+<pre class="programlisting">struct IAnjutaLanguageIface {
+	GTypeInterface g_iface;
+	
+
+	IAnjutaLanguageId (*get_from_editor) (IAnjutaLanguage *obj, IAnjutaEditorLanguage* editor, GError **err);
+	IAnjutaLanguageId (*get_from_mime_type) (IAnjutaLanguage *obj, const gchar* mime_type, GError **err);
+	IAnjutaLanguageId (*get_from_string) (IAnjutaLanguage *obj, const gchar* string, GError **err);
+	GList* (*get_languages) (IAnjutaLanguage *obj, GError **err);
+	const gchar* (*get_make_target) (IAnjutaLanguage *obj, IAnjutaLanguageId id, GError **err);
+	GList* (*get_mime_types) (IAnjutaLanguage *obj, IAnjutaLanguageId id, GError **err);
+	const gchar* (*get_name) (IAnjutaLanguage *obj, IAnjutaLanguageId id, GError **err);
+	const gchar* (*get_name_from_editor) (IAnjutaLanguage *obj, IAnjutaEditorLanguage* editor, GError **err);
+	GList* (*get_strings) (IAnjutaLanguage *obj, IAnjutaLanguageId id, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-language-error-quark"></a><h3>ianjuta_language_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_language_error_quark        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-language-get-from-editor"></a><h3>ianjuta_language_get_from_editor ()</h3>
+<pre class="programlisting"><a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId"><span class="returnvalue">IAnjutaLanguageId</span></a>   ianjuta_language_get_from_editor    (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorLanguage</span> *editor</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Conviniece method to get the id directly from the editor
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editor</code></em> :</span></p></td>
+<td>An object implementing IAnjutaEditorLanguage</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A valid language id or 0</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-language-get-from-mime-type"></a><h3>ianjuta_language_get_from_mime_type ()</h3>
+<pre class="programlisting"><a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId"><span class="returnvalue">IAnjutaLanguageId</span></a>   ianjuta_language_get_from_mime_type (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mime_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-language-get-from-string"></a><h3>ianjuta_language_get_from_string ()</h3>
+<pre class="programlisting"><a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId"><span class="returnvalue">IAnjutaLanguageId</span></a>   ianjuta_language_get_from_string    (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *string</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-language-get-languages"></a><h3>ianjuta_language_get_languages ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             ianjuta_language_get_languages      (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a list of ids of the available
+languages. Use <a href="http://library.gnome.org/devel/glib/unstable/glib-Type-Conversion-Macros.html#GPOINTER-TO-INT:CAPS"><code class="function">GPOINTER_TO_INT()</code></a> to receive them. The list but not the
+values should be free'd with <a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>. <span class="annotation">[<a href="http://foldoc.org/element-type"><span class="acronym">element-type</span></a> int][<a href="http://foldoc.org/transfer%20container"><span class="acronym">transfer container</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-language-get-make-target"></a><h3>ianjuta_language_get_make_target ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       ianjuta_language_get_make_target    (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId"><span class="type">IAnjutaLanguageId</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>A valid language id</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The suffix for the file thats needs to be passed to
+make to compile the file, e.g. ".o" for C</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-language-get-mime-types"></a><h3>ianjuta_language_get_mime_types ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             ianjuta_language_get_mime_types     (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId"><span class="type">IAnjutaLanguageId</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>A valid language id</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of mime-types that represent this language. <span class="annotation">[<a href="http://foldoc.org/element-type"><span class="acronym">element-type</span></a> utf8]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-language-get-name"></a><h3>ianjuta_language_get_name ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       ianjuta_language_get_name           (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId"><span class="type">IAnjutaLanguageId</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>A valid language id</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The main name of the language. When you call <code class="function">ianjuta_language_from_string()</code>
+before that method the string you get here might be different to the one you passed
+because the language might have multiple string representations</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-language-get-name-from-editor"></a><h3>ianjuta_language_get_name_from_editor ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       ianjuta_language_get_name_from_editor
+                                                        (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorLanguage</span> *editor</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Conviniece method to get the name directly from the editor
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editor</code></em> :</span></p></td>
+<td>An object implementing IAnjutaEditorLanguage</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A language name or NULL</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-language-get-strings"></a><h3>ianjuta_language_get_strings ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             ianjuta_language_get_strings        (<em class="parameter"><code><span class="type">IAnjutaLanguage</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaLanguage.html#IAnjutaLanguageId" title="IAnjutaLanguageId"><span class="type">IAnjutaLanguageId</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>A valid language id</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of strings that represent this language. <span class="annotation">[<a href="http://foldoc.org/element-type"><span class="acronym">element-type</span></a> utf8]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

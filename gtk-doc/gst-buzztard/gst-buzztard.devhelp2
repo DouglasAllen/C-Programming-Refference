@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="GStreamer Buzztard Reference Manual" link="index.html" author="" name="gst-buzztard" version="2" language="c">
+  <chapters>
+    <sub name="Introduction" link="pr01.html"/>
+    <sub name="GStreamer Buzztard classes" link="ch01.html">
+      <sub name="GstBtEnvelope" link="gst-buzztard-GstBtEnvelope.html"/>
+      <sub name="GstBtMusicEnums" link="gst-buzztard-GstBtMusicEnums.html"/>
+      <sub name="GstBtToneConversion" link="GstBtToneConversion.html"/>
+    </sub>
+    <sub name="GStreamer Buzztard interfaces" link="ch02.html">
+      <sub name="GstBtChildBin" link="gst-buzztard-GstBtChildBin.html"/>
+      <sub name="GstBtHelp" link="gst-buzztard-GstBtHelp.html"/>
+      <sub name="GstBtPropertyMeta" link="gst-buzztard-GstBtPropertyMeta.html"/>
+      <sub name="GstBtTempo" link="gst-buzztard-GstBtTempo.html"/>
+      <sub name="GstPreset" link="gst-buzztard-GstPreset.html"/>
+    </sub>
+    <sub name="GStreamer Buzztard elements" link="ch03.html">
+      <sub name="GstAudioDelay" link="gst-buzztard-GstAudioDelay.html"/>
+      <sub name="GstFluidsynth" link="gst-buzztard-GstFluidsynth.html"/>
+      <sub name="GstSimSyn" link="gst-buzztard-GstSimSyn.html"/>
+    </sub>
+    <sub name="Object Hierarchy" link="hierarchy.html"/>
+    <sub name="Index" link="api-index.html"/>
+  </chapters>
+  <functions>
+    <keyword type="struct" name="struct GstBtEnvelope" link="gst-buzztard-GstBtEnvelope.html#GstBtEnvelope"/>
+    <keyword type="function" name="gstbt_envelope_new ()" link="gst-buzztard-GstBtEnvelope.html#gstbt-envelope-new"/>
+    <keyword type="enum" name="enum GstBtTriggerSwitch" link="gst-buzztard-GstBtMusicEnums.html#GstBtTriggerSwitch"/>
+    <keyword type="struct" name="struct GstBtToneConversion" link="GstBtToneConversion.html#GstBtToneConversion-struct"/>
+    <keyword type="enum" name="enum GstBtToneConversionTuning" link="GstBtToneConversion.html#GstBtToneConversionTuning"/>
+    <keyword type="function" name="gstbt_tone_conversion_new ()" link="GstBtToneConversion.html#gstbt-tone-conversion-new"/>
+    <keyword type="function" name="gstbt_tone_conversion_translate_from_string ()" link="GstBtToneConversion.html#gstbt-tone-conversion-translate-from-string"/>
+    <keyword type="function" name="gstbt_tone_conversion_translate_from_number ()" link="GstBtToneConversion.html#gstbt-tone-conversion-translate-from-number"/>
+    <keyword type="function" name="gstbt_tone_conversion_note_string_2_number ()" link="GstBtToneConversion.html#gstbt-tone-conversion-note-string-2-number"/>
+    <keyword type="function" name="gstbt_tone_conversion_note_number_2_string ()" link="GstBtToneConversion.html#gstbt-tone-conversion-note-number-2-string"/>
+    <keyword type="property" name="The &quot;tuning&quot; property" link="GstBtToneConversion.html#GstBtToneConversion--tuning"/>
+    <keyword type="function" name="gstbt_child_bin_add_child ()" link="gst-buzztard-GstBtChildBin.html#gstbt-child-bin-add-child"/>
+    <keyword type="function" name="gstbt_child_bin_remove_child ()" link="gst-buzztard-GstBtChildBin.html#gstbt-child-bin-remove-child"/>
+    <keyword type="enum" name="enum GstBtPropertyMetaFlags" link="gst-buzztard-GstBtPropertyMeta.html#GstBtPropertyMetaFlags"/>
+    <keyword type="function" name="gstbt_property_meta_describe_property ()" link="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-describe-property"/>
+    <keyword type="variable" name="gstbt_property_meta_quark" link="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-quark"/>
+    <keyword type="variable" name="gstbt_property_meta_quark_min_val" link="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-quark-min-val"/>
+    <keyword type="variable" name="gstbt_property_meta_quark_max_val" link="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-quark-max-val"/>
+    <keyword type="variable" name="gstbt_property_meta_quark_def_val" link="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-quark-def-val"/>
+    <keyword type="variable" name="gstbt_property_meta_quark_no_val" link="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-quark-no-val"/>
+    <keyword type="variable" name="gstbt_property_meta_quark_flags" link="gst-buzztard-GstBtPropertyMeta.html#gstbt-property-meta-quark-flags"/>
+    <keyword type="function" name="gstbt_tempo_change_tempo ()" link="gst-buzztard-GstBtTempo.html#gstbt-tempo-change-tempo"/>
+    <keyword type="function" name="gst_preset_get_preset_names ()" link="gst-buzztard-GstPreset.html#gst-preset-get-preset-names"/>
+    <keyword type="function" name="gst_preset_load_preset ()" link="gst-buzztard-GstPreset.html#gst-preset-load-preset"/>
+    <keyword type="function" name="gst_preset_save_preset ()" link="gst-buzztard-GstPreset.html#gst-preset-save-preset"/>
+    <keyword type="function" name="gst_preset_rename_preset ()" link="gst-buzztard-GstPreset.html#gst-preset-rename-preset"/>
+    <keyword type="function" name="gst_preset_delete_preset ()" link="gst-buzztard-GstPreset.html#gst-preset-delete-preset"/>
+    <keyword type="function" name="gst_preset_set_meta ()" link="gst-buzztard-GstPreset.html#gst-preset-set-meta"/>
+    <keyword type="function" name="gst_preset_get_meta ()" link="gst-buzztard-GstPreset.html#gst-preset-get-meta"/>
+    <keyword type="" name="Example launch line" link="gst-buzztard-GstAudioDelay.html#idp4912784"/>
+    <keyword type="struct" name="struct GstAudioDelay" link="gst-buzztard-GstAudioDelay.html#GstAudioDelay"/>
+    <keyword type="" name="Example launch line" link="gst-buzztard-GstFluidsynth.html#idp7678256"/>
+    <keyword type="struct" name="struct GstFluidsynth" link="gst-buzztard-GstFluidsynth.html#GstFluidsynth"/>
+    <keyword type="struct" name="struct GstSimSyn" link="gst-buzztard-GstSimSyn.html#GstSimSyn"/>
+    <keyword type="enum" name="enum GstSimSynFilter" link="gst-buzztard-GstSimSyn.html#GstSimSynFilter"/>
+    <keyword type="enum" name="enum GstSimSynWave" link="gst-buzztard-GstSimSyn.html#GstSimSynWave"/>
+    <keyword type="constant" name="GSTGSTBT_TRIGGER_SWITCH_OFF" link="gst-buzztard-GstBtMusicEnums.html#GSTGSTBT-TRIGGER-SWITCH-OFF:CAPS"/>
+    <keyword type="constant" name="GSTGSTBT_TRIGGER_SWITCH_ON" link="gst-buzztard-GstBtMusicEnums.html#GSTGSTBT-TRIGGER-SWITCH-ON:CAPS"/>
+    <keyword type="constant" name="GSTGSTBT_TRIGGER_SWITCH_EMPTY" link="gst-buzztard-GstBtMusicEnums.html#GSTGSTBT-TRIGGER-SWITCH-EMPTY:CAPS"/>
+    <keyword type="constant" name="GSTBT_TONE_CONVERSION_CROMATIC" link="GstBtToneConversion.html#GSTBT-TONE-CONVERSION-CROMATIC:CAPS"/>
+    <keyword type="constant" name="GSTBT_PROPERTY_META_NONE" link="gst-buzztard-GstBtPropertyMeta.html#GSTBT-PROPERTY-META-NONE:CAPS"/>
+    <keyword type="constant" name="GSTBT_PROPERTY_META_WAVE" link="gst-buzztard-GstBtPropertyMeta.html#GSTBT-PROPERTY-META-WAVE:CAPS"/>
+    <keyword type="constant" name="GSTBT_PROPERTY_META_STATE" link="gst-buzztard-GstBtPropertyMeta.html#GSTBT-PROPERTY-META-STATE:CAPS"/>
+    <keyword type="constant" name="GSTBT_PROPERTY_META_TICK_ON_EDIT" link="gst-buzztard-GstBtPropertyMeta.html#GSTBT-PROPERTY-META-TICK-ON-EDIT:CAPS"/>
+    <keyword type="constant" name="GST_SIM_SYN_FILTER_NONE" link="gst-buzztard-GstSimSyn.html#GST-SIM-SYN-FILTER-NONE:CAPS"/>
+    <keyword type="constant" name="GST_SIM_SYN_FILTER_LOWPASS" link="gst-buzztard-GstSimSyn.html#GST-SIM-SYN-FILTER-LOWPASS:CAPS"/>
+    <keyword type="constant" name="GST_SIM_SYN_FILTER_HIPASS" link="gst-buzztard-GstSimSyn.html#GST-SIM-SYN-FILTER-HIPASS:CAPS"/>
+    <keyword type="constant" name="GST_SIM_SYN_FILTER_BANDPASS" link="gst-buzztard-GstSimSyn.html#GST-SIM-SYN-FILTER-BANDPASS:CAPS"/>
+    <keyword type="constant" name="GST_SIM_SYN_FILTER_BANDSTOP" link="gst-buzztard-GstSimSyn.html#GST-SIM-SYN-FILTER-BANDSTOP:CAPS"/>
+    <keyword type="constant" name="GST_SIM_SYN_WAVE_SINE" link="gst-buzztard-GstSimSyn.html#GST-SIM-SYN-WAVE-SINE:CAPS"/>
+    <keyword type="constant" name="GST_SIM_SYN_WAVE_SQUARE" link="gst-buzztard-GstSimSyn.html#GST-SIM-SYN-WAVE-SQUARE:CAPS"/>
+    <keyword type="constant" name="GST_SIM_SYN_WAVE_SAW" link="gst-buzztard-GstSimSyn.html#GST-SIM-SYN-WAVE-SAW:CAPS"/>
+    <keyword type="constant" name="GST_SIM_SYN_WAVE_TRIANGLE" link="gst-buzztard-GstSimSyn.html#GST-SIM-SYN-WAVE-TRIANGLE:CAPS"/>
+    <keyword type="constant" name="GST_SIM_SYN_WAVE_SILENCE" link="gst-buzztard-GstSimSyn.html#GST-SIM-SYN-WAVE-SILENCE:CAPS"/>
+    <keyword type="constant" name="GST_SIM_SYN_WAVE_WHITE_NOISE" link="gst-buzztard-GstSimSyn.html#GST-SIM-SYN-WAVE-WHITE-NOISE:CAPS"/>
+    <keyword type="constant" name="GST_SIM_SYN_WAVE_PINK_NOISE" link="gst-buzztard-GstSimSyn.html#GST-SIM-SYN-WAVE-PINK-NOISE:CAPS"/>
+    <keyword type="constant" name="GST_SIM_SYN_WAVE_SINE_TAB" link="gst-buzztard-GstSimSyn.html#GST-SIM-SYN-WAVE-SINE-TAB:CAPS"/>
+  </functions>
+</book>

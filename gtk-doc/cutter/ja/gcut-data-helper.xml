@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-gcut-data-helper">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-gcut-data-helper.top_of_page">gcut-data-helper</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>gcut-data-helper</refname>
+<refpurpose/>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-gcut-data-helper.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis><link linkend="gchar"><returnvalue>gchar</returnvalue></link>               <link linkend="gcut-data-get-char-helper">gcut_data_get_char_helper</link>           (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+const <link linkend="gchar"><returnvalue>gchar</returnvalue></link> *       <link linkend="gcut-data-get-string-helper">gcut_data_get_string_helper</link>         (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+<link linkend="gint"><returnvalue>gint</returnvalue></link>                <link linkend="gcut-data-get-int-helper">gcut_data_get_int_helper</link>            (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="gcut-data-get-uint-helper">gcut_data_get_uint_helper</link>           (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+<link linkend="gint64"><returnvalue>gint64</returnvalue></link>              <link linkend="gcut-data-get-int64-helper">gcut_data_get_int64_helper</link>          (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+<link linkend="guint64"><returnvalue>guint64</returnvalue></link>             <link linkend="gcut-data-get-uint64-helper">gcut_data_get_uint64_helper</link>         (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+<link linkend="gsize"><returnvalue>gsize</returnvalue></link>               <link linkend="gcut-data-get-size-helper">gcut_data_get_size_helper</link>           (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+<link linkend="GType"><returnvalue>GType</returnvalue></link>               <link linkend="gcut-data-get-type-helper">gcut_data_get_type_helper</link>           (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="gcut-data-get-flags-helper">gcut_data_get_flags_helper</link>          (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+<link linkend="gint"><returnvalue>gint</returnvalue></link>                <link linkend="gcut-data-get-enum-helper">gcut_data_get_enum_helper</link>           (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+<link linkend="gconstpointer"><returnvalue>gconstpointer</returnvalue></link>       <link linkend="gcut-data-get-pointer-helper">gcut_data_get_pointer_helper</link>        (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+<link linkend="gconstpointer"><returnvalue>gconstpointer</returnvalue></link>       <link linkend="gcut-data-get-boxed-helper">gcut_data_get_boxed_helper</link>          (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+<link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>            <link linkend="gcut-data-get-object-helper">gcut_data_get_object_helper</link>         (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+<link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="gcut-data-get-boolean-helper">gcut_data_get_boolean_helper</link>        (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+<link linkend="gdouble"><returnvalue>gdouble</returnvalue></link>             <link linkend="gcut-data-get-double-helper">gcut_data_get_double_helper</link>         (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction">CutCallbackFunction<type/></link>コールバック。</parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-gcut-data-helper.description" role="desc">
+<title role="desc.title">説明</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="cutter-gcut-data-helper.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="gcut-data-get-char-helper" role="function">
+<title>gcut_data_get_char_helper ()</title>
+<indexterm zone="gcut-data-get-char-helper"><primary>gcut_data_get_char_helper</primary></indexterm>
+<programlisting><link linkend="gchar"><returnvalue>gchar</returnvalue></link>               gcut_data_get_char_helper           (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-data-get-string-helper" role="function">
+<title>gcut_data_get_string_helper ()</title>
+<indexterm zone="gcut-data-get-string-helper"><primary>gcut_data_get_string_helper</primary></indexterm>
+<programlisting>const <link linkend="gchar"><returnvalue>gchar</returnvalue></link> *       gcut_data_get_string_helper         (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-data-get-int-helper" role="function">
+<title>gcut_data_get_int_helper ()</title>
+<indexterm zone="gcut-data-get-int-helper"><primary>gcut_data_get_int_helper</primary></indexterm>
+<programlisting><link linkend="gint"><returnvalue>gint</returnvalue></link>                gcut_data_get_int_helper            (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-data-get-uint-helper" role="function">
+<title>gcut_data_get_uint_helper ()</title>
+<indexterm zone="gcut-data-get-uint-helper"><primary>gcut_data_get_uint_helper</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               gcut_data_get_uint_helper           (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-data-get-int64-helper" role="function">
+<title>gcut_data_get_int64_helper ()</title>
+<indexterm zone="gcut-data-get-int64-helper"><primary>gcut_data_get_int64_helper</primary></indexterm>
+<programlisting><link linkend="gint64"><returnvalue>gint64</returnvalue></link>              gcut_data_get_int64_helper          (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-data-get-uint64-helper" role="function">
+<title>gcut_data_get_uint64_helper ()</title>
+<indexterm zone="gcut-data-get-uint64-helper"><primary>gcut_data_get_uint64_helper</primary></indexterm>
+<programlisting><link linkend="guint64"><returnvalue>guint64</returnvalue></link>             gcut_data_get_uint64_helper         (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-data-get-size-helper" role="function">
+<title>gcut_data_get_size_helper ()</title>
+<indexterm zone="gcut-data-get-size-helper"><primary>gcut_data_get_size_helper</primary></indexterm>
+<programlisting><link linkend="gsize"><returnvalue>gsize</returnvalue></link>               gcut_data_get_size_helper           (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-data-get-type-helper" role="function">
+<title>gcut_data_get_type_helper ()</title>
+<indexterm zone="gcut-data-get-type-helper"><primary>gcut_data_get_type_helper</primary></indexterm>
+<programlisting><link linkend="GType"><returnvalue>GType</returnvalue></link>               gcut_data_get_type_helper           (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-data-get-flags-helper" role="function">
+<title>gcut_data_get_flags_helper ()</title>
+<indexterm zone="gcut-data-get-flags-helper"><primary>gcut_data_get_flags_helper</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               gcut_data_get_flags_helper          (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-data-get-enum-helper" role="function">
+<title>gcut_data_get_enum_helper ()</title>
+<indexterm zone="gcut-data-get-enum-helper"><primary>gcut_data_get_enum_helper</primary></indexterm>
+<programlisting><link linkend="gint"><returnvalue>gint</returnvalue></link>                gcut_data_get_enum_helper           (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-data-get-pointer-helper" role="function">
+<title>gcut_data_get_pointer_helper ()</title>
+<indexterm zone="gcut-data-get-pointer-helper"><primary>gcut_data_get_pointer_helper</primary></indexterm>
+<programlisting><link linkend="gconstpointer"><returnvalue>gconstpointer</returnvalue></link>       gcut_data_get_pointer_helper        (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-data-get-boxed-helper" role="function">
+<title>gcut_data_get_boxed_helper ()</title>
+<indexterm zone="gcut-data-get-boxed-helper"><primary>gcut_data_get_boxed_helper</primary></indexterm>
+<programlisting><link linkend="gconstpointer"><returnvalue>gconstpointer</returnvalue></link>       gcut_data_get_boxed_helper          (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-data-get-object-helper" role="function">
+<title>gcut_data_get_object_helper ()</title>
+<indexterm zone="gcut-data-get-object-helper"><primary>gcut_data_get_object_helper</primary></indexterm>
+<programlisting><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>            gcut_data_get_object_helper         (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-data-get-boolean-helper" role="function">
+<title>gcut_data_get_boolean_helper ()</title>
+<indexterm zone="gcut-data-get-boolean-helper"><primary>gcut_data_get_boolean_helper</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            gcut_data_get_boolean_helper        (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-data-get-double-helper" role="function">
+<title>gcut_data_get_double_helper ()</title>
+<indexterm zone="gcut-data-get-double-helper"><primary>gcut_data_get_double_helper</primary></indexterm>
+<programlisting><link linkend="gdouble"><returnvalue>gdouble</returnvalue></link>             gcut_data_get_double_helper         (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> data</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *field_name</parameter>,
+                                                         <parameter><link linkend="CutCallbackFunction"><type>CutCallbackFunction</type></link> callback</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>field_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+</refentry>

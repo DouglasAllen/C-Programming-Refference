@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GString用の検証ユーティリティ</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutterリファレンスマニュアル">
+<link rel="up" href="writing-assertion.html" title="検証作成">
+<link rel="prev" href="cutter-Object-inspection-functions.html" title="オブジェクト調査関数">
+<link rel="next" href="index-all.html" title="すべてのシンボル一覧">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="cutter-Object-inspection-functions.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="writing-assertion.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutterリファレンスマニュアル</th>
+<td><a accesskey="n" href="index-all.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#cutter-Assertion-Utilities-for-GString.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#cutter-Assertion-Utilities-for-GString.description" class="shortcut">説明</a>
+</td></tr>
+</table>
+<div class="refentry" title="GString用の検証ユーティリティ">
+<a name="cutter-Assertion-Utilities-for-GString"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="cutter-Assertion-Utilities-for-GString.top_of_page"></a>GString用の検証ユーティリティ</span></h2>
+<p>GString用の検証ユーティリティ — <span class="type">GString</span>に関する検証をもっと簡単に書くためのユーティリティ。</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="概要">
+<a name="cutter-Assertion-Utilities-for-GString.synopsis"></a><h2>概要</h2>
+<pre class="synopsis"><span class="returnvalue">gboolean</span>            <a class="link" href="cutter-Assertion-Utilities-for-GString.html#gcut-string-equal" title="gcut_string_equal ()">gcut_string_equal</a>                   (<em class="parameter"><code>const <span class="type">GString</span> *string1</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GString</span> *string2</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="cutter-Assertion-Utilities-for-GString.html#gcut-string-inspect" title="gcut_string_inspect ()">gcut_string_inspect</a>                 (<em class="parameter"><code>const <span class="type">GString</span> *string</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="説明">
+<a name="cutter-Assertion-Utilities-for-GString.description"></a><h2>説明</h2>
+<p>検証を書くためには等価性を検証し、期待値と実測値を表示する必要があります。</p>
+<p>このユーティリティは<span class="type">GString</span>に関する検証の作成を補助します。</p>
+</div>
+<div class="refsect1" title="詳細">
+<a name="cutter-Assertion-Utilities-for-GString.details"></a><h2>詳細</h2>
+<div class="refsect2" title="gcut_string_equal ()">
+<a name="gcut-string-equal"></a><h3>gcut_string_equal ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gcut_string_equal                   (<em class="parameter"><code>const <span class="type">GString</span> *string1</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GString</span> *string2</code></em>);</pre>
+<p>ふたつの<span class="type">GString</span>、<em class="parameter"><code>string1</code></em>と<em class="parameter"><code>string2</code></em>を比較します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string1</code></em> :</span></p></td>
+<td>比較する<span class="type">GString</span>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string2</code></em> :</span></p></td>
+<td>比較する<span class="type">GString</span>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>string1</code></em>と<em class="parameter"><code>string2</code></em>が同じ内容なら<code class="literal">TRUE</code>、そうでなれば<code class="literal">FALSE</code>。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_string_inspect ()">
+<a name="gcut-string-inspect"></a><h3>gcut_string_inspect ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             gcut_string_inspect                 (<em class="parameter"><code>const <span class="type">GString</span> *string</code></em>);</pre>
+<p><em class="parameter"><code>string</code></em>の詳細を返します。返された文字列が必要なくなったときは開放してください。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>
+<span class="type">GString</span>の値。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>string</code></em>の詳細を示した文字列。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.5から</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

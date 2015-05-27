@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MrpAssignment</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Libplanner Reference Manual">
+<link rel="up" href="ch01.html" title="Libplanner API">
+<link rel="prev" href="libplanner-mrp-application.html" title="MrpApplication">
+<link rel="next" href="libplanner-mrp-calendar.html" title="MrpCalendar">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libplanner-mrp-application.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libplanner Reference Manual</th>
+<td><a accesskey="n" href="libplanner-mrp-calendar.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libplanner-mrp-assignment.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libplanner-mrp-assignment.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libplanner-mrp-assignment.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#libplanner-mrp-assignment.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libplanner-mrp-assignment"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libplanner-mrp-assignment.top_of_page"></a>MrpAssignment</span></h2>
+<p>MrpAssignment</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libplanner-mrp-assignment.synopsis"></a><h2>Synopsis</h2>
+<a name="MrpAssignment"></a><pre class="synopsis">
+#include &lt;libplanner/planner.h&gt;
+
+                    <a class="link" href="libplanner-mrp-assignment.html#MrpAssignmentPriv" title="MrpAssignmentPriv">MrpAssignmentPriv</a>;
+                    <a class="link" href="libplanner-mrp-assignment.html#MrpAssignment-struct" title="MrpAssignment">MrpAssignment</a>;
+<a class="link" href="libplanner-mrp-assignment.html#MrpAssignment"><span class="returnvalue">MrpAssignment</span></a> *     <a class="link" href="libplanner-mrp-assignment.html#mrp-assignment-new" title="mrp_assignment_new ()">mrp_assignment_new</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="libplanner-mrp-task.html#MrpTask"><span class="returnvalue">MrpTask</span></a> *           <a class="link" href="libplanner-mrp-assignment.html#mrp-assignment-get-task" title="mrp_assignment_get_task ()">mrp_assignment_get_task</a>             (<em class="parameter"><code><a class="link" href="libplanner-mrp-assignment.html#MrpAssignment"><span class="type">MrpAssignment</span></a> *assignment</code></em>);
+<a class="link" href="libplanner-mrp-resource.html#MrpResource"><span class="returnvalue">MrpResource</span></a> *       <a class="link" href="libplanner-mrp-assignment.html#mrp-assignment-get-resource" title="mrp_assignment_get_resource ()">mrp_assignment_get_resource</a>         (<em class="parameter"><code><a class="link" href="libplanner-mrp-assignment.html#MrpAssignment"><span class="type">MrpAssignment</span></a> *assignment</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="libplanner-mrp-assignment.html#mrp-assignment-get-units" title="mrp_assignment_get_units ()">mrp_assignment_get_units</a>            (<em class="parameter"><code><a class="link" href="libplanner-mrp-assignment.html#MrpAssignment"><span class="type">MrpAssignment</span></a> *assignment</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-assignment.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----<a class="link" href="libplanner-mrp-object.html#MrpObject">MrpObject</a>
+         +----MrpAssignment
+</pre>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-assignment.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="libplanner-mrp-assignment.html#MrpAssignment--resource" title='The "resource" property'>resource</a>"                 <a class="link" href="libplanner-mrp-resource.html#MrpResource"><span class="type">MrpResource</span></a>*          : Read / Write
+  "<a class="link" href="libplanner-mrp-assignment.html#MrpAssignment--task" title='The "task" property'>task</a>"                     <a class="link" href="libplanner-mrp-task.html#MrpTask"><span class="type">MrpTask</span></a>*              : Read / Write
+  "<a class="link" href="libplanner-mrp-assignment.html#MrpAssignment--units" title='The "units" property'>units</a>"                    <span class="type">gint</span>                  : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-assignment.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-assignment.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="MrpAssignmentPriv"></a><h3>MrpAssignmentPriv</h3>
+<pre class="programlisting">typedef struct _MrpAssignmentPriv MrpAssignmentPriv;</pre>
+<p>
+A private struct for internal use only.  The definition of this
+structure is not publically available.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MrpAssignment-struct"></a><h3>MrpAssignment</h3>
+<pre class="programlisting">typedef struct _MrpAssignment MrpAssignment;</pre>
+<p>
+Represents an assignment, i.e. the assignment of a task to a resource.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-assignment-new"></a><h3>mrp_assignment_new ()</h3>
+<pre class="programlisting"><a class="link" href="libplanner-mrp-assignment.html#MrpAssignment"><span class="returnvalue">MrpAssignment</span></a> *     mrp_assignment_new                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a new, empty, assignment. You most often don't want to create an
+assignment explicitly like this, but using <a class="link" href="libplanner-mrp-resource.html#mrp-resource-assign" title="mrp_resource_assign ()"><code class="function">mrp_resource_assign()</code></a> instead.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Newly created assignment.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-assignment-get-task"></a><h3>mrp_assignment_get_task ()</h3>
+<pre class="programlisting"><a class="link" href="libplanner-mrp-task.html#MrpTask"><span class="returnvalue">MrpTask</span></a> *           mrp_assignment_get_task             (<em class="parameter"><code><a class="link" href="libplanner-mrp-assignment.html#MrpAssignment"><span class="type">MrpAssignment</span></a> *assignment</code></em>);</pre>
+<p>
+Retrieves the <a class="link" href="libplanner-mrp-task.html#MrpTask"><span class="type">MrpTask</span></a> associated with <em class="parameter"><code>assignment</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>assignment</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-assignment.html#MrpAssignment"><span class="type">MrpAssignment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the task associated with the assignment object. The reference
+count of the task is not increased.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-assignment-get-resource"></a><h3>mrp_assignment_get_resource ()</h3>
+<pre class="programlisting"><a class="link" href="libplanner-mrp-resource.html#MrpResource"><span class="returnvalue">MrpResource</span></a> *       mrp_assignment_get_resource         (<em class="parameter"><code><a class="link" href="libplanner-mrp-assignment.html#MrpAssignment"><span class="type">MrpAssignment</span></a> *assignment</code></em>);</pre>
+<p>
+Retrieves the <a class="link" href="libplanner-mrp-resource.html#MrpResource"><span class="type">MrpResource</span></a> associated with <em class="parameter"><code>assignment</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>assignment</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-assignment.html#MrpAssignment"><span class="type">MrpAssignment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the resource associated with the assignment object. The reference
+count of the resource is not increased.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-assignment-get-units"></a><h3>mrp_assignment_get_units ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                mrp_assignment_get_units            (<em class="parameter"><code><a class="link" href="libplanner-mrp-assignment.html#MrpAssignment"><span class="type">MrpAssignment</span></a> *assignment</code></em>);</pre>
+<p>
+Retrieves the number of units that the resource is assigned with to the
+task. 100 means 100%, etc.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>assignment</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-assignment.html#MrpAssignment"><span class="type">MrpAssignment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>number of units of the assignment.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-assignment.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="MrpAssignment--resource"></a><h3>The <code class="literal">"resource"</code> property</h3>
+<pre class="programlisting">  "resource"                 <a class="link" href="libplanner-mrp-resource.html#MrpResource"><span class="type">MrpResource</span></a>*          : Read / Write</pre>
+<p>The resource that is assigned to the task.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MrpAssignment--task"></a><h3>The <code class="literal">"task"</code> property</h3>
+<pre class="programlisting">  "task"                     <a class="link" href="libplanner-mrp-task.html#MrpTask"><span class="type">MrpTask</span></a>*              : Read / Write</pre>
+<p>The task.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MrpAssignment--units"></a><h3>The <code class="literal">"units"</code> property</h3>
+<pre class="programlisting">  "units"                    <span class="type">gint</span>                  : Read / Write</pre>
+<p>Number of units assignment.</p>
+<p>Allowed values: &gt;= G_MAXULONG</p>
+<p>Default value: 0</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

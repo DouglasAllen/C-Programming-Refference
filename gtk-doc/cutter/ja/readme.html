@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>はじめに</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutterリファレンスマニュアル">
+<link rel="up" href="overview.html" title="Cutterの概要">
+<link rel="prev" href="news.html" title="お知らせ">
+<link rel="next" href="features.html" title="機能">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="news.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="overview.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutterリファレンスマニュアル</th>
+<td><a accesskey="n" href="features.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" title="はじめに">
+<a name="readme"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="readme.top_of_page"></a>はじめに</span></h2>
+<p>はじめに — C言語・C++言語用単体テストフレームワークCutterの概要</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1" title="名前">
+<a name="id545068"></a><h2>名前</h2>
+<p>Cutter</p>
+</div>
+<div class="refsect1" title="作者">
+<a name="id554054"></a><h2>作者</h2>
+<div class="refsect2" title="プログラム">
+<a name="id539322"></a><h3>プログラム</h3>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>Kouhei Sutou &lt;kou@clear-code.com&gt;</p></li>
+<li class="listitem"><p>Hiroyuki Ikezoe &lt;ikezoe@clear-code.com&gt;</p></li>
+<li class="listitem"><p>Yuto Hayamizu &lt;y.hayamizu@gmail.com&gt;</p></li>
+</ul></div>
+</div>
+<hr>
+<div class="refsect2" title="きのたんアイコン">
+<a name="id552856"></a><h3>きのたんアイコン</h3>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Mayu &amp; Co.</p></li></ul></div>
+</div>
+</div>
+<div class="refsect1" title="ライセンス">
+<a name="id533237"></a><h2>ライセンス</h2>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>
+  ソースコード: LGPLバージョン3またはそれ以降のバージョン（詳細:
+  <a class="ulink" href="http://www.gnu.org/licenses/lgpl.html" target="_top">license/lgpl-3.txt</a>
+  ）です。
+</p></li>
+<li class="listitem">
+<p>ドキュメントときのたんアイコン: LGPLとGFDLとクリエイティブ・コモンズ・ライセンスのトリプルライセンス。</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="circle">
+<li class="listitem"><p>
+  LGPLバージョン3またはそれ以降のバージョン（詳細:
+  <a class="ulink" href="http://www.gnu.org/licenses/lgpl.html" target="_top">license/lgpl-3.txt</a>
+  ）です。
+</p></li>
+<li class="listitem"><p>
+  GFDLはバージョン1.3またはそれ以降のバージョン（詳細:
+  <a class="ulink" href="http://www.gnu.org/licenses/fdl.html" target="_top">license/gfdl-1.3.txt</a>
+  ）です。
+</p></li>
+<li class="listitem"><p>
+  クリエイティブ・コモンズ・ライセンスは
+  <a class="ulink" href="http://creativecommons.org/licenses/by-sa/3.0/" target="_top">表示-継承（CC BY-SA）</a>
+  です。
+</p></li>
+</ul></div>
+</li>
+<li class="listitem">
+<p>例外:</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="circle">
+<li class="listitem"><p>
+  glib-compatible/glibintl.h, glib-compatible/gregex.*, glib-compatible/gscripttable.h, glib-compatible/gsequence.*, glib-compatible/gstring.*, glib-compatible/gunicode.h, glib-compatible/guniprop.c: LGPLバージョン2.0またはそれ以降のバージョン（詳細:
+  <a class="ulink" href="http://www.gnu.org/licenses/old-licenses/lgpl-2.0.html" target="_top">glib-compatible/COPYING</a>
+  ）
+</p></li>
+<li class="listitem"><p>
+  glib-compatible/pcre/: PCREライセンス（詳細:
+  <a class="ulink" href="http://www.pcre.org/licence.txt" target="_top">glib-compatible/pcre/COPYING</a>
+  ）
+</p></li>
+<li class="listitem"><p>
+  html/blog.*, html/download.*, html/heading-mark.* html/install.*, html/readme.*, html/reference.*, html/tango-logo.png, html/tutorial.*, html/mini-*.svg:パブリックドメイン。
+  <a class="ulink" href="http://tango.freedesktop.org/" target="_top">Tango Desktop Project</a>
+  の成果物を利用しています。（一部改変しているものもある）
+</p></li>
+<li class="listitem"><p>
+  html/ja.png, html/us.png, html/famfamfam-logo.png:パブリックドメイン。
+  <a class="ulink" href="http://famfamfam.com/" target="_top">famfamfam.com</a>
+  が配布している国旗です。
+</p></li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+<div class="refsect1" title="Cutter?">
+<a name="id533988"></a><h2>Cutter?</h2>
+<p>CutterはC言語・C++言語のためのxUnit系の単体テストフレームワークです。</p>
+<p>Cutterの特徴は以下の通りです。</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>テストが簡単に書ける</p></li>
+<li class="listitem"><p>出力結果がデバッグに使いやすい</p></li>
+<li class="listitem"><p>テストを共有ライブラリとしてビルドする</p></li>
+</ul></div>
+<p>
+  詳細は
+  <a class="link" href="features.html" title="機能">特徴</a>
+  を見てください。
+</p>
+</div>
+<div class="refsect1" title="依存ライブラリ">
+<a name="id544396"></a><h2>依存ライブラリ</h2>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>GLib &gt;= 2.16</p></li></ul></div>
+</div>
+<div class="refsect1" title="入手方法">
+<a name="id544415"></a><h2>入手方法</h2>
+<p>tar.gz:</p>
+<pre class="programlisting">% wget http://downloads.sourceforge.net/cutter/cutter-1.1.0.tar.gz</pre>
+<p>Subversion:</p>
+<pre class="programlisting">% svn co https://cutter.svn.sourceforge.net/svnroot/cutter/cutter/trunk cutter</pre>
+</div>
+<div class="refsect1" title="インストール">
+<a name="id544441"></a><h2>インストール</h2>
+<p>
+  <a class="ulink" href="install.html" target="_top">インストール</a>
+  を見てください。
+</p>
+</div>
+<div class="refsect1" title="使い方">
+<a name="id544458"></a><h2>使い方</h2>
+<pre class="programlisting">% cutter [オプション ...] テストディレクトリ</pre>
+<p>テストディレクトリにはtest_*.soがあるディレクトリを指定します。cutterはテストディレクトリ以下にあるtest_*.soを再帰的に検索します。</p>
+<p>
+  詳細は
+  <a class="link" href="cutter.html" title="cutter">cutter</a>
+  を見てください。
+</p>
+</div>
+<div class="refsect1" title="テストの仕方">
+<a name="id544487"></a><h2>テストの仕方</h2>
+<p>テストの実行は以下のような流れになります．</p>
+<div class="orderedlist"><ol class="orderedlist" type="1">
+<li class="listitem"><p>テストを作成する</p></li>
+<li class="listitem"><p>コンパイルし、test_*.soを作成する</p></li>
+<li class="listitem"><p>cutterを起動し、test_*.soを読み込ませ、テストをする</p></li>
+</ol></div>
+<p>
+  詳しくは
+  <a class="link" href="tutorial.html" title="チュートリアル">チュートリアル</a>
+  とsample/stack/を参考にしてください。
+</p>
+</div>
+<div class="refsect1" title="テスト結果">
+<a name="id520968"></a><h2>テスト結果</h2>
+<p>テスト結果は例えば以下のようになります。</p>
+<pre class="programlisting">..........F.................................................
+
+1) Failure: test_test_case_count
+&lt;1 == cut_test_case_get_n_tests(test_object, NULL)&gt;
+expected: &lt;1&gt;
+ but was: &lt;0&gt;
+test/test-cut-test-case.c:143: test_test_case_count()
+
+Finished in 0.020857 seconds
+
+60 test(s), 253 assertion(s), 1 failure(s), 0 error(s), 0 pending(s), 0 notification(s)</pre>
+<div class="refsect2" title="進行状況">
+<a name="id520987"></a><h3>進行状況</h3>
+<p>一番上にある「.」と「F」の部分がテストの進行状況を示しています。</p>
+<pre class="programlisting">..........F.................................................</pre>
+<p>各「.」、「F」が1つのテストケース（テスト関数）を表しています。「.」が成功したテストケース、「F」が失敗したテストケースを表しています。他にも「E」、「P」、「N」があり、それぞれエラー、保留、通知を表しています。まとめると以下のようになります。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a name="readme.-"></a>.</span></p></td>
+<td><p>成功したテスト</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="readme.F"></a>F</span></p></td>
+<td><p>表明が失敗したテスト</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="readme.E"></a>E</span></p></td>
+<td><p>異常終了したテスト</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="readme.P"></a>P</span></p></td>
+<td><p>保留マークがついているテスト</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="readme.N"></a>N</span></p></td>
+<td><p>通知が行われたテスト</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>上記のテストを表す印はテストが実行される毎に出力されます。テスト実行中は、この出力で実行状況を確認できます。</p>
+</div>
+<hr>
+<div class="refsect2" title="テスト結果のまとめ">
+<a name="id521108"></a><h3>テスト結果のまとめ</h3>
+<p>テストが終了すると、テスト結果のまとめを出力します。まとめは、まず、成功しなかったテストの詳細をそれぞれ表示します。例では1つ失敗があったのでそれを表示しています。</p>
+<pre class="programlisting">1) Failure: test_test_case_count
+&lt;1 == cut_test_case_get_n_tests(test_object, NULL)&gt;
+expected: &lt;1&gt;
+ but was: &lt;0&gt;
+test/test-cut-test-case.c:143: test_test_case_count()</pre>
+<p>この例ではtest_test_case_countテストケースが失敗し、cut_test_case_get_n_tests(test_object, NULL)が1になって欲しかったのに実際は0になっていることを表しています。また、この失敗した表明はtest/test-cut-test-case.cの143行目、test_test_case_count()関数内で起こったことがわかります。</p>
+<p>テスト結果の詳細一覧の後はテストにかかった時間が表示されます。</p>
+<pre class="programlisting">Finished in 0.020857 seconds</pre>
+<p>最後にテスト結果の要約が表示されます。</p>
+<pre class="programlisting">60 test(s), 253 assertion(s), 1 failure(s), 0 error(s), 0 pending(s), 0 notification(s)</pre>
+<p>それぞれは以下のような意味です。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a name="readme.n"></a>n test(s)</span></p></td>
+<td><p>n個のテストケース（テスト関数）を実行した</p></td>
+</tr>
+<tr>
+<td><p><span class="term">n assertion(s)</span></p></td>
+<td><p>n個の表明にパスした</p></td>
+</tr>
+<tr>
+<td><p><span class="term">n failure(s)</span></p></td>
+<td><p>n個の表明に失敗した</p></td>
+</tr>
+<tr>
+<td><p><span class="term">n error(s)</span></p></td>
+<td><p>n個の異常事態が発生した（cut_error()を使用した）</p></td>
+</tr>
+<tr>
+<td><p><span class="term">n pending(s)</span></p></td>
+<td><p>n個のテストケースを保留にした（cut_pending()を使用した）</p></td>
+</tr>
+<tr>
+<td><p><span class="term">n notification(s)</span></p></td>
+<td><p>n個の通知が発生した（cut_notification()を使用した）</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>この例では60個のテストケースを実行し、253個の表明にパスし、1個の表明に失敗したということになります。異常事態や保留にしたテストケースなどはありませんでした。</p>
+</div>
+<hr>
+<div class="refsect2" title="XML出力">
+<a name="id521261"></a><h3>XML出力</h3>
+<p>--xml-reportオプションを指定することでテスト結果をXML形式で出力することができます。出力されるXMLは以下のような構造になっています。</p>
+<pre class="programlisting">&lt;report&gt;
+  &lt;result&gt;
+    &lt;test-case&gt;
+      &lt;name&gt;テストケース名&lt;/name&gt;
+      &lt;description&gt;テストケースの説明（もしあれば）&lt;/description&gt;
+    &lt;/test-case&gt;
+    &lt;test&gt;
+      &lt;name&gt;テスト名&lt;/name&gt;
+      &lt;description&gt;テストの説明（もしあれば）&lt;/description&gt;
+      &lt;option&gt;&lt;!-- 属性情報（もしあれば） --&gt;
+        &lt;name&gt;属性名（例: bug）&lt;/name&gt;
+        &lt;value&gt;属性値（例: 1234）&lt;/value&gt;
+      &lt;/option&gt;
+      &lt;option&gt;
+        ...
+      &lt;/option&gt;
+    &lt;/test&gt;
+    &lt;status&gt;テスト結果（[success|failure|error|pending|notification]）&lt;/status&gt;
+    &lt;detail&gt;テスト結果の詳細（もしあれば）&lt;/detail&gt;
+    &lt;backtrace&gt;&lt;!-- バックトレース（もしあれば） --&gt;
+      &lt;entry&gt;
+        &lt;file&gt;ファイル名&lt;/file&gt;
+        &lt;line&gt;行&lt;/line&gt;
+        &lt;info&gt;付加情報&lt;/info&gt;
+      &lt;/entry&gt;
+      &lt;entry&gt;
+        ...
+      &lt;/entry&gt;
+    &lt;/backtrace&gt;
+    &lt;elapsed&gt;実行時間（例: 0.000010）&lt;/elapsed&gt;
+  &lt;/result&gt;
+  &lt;result&gt;
+    ...
+  &lt;/result&gt;
+  ...
+&lt;/report&gt;</pre>
+</div>
+<hr>
+<div class="refsect2" title="テストカバレッジ">
+<a name="id521288"></a><h3>テストカバレッジ</h3>
+<p>
+  システムに
+  <a class="ulink" href="http://ltp.sourceforge.net/" target="_top">LTP tools</a>
+  がインストールされている場合は、Cutterを使ったテストを用いてコードカバレッジを出力することができます。カバレッジを出力するにはconfigure.acに以下を追加して、"make coverage"を実行してください。
+</p>
+<pre class="programlisting">AC_CHECK_COVERAGE</pre>
+</div>
+</div>
+<div class="refsect1" title="リファレンス">
+<a name="id521315"></a><h2>リファレンス</h2>
+<div class="refsect2" title="表明">
+<a name="id521321"></a><h3>表明</h3>
+<p>
+  cutter/cut-assertions.h
+  を見てください。
+</p>
+</div>
+<hr>
+<div class="refsect2" title="属性">
+<a name="id521339"></a><h3>属性</h3>
+<p>テストに属性を加えて、テスト失敗時により有益な情報を利用することができます。例えば、以下のようにテストにBug IDの情報を付加することができます。</p>
+<pre class="programlisting">void attributes_invalid_input(void);
+void test_invalid_input(void);
+
+void
+attributes_invalid_input (void)
+{
+    cut_set_attributes("bug", "123");
+}
+
+void
+test_invalid_input (void)
+{
+    cut_assert_equal("OK", get_input());
+}</pre>
+<p>この例では、test_invalid_inputテストがBug #123のテストであるという情報を付加しています。</p>
+<p>属性は"「attributes_「テスト名からtest_を除いたもの」"という名前の関数を定義し、その関数の中でcut_set_attributes()を使って設定できます。上記の例では「test_invalid_input」テストに「123」という値の「bug」属性を追加するために「attributes_invalid_input」という関数を定義し、その中でcut_set_attributes("bug", "123")を呼び、属性を設定しています。</p>
+</div>
+<hr>
+<div class="refsect2" title="雛型">
+<a name="id521371"></a><h3>雛型</h3>
+<p>テストの雛型は以下のようになります．</p>
+<pre class="programlisting">#include &lt;cutter.h&gt;
+
+#include "自分のプログラムのヘッダファイル"
+
+void test_condition(void);
+void test_strstr(void);
+
+static int condition = 0;
+
+void
+cut_setup (void)
+{
+    /* 初期化用コード */
+    condition = 1;
+}
+
+void
+cut_teardown (void)
+{
+    /* 後片付け用コード */
+    condition = 0;
+}
+
+void
+test_condition(void)
+{
+    cut_set_message("conditionの値はcut_setup()で1に設定されているはず");
+    cut_assert_equal_int(1, condition);
+  ...
+}
+
+void
+test_strstr(void)
+{
+    cut_assert_equal_string("sub-string",
+                            strstr("string sub-string", "sub"));
+    ...
+}</pre>
+</div>
+</div>
+<div class="refsect1" title="感謝">
+<a name="id521394"></a><h2>感謝</h2>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>Kazumasa Matsunagaさん: ビルドの不具合を報告してくれました。</p></li>
+<li class="listitem"><p>Daijiro MORIさん: 不具合を報告してくれました。</p></li>
+<li class="listitem">
+<p>海野さん:</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="circle">
+<li class="listitem"><p>チュートリアルの不具合に気づかせてくれました。</p></li>
+<li class="listitem"><p>Solaris用インストールドキュメントの作成を手伝ってくれました。</p></li>
+</ul></div>
+</li>
+<li class="listitem"><p>グニャラくん: APIについてアドバイスしてくれました。</p></li>
+<li class="listitem"><p>山川さん: Cygwinでの動作を教えてくれました。</p></li>
+<li class="listitem">
+<p>奥地さん:</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="circle">
+<li class="listitem"><p>Localeまわりの不具合を報告してくれました。</p></li>
+<li class="listitem"><p>新機能を提案してくれました。</p></li>
+</ul></div>
+</li>
+<li class="listitem"><p>Zed Shawさん: 不具合を報告してくれました。</p></li>
+<li class="listitem"><p>Romuald Contyさん: ドキュメントの不具合を報告してくれました。</p></li>
+<li class="listitem">
+<p>Romain Tartièreさん:</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="circle">
+<li class="listitem"><p>不具合を報告してくれました。</p></li>
+<li class="listitem"><p>改良方法を提案してくれました。</p></li>
+</ul></div>
+</li>
+<li class="listitem">
+<p>Ilya Baryginさん:</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>テストの不具合を報告してくれました。</p></li></ul></div>
+</li>
+<li class="listitem">
+<p>中村弘輝さん</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>CentOSでの不具合を報告してくれました。</p></li></ul></div>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaDocumentManager</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="libanjuta-IAnjutaDocument.html" title="IAnjutaDocument">
+<link rel="next" href="libanjuta-IAnjutaEditor.html" title="IAnjutaEditor">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-IAnjutaDocument.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaEditor.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaDocumentManager.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaDocumentManager.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaDocumentManager.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaDocumentManager"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaDocumentManager.top_of_page"></a>IAnjutaDocumentManager</span></h2>
+<p>IAnjutaDocumentManager — Interface for plugin that manages all the editors</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaDocumentManager.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaDocumentManager.synopsis"></a><h2>Synopsis</h2>
+<a name="IAnjutaDocumentManagerError"></a><pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-document-manager.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaDocumentManager.html#IANJUTA-DOCUMENT-MANAGER-CURRENT-DOCUMENT:CAPS" title="IANJUTA_DOCUMENT_MANAGER_CURRENT_DOCUMENT">IANJUTA_DOCUMENT_MANAGER_CURRENT_DOCUMENT</a>
+enum                <a class="link" href="libanjuta-IAnjutaDocumentManager.html#IAnjutaDocumentManagerError-enum" title="enum IAnjutaDocumentManagerError">IAnjutaDocumentManagerError</a>;
+struct              <a class="link" href="libanjuta-IAnjutaDocumentManager.html#IAnjutaDocumentManagerIface" title="struct IAnjutaDocumentManagerIface">IAnjutaDocumentManagerIface</a>;
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaDocumentManager.html#ianjuta-document-manager-add-bookmark" title="ianjuta_document_manager_add_bookmark ()">ianjuta_document_manager_add_bookmark</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> line</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaEditor</span> *     <a class="link" href="libanjuta-IAnjutaDocumentManager.html#ianjuta-document-manager-add-buffer" title="ianjuta_document_manager_add_buffer ()">ianjuta_document_manager_add_buffer</a> (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *content</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaDocumentManager.html#ianjuta-document-manager-add-document" title="ianjuta_document_manager_add_document ()">ianjuta_document_manager_add_document</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaDocument</span> *document</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaDocumentManager.html#ianjuta-document-manager-error-quark" title="ianjuta_document_manager_error_quark ()">ianjuta_document_manager_error_quark</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">IAnjutaDocument</span> *   <a class="link" href="libanjuta-IAnjutaDocumentManager.html#ianjuta-document-manager-find-document-with-file" title="ianjuta_document_manager_find_document_with_file ()">ianjuta_document_manager_find_document_with_file</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaDocument</span> *   <a class="link" href="libanjuta-IAnjutaDocumentManager.html#ianjuta-document-manager-get-current-document" title="ianjuta_document_manager_get_current_document ()">ianjuta_document_manager_get_current_document</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="libanjuta-IAnjutaDocumentManager.html#ianjuta-document-manager-get-doc-widgets" title="ianjuta_document_manager_get_doc_widgets ()">ianjuta_document_manager_get_doc_widgets</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *             <a class="link" href="libanjuta-IAnjutaDocumentManager.html#ianjuta-document-manager-get-file" title="ianjuta_document_manager_get_file ()">ianjuta_document_manager_get_file</a>   (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *filename</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaEditor</span> *     <a class="link" href="libanjuta-IAnjutaDocumentManager.html#ianjuta-document-manager-goto-file-line" title="ianjuta_document_manager_goto_file_line ()">ianjuta_document_manager_goto_file_line</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> lineno</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaEditor</span> *     <a class="link" href="libanjuta-IAnjutaDocumentManager.html#ianjuta-document-manager-goto-file-line-mark" title="ianjuta_document_manager_goto_file_line_mark ()">ianjuta_document_manager_goto_file_line_mark</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> lineno</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> mark</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaDocumentManager.html#ianjuta-document-manager-remove-document" title="ianjuta_document_manager_remove_document ()">ianjuta_document_manager_remove_document</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaDocument</span> *document</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> save_before</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaDocumentManager.html#ianjuta-document-manager-set-current-document" title="ianjuta_document_manager_set_current_document ()">ianjuta_document_manager_set_current_document</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaDocument</span> *document</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaDocumentManager.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GEnum
+   +----IAnjutaDocumentManagerError
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaDocumentManager.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaDocumentManager.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-DOCUMENT-MANAGER-CURRENT-DOCUMENT:CAPS"></a><h3>IANJUTA_DOCUMENT_MANAGER_CURRENT_DOCUMENT</h3>
+<pre class="programlisting">#define IANJUTA_DOCUMENT_MANAGER_CURRENT_DOCUMENT "document_manager_current_document"
+</pre>
+<p>
+Anjuta shell value set by document manager to the current document
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaDocumentManagerError-enum"></a><h3>enum IAnjutaDocumentManagerError</h3>
+<pre class="programlisting">typedef enum {
+	IANJUTA_DOCUMENT_MANAGER_DOESNT_EXIST
+} IAnjutaDocumentManagerError;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaDocumentManagerIface"></a><h3>struct IAnjutaDocumentManagerIface</h3>
+<pre class="programlisting">struct IAnjutaDocumentManagerIface {
+	GTypeInterface g_iface;
+	
+
+	void (*add_bookmark) (IAnjutaDocumentManager *obj, GFile* file,  gint line, GError **err);
+	IAnjutaEditor* (*add_buffer) (IAnjutaDocumentManager *obj, const gchar *name,  const gchar* content, GError **err);
+	void (*add_document) (IAnjutaDocumentManager *obj, IAnjutaDocument* document, GError **err);
+	IAnjutaDocument* (*find_document_with_file) (IAnjutaDocumentManager *obj, GFile* file, GError **err);
+	IAnjutaDocument* (*get_current_document) (IAnjutaDocumentManager *obj, GError **err);
+	GList* (*get_doc_widgets) (IAnjutaDocumentManager *obj, GError **err);
+	GFile* (*get_file) (IAnjutaDocumentManager *obj, const gchar *filename, GError **err);
+	IAnjutaEditor* (*goto_file_line) (IAnjutaDocumentManager *obj, GFile* file,  gint lineno, GError **err);
+	IAnjutaEditor* (*goto_file_line_mark) (IAnjutaDocumentManager *obj, GFile* file,  gint lineno,  gboolean mark, GError **err);
+	gboolean (*remove_document) (IAnjutaDocumentManager *obj, IAnjutaDocument *document,  gboolean save_before, GError **err);
+	void (*set_current_document) (IAnjutaDocumentManager *obj, IAnjutaDocument *document, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-document-manager-add-bookmark"></a><h3>ianjuta_document_manager_add_bookmark ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_document_manager_add_bookmark
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> line</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-document-manager-add-buffer"></a><h3>ianjuta_document_manager_add_buffer ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaEditor</span> *     ianjuta_document_manager_add_buffer (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *content</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Creates a new editor buffer of the given name and sets the given
+content as its initial content.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>Name of the editor buffer.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>content</code></em> :</span></p></td>
+<td>Initial content of the buffer.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the IAnjutaEditor instance that has been added. <span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-document-manager-add-document"></a><h3>ianjuta_document_manager_add_document ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_document_manager_add_document
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaDocument</span> *document</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Adds a document to the document manager. This will open a new
+Notebook tab and show the document there
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>the document to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-document-manager-error-quark"></a><h3>ianjuta_document_manager_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_document_manager_error_quark
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-document-manager-find-document-with-file"></a><h3>ianjuta_document_manager_find_document_with_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaDocument</span> *   ianjuta_document_manager_find_document_with_file
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Finds the document that has the file  loaded. Only
+the editor that matches the file will be searched.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>The file to find.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the document that corresponds to given file. NULL if
+there is no editor loaded with this file. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-document-manager-get-current-document"></a><h3>ianjuta_document_manager_get_current_document ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaDocument</span> *   ianjuta_document_manager_get_current_document
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Gets the current document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the currently active document. NULL if none is there. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-document-manager-get-doc-widgets"></a><h3>ianjuta_document_manager_get_doc_widgets ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             ianjuta_document_manager_get_doc_widgets
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Gets a list of widgets for open documents. Each widget is
+a GTK_WIDGET(IAnjutaDocument*)
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a list of widgets for
+all open documents. The returned list (but not the data in the list) must be
+freed after use. <span class="annotation">[<a href="http://foldoc.org/element-type"><span class="acronym">element-type</span></a> GtkWidget][<a href="http://foldoc.org/transfer%20container"><span class="acronym">transfer container</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-document-manager-get-file"></a><h3>ianjuta_document_manager_get_file ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *             ianjuta_document_manager_get_file   (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *filename</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Given the short filename, finds the file of the filename, if the
+editor that has it loaded is found. If there is no editor that has
+this file opened, returns NULL.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>short filename</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the GFile for the given short filename. <span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-document-manager-goto-file-line"></a><h3>ianjuta_document_manager_goto_file_line ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaEditor</span> *     ianjuta_document_manager_goto_file_line
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> lineno</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Loads the given file if not loaded yet, set its editor as current editor
+and moves cursor to the given line in the editor.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>file to go to.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lineno</code></em> :</span></p></td>
+<td>the line number in the file to go to.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the editor where the mark has been put. NULL if none. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-document-manager-goto-file-line-mark"></a><h3>ianjuta_document_manager_goto_file_line_mark ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaEditor</span> *     ianjuta_document_manager_goto_file_line_mark
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> lineno</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> mark</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Loads the given file if not loaded yet, set its editor as current editor
+and moves cursor to the given line in the editor. Optionally also marks
+the line with line marker if <em class="parameter"><code>mark</code></em> is given TRUE.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>file to go to.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lineno</code></em> :</span></p></td>
+<td>the line number in the file to go to.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mark</code></em> :</span></p></td>
+<td>TRUE if the line should be marked with a marker.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the editor where the mark has been put. NULL if none. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-document-manager-remove-document"></a><h3>ianjuta_document_manager_remove_document ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_document_manager_remove_document
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaDocument</span> *document</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> save_before</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Closes and removes the given document. If <em class="parameter"><code>save_before</code></em> is TRUE, also
+saves the document before closing.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>Document to close.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>save_before</code></em> :</span></p></td>
+<td>If true, saves the document before closing.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the document was removed, else FALSE.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-document-manager-set-current-document"></a><h3>ianjuta_document_manager_set_current_document ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_document_manager_set_current_document
+                                                        (<em class="parameter"><code><span class="type">IAnjutaDocumentManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaDocument</span> *document</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Sets the given document as current document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>the document to set as current.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

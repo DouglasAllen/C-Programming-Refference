@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GCutProcess">
+<refmeta>
+<refentrytitle role="top_of_page" id="GCutProcess.top_of_page">外部コマンド</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>外部コマンド</refname>
+<refpurpose>外部コマンドを使うための便利API</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="GCutProcess.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis>#define             <link linkend="GCUT-PROCESS-ERROR:CAPS">GCUT_PROCESS_ERROR</link>
+                    <link linkend="GCutProcess-struct">GCutProcess</link>;
+                    <link linkend="GCutProcessClass">GCutProcessClass</link>;
+enum                <link linkend="GCutProcessError">GCutProcessError</link>;
+<link linkend="GQuark"><returnvalue>GQuark</returnvalue></link>              <link linkend="gcut-process-error-quark">gcut_process_error_quark</link>            (<parameter><type>void</type></parameter>);
+<link linkend="GCutProcess"><returnvalue>GCutProcess</returnvalue></link> *       <link linkend="gcut-process-new">gcut_process_new</link>                    (<parameter>const <link linkend="gchar"><type>gchar</type></link> *command</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="GCutProcess"><returnvalue>GCutProcess</returnvalue></link> *       <link linkend="gcut-process-new-command-line">gcut_process_new_command_line</link>       (<parameter>const <link linkend="gchar"><type>gchar</type></link> *command_line</parameter>);
+<link linkend="GCutProcess"><returnvalue>GCutProcess</returnvalue></link> *       <link linkend="gcut-process-new-va-list">gcut_process_new_va_list</link>            (<parameter>const <link linkend="gchar"><type>gchar</type></link> *command</parameter>,
+                                                         <parameter><link linkend="va-list"><type>va_list</type></link> args</parameter>);
+<link linkend="GCutProcess"><returnvalue>GCutProcess</returnvalue></link> *       <link linkend="gcut-process-new-argv">gcut_process_new_argv</link>               (<parameter><link linkend="gint"><type>gint</type></link> argc</parameter>,
+                                                         <parameter><link linkend="gchar"><type>gchar</type></link> **argv</parameter>);
+<link linkend="GCutProcess"><returnvalue>GCutProcess</returnvalue></link> *       <link linkend="gcut-process-new-strings">gcut_process_new_strings</link>            (<parameter>const <link linkend="gchar"><type>gchar</type></link> **command</parameter>);
+<link linkend="GCutProcess"><returnvalue>GCutProcess</returnvalue></link> *       <link linkend="gcut-process-new-array">gcut_process_new_array</link>              (<parameter><link linkend="GArray"><type>GArray</type></link> *command</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-process-set-flags">gcut_process_set_flags</link>              (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter><link linkend="GSpawnFlags"><type>GSpawnFlags</type></link> flags</parameter>);
+<link linkend="GSpawnFlags"><returnvalue>GSpawnFlags</returnvalue></link>         <link linkend="gcut-process-get-flags">gcut_process_get_flags</link>              (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-process-set-env">gcut_process_set_env</link>                (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="gchar"><returnvalue>gchar</returnvalue></link> **            <link linkend="gcut-process-get-env">gcut_process_get_env</link>                (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);
+<link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="gcut-process-run">gcut_process_run</link>                    (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);
+<link linkend="GPid"><returnvalue>GPid</returnvalue></link>                <link linkend="gcut-process-get-pid">gcut_process_get_pid</link>                (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);
+<link linkend="gint"><returnvalue>gint</returnvalue></link>                <link linkend="gcut-process-wait">gcut_process_wait</link>                   (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> timeout</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);
+<link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="gcut-process-kill">gcut_process_kill</link>                   (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> signal_number</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);
+<link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="gcut-process-write">gcut_process_write</link>                  (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *chunk</parameter>,
+                                                         <parameter><link linkend="gsize"><type>gsize</type></link> size</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);
+<link linkend="GIOStatus"><returnvalue>GIOStatus</returnvalue></link>           <link linkend="gcut-process-flush">gcut_process_flush</link>                  (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);
+<link linkend="GString"><returnvalue>GString</returnvalue></link> *           <link linkend="gcut-process-get-output-string">gcut_process_get_output_string</link>      (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);
+<link linkend="GString"><returnvalue>GString</returnvalue></link> *           <link linkend="gcut-process-get-error-string">gcut_process_get_error_string</link>       (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);
+<link linkend="GIOChannel"><returnvalue>GIOChannel</returnvalue></link> *        <link linkend="gcut-process-get-input-channel">gcut_process_get_input_channel</link>      (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);
+<link linkend="GIOChannel"><returnvalue>GIOChannel</returnvalue></link> *        <link linkend="gcut-process-get-output-channel">gcut_process_get_output_channel</link>     (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);
+<link linkend="GIOChannel"><returnvalue>GIOChannel</returnvalue></link> *        <link linkend="gcut-process-get-error-channel">gcut_process_get_error_channel</link>      (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);
+<link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link> *      <link linkend="gcut-process-get-output-stream">gcut_process_get_output_stream</link>      (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);
+<link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link> *      <link linkend="gcut-process-get-error-stream">gcut_process_get_error_stream</link>       (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="gcut-process-get-forced-termination-wait-time">gcut_process_get_forced_termination_wait_time</link>
+                                                        (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-process-set-forced-termination-wait-time">gcut_process_set_forced_termination_wait_time</link>
+                                                        (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> timeout</parameter>);
+<link linkend="GCutEventLoop"><returnvalue>GCutEventLoop</returnvalue></link> *     <link linkend="gcut-process-get-event-loop">gcut_process_get_event_loop</link>         (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-process-set-event-loop">gcut_process_set_event_loop</link>         (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>);
+</synopsis>
+</refsynopsisdiv>
+<refsect1 id="GCutProcess.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">オブジェクト階層</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GCutProcess
+</synopsis>
+</refsect1>
+<refsect1 id="GCutProcess.properties" role="properties">
+<title role="properties.title">プロパティ</title>
+<synopsis>
+  "<link linkend="GCutProcess--command">command</link>"                  <link linkend="gpointer"><type>gpointer</type></link>              : Read / Write
+</synopsis>
+</refsect1>
+<refsect1 id="GCutProcess.signals" role="signal_proto">
+<title role="signal_proto.title">シグナル</title>
+<synopsis>
+  "<link linkend="GCutProcess-error">error</link>"                                          : Run Last
+  "<link linkend="GCutProcess-error-received">error-received</link>"                                 : Run Last
+  "<link linkend="GCutProcess-output-received">output-received</link>"                                : Run Last
+  "<link linkend="GCutProcess-reaped">reaped</link>"                                         : Run Last
+</synopsis>
+</refsect1>
+
+<refsect1 id="GCutProcess.description" role="desc">
+<title role="desc.title">説明</title>
+<para><link linkend="GCutProcess"><type>GCutProcess</type></link>は外部コマンドの実行・通信・終了をカプセル化します。<link linkend="GCutProcess"><type>GCutProcess</type></link>はエラーを<link linkend="GError"><type>GError</type></link>として報告します。エラーは<link linkend="gcut-assert-error"><function>gcut_assert_error()</function></link>を使うことにより簡単に検証できます。</para>
+<para>外部コマンドは<link linkend="gcut-process-new"><function>gcut_process_new()</function></link>、<link linkend="gcut-process-new-strings"><function>gcut_process_new_strings()</function></link>などのようなコンストラクタで指定します。この時点では外部コマンドは実行されません。<link linkend="gcut-process-hatch"><function>gcut_process_hatch()</function></link>で指定された外部コマンドが実行されます。</para>
+<para>外部コマンドの標準出力・エラー出力は<link linkend="GCutProcess-output-received"><type>"output-received"</type></link>シグナル・<link linkend="GCutProcess-error-received"><type>"error-received"</type></link>シグナル、あるいは、<link linkend="gcut-process-get-output"><function>gcut_process_get_output()</function></link>・<link linkend="gcut-process-get-error"><function>gcut_process_get_error()</function></link>が返す<link linkend="GIOChannel"><type>GIOChannel</type></link>で取得できます。<link linkend="gcut-process-write"><function>gcut_process_write()</function></link>は外部コマンドの標準入力にデータを書き込みます。</para>
+<para>外部コマンドの終了を待つためには<link linkend="gcut-process-wait"><function>gcut_process_wait()</function></link>を使うことができます。無限待ちを避けるために、タイムアウトを指定することができます。</para>
+<para>例: <informalexample><programlisting>
+static GString *output_string;
+static GCutProcess *process;
+
+void
+cut_setup (void)
+{
+    output_string = g_string_new(NULL);
+    process = NULL;
+}
+
+void
+cut_teardown (void)
+{
+    if (output_string)
+        g_string_free(output_string, TRUE);
+    if (process)
+        g_object_unref(process);
+}
+
+static void
+cb_output_received (GCutProcess *process, const gchar *chunk, gsize size,
+                    gpointer user_data)
+{
+    g_string_append_len(output_string, chunk, size);
+}
+
+void
+test_echo (void)
+{
+    GError *error = NULL;
+
+    process = gcut_process_new("echo", "XXX", NULL);
+    g_signal_connect(process, "receive-output",
+                     G_CALLBACK(cb_output_received), NULL);
+
+    gcut_process_run(process, &amp;error);
+    gcut_assert_error(error);
+
+    gcut_process_wait(process, 1000, &amp;error);
+    gcut_assert_error(error);
+    cut_assert_equal_string("XXX\n", output_string-&gt;str);
+}
+</programlisting></informalexample></para>
+</refsect1>
+<refsect1 id="GCutProcess.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="GCUT-PROCESS-ERROR:CAPS" role="macro">
+<title>GCUT_PROCESS_ERROR</title>
+<indexterm zone="GCUT-PROCESS-ERROR:CAPS"><primary>GCUT_PROCESS_ERROR</primary></indexterm>
+<programlisting>#define GCUT_PROCESS_ERROR           (gcut_process_error_quark())
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="GCutProcess-struct" role="struct">
+<title>GCutProcess</title>
+<indexterm zone="GCutProcess-struct"><primary>GCutProcess</primary></indexterm>
+<programlisting>typedef struct _GCutProcess GCutProcess;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="GCutProcessClass" role="struct">
+<title>GCutProcessClass</title>
+<indexterm zone="GCutProcessClass"><primary>GCutProcessClass</primary></indexterm>
+<programlisting>typedef struct {
+    GObjectClass parent_class;
+
+    void (*output_received) (GCutProcess *process,
+                             const gchar *chunk,
+                             gsize        size);
+    void (*error_received)  (GCutProcess *process,
+                             const gchar *chunk,
+                             gsize        size);
+    void (*reaped)          (GCutProcess *process,
+                             gint         status);
+    void (*error)           (GCutProcess *process,
+                             GError      *error);
+} GCutProcessClass;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="GCutProcessError" role="enum" condition="since:1.1.5">
+<title>enum GCutProcessError</title>
+<indexterm zone="GCutProcessError" role="1.1.5"><primary>GCutProcessError</primary></indexterm>
+<programlisting>typedef enum
+{
+    GCUT_PROCESS_ERROR_COMMAND_LINE,
+    GCUT_PROCESS_ERROR_IO_ERROR,
+    GCUT_PROCESS_ERROR_ALREADY_RUNNING,
+    GCUT_PROCESS_ERROR_NOT_RUNNING,
+    GCUT_PROCESS_ERROR_INVALID_OBJECT,
+    GCUT_PROCESS_ERROR_INVALID_SIGNAL,
+    GCUT_PROCESS_ERROR_PERMISSION_DENIED,
+    GCUT_PROCESS_ERROR_TIMEOUT
+} GCutProcessError;
+</programlisting>
+<para><link linkend="GCutProcess"><type>GCutProcess</type></link>関連の操作で返されるエラーコード。</para><variablelist role="enum">
+<varlistentry id="GCUT-PROCESS-ERROR-COMMAND-LINE:CAPS" role="constant">
+<term><literal>GCUT_PROCESS_ERROR_COMMAND_LINE</literal></term>
+<listitem><simpara>コマンドライン関連のエラー。</simpara></listitem>
+</varlistentry>
+<varlistentry id="GCUT-PROCESS-ERROR-IO-ERROR:CAPS" role="constant">
+<term><literal>GCUT_PROCESS_ERROR_IO_ERROR</literal></term>
+<listitem><simpara>入出力エラー。</simpara></listitem>
+</varlistentry>
+<varlistentry id="GCUT-PROCESS-ERROR-ALREADY-RUNNING:CAPS" role="constant">
+<term><literal>GCUT_PROCESS_ERROR_ALREADY_RUNNING</literal></term>
+<listitem><simpara>外部コマンドはすでに実行されています。</simpara></listitem>
+</varlistentry>
+<varlistentry id="GCUT-PROCESS-ERROR-NOT-RUNNING:CAPS" role="constant">
+<term><literal>GCUT_PROCESS_ERROR_NOT_RUNNING</literal></term>
+<listitem><simpara>外部こもアンドが実行されていません。</simpara></listitem>
+</varlistentry>
+<varlistentry id="GCUT-PROCESS-ERROR-INVALID-OBJECT:CAPS" role="constant">
+<term><literal>GCUT_PROCESS_ERROR_INVALID_OBJECT</literal></term>
+<listitem><simpara>不正な<link linkend="GCutProcess"><type>GCutProcess</type></link>オブジェクトが渡されました。</simpara></listitem>
+</varlistentry>
+<varlistentry id="GCUT-PROCESS-ERROR-INVALID-SIGNAL:CAPS" role="constant">
+<term><literal>GCUT_PROCESS_ERROR_INVALID_SIGNAL</literal></term>
+<listitem><simpara>不正なシグナルが渡されました。</simpara></listitem>
+</varlistentry>
+<varlistentry id="GCUT-PROCESS-ERROR-PERMISSION-DENIED:CAPS" role="constant">
+<term><literal>GCUT_PROCESS_ERROR_PERMISSION_DENIED</literal></term>
+<listitem><simpara>許可がありません。</simpara></listitem>
+</varlistentry>
+<varlistentry id="GCUT-PROCESS-ERROR-TIMEOUT:CAPS" role="constant">
+<term><literal>GCUT_PROCESS_ERROR_TIMEOUT</literal></term>
+<listitem><simpara>タイムアウト。</simpara></listitem>
+</varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-error-quark" role="function">
+<title>gcut_process_error_quark ()</title>
+<indexterm zone="gcut-process-error-quark"><primary>gcut_process_error_quark</primary></indexterm>
+<programlisting><link linkend="GQuark"><returnvalue>GQuark</returnvalue></link>              gcut_process_error_quark            (<parameter><type>void</type></parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-process-new" role="function" condition="since:1.1.5">
+<title>gcut_process_new ()</title>
+<indexterm zone="gcut-process-new" role="1.1.5"><primary>gcut_process_new</primary></indexterm>
+<programlisting><link linkend="GCutProcess"><returnvalue>GCutProcess</returnvalue></link> *       gcut_process_new                    (<parameter>const <link linkend="gchar"><type>gchar</type></link> *command</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>command</parameter>を実行する新しい<link linkend="GCutProcess"><type>GCutProcess</type></link>オブジェクトを生成します。</para><variablelist role="params">
+<varlistentry><term><parameter>command</parameter> :</term>
+<listitem><simpara>実行する外部コマンド名。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara><parameter>command</parameter>の引数</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link>オブジェクト。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-new-command-line" role="function" condition="since:1.1.5">
+<title>gcut_process_new_command_line ()</title>
+<indexterm zone="gcut-process-new-command-line" role="1.1.5"><primary>gcut_process_new_command_line</primary></indexterm>
+<programlisting><link linkend="GCutProcess"><returnvalue>GCutProcess</returnvalue></link> *       gcut_process_new_command_line       (<parameter>const <link linkend="gchar"><type>gchar</type></link> *command_line</parameter>);</programlisting>
+<para><parameter>command_line</parameter>を実行する新しい<link linkend="GCutProcess"><type>GCutProcess</type></link>オブジェクトを生成します。</para><variablelist role="params">
+<varlistentry><term><parameter>command_line</parameter> :</term>
+<listitem><simpara>コマンドライン</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link>オブジェクト。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-new-va-list" role="function" condition="since:1.1.5">
+<title>gcut_process_new_va_list ()</title>
+<indexterm zone="gcut-process-new-va-list" role="1.1.5"><primary>gcut_process_new_va_list</primary></indexterm>
+<programlisting><link linkend="GCutProcess"><returnvalue>GCutProcess</returnvalue></link> *       gcut_process_new_va_list            (<parameter>const <link linkend="gchar"><type>gchar</type></link> *command</parameter>,
+                                                         <parameter><link linkend="va-list"><type>va_list</type></link> args</parameter>);</programlisting>
+<para><parameter>command</parameter>を実行する新しい<link linkend="GCutProcess"><type>GCutProcess</type></link>オブジェクトを生成します。</para><variablelist role="params">
+<varlistentry><term><parameter>command</parameter> :</term>
+<listitem><simpara>実行する外部コマンド名。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>args</parameter> :</term>
+<listitem><simpara><parameter>command</parameter>の引数</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link>オブジェクト。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-new-argv" role="function" condition="since:1.1.5">
+<title>gcut_process_new_argv ()</title>
+<indexterm zone="gcut-process-new-argv" role="1.1.5"><primary>gcut_process_new_argv</primary></indexterm>
+<programlisting><link linkend="GCutProcess"><returnvalue>GCutProcess</returnvalue></link> *       gcut_process_new_argv               (<parameter><link linkend="gint"><type>gint</type></link> argc</parameter>,
+                                                         <parameter><link linkend="gchar"><type>gchar</type></link> **argv</parameter>);</programlisting>
+<para><parameter>command</parameter>を実行する新しい<link linkend="GCutProcess"><type>GCutProcess</type></link>オブジェクトを生成します。</para><variablelist role="params">
+<varlistentry><term><parameter>argc</parameter> :</term>
+<listitem><simpara><parameter>argv</parameter>の要素数</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>argv</parameter> :</term>
+<listitem><simpara>実行する外部コマンド名とコマンド引数。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link>オブジェクト。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-new-strings" role="function" condition="since:1.1.5">
+<title>gcut_process_new_strings ()</title>
+<indexterm zone="gcut-process-new-strings" role="1.1.5"><primary>gcut_process_new_strings</primary></indexterm>
+<programlisting><link linkend="GCutProcess"><returnvalue>GCutProcess</returnvalue></link> *       gcut_process_new_strings            (<parameter>const <link linkend="gchar"><type>gchar</type></link> **command</parameter>);</programlisting>
+<para><parameter>command</parameter>を実行する新しい<link linkend="GCutProcess"><type>GCutProcess</type></link>オブジェクトを生成します。</para><variablelist role="params">
+<varlistentry><term><parameter>command</parameter> :</term>
+<listitem><simpara>実行する外部コマンド名とコマンド引数。<link linkend="NULL:CAPS"><literal>NULL</literal></link>終端。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link>オブジェクト。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-new-array" role="function" condition="since:1.1.5">
+<title>gcut_process_new_array ()</title>
+<indexterm zone="gcut-process-new-array" role="1.1.5"><primary>gcut_process_new_array</primary></indexterm>
+<programlisting><link linkend="GCutProcess"><returnvalue>GCutProcess</returnvalue></link> *       gcut_process_new_array              (<parameter><link linkend="GArray"><type>GArray</type></link> *command</parameter>);</programlisting>
+<para><parameter>command</parameter>を実行する新しい<link linkend="GCutProcess"><type>GCutProcess</type></link>オブジェクトを生成します。</para><variablelist role="params">
+<varlistentry><term><parameter>command</parameter> :</term>
+<listitem><simpara>実行する外部コマンド名とコマンド引数。<link linkend="GArray"><type>GArray</type></link>は0終端にして下さい。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link>オブジェクト。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-set-flags" role="function" condition="since:1.1.5">
+<title>gcut_process_set_flags ()</title>
+<indexterm zone="gcut-process-set-flags" role="1.1.5"><primary>gcut_process_set_flags</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_process_set_flags              (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter><link linkend="GSpawnFlags"><type>GSpawnFlags</type></link> flags</parameter>);</programlisting>
+<para>外部コマンドを実行するときの<parameter>flags</parameter>を設定します。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter> :</term>
+<listitem><simpara><link linkend="g-spawn-async-with-pipes"><function>g_spawn_async_with_pipes()</function></link>に渡すフラグ。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-get-flags" role="function" condition="since:1.1.5">
+<title>gcut_process_get_flags ()</title>
+<indexterm zone="gcut-process-get-flags" role="1.1.5"><primary>gcut_process_get_flags</primary></indexterm>
+<programlisting><link linkend="GSpawnFlags"><returnvalue>GSpawnFlags</returnvalue></link>         gcut_process_get_flags              (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);</programlisting>
+<para>外部コマンドを実行する時の<parameter>flags</parameter>を取得します。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>外部コマンドを実行するときのフラグ。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-set-env" role="function" condition="since:1.1.5">
+<title>gcut_process_set_env ()</title>
+<indexterm zone="gcut-process-set-env" role="1.1.5"><primary>gcut_process_set_env</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_process_set_env                (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para>外部コマンドの環境変数を設定します。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter> :</term>
+<listitem><simpara>最初の環境変数名。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara><parameter>name</parameter>に対応する値。その後に、名前と値のペアを任意の数だけ指定します。最後の引数は<link linkend="NULL:CAPS"><literal>NULL</literal></link>にしてください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-get-env" role="function" condition="since:1.1.5">
+<title>gcut_process_get_env ()</title>
+<indexterm zone="gcut-process-get-env" role="1.1.5"><primary>gcut_process_get_env</primary></indexterm>
+<programlisting><link linkend="gchar"><returnvalue>gchar</returnvalue></link> **            gcut_process_get_env                (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);</programlisting>
+<para>外部コマンドの環境変数を取得します。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>新しく割り当てられた<link linkend="NULL:CAPS"><literal>NULL</literal></link>終端の環境変数のリスト（"名前1=値1", "名前2=値2", ..., <link linkend="NULL:CAPS"><literal>NULL</literal></link>）を返します。必要がなくなったら<link linkend="g-strfreev"><function>g_strfreev()</function></link>で開放してください。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-run" role="function" condition="since:1.1.5">
+<title>gcut_process_run ()</title>
+<indexterm zone="gcut-process-run" role="1.1.5"><primary>gcut_process_run</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            gcut_process_run                    (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>新しい外部プロセスを実行します。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>エラーを返すアドレスまたは<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>成功したときは<link linkend="TRUE:CAPS"><literal>TRUE</literal></link>、そうでない場合は<link linkend="FALSE:CAPS"><literal>FALSE</literal></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-get-pid" role="function" condition="since:1.1.5">
+<title>gcut_process_get_pid ()</title>
+<indexterm zone="gcut-process-get-pid" role="1.1.5"><primary>gcut_process_get_pid</primary></indexterm>
+<programlisting><link linkend="GPid"><returnvalue>GPid</returnvalue></link>                gcut_process_get_pid                (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);</programlisting>
+<para>実行している外部プロセスのプロセスIDを取得します。外部コマンドが実行されていない場合は0が返ります。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>実行中の外部コマンドのプロセスID。実行していない場合は0。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-wait" role="function" condition="since:1.1.5">
+<title>gcut_process_wait ()</title>
+<indexterm zone="gcut-process-wait" role="1.1.5"><primary>gcut_process_wait</primary></indexterm>
+<programlisting><link linkend="gint"><returnvalue>gint</returnvalue></link>                gcut_process_wait                   (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> timeout</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>実行中の外部プロセスが終了することを<parameter>timeout</parameter>ミリ秒待ちます。外部コマンドが<parameter>timeout</parameter>ミリ秒以内に終了しなかった場合は、<link linkend="GCUT-PROCESS-ERROR-TIMEOUT:CAPS"><literal>GCUT_PROCESS_ERROR_TIMEOUT</literal></link>エラーが設定され、-1が返ります。外部プロセスが実行されていない場合は、<link linkend="GCUT-PROCESS-ERROR-NOT-RUNNING:CAPS"><literal>GCUT_PROCESS_ERROR_NOT_RUNNING</literal></link>エラーが設定され、-1が返ります。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><parameter>timeout</parameter> :</term>
+<listitem><simpara>タイムアウト時間（ミリ秒）</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>エラーを返すアドレスまたは<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>外部プロセスが終了した場合は終了ステータス。そうでない場合は-1。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-kill" role="function" condition="since:1.1.5">
+<title>gcut_process_kill ()</title>
+<indexterm zone="gcut-process-kill" role="1.1.5"><primary>gcut_process_kill</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            gcut_process_kill                   (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> signal_number</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>外部プロセスに<parameter>signal_number</parameter>シグナルを送ります。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><parameter>signal_number</parameter> :</term>
+<listitem><simpara>外部プロセスに送るシグナル番号。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>エラーを返すアドレスまたは<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>成功したときは<link linkend="TRUE:CAPS"><literal>TRUE</literal></link>、そうでない場合は<link linkend="FALSE:CAPS"><literal>FALSE</literal></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-write" role="function" condition="since:1.1.5">
+<title>gcut_process_write ()</title>
+<indexterm zone="gcut-process-write" role="1.1.5"><primary>gcut_process_write</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            gcut_process_write                  (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *chunk</parameter>,
+                                                         <parameter><link linkend="gsize"><type>gsize</type></link> size</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>外部プロセスの標準入力に<parameter>chunk</parameter>を書き込みます。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chunk</parameter> :</term>
+<listitem><simpara>書き込むデータ</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>size</parameter> :</term>
+<listitem><simpara><parameter>chunk</parameter>のサイズ</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>エラーを返すアドレスまたは<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>成功したときは<link linkend="TRUE:CAPS"><literal>TRUE</literal></link>、そうでない場合は<link linkend="FALSE:CAPS"><literal>FALSE</literal></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-flush" role="function" condition="since:1.1.5">
+<title>gcut_process_flush ()</title>
+<indexterm zone="gcut-process-flush" role="1.1.5"><primary>gcut_process_flush</primary></indexterm>
+<programlisting><link linkend="GIOStatus"><returnvalue>GIOStatus</returnvalue></link>           gcut_process_flush                  (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>外部プロセスの標準出力から読み込んだデータ。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>エラーを返すアドレスまたは<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara> the status of the operation: One of
+         <link linkend="G-IO-STATUS-NORMAL:CAPS"><literal>G_IO_STATUS_NORMAL</literal></link>, <link linkend="G-IO-STATUS-AGAIN:CAPS"><literal>G_IO_STATUS_AGAIN</literal></link>, or
+         <link linkend="G-IO-STATUS-ERROR:CAPS"><literal>G_IO_STATUS_ERROR</literal></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-get-output-string" role="function" condition="since:1.1.5">
+<title>gcut_process_get_output_string ()</title>
+<indexterm zone="gcut-process-get-output-string" role="1.1.5"><primary>gcut_process_get_output_string</primary></indexterm>
+<programlisting><link linkend="GString"><returnvalue>GString</returnvalue></link> *           gcut_process_get_output_string      (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);</programlisting>
+<variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>外部プロセスの標準出力の結果をすべて持った<link linkend="GString"><type>GString</type></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-get-error-string" role="function" condition="since:1.1.5">
+<title>gcut_process_get_error_string ()</title>
+<indexterm zone="gcut-process-get-error-string" role="1.1.5"><primary>gcut_process_get_error_string</primary></indexterm>
+<programlisting><link linkend="GString"><returnvalue>GString</returnvalue></link> *           gcut_process_get_error_string       (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);</programlisting>
+<variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>外部プロセスの標準エラー出力の結果をすべて持った<link linkend="GString"><type>GString</type></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-get-input-channel" role="function" condition="since:1.1.5">
+<title>gcut_process_get_input_channel ()</title>
+<indexterm zone="gcut-process-get-input-channel" role="1.1.5"><primary>gcut_process_get_input_channel</primary></indexterm>
+<programlisting><link linkend="GIOChannel"><returnvalue>GIOChannel</returnvalue></link> *        gcut_process_get_input_channel      (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);</programlisting>
+<para>外部プロセスの標準入力と結びついた<link linkend="GIOChannel"><type>GIOChannel</type></link>を取得します。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>外部プロセスが実行中の場合は<link linkend="GIOChannel"><type>GIOChannel</type></link>。そうでない場合は<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-get-output-channel" role="function" condition="since:1.1.5">
+<title>gcut_process_get_output_channel ()</title>
+<indexterm zone="gcut-process-get-output-channel" role="1.1.5"><primary>gcut_process_get_output_channel</primary></indexterm>
+<programlisting><link linkend="GIOChannel"><returnvalue>GIOChannel</returnvalue></link> *        gcut_process_get_output_channel     (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);</programlisting>
+<para>外部プロセスの標準出力と結びついた<link linkend="GIOChannel"><type>GIOChannel</type></link>を取得します。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>外部プロセスが実行中の場合は<link linkend="GIOChannel"><type>GIOChannel</type></link>。そうでない場合は<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-get-error-channel" role="function" condition="since:1.1.5">
+<title>gcut_process_get_error_channel ()</title>
+<indexterm zone="gcut-process-get-error-channel" role="1.1.5"><primary>gcut_process_get_error_channel</primary></indexterm>
+<programlisting><link linkend="GIOChannel"><returnvalue>GIOChannel</returnvalue></link> *        gcut_process_get_error_channel      (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);</programlisting>
+<para>外部プロセスのエラー出力に結びついた<link linkend="GIOChannel"><type>GIOChannel</type></link>を返します。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>外部プロセスが実行中の場合は<link linkend="GIOChannel"><type>GIOChannel</type></link>。そうでない場合は<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-get-output-stream" role="function" condition="since:1.1.5">
+<title>gcut_process_get_output_stream ()</title>
+<indexterm zone="gcut-process-get-output-stream" role="1.1.5"><primary>gcut_process_get_output_stream</primary></indexterm>
+<programlisting><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link> *      gcut_process_get_output_stream      (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);</programlisting>
+<para>外部プロセスの標準出力と結びついた<link linkend="GInputStream"><type>GInputStream</type></link>を取得します。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>外部プロセスが実行中の場合は<link linkend="GInputStream"><type>GInputStream</type></link>。そうでない場合は<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-get-error-stream" role="function" condition="since:1.1.5">
+<title>gcut_process_get_error_stream ()</title>
+<indexterm zone="gcut-process-get-error-stream" role="1.1.5"><primary>gcut_process_get_error_stream</primary></indexterm>
+<programlisting><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link> *      gcut_process_get_error_stream       (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);</programlisting>
+<para>外部プロセスの標準エラー出力に結びついた<link linkend="GInputStream"><type>GInputStream</type></link>を返します。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>外部プロセスが実行中の場合は<link linkend="GInputStream"><type>GInputStream</type></link>。そうでない場合は<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-get-forced-termination-wait-time" role="function" condition="since:1.1.5">
+<title>gcut_process_get_forced_termination_wait_time ()</title>
+<indexterm zone="gcut-process-get-forced-termination-wait-time" role="1.1.5"><primary>gcut_process_get_forced_termination_wait_time</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               gcut_process_get_forced_termination_wait_time
+                                                        (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);</programlisting>
+<para>オブジェクトが破棄されるときに行われる外部コマンド強制終了後に待つ時間（ミリ秒）を取得します。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>破棄時の強制終了待ちの時間。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-set-forced-termination-wait-time" role="function" condition="since:1.1.5">
+<title>gcut_process_set_forced_termination_wait_time ()</title>
+<indexterm zone="gcut-process-set-forced-termination-wait-time" role="1.1.5"><primary>gcut_process_set_forced_termination_wait_time</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_process_set_forced_termination_wait_time
+                                                        (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> timeout</parameter>);</programlisting>
+<para>オブジェクトが破棄されるときに行われる外部コマンド強制終了時に待つ時間（ミリ秒）を設定します。<parameter>timeout</parameter>が0なら外部コマンドの終了を待ちません。デフォルト値は10です。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><parameter>timeout</parameter> :</term>
+<listitem><simpara>タイムアウト時間（ミリ秒）</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+<refsect2 id="gcut-process-get-event-loop" role="function" condition="since:1.1.6">
+<title>gcut_process_get_event_loop ()</title>
+<indexterm zone="gcut-process-get-event-loop" role="1.1.6"><primary>gcut_process_get_event_loop</primary></indexterm>
+<programlisting><link linkend="GCutEventLoop"><returnvalue>GCutEventLoop</returnvalue></link> *     gcut_process_get_event_loop         (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>);</programlisting>
+<para><parameter>process</parameter>が使っているイベントループを取得します。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+<refsect2 id="gcut-process-set-event-loop" role="function" condition="since:1.1.6">
+<title>gcut_process_set_event_loop ()</title>
+<indexterm zone="gcut-process-set-event-loop" role="1.1.6"><primary>gcut_process_set_event_loop</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_process_set_event_loop         (<parameter><link linkend="GCutProcess"><type>GCutProcess</type></link> *process</parameter>,
+                                                         <parameter><link linkend="GCutEventLoop"><type>GCutEventLoop</type></link> *loop</parameter>);</programlisting>
+<para><parameter>process</parameter>のイベントループを設定します。<parameter>loop</parameter>が<link linkend="NULL:CAPS"><literal>NULL</literal></link>なら、デフォルトのGLibイベントループが使われます。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara><link linkend="GCutProcess"><type>GCutProcess</type></link></simpara></listitem></varlistentry>
+<varlistentry><term><parameter>loop</parameter> :</term>
+<listitem><simpara>イベントループまたは<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+
+</refsect1>
+<refsect1 id="GCutProcess.property-details" role="property_details">
+<title role="property_details.title">プロパティ詳細</title>
+<refsect2 id="GCutProcess--command" role="property"><title><literal>"command"</literal>プロパティ</title>
+<indexterm zone="GCutProcess--command"><primary>GCutProcess:command</primary></indexterm>
+<programlisting>  "command"                  <link linkend="gpointer"><type>gpointer</type></link>              : Read / Write</programlisting>
+<para>このプロセスが実行する外部コマンド。</para></refsect2>
+</refsect1>
+<refsect1 id="GCutProcess.signal-details" role="signals">
+<title role="signals.title">シグナル詳細</title>
+<refsect2 id="GCutProcess-error" role="signal"><title><literal>"error"</literal>シグナル</title>
+<indexterm zone="GCutProcess-error" role="1.1.5"><primary>GCutProcess::error</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                user_function                      (<link linkend="GCutProcess"><type>GCutProcess</type></link> *process,
+                                                        <link linkend="gpointer"><type>gpointer</type></link>     error,
+                                                        <link linkend="gpointer"><type>gpointer</type></link>     user_data)      : Run Last</programlisting>
+<para>外部プロセス関連のエラーが発生した毎に発行されます。（例: 入出力エラー）</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara>シグナルを受け取るオブジェクト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>外部プロセスのエラー。（<link linkend="GError"><literal>GError</literal></link>）</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>シグナルハンドラが接続された時にユーザが指定したデータ。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2><refsect2 id="GCutProcess-error-received" role="signal"><title><literal>"error-received"</literal>シグナル</title>
+<indexterm zone="GCutProcess-error-received" role="1.1.5"><primary>GCutProcess::error-received</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                user_function                      (<link linkend="GCutProcess"><type>GCutProcess</type></link> *process,
+                                                        <link linkend="gchar"><type>gchar</type></link>       *chunk,
+                                                        <link linkend="guint64"><type>guint64</type></link>      size,
+                                                        <link linkend="gpointer"><type>gpointer</type></link>     user_data)      : Run Last</programlisting>
+<para>外部プロセスが標準エラー出力に出力したデータが読み込まれる毎に発行されます。</para>
+<para>外部コマンドの出力が読み取り可能になったかどうかを検出するために、<link linkend="g-main-loop-run"><function>g_main_loop_run()</function></link>や<link linkend="g-main-context-iteration"><function>g_main_context_iteration()</function></link>などでGLibのメインループをまわす必要があることに注意してください。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara>シグナルを受け取るオブジェクト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chunk</parameter> :</term>
+<listitem><simpara>外部プロセスの標準エラー出力から読み込んだデータ。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>size</parameter> :</term>
+<listitem><simpara><parameter>chunk</parameter>のサイズ。（<link linkend="gsize"><literal>gsize</literal></link>）</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>シグナルハンドラが接続された時にユーザが指定したデータ。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2><refsect2 id="GCutProcess-output-received" role="signal"><title><literal>"output-received"</literal>シグナル</title>
+<indexterm zone="GCutProcess-output-received" role="1.1.5"><primary>GCutProcess::output-received</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                user_function                      (<link linkend="GCutProcess"><type>GCutProcess</type></link> *process,
+                                                        <link linkend="gchar"><type>gchar</type></link>       *chunk,
+                                                        <link linkend="guint64"><type>guint64</type></link>      size,
+                                                        <link linkend="gpointer"><type>gpointer</type></link>     user_data)      : Run Last</programlisting>
+<para>外部プロセスが標準出力に出力したデータが読み込まれる毎に発行されます。</para>
+<para>外部コマンドの出力が読み取り可能になったかどうかを検出するために、<link linkend="g-main-loop-run"><function>g_main_loop_run()</function></link>や<link linkend="g-main-context-iteration"><function>g_main_context_iteration()</function></link>などでGLibのメインループをまわす必要があることに注意してください。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara>シグナルを受け取るオブジェクト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chunk</parameter> :</term>
+<listitem><simpara>外部プロセスの標準出力から読み込んだデータ。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>size</parameter> :</term>
+<listitem><simpara><parameter>chunk</parameter>のサイズ。（<link linkend="gsize"><literal>gsize</literal></link>）</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>シグナルハンドラが接続された時にユーザが指定したデータ。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2><refsect2 id="GCutProcess-reaped" role="signal"><title><literal>"reaped"</literal>シグナル</title>
+<indexterm zone="GCutProcess-reaped" role="1.1.5"><primary>GCutProcess::reaped</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                user_function                      (<link linkend="GCutProcess"><type>GCutProcess</type></link> *process,
+                                                        <link linkend="gint"><type>gint</type></link>         status,
+                                                        <link linkend="gpointer"><type>gpointer</type></link>     user_data)      : Run Last</programlisting>
+<para>外部プロセスが終了した時に発行されます。</para>
+<para>外部コマンドが終了したこと検出するために、<link linkend="g-main-loop-run"><function>g_main_loop_run()</function></link>や<link linkend="g-main-context-iteration"><function>g_main_context_iteration()</function></link>などでGLibのメインループをまわす必要があることに注意してください。</para><variablelist role="params">
+<varlistentry><term><parameter>process</parameter> :</term>
+<listitem><simpara>シグナルを受け取るオブジェクト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>status</parameter> :</term>
+<listitem><simpara>外部プロセスの終了ステータス。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>シグナルハンドラが接続された時にユーザが指定したデータ。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.5から</para></refsect2>
+</refsect1>
+
+</refentry>

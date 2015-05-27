@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkSpell</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="GtkSpell Manual">
+<link rel="up" href="reference.html" title="Part II. Function Reference">
+<link rel="prev" href="reference.html" title="Part II. Function Reference">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="tutorial.html" title="Part I. Tutorial">
+<link rel="chapter" href="chapter-tutorial.html" title="GtkSpell Tutorial">
+<link rel="part" href="reference.html" title="Part II. Function Reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="reference.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="reference.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GtkSpell Manual</th>
+<td> </td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtkspell-gtkspell.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#gtkspell-gtkspell.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="gtkspell-gtkspell"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtkspell-gtkspell.top_of_page"></a>GtkSpell</span></h2>
+<p>GtkSpell — GtkSpell objects and methods.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtkspell-gtkspell.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gtkspell/gtkspell.h&gt;
+
+                    <a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell">GtkSpell</a>;
+<a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell">GtkSpell</a>*           <a class="link" href="gtkspell-gtkspell.html#gtkspell-new-attach" title="gtkspell_new_attach ()">gtkspell_new_attach</a>                 (GtkTextView *view,
+                                                         const gchar *lang,
+                                                         GError **error);
+gboolean            <a class="link" href="gtkspell-gtkspell.html#gtkspell-set-language" title="gtkspell_set_language ()">gtkspell_set_language</a>               (<a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell">GtkSpell</a> *spell,
+                                                         const gchar *lang,
+                                                         GError **error);
+void                <a class="link" href="gtkspell-gtkspell.html#gtkspell-recheck-all" title="gtkspell_recheck_all ()">gtkspell_recheck_all</a>                (<a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell">GtkSpell</a> *spell);
+<a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell">GtkSpell</a>*           <a class="link" href="gtkspell-gtkspell.html#gtkspell-get-from-text-view" title="gtkspell_get_from_text_view ()">gtkspell_get_from_text_view</a>         (GtkTextView *view);
+void                <a class="link" href="gtkspell-gtkspell.html#gtkspell-detach" title="gtkspell_detach ()">gtkspell_detach</a>                     (<a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell">GtkSpell</a> *spell);
+#define             <a class="link" href="gtkspell-gtkspell.html#GTKSPELL-ERROR--CAPS" title="GTKSPELL_ERROR">GTKSPELL_ERROR</a>
+enum                <a class="link" href="gtkspell-gtkspell.html#GtkSpellError" title="enum GtkSpellError">GtkSpellError</a>;
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="gtkspell-gtkspell.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="gtkspell-gtkspell.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="GtkSpell"></a><h3>GtkSpell</h3>
+<pre class="programlisting">typedef struct _GtkSpell GtkSpell;</pre>
+<p>
+The opaque GtkSpell object.  It is created with <a class="link" href="gtkspell-gtkspell.html#gtkspell-new-attach" title="gtkspell_new_attach ()"><code class="function">gtkspell_new_attach()</code></a> and
+freed with <a class="link" href="gtkspell-gtkspell.html#gtkspell-detach" title="gtkspell_detach ()"><code class="function">gtkspell_detach()</code></a>.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtkspell-new-attach"></a><h3>gtkspell_new_attach ()</h3>
+<pre class="programlisting"><a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell">GtkSpell</a>*           gtkspell_new_attach                 (GtkTextView *view,
+                                                         const gchar *lang,
+                                                         GError **error);</pre>
+<p>
+Create a new <a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell"><span class="type">GtkSpell</span></a> object attached to <em class="parameter"><code>view</code></em> with language <em class="parameter"><code>lang</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td> The <span class="type">GtkTextView</span> to attach to.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lang</code></em> :</span></p></td>
+<td> The language to use, in a form pspell understands (it appears to
+be a locale specifier?).
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> Return location for error.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell"><span class="type">GtkSpell</span></a> object, or <code class="literal">NULL</code> on error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtkspell-set-language"></a><h3>gtkspell_set_language ()</h3>
+<pre class="programlisting">gboolean            gtkspell_set_language               (<a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell">GtkSpell</a> *spell,
+                                                         const gchar *lang,
+                                                         GError **error);</pre>
+<p>
+Set the language on <em class="parameter"><code>spell</code></em> to <em class="parameter"><code>lang</code></em>, possibily returning an error in
+<em class="parameter"><code>error</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spell</code></em> :</span></p></td>
+<td>  The <a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell"><span class="type">GtkSpell</span></a> object.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lang</code></em> :</span></p></td>
+<td> The language to use, in a form enchant understands (it appears to
+be a locale specifier?).
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> Return location for error.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> FALSE if there was an error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtkspell-recheck-all"></a><h3>gtkspell_recheck_all ()</h3>
+<pre class="programlisting">void                gtkspell_recheck_all                (<a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell">GtkSpell</a> *spell);</pre>
+<p>
+Recheck the spelling in the entire buffer.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>spell</code></em> :</span></p></td>
+<td>  The <a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell"><span class="type">GtkSpell</span></a> object.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtkspell-get-from-text-view"></a><h3>gtkspell_get_from_text_view ()</h3>
+<pre class="programlisting"><a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell">GtkSpell</a>*           gtkspell_get_from_text_view         (GtkTextView *view);</pre>
+<p>
+Retrieves the <a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell"><span class="type">GtkSpell</span></a> object attached to a text view.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td> A <span class="type">GtkTextView</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the <a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell"><span class="type">GtkSpell</span></a> object, or <code class="literal">NULL</code> if there is no <a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell"><span class="type">GtkSpell</span></a>
+attached to <em class="parameter"><code>view</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtkspell-detach"></a><h3>gtkspell_detach ()</h3>
+<pre class="programlisting">void                gtkspell_detach                     (<a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell">GtkSpell</a> *spell);</pre>
+<p>
+Detaches this <a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell"><span class="type">GtkSpell</span></a> from its text view.  Use
+<a class="link" href="gtkspell-gtkspell.html#gtkspell-get-from-text-view" title="gtkspell_get_from_text_view ()"><code class="function">gtkspell_get_from_text_view()</code></a> to retrieve a GtkSpell from a
+<span class="type">GtkTextView</span>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>spell</code></em> :</span></p></td>
+<td> A <a class="link" href="gtkspell-gtkspell.html#GtkSpell" title="GtkSpell"><span class="type">GtkSpell</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GTKSPELL-ERROR--CAPS"></a><h3>GTKSPELL_ERROR</h3>
+<pre class="programlisting">#define GTKSPELL_ERROR gtkspell_error_quark()
+</pre>
+<p>
+Error domain for GtkSpell functions. Errors in this domain will be from the
+<a class="link" href="gtkspell-gtkspell.html#GtkSpellError" title="enum GtkSpellError"><span class="type">GtkSpellError</span></a> enumeration. See <span class="type">GError</span> for information on error domains.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GtkSpellError"></a><h3>enum GtkSpellError</h3>
+<pre class="programlisting">typedef enum {
+	GTKSPELL_ERROR_BACKEND
+} GtkSpellError;
+</pre>
+<p>
+Currently there is only one type of error that GtkSpell can report.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><a name="GTKSPELL-ERROR-BACKEND--CAPS"></a><span class="term"><code class="literal">GTKSPELL_ERROR_BACKEND</code></span></p></td>
+<td> Spell backend reported an error.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

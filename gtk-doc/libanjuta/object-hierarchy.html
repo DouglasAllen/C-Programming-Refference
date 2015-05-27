@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Object Hierarchy</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="prev" href="libanjuta-libanjuta-iface-marshallers.html" title="libanjuta-iface-marshallers">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="libanjuta-libanjuta-iface-marshallers.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td> </td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td> </td>
+</tr></table>
+<div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="object-hierarchy"></a>Object Hierarchy</h2></div></div></div>
+<pre class="screen">
+    <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+        <a href="http://library.gnome.org/devel/gobject/unstable/GTypeModule.html">GTypeModule</a>
+            <a class="link" href="AnjutaCModule.html" title="AnjutaCModule">AnjutaCModule</a>
+        <a class="link" href="AnjutaCPluginFactory.html" title="AnjutaCPluginFactory">AnjutaCPluginFactory</a>
+        <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+            <a href="http://library.gnome.org/devel/gtk/GtkCellRenderer.html">GtkCellRenderer</a>
+                <a class="link" href="AnjutaCellRendererCaptionedImage.html" title="AnjutaCellRendererCaptionedImage">AnjutaCellRendererCaptionedImage</a>
+            <a href="http://library.gnome.org/devel/gtk/GtkWidget.html">GtkWidget</a>
+                <a href="http://library.gnome.org/devel/gtk/GtkContainer.html">GtkContainer</a>
+                    <a href="http://library.gnome.org/devel/gtk/GtkBox.html">GtkBox</a>
+                        <a href="http://library.gnome.org/devel/gtk/GtkHBox.html">GtkHBox</a>
+                            <a class="link" href="AnjutaStatus.html" title="AnjutaStatus">AnjutaStatus</a>
+                    <a href="http://library.gnome.org/devel/gtk/GtkBin.html">GtkBin</a>
+                        <a href="http://library.gnome.org/devel/gtk/GtkWindow.html">GtkWindow</a>
+                            <a href="http://library.gnome.org/devel/gtk/GtkDialog.html">GtkDialog</a>
+                                <a class="link" href="AnjutaPreferencesDialog.html" title="AnjutaPreferencesDialog">AnjutaPreferencesDialog</a>
+                                <a href="http://library.gnome.org/devel/gtk/GtkMessageDialog.html">GtkMessageDialog</a>
+                                    <a class="link" href="AnjutaSavePrompt.html" title="AnjutaSavePrompt">AnjutaSavePrompt</a>
+                            <a class="link" href="ESplash.html" title="ESplash">ESplash</a>
+                        <a href="http://library.gnome.org/devel/gtk/GtkButton.html">GtkButton</a>
+                            <a href="http://library.gnome.org/devel/gtk/GtkToggleButton.html">GtkToggleButton</a>
+                                AnjutaTreeComboBox
+            AnjutaProjectNode
+        <a class="link" href="AnjutaLauncher.html" title="AnjutaLauncher">AnjutaLauncher</a>
+        <a class="link" href="AnjutaPlugin.html" title="AnjutaPlugin">AnjutaPlugin</a>
+        <a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences">AnjutaPreferences</a>
+        <a class="link" href="AnjutaSerializer.html" title="AnjutaSerializer">AnjutaSerializer</a>
+        <a class="link" href="AnjutaSession.html" title="AnjutaSession">AnjutaSession</a>
+        AnjutaTokenFile
+        <a href="http://library.gnome.org/devel/gtk/GtkUIManager.html">GtkUIManager</a>
+            <a class="link" href="AnjutaUI.html" title="AnjutaUI">AnjutaUI</a>
+    GBoxed
+        <a class="link" href="libanjuta-anjuta-encodings.html#AnjutaEncoding">AnjutaEncoding</a>
+        AnjutaProjectNodeInfo
+        AnjutaProjectProperty
+        AnjutaProjectPropertyInfo
+    GEnum
+        <a class="link" href="libanjuta-IAnjutaBuildable.html#IAnjutaBuildableCommand">IAnjutaBuildableCommand</a>
+        <a class="link" href="libanjuta-IAnjutaBuilder.html#IAnjutaBuilderError">IAnjutaBuilderError</a>
+        <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointMethod">IAnjutaDebuggerBreakpointMethod</a>
+        <a class="link" href="libanjuta-IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointType">IAnjutaDebuggerBreakpointType</a>
+        <a class="link" href="libanjuta-IAnjutaDebugger.html#IAnjutaDebuggerError">IAnjutaDebuggerError</a>
+        <a class="link" href="libanjuta-IAnjutaDebugger.html#IAnjutaDebuggerOutputType">IAnjutaDebuggerOutputType</a>
+        <a class="link" href="libanjuta-IAnjutaDebugger.html#IAnjutaDebuggerState">IAnjutaDebuggerState</a>
+        <a class="link" href="libanjuta-IAnjutaDocumentManager.html#IAnjutaDocumentManagerError">IAnjutaDocumentManagerError</a>
+        <a class="link" href="libanjuta-IAnjutaEditor.html#IAnjutaEditorAttribute">IAnjutaEditorAttribute</a>
+        <a class="link" href="libanjuta-IAnjutaEditor.html#IAnjutaEditorError">IAnjutaEditorError</a>
+        <a class="link" href="libanjuta-IAnjutaEditorLineMode.html#IAnjutaEditorLineModeType">IAnjutaEditorLineModeType</a>
+        <a class="link" href="libanjuta-IAnjutaEnvironment.html#IAnjutaEnvironmentError">IAnjutaEnvironmentError</a>
+        <a class="link" href="libanjuta-IAnjutaIndicable.html#IAnjutaIndicableIndicator">IAnjutaIndicableIndicator</a>
+        <a class="link" href="libanjuta-IAnjutaMarkable.html#IAnjutaMarkableError">IAnjutaMarkableError</a>
+        <a class="link" href="libanjuta-IAnjutaMarkable.html#IAnjutaMarkableMarker">IAnjutaMarkableMarker</a>
+        <a class="link" href="libanjuta-IAnjutaMessageManager.html#IAnjutaMessageManagerError">IAnjutaMessageManagerError</a>
+        <a class="link" href="libanjuta-IAnjutaMessageView.html#IAnjutaMessageViewType">IAnjutaMessageViewType</a>
+        <a class="link" href="libanjuta-IAnjutaPluginFactory.html#IAnjutaPluginFactoryError">IAnjutaPluginFactoryError</a>
+        IAnjutaProjectError
+        IAnjutaProjectProbe
+        <a class="link" href="libanjuta-IAnjutaSymbol.html#IAnjutaSymbolField">IAnjutaSymbolField</a>
+        <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryDb">IAnjutaSymbolQueryDb</a>
+        <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryFileScope">IAnjutaSymbolQueryFileScope</a>
+        <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryMode">IAnjutaSymbolQueryMode</a>
+        <a class="link" href="libanjuta-IAnjutaSymbolQuery.html#IAnjutaSymbolQueryName">IAnjutaSymbolQueryName</a>
+        <a class="link" href="libanjuta-IAnjutaSymbol.html#IAnjutaSymbolType">IAnjutaSymbolType</a>
+        <a class="link" href="libanjuta-IAnjutaVcs.html#IAnjutaVcsError">IAnjutaVcsError</a>
+        <a class="link" href="AnjutaSerializer.html#AnjutaSerializerMode">AnjutaSerializerMode</a>
+</pre>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

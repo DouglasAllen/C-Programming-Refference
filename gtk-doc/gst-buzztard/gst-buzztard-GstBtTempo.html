@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GstBtTempo</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GStreamer Buzztard Reference Manual">
+<link rel="up" href="ch02.html" title="GStreamer Buzztard interfaces">
+<link rel="prev" href="gst-buzztard-GstBtPropertyMeta.html" title="GstBtPropertyMeta">
+<link rel="next" href="gst-buzztard-GstPreset.html" title="GstPreset">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gst-buzztard-GstBtPropertyMeta.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GStreamer Buzztard Reference Manual</th>
+<td><a accesskey="n" href="gst-buzztard-GstPreset.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gst-buzztard-GstBtTempo.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gst-buzztard-GstBtTempo.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gst-buzztard-GstBtTempo"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gst-buzztard-GstBtTempo.top_of_page"></a>GstBtTempo</span></h2>
+<p>GstBtTempo — helper interface for tempo synced gstreamer elements</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gst-buzztard-GstBtTempo.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">void</span>                <a class="link" href="gst-buzztard-GstBtTempo.html#gstbt-tempo-change-tempo" title="gstbt_tempo_change_tempo ()">gstbt_tempo_change_tempo</a>            (<em class="parameter"><code><span class="type">GstBtTempo</span> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">glong</span> beats_per_minute</code></em>,
+                                                         <em class="parameter"><code><span class="type">glong</span> ticks_per_beat</code></em>,
+                                                         <em class="parameter"><code><span class="type">glong</span> subticks_per_tick</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gst-buzztard-GstBtTempo.description"></a><h2>Description</h2>
+<p>
+This interface offers three <span class="type">GObject</span> properties to specify a rythmic tempo of
+the GStreamer pipeline. The tempo can be changed from the application side by
+calling <a class="link" href="gst-buzztard-GstBtTempo.html#gstbt-tempo-change-tempo" title="gstbt_tempo_change_tempo ()"><code class="function">gstbt_tempo_change_tempo()</code></a>.
+</p>
+<p>
+<span class="type">GstElements</span> that implement this interface should use the given tempo, to
+adjust their <code class="function">gst_object_sync_values()</code> cycle.
+</p>
+<p>
+The difference between the tempo iface and the tempo-tag metadata is that the
+metadata describes the overall tempo, but the iface allows to change the
+tempo during playback.
+</p>
+</div>
+<div class="refsect1">
+<a name="gst-buzztard-GstBtTempo.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="gstbt-tempo-change-tempo"></a><h3>gstbt_tempo_change_tempo ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gstbt_tempo_change_tempo            (<em class="parameter"><code><span class="type">GstBtTempo</span> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">glong</span> beats_per_minute</code></em>,
+                                                         <em class="parameter"><code><span class="type">glong</span> ticks_per_beat</code></em>,
+                                                         <em class="parameter"><code><span class="type">glong</span> subticks_per_tick</code></em>);</pre>
+<p>
+Set all tempo properties at once. Pass -1 to leave a value unchanged.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <span class="type">GObject</span> that implements <span class="type">GstBtTempo</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>beats_per_minute</code></em> :</span></p></td>
+<td>the number of beats in a minute</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ticks_per_beat</code></em> :</span></p></td>
+<td>the number of ticks of one beat (measure)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>subticks_per_tick</code></em> :</span></p></td>
+<td>the number of subticks within one tick</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

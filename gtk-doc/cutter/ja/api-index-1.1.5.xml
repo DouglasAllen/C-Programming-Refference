@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<indexdiv>
+<indexdiv><title>A</title>
+<indexentry><primaryie linkends="gcut-assert-equal-string"><link linkend="gcut-assert-equal-string">gcut_assert_equal_string</link>, function in <link linkend="cutter-Assertions-with-GLib-support">GLibサポート付きの検証</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>C</title>
+<indexentry><primaryie linkends="cut-assert-exist-path"><link linkend="cut-assert-exist-path">cut_assert_exist_path</link>, function in <link linkend="cutter-Assertions">検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="cut-assert-not-exist-path"><link linkend="cut-assert-not-exist-path">cut_assert_not_exist_path</link>, function in <link linkend="cutter-Assertions">検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="cut-build-path-array"><link linkend="cut-build-path-array">cut_build_path_array</link>, function in <link linkend="cutter-Test-Utilities">テストユーティリティ</link></primaryie></indexentry>
+<indexentry><primaryie linkends="cut-get-source-directory"><link linkend="cut-get-source-directory">cut_get_source_directory</link>, function in <link linkend="cutter-Assertion-writing-helper">検証作成の補助</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>D</title>
+<indexentry><primaryie linkends="gcut-data-has-field"><link linkend="gcut-data-has-field">gcut_data_has_field</link>, function in <link linkend="cutter-Convenience-test-data-API">便利なテストデータ用API</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>L</title>
+<indexentry><primaryie linkends="gcut-list-int-new"><link linkend="gcut-list-int-new">gcut_list_int_new</link>, function in <link linkend="cutter-Test-Utilities-with-GLib-support">GLibサポート付きテストユーティリティ</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-list-uint-new"><link linkend="gcut-list-uint-new">gcut_list_uint_new</link>, function in <link linkend="cutter-Test-Utilities-with-GLib-support">GLibサポート付きテストユーティリティ</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>P</title>
+<indexentry><primaryie linkends="GCutProcess-error"><link linkend="GCutProcess-error">GCutProcess::error</link>, object signal in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GCutProcess-error-received"><link linkend="GCutProcess-error-received">GCutProcess::error-received</link>, object signal in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GCutProcess-output-received"><link linkend="GCutProcess-output-received">GCutProcess::output-received</link>, object signal in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GCutProcess-reaped"><link linkend="GCutProcess-reaped">GCutProcess::reaped</link>, object signal in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GCutProcessError"><link linkend="GCutProcessError">GCutProcessError</link>, enum in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-flush"><link linkend="gcut-process-flush">gcut_process_flush</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-get-env"><link linkend="gcut-process-get-env">gcut_process_get_env</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-get-error-channel"><link linkend="gcut-process-get-error-channel">gcut_process_get_error_channel</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-get-error-stream"><link linkend="gcut-process-get-error-stream">gcut_process_get_error_stream</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-get-error-string"><link linkend="gcut-process-get-error-string">gcut_process_get_error_string</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-get-flags"><link linkend="gcut-process-get-flags">gcut_process_get_flags</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-get-forced-termination-wait-time"><link linkend="gcut-process-get-forced-termination-wait-time">gcut_process_get_forced_termination_wait_time</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-get-input-channel"><link linkend="gcut-process-get-input-channel">gcut_process_get_input_channel</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-get-output-channel"><link linkend="gcut-process-get-output-channel">gcut_process_get_output_channel</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-get-output-stream"><link linkend="gcut-process-get-output-stream">gcut_process_get_output_stream</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-get-output-string"><link linkend="gcut-process-get-output-string">gcut_process_get_output_string</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-get-pid"><link linkend="gcut-process-get-pid">gcut_process_get_pid</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-kill"><link linkend="gcut-process-kill">gcut_process_kill</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-new"><link linkend="gcut-process-new">gcut_process_new</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-new-argv"><link linkend="gcut-process-new-argv">gcut_process_new_argv</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-new-array"><link linkend="gcut-process-new-array">gcut_process_new_array</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-new-command-line"><link linkend="gcut-process-new-command-line">gcut_process_new_command_line</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-new-strings"><link linkend="gcut-process-new-strings">gcut_process_new_strings</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-new-va-list"><link linkend="gcut-process-new-va-list">gcut_process_new_va_list</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-run"><link linkend="gcut-process-run">gcut_process_run</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-set-env"><link linkend="gcut-process-set-env">gcut_process_set_env</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-set-flags"><link linkend="gcut-process-set-flags">gcut_process_set_flags</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-set-forced-termination-wait-time"><link linkend="gcut-process-set-forced-termination-wait-time">gcut_process_set_forced_termination_wait_time</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-wait"><link linkend="gcut-process-wait">gcut_process_wait</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-process-write"><link linkend="gcut-process-write">gcut_process_write</link>, function in <link linkend="GCutProcess">GCutProcess</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>S</title>
+<indexentry><primaryie linkends="gcut-string-equal"><link linkend="gcut-string-equal">gcut_string_equal</link>, function in <link linkend="cutter-Assertion-Utilities-for-GString">GString用の検証ユーティリティ</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-string-inspect"><link linkend="gcut-string-inspect">gcut_string_inspect</link>, function in <link linkend="cutter-Assertion-Utilities-for-GString">GString用の検証ユーティリティ</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>T</title>
+<indexentry><primaryie linkends="gcut-take-new-list-int"><link linkend="gcut-take-new-list-int">gcut_take_new_list_int</link>, function in <link linkend="cutter-Test-Utilities-with-GLib-support">GLibサポート付きテストユーティリティ</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-take-new-list-uint"><link linkend="gcut-take-new-list-uint">gcut_take_new_list_uint</link>, function in <link linkend="cutter-Test-Utilities-with-GLib-support">GLibサポート付きテストユーティリティ</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

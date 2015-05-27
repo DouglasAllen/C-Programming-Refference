@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaStreamLoader</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="libanjuta-IAnjutaStream.html" title="IAnjutaStream">
+<link rel="next" href="libanjuta-IAnjutaStreamSavable.html" title="IAnjutaStreamSavable">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-IAnjutaStream.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaStreamSavable.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaStreamLoader.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaStreamLoader.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaStreamLoader"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaStreamLoader.top_of_page"></a>IAnjutaStreamLoader</span></h2>
+<p>IAnjutaStreamLoader — Loader to load streams</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaStreamLoader.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaStreamLoader.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-stream-loader.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaStreamLoader.html#IANJUTA-STREAM-LOADER-ERROR:CAPS" title="IANJUTA_STREAM_LOADER_ERROR">IANJUTA_STREAM_LOADER_ERROR</a>
+struct              <a class="link" href="libanjuta-IAnjutaStreamLoader.html#IAnjutaStreamLoaderIface" title="struct IAnjutaStreamLoaderIface">IAnjutaStreamLoaderIface</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaStreamLoader.html#ianjuta-stream-loader-error-quark" title="ianjuta_stream_loader_error_quark ()">ianjuta_stream_loader_error_quark</a>   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           <a class="link" href="libanjuta-IAnjutaStreamLoader.html#ianjuta-stream-loader-load" title="ianjuta_stream_loader_load ()">ianjuta_stream_loader_load</a>          (<em class="parameter"><code><span class="type">IAnjutaStreamLoader</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">FILE</span> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> readonly</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="libanjuta-IAnjutaStreamLoader.html#ianjuta-stream-loader-peek-interface" title="ianjuta_stream_loader_peek_interface ()">ianjuta_stream_loader_peek_interface</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaStreamLoader</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">FILE</span> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaStreamLoader.description"></a><h2>Description</h2>
+<p>
+StreamLoaders can deterime correct plugin to open a stream.
+</p>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaStreamLoader.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-STREAM-LOADER-ERROR:CAPS"></a><h3>IANJUTA_STREAM_LOADER_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_STREAM_LOADER_ERROR ianjuta_stream_loader_error_quark()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaStreamLoaderIface"></a><h3>struct IAnjutaStreamLoaderIface</h3>
+<pre class="programlisting">struct IAnjutaStreamLoaderIface {
+	IAnjutaLoaderIface g_iface;
+	
+
+	GObject* (*load) (IAnjutaStreamLoader *obj, FILE *stream,  gboolean readonly, GError **err);
+	gchar* (*peek_interface) (IAnjutaStreamLoader *obj, FILE *stream, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-stream-loader-error-quark"></a><h3>ianjuta_stream_loader_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_stream_loader_error_quark   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-stream-loader-load"></a><h3>ianjuta_stream_loader_load ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           ianjuta_stream_loader_load          (<em class="parameter"><code><span class="type">IAnjutaStreamLoader</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">FILE</span> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> readonly</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Determines a plugin which can open the given stream, activates it
+opening the stream and returns the interface of the plugin activated.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>Stream to load</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>readonly</code></em> :</span></p></td>
+<td>Open in readonly mode.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Plugin interface used to load the stream.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-stream-loader-peek-interface"></a><h3>ianjuta_stream_loader_peek_interface ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             ianjuta_stream_loader_peek_interface
+                                                        (<em class="parameter"><code><span class="type">IAnjutaStreamLoader</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">FILE</span> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Peeks the stream and determines the interface which can load
+this stream.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>Stream to load</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Plugin interface name that can load the stream.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

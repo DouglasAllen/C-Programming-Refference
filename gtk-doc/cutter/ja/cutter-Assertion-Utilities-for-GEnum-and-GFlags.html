@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GEnumとGFlags用の検証ユーティリティ</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutterリファレンスマニュアル">
+<link rel="up" href="writing-assertion.html" title="検証作成">
+<link rel="prev" href="cutter-Assertion-writing-helper.html" title="検証作成の補助">
+<link rel="next" href="cutter-Assertion-Utilities-for-GError.html" title="GError用の検証ユーティリティ">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="cutter-Assertion-writing-helper.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="writing-assertion.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutterリファレンスマニュアル</th>
+<td><a accesskey="n" href="cutter-Assertion-Utilities-for-GError.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#cutter-Assertion-Utilities-for-GEnum-and-GFlags.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#cutter-Assertion-Utilities-for-GEnum-and-GFlags.description" class="shortcut">説明</a>
+</td></tr>
+</table>
+<div class="refentry" title="GEnumとGFlags用の検証ユーティリティ">
+<a name="cutter-Assertion-Utilities-for-GEnum-and-GFlags"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="cutter-Assertion-Utilities-for-GEnum-and-GFlags.top_of_page"></a>GEnumとGFlags用の検証ユーティリティ</span></h2>
+<p>GEnumとGFlags用の検証ユーティリティ — <span class="type">GEnum</span>または<span class="type">GFlags</span>に関する検証をもっと簡単に書くためのユーティリティ。</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="概要">
+<a name="cutter-Assertion-Utilities-for-GEnum-and-GFlags.synopsis"></a><h2>概要</h2>
+<pre class="synopsis">#define             <a class="link" href="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#GCUT-ENUM-ERROR:CAPS" title="GCUT_ENUM_ERROR">GCUT_ENUM_ERROR</a>
+<span class="returnvalue">GQuark</span>              <a class="link" href="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#gcut-enum-error-quark" title="gcut_enum_error_quark ()">gcut_enum_error_quark</a>               (<em class="parameter"><code><span class="type">void</span></code></em>);
+enum                <a class="link" href="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#GCutEnumError" title="enum GCutEnumError">GCutEnumError</a>;
+<span class="returnvalue">gchar</span> *             <a class="link" href="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#gcut-enum-inspect" title="gcut_enum_inspect ()">gcut_enum_inspect</a>                   (<em class="parameter"><code><span class="type">GType</span> enum_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> enum_value</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#gcut-enum-parse" title="gcut_enum_parse ()">gcut_enum_parse</a>                     (<em class="parameter"><code><span class="type">GType</span> enum_type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *enum_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#gcut-flags-inspect" title="gcut_flags_inspect ()">gcut_flags_inspect</a>                  (<em class="parameter"><code><span class="type">GType</span> flags_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> flags_value</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#gcut-flags-parse" title="gcut_flags_parse ()">gcut_flags_parse</a>                    (<em class="parameter"><code><span class="type">GType</span> flags_type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *flags_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#gcut-flags-get-all" title="gcut_flags_get_all ()">gcut_flags_get_all</a>                  (<em class="parameter"><code><span class="type">GType</span> flags_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="説明">
+<a name="cutter-Assertion-Utilities-for-GEnum-and-GFlags.description"></a><h2>説明</h2>
+<p>検証を書くためには等価性を検証し、期待値と実測値を表示する必要があります。</p>
+<p>このユーティリティは<span class="type">GEnum</span>または<span class="type">GFlags</span>に関する検証の作成を補助します。</p>
+</div>
+<div class="refsect1" title="詳細">
+<a name="cutter-Assertion-Utilities-for-GEnum-and-GFlags.details"></a><h2>詳細</h2>
+<div class="refsect2" title="GCUT_ENUM_ERROR">
+<a name="GCUT-ENUM-ERROR:CAPS"></a><h3>GCUT_ENUM_ERROR</h3>
+<pre class="programlisting">#define GCUT_ENUM_ERROR (gcut_enum_error_quark())
+</pre>
+<p>列挙型関連操作用のエラードメインです。このドメインのエラーは<a class="link" href="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#GCutEnumError" title="enum GCutEnumError"><span class="type">GCutEnumError</span></a>列挙型のどれかです。</p>
+<p class="since">1.0.6から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_enum_error_quark ()">
+<a name="gcut-enum-error-quark"></a><h3>gcut_enum_error_quark ()</h3>
+<pre class="programlisting"><span class="returnvalue">GQuark</span>              gcut_enum_error_quark               (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="enum GCutEnumError">
+<a name="GCutEnumError"></a><h3>enum GCutEnumError</h3>
+<pre class="programlisting">typedef enum
+{
+    GCUT_ENUM_ERROR_INVALID_TYPE,
+    GCUT_ENUM_ERROR_INVALID_VALUE
+} GCutEnumError;
+</pre>
+<p>列挙型関連操作で返されるエラーコード。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="GCUT-ENUM-ERROR-INVALID-TYPE:CAPS"></a><span class="term"><code class="literal">GCUT_ENUM_ERROR_INVALID_TYPE</code></span></p></td>
+<td>不正な型。</td>
+</tr>
+<tr>
+<td><p><a name="GCUT-ENUM-ERROR-INVALID-VALUE:CAPS"></a><span class="term"><code class="literal">GCUT_ENUM_ERROR_INVALID_VALUE</code></span></p></td>
+<td>不正な値。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.6から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_enum_inspect ()">
+<a name="gcut-enum-inspect"></a><h3>gcut_enum_inspect ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             gcut_enum_inspect                   (<em class="parameter"><code><span class="type">GType</span> enum_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> enum_value</code></em>);</pre>
+<p><em class="parameter"><code>enum_type</code></em>の値<em class="parameter"><code>enum_value</code></em>の詳細を返します。返された文字列が必要なくなったときは開放してください。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enum_type</code></em> :</span></p></td>
+<td>
+<span class="type">GEnum</span>の型。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enum_value</code></em> :</span></p></td>
+<td>詳細を示す<span class="type">GEnum</span>の値。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>enum_value</code></em>の詳細を示した文字列。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_enum_parse ()">
+<a name="gcut-enum-parse"></a><h3>gcut_enum_parse ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gcut_enum_parse                     (<em class="parameter"><code><span class="type">GType</span> enum_type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *enum_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p><em class="parameter"><code>enum_value</code></em>をパースし、<em class="parameter"><code>enum_type</code></em>型の列挙値を返します。<em class="parameter"><code>enum_value</code></em>は列挙名またはニックネームでなければいけません。<em class="parameter"><code>enum_value</code></em>がマッチしない場合は<em class="parameter"><code>error</code></em>に<a class="link" href="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#GCutEnumError" title="enum GCutEnumError"><span class="type">GCutEnumError</span></a>エラーが設定されます。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enum_type</code></em> :</span></p></td>
+<td>
+<span class="type">GEnum</span>の型。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enum_value</code></em> :</span></p></td>
+<td>パースされる文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>エラーを返すアドレスまたは<code class="literal">NULL</code>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>enum_value</code></em>に対応する<em class="parameter"><code>enum_type</code></em>の値。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.6から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_flags_inspect ()">
+<a name="gcut-flags-inspect"></a><h3>gcut_flags_inspect ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             gcut_flags_inspect                  (<em class="parameter"><code><span class="type">GType</span> flags_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> flags_value</code></em>);</pre>
+<p><em class="parameter"><code>flags_type</code></em>の値<em class="parameter"><code>flags_value</code></em>の詳細を返します。返された文字列が必要なくなったときは開放してください。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags_type</code></em> :</span></p></td>
+<td>
+<span class="type">GFlags</span>の型。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags_value</code></em> :</span></p></td>
+<td>詳細を示す<span class="type">GFlags</span>の値。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>flags_value</code></em>の詳細を示した文字列。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_flags_parse ()">
+<a name="gcut-flags-parse"></a><h3>gcut_flags_parse ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               gcut_flags_parse                    (<em class="parameter"><code><span class="type">GType</span> flags_type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *flags_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p><em class="parameter"><code>flags_value</code></em>をパースし、<em class="parameter"><code>flags_type</code></em>型のフラグ値を返します。<em class="parameter"><code>flags_value</code></em>は"ニックネームまたは名前1|ニックネームまたは名前2|...|ニックネームまたは名前N"という書式でなければいけません。<em class="parameter"><code>flags_value</code></em>が未知のフラグを含んでいる場合は、<em class="parameter"><code>error</code></em>に<a class="link" href="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#GCutEnumError" title="enum GCutEnumError"><span class="type">GCutEnumError</span></a>エラーが設定されます。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags_type</code></em> :</span></p></td>
+<td>
+<span class="type">GFlags</span>の型。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags_value</code></em> :</span></p></td>
+<td>パースされる文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>エラーを返すアドレスまたは<code class="literal">NULL</code>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>flags_value</code></em>に対応する<em class="parameter"><code>flags_type</code></em>の値。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.6から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_flags_get_all ()">
+<a name="gcut-flags-get-all"></a><h3>gcut_flags_get_all ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               gcut_flags_get_all                  (<em class="parameter"><code><span class="type">GType</span> flags_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>すべてのフラグ値が有効なフラグ値を返します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags_type</code></em> :</span></p></td>
+<td>
+<span class="type">GFlags</span>の型。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>エラーを返すアドレスまたは<code class="literal">NULL</code>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>すべてのフラグ値が有効なフラグ値。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.6から</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

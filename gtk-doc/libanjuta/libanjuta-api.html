@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>libanjuta API</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="prev" href="distribution.html" title="Distribution">
+<link rel="next" href="libanjuta-AnjutaShell.html" title="AnjutaShell">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="distribution.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td> </td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-AnjutaShell.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="libanjuta-api"></a>libanjuta API</h2></div></div></div>
+<div class="toc"><dl>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-AnjutaShell.html">AnjutaShell</a></span><span class="refpurpose"> — Application shell interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="AnjutaPreferences.html">AnjutaPreferences</a></span><span class="refpurpose"> — Anjuta Prefereces system.</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="AnjutaPreferencesDialog.html">AnjutaPreferencesDialog</a></span><span class="refpurpose"> — Preferences dialog</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="AnjutaUI.html">AnjutaUI</a></span><span class="refpurpose"> — User Interface manager</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="AnjutaStatus.html">AnjutaStatus</a></span><span class="refpurpose"> — Program status such as status message, progress etc.</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="AnjutaPlugin.html">AnjutaPlugin</a></span><span class="refpurpose"> — Anjuta plugin base class from which all plugins are
+derived.</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-AnjutaPluginDescription.html">AnjutaPluginDescription</a></span><span class="refpurpose"> — Plugin description from .plugin file</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-AnjutaPluginHandle.html">AnjutaPluginHandle</a></span><span class="refpurpose"> — Handle used by plugin manager to keep track of plugins.</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-AnjutaPluginManager.html">AnjutaPluginManager</a></span><span class="refpurpose"> — Plugins management and activation</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-AnjutaProfile.html">AnjutaProfile</a></span><span class="refpurpose"> — Profile is a collection of plugins</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-AnjutaProfileManager.html">AnjutaProfileManager</a></span><span class="refpurpose"> — Managers a stack of plugins profiles</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="AnjutaLauncher.html">AnjutaLauncher</a></span><span class="refpurpose"> — External process launcher with async input/output</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="AnjutaSavePrompt.html">AnjutaSavePrompt</a></span><span class="refpurpose"> — Save dialog prompt for unsaved data</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="AnjutaSerializer.html">AnjutaSerializer</a></span><span class="refpurpose"> — Data serializer</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="AnjutaSession.html">AnjutaSession</a></span><span class="refpurpose"> — Program session</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-Utilities.html">Utilities</a></span><span class="refpurpose"> — Utility functions</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-Program-resources.html">Program resources</a></span><span class="refpurpose"> — Application resource management</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-anjuta-encodings.html">anjuta-encodings</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-Debugging.html">Debugging</a></span><span class="refpurpose"> — Debug functions</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-AnjutaCommand.html">AnjutaCommand</a></span><span class="refpurpose"> — System for creating objects that provide a standard 
+				   interface to external components (libraries, processes,
+				   etc.)</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-AnjutaSyncCommand.html">AnjutaSyncCommand</a></span><span class="refpurpose"> — <span class="type">AnjutaCommand</span> subclass that serves as the base for 
+				   commands that run synchronously.</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-AnjutaAsyncCommand.html">AnjutaAsyncCommand</a></span><span class="refpurpose"> — <span class="type">AnjutaCommand</span> subclass that serves as the base for 
+				   commands that need to run in another thread.</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-AnjutaVcsStatusTreeView.html">AnjutaVcsStatusTreeView</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-anjuta-convert.html">anjuta-convert</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-anjuta-version.html">anjuta-version</a></span><span class="refpurpose"> — Anjuta version checking</span>
+</dt>
+</dl></div>
+<span style="color: red">&lt;xi:include&gt;&lt;/xi:include&gt;</span><span style="color: red">&lt;xi:include&gt;&lt;/xi:include&gt;</span><span style="color: red">&lt;xi:include&gt;&lt;/xi:include&gt;</span><span style="color: red">&lt;xi:include&gt;&lt;/xi:include&gt;</span>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

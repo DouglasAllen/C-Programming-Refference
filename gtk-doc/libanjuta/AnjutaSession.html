@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AnjutaSession</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="libanjuta-api.html" title="libanjuta API">
+<link rel="prev" href="AnjutaSerializer.html" title="AnjutaSerializer">
+<link rel="next" href="libanjuta-Utilities.html" title="Utilities">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AnjutaSerializer.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libanjuta-api.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-Utilities.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AnjutaSession.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#AnjutaSession.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#AnjutaSession.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="AnjutaSession"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AnjutaSession.top_of_page"></a>AnjutaSession</span></h2>
+<p>AnjutaSession — Program session</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="AnjutaSession.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="AnjutaSession.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/anjuta-session.h&gt;
+
+                    <a class="link" href="AnjutaSession.html#AnjutaSession-struct" title="AnjutaSession">AnjutaSession</a>;
+                    <a class="link" href="AnjutaSession.html#AnjutaSessionClass" title="AnjutaSessionClass">AnjutaSessionClass</a>;
+enum                <a class="link" href="AnjutaSession.html#AnjutaSessionPhase" title="enum AnjutaSessionPhase">AnjutaSessionPhase</a>;
+                    <a class="link" href="AnjutaSession.html#AnjutaSessionPriv" title="AnjutaSessionPriv">AnjutaSessionPriv</a>;
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaSession.html#anjuta-session-clear" title="anjuta_session_clear ()">anjuta_session_clear</a>                (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaSession.html#anjuta-session-clear-section" title="anjuta_session_clear_section ()">anjuta_session_clear_section</a>        (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>);
+<a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *             <a class="link" href="AnjutaSession.html#anjuta-session-get-file-from-relative-uri" title="anjuta_session_get_file_from_relative_uri ()">anjuta_session_get_file_from_relative_uri</a>
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **fragment</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="returnvalue">gfloat</span></a>              <a class="link" href="AnjutaSession.html#anjuta-session-get-float" title="anjuta_session_get_float ()">anjuta_session_get_float</a>            (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="AnjutaSession.html#anjuta-session-get-int" title="anjuta_session_get_int ()">anjuta_session_get_int</a>              (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="AnjutaSession.html#anjuta-session-get-relative-uri-from-file" title="anjuta_session_get_relative_uri_from_file ()">anjuta_session_get_relative_uri_from_file</a>
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *fragment</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="AnjutaSession.html#anjuta-session-get-session-directory" title="anjuta_session_get_session_directory ()">anjuta_session_get_session_directory</a>
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="AnjutaSession.html#anjuta-session-get-session-filename" title="anjuta_session_get_session_filename ()">anjuta_session_get_session_filename</a> (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="AnjutaSession.html#anjuta-session-get-string" title="anjuta_session_get_string ()">anjuta_session_get_string</a>           (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="AnjutaSession.html#anjuta-session-get-string-list" title="anjuta_session_get_string_list ()">anjuta_session_get_string_list</a>      (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);
+<a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="returnvalue">AnjutaSession</span></a> *     <a class="link" href="AnjutaSession.html#anjuta-session-new" title="anjuta_session_new ()">anjuta_session_new</a>                  (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *session_directory</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaSession.html#anjuta-session-set-float" title="anjuta_session_set_float ()">anjuta_session_set_float</a>            (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaSession.html#anjuta-session-set-int" title="anjuta_session_set_int ()">anjuta_session_set_int</a>              (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaSession.html#anjuta-session-set-string" title="anjuta_session_set_string ()">anjuta_session_set_string</a>           (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaSession.html#anjuta-session-set-string-list" title="anjuta_session_set_string_list ()">anjuta_session_set_string_list</a>      (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaSession.html#anjuta-session-sync" title="anjuta_session_sync ()">anjuta_session_sync</a>                 (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="AnjutaSession.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----AnjutaSession
+</pre>
+</div>
+<div class="refsect1">
+<a name="AnjutaSession.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="AnjutaSession.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="AnjutaSession-struct"></a><h3>AnjutaSession</h3>
+<pre class="programlisting">typedef struct _AnjutaSession AnjutaSession;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaSessionClass"></a><h3>AnjutaSessionClass</h3>
+<pre class="programlisting">typedef struct {
+	GObjectClass parent_class;
+	/* Add Signal Functions Here */
+} AnjutaSessionClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaSessionPhase"></a><h3>enum AnjutaSessionPhase</h3>
+<pre class="programlisting">typedef enum {
+	ANJUTA_SESSION_PHASE_START,
+	ANJUTA_SESSION_PHASE_FIRST,
+	ANJUTA_SESSION_PHASE_NORMAL,
+	ANJUTA_SESSION_PHASE_LAST,
+	ANJUTA_SESSION_PHASE_END,
+} AnjutaSessionPhase;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaSessionPriv"></a><h3>AnjutaSessionPriv</h3>
+<pre class="programlisting">typedef struct _AnjutaSessionPriv AnjutaSessionPriv;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-clear"></a><h3>anjuta_session_clear ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_session_clear                (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>);</pre>
+<p>
+Clears the session.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-clear-section"></a><h3>anjuta_session_clear_section ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_session_clear_section        (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>);</pre>
+<p>
+Clears the given section in session object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
+<td>Section to clear.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-get-file-from-relative-uri"></a><h3>anjuta_session_get_file_from_relative_uri ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *             anjuta_session_get_file_from_relative_uri
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **fragment</code></em>);</pre>
+<p>
+Return a GFile corresponding to the URI and and optional fragment,
+normally read from a session key.
+The path is expected to be relative to the session directory but it works
+with an absolute URI, in this case it returns the same file than
+g_file_new_for_uri.
+It is useful to keep only relative file paths in a session file to be able
+to copy the whole project without breaking references.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>a relative URI from a key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fragment</code></em> :</span></p></td>
+<td>fragment part of the URI if existing, cal be NULL</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new GFile that has to be freed with <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-get-float"></a><h3>anjuta_session_get_float ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="returnvalue">gfloat</span></a>              anjuta_session_get_float            (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);</pre>
+<p>
+Get a float <em class="parameter"><code>value</code></em> of <em class="parameter"><code>key</code></em> in given <em class="parameter"><code>section</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
+<td>Section.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Key name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Key value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-get-int"></a><h3>anjuta_session_get_int ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                anjuta_session_get_int              (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);</pre>
+<p>
+Get an integer <em class="parameter"><code>value</code></em> of <em class="parameter"><code>key</code></em> in given <em class="parameter"><code>section</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
+<td>Section.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Key name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Key value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-get-relative-uri-from-file"></a><h3>anjuta_session_get_relative_uri_from_file ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             anjuta_session_get_relative_uri_from_file
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *fragment</code></em>);</pre>
+<p>
+Return an URI relative to the session directory file with an optional
+fragment.
+It is useful to keep only relative file paths in a session file to be able
+to copy the whole project without breaking references.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>a GFile</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A string that has to be freed with <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-get-session-directory"></a><h3>anjuta_session_get_session_directory ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       anjuta_session_get_session_directory
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>);</pre>
+<p>
+Returns the directory corresponding to this session object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>session directory</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-get-session-filename"></a><h3>anjuta_session_get_session_filename ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             anjuta_session_get_session_filename (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>);</pre>
+<p>
+Gets the session filename corresponding to this session object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>session (absolute) filename</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-get-string"></a><h3>anjuta_session_get_string ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             anjuta_session_get_string           (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);</pre>
+<p>
+Get a string <em class="parameter"><code>value</code></em> of <em class="parameter"><code>key</code></em> in given <em class="parameter"><code>section</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
+<td>Section.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Key name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Key value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-get-string-list"></a><h3>anjuta_session_get_string_list ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             anjuta_session_get_string_list      (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);</pre>
+<p>
+Get a list of strings <em class="parameter"><code>value</code></em> of <em class="parameter"><code>key</code></em> in given <em class="parameter"><code>section</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
+<td>Section.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Key name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Key value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-new"></a><h3>anjuta_session_new ()</h3>
+<pre class="programlisting"><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="returnvalue">AnjutaSession</span></a> *     anjuta_session_new                  (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *session_directory</code></em>);</pre>
+<p>
+Created a new session object. <em class="parameter"><code>session_directory</code></em> is the directory
+where session information will be stored or loaded in case of existing
+session.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session_directory</code></em> :</span></p></td>
+<td>Directory where session is loaded from/saved to.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> Object</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-set-float"></a><h3>anjuta_session_set_float ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_session_set_float            (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> value</code></em>);</pre>
+<p>
+Set a float <em class="parameter"><code>value</code></em> to <em class="parameter"><code>key</code></em> in given <em class="parameter"><code>section</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
+<td>Section.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Key name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Key value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-set-int"></a><h3>anjuta_session_set_int ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_session_set_int              (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> value</code></em>);</pre>
+<p>
+Set an integer <em class="parameter"><code>value</code></em> to <em class="parameter"><code>key</code></em> in given <em class="parameter"><code>section</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
+<td>Section.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Key name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Key value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-set-string"></a><h3>anjuta_session_set_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_session_set_string           (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value</code></em>);</pre>
+<p>
+Set a string <em class="parameter"><code>value</code></em> to <em class="parameter"><code>key</code></em> in given <em class="parameter"><code>section</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
+<td>Section.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Key name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Key value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-set-string-list"></a><h3>anjuta_session_set_string_list ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_session_set_string_list      (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *section</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *value</code></em>);</pre>
+<p>
+Set a list of strings <em class="parameter"><code>value</code></em> to <em class="parameter"><code>key</code></em> in given <em class="parameter"><code>section</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
+<td>Section.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Key name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Key value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-session-sync"></a><h3>anjuta_session_sync ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_session_sync                 (<em class="parameter"><code><a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> *session</code></em>);</pre>
+<p>
+Synchronizes session object with session file
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaSession.html" title="AnjutaSession"><span class="type">AnjutaSession</span></a> object</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

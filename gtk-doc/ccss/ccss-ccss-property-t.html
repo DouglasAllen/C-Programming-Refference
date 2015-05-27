@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ccss_property_t</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="CCSS Reference Manual">
+<link rel="up" href="basic.html" title="Basic Usage">
+<link rel="prev" href="ccss-ccss-node-t.html" title="ccss_node_t">
+<link rel="next" href="ccss-ccss-style-t.html" title="ccss_style_t">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ccss-ccss-node-t.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="basic.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">CCSS Reference Manual</th>
+<td><a accesskey="n" href="ccss-ccss-style-t.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ccss-ccss-property-t.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ccss-ccss-property-t.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ccss-ccss-property-t"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ccss-ccss-property-t.top_of_page"></a>ccss_property_t</span></h2>
+<p>ccss_property_t</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="ccss-ccss-property-t.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="ccss-ccss-property-t.html#ccss-property-class-t" title="ccss_property_class_t">ccss_property_class_t</a>;
+typedef             <a class="link" href="ccss-ccss-property-t.html#ccss-property-t" title="ccss_property_t">ccss_property_t</a>;
+                    <a class="link" href="ccss-ccss-property-t.html#ccss-property-generic-t" title="ccss_property_generic_t">ccss_property_generic_t</a>;
+enum                <a class="link" href="ccss-ccss-property-t.html#ccss-property-state-t" title="enum ccss_property_state_t">ccss_property_state_t</a>;
+enum                <a class="link" href="ccss-ccss-property-t.html#ccss-property-type-t" title="enum ccss_property_type_t">ccss_property_type_t</a>;
+<a class="link" href="ccss-ccss-property-t.html#ccss-property-t" title="ccss_property_t"><span class="returnvalue">ccss_property_t</span></a> *   (<a class="link" href="ccss-ccss-property-t.html#ccss-property-create-f" title="ccss_property_create_f ()">*ccss_property_create_f</a>)           (<em class="parameter"><code><span class="type">struct ccss_grammar_</span> const *grammar</code></em>,
+                                                         <em class="parameter"><code><span class="type">CRTerm</span> const *values</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *user_data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="ccss-ccss-property-t.html#ccss-property-destroy-f" title="ccss_property_destroy_f ()">*ccss_property_destroy_f</a>)          (<em class="parameter"><code><a class="link" href="ccss-ccss-property-t.html#ccss-property-t" title="ccss_property_t"><span class="type">ccss_property_t</span></a> *self</code></em>);
+<span class="returnvalue">bool</span>                (<a class="link" href="ccss-ccss-property-t.html#ccss-property-convert-f" title="ccss_property_convert_f ()">*ccss_property_convert_f</a>)          (<em class="parameter"><code><a class="link" href="ccss-ccss-property-t.html#ccss-property-t" title="ccss_property_t"><span class="type">ccss_property_t</span></a> const *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ccss-ccss-property-t.html#ccss-property-type-t" title="enum ccss_property_type_t"><span class="type">ccss_property_type_t</span></a> target</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *value</code></em>);
+<span class="returnvalue">bool</span>                (<a class="link" href="ccss-ccss-property-t.html#ccss-property-factory-f" title="ccss_property_factory_f ()">*ccss_property_factory_f</a>)          (<em class="parameter"><code><span class="type">struct ccss_grammar_</span> const *grammar</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct ccss_block_</span> *block</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">CRTerm</span> const *values</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *user_data</code></em>);
+<span class="returnvalue">bool</span>                (<a class="link" href="ccss-ccss-property-t.html#ccss-property-inherit-f" title="ccss_property_inherit_f ()">*ccss_property_inherit_f</a>)          (<em class="parameter"><code><span class="type">struct ccss_style_</span> const *container_style</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct ccss_style_</span> *style</code></em>);
+<span class="returnvalue">char</span> *              (<a class="link" href="ccss-ccss-property-t.html#ccss-property-serialize-f" title="ccss_property_serialize_f ()">*ccss_property_serialize_f</a>)        (<em class="parameter"><code><a class="link" href="ccss-ccss-property-t.html#ccss-property-t" title="ccss_property_t"><span class="type">ccss_property_t</span></a> const *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ccss-ccss-property-t.html#ccss-property-init" title="ccss_property_init ()">ccss_property_init</a>                  (<em class="parameter"><code><a class="link" href="ccss-ccss-property-t.html#ccss-property-t" title="ccss_property_t"><span class="type">ccss_property_t</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ccss-ccss-property-t.html#ccss-property-class-t" title="ccss_property_class_t"><span class="type">ccss_property_class_t</span></a> const *property_class</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ccss-ccss-property-t.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="ccss-ccss-property-t.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ccss-property-class-t"></a><h3>ccss_property_class_t</h3>
+<pre class="programlisting">typedef struct {
+	char const			*name;
+	ccss_property_create_f		 create;
+	ccss_property_destroy_f		 destroy;
+	ccss_property_convert_f		 convert;
+	ccss_property_factory_f		 factory;
+	ccss_property_inherit_f		 inherit;
+	ccss_property_serialize_f	 serialize;
+} ccss_property_class_t;
+</pre>
+<p>
+Property interpretation vtable entry.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><span class="type">char</span> const			 *<em class="structfield"><code><a name="ccss-property-class-t.name"></a>name</code></em>;</span></p></td>
+<td>property name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-property-t.html#ccss-property-create-f" title="ccss_property_create_f ()"><span class="type">ccss_property_create_f</span></a> <em class="structfield"><code><a name="ccss-property-class-t.create"></a>create</code></em>;</span></p></td>
+<td>allocation hook, see <a class="link" href="ccss-ccss-property-t.html#ccss-property-create-f" title="ccss_property_create_f ()"><span class="type">ccss_property_create_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-property-t.html#ccss-property-destroy-f" title="ccss_property_destroy_f ()"><span class="type">ccss_property_destroy_f</span></a> <em class="structfield"><code><a name="ccss-property-class-t.destroy"></a>destroy</code></em>;</span></p></td>
+<td>deallocation hook, see <a class="link" href="ccss-ccss-property-t.html#ccss-property-destroy-f" title="ccss_property_destroy_f ()"><span class="type">ccss_property_destroy_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-property-t.html#ccss-property-convert-f" title="ccss_property_convert_f ()"><span class="type">ccss_property_convert_f</span></a> <em class="structfield"><code><a name="ccss-property-class-t.convert"></a>convert</code></em>;</span></p></td>
+<td>conversion hook, see <a class="link" href="ccss-ccss-property-t.html#ccss-property-convert-f" title="ccss_property_convert_f ()"><span class="type">ccss_property_convert_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-property-t.html#ccss-property-factory-f" title="ccss_property_factory_f ()"><span class="type">ccss_property_factory_f</span></a> <em class="structfield"><code><a name="ccss-property-class-t.factory"></a>factory</code></em>;</span></p></td>
+<td>factory hook, see <a class="link" href="ccss-ccss-property-t.html#ccss-property-factory-f" title="ccss_property_factory_f ()"><span class="type">ccss_property_factory_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-property-t.html#ccss-property-inherit-f" title="ccss_property_inherit_f ()"><span class="type">ccss_property_inherit_f</span></a> <em class="structfield"><code><a name="ccss-property-class-t.inherit"></a>inherit</code></em>;</span></p></td>
+<td>inherit hook, see <a class="link" href="ccss-ccss-property-t.html#ccss-property-inherit-f" title="ccss_property_inherit_f ()"><span class="type">ccss_property_inherit_f</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-property-t.html#ccss-property-serialize-f" title="ccss_property_serialize_f ()"><span class="type">ccss_property_serialize_f</span></a> <em class="structfield"><code><a name="ccss-property-class-t.serialize"></a>serialize</code></em>;</span></p></td>
+<td>serialize hook, see <a class="link" href="ccss-ccss-property-t.html#ccss-property-serialize-f" title="ccss_property_serialize_f ()"><span class="type">ccss_property_serialize_f</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-property-t"></a><h3>ccss_property_t</h3>
+<pre class="programlisting">typedef struct ccss_property_ ccss_property_t;
+</pre>
+<p>
+This structure has to be embedded at the beginning of every custom property.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-property-generic-t"></a><h3>ccss_property_generic_t</h3>
+<pre class="programlisting">typedef struct {
+	ccss_property_t		 base;
+
+	char			*name;
+	CRTerm			*values;
+} ccss_property_generic_t;
+</pre>
+<p>
+Implementation of a generic, single-value property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="ccss-ccss-property-t.html#ccss-property-t" title="ccss_property_t"><span class="type">ccss_property_t</span></a> <em class="structfield"><code><a name="ccss-property-generic-t.base"></a>base</code></em>;</span></p></td>
+<td>base property.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">char</span> *<em class="structfield"><code><a name="ccss-property-generic-t.name"></a>name</code></em>;</span></p></td>
+<td>name of the property, e.g. <code class="literal">color</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">CRTerm</span> *<em class="structfield"><code><a name="ccss-property-generic-t.values"></a>values</code></em>;</span></p></td>
+<td>linked list of values.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-property-state-t"></a><h3>enum ccss_property_state_t</h3>
+<pre class="programlisting">typedef enum {
+	CCSS_PROPERTY_STATE_INVALID = 0,
+	CCSS_PROPERTY_STATE_NONE,
+	CCSS_PROPERTY_STATE_INHERIT,
+	CCSS_PROPERTY_STATE_SET,
+	CCSS_PROPERTY_STATE_ERROR_OVERFLOW
+} ccss_property_state_t;
+</pre>
+<p>
+This enum must be embedded as first field in every property implementation.
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="CCSS-PROPERTY-STATE-INVALID:CAPS"></a><span class="term"><code class="literal">CCSS_PROPERTY_STATE_INVALID</code></span></p></td>
+<td>error state, invalid property.
+</td>
+</tr>
+<tr>
+<td><p><a name="CCSS-PROPERTY-STATE-NONE:CAPS"></a><span class="term"><code class="literal">CCSS_PROPERTY_STATE_NONE</code></span></p></td>
+<td>property set to `none', switched off.
+</td>
+</tr>
+<tr>
+<td><p><a name="CCSS-PROPERTY-STATE-INHERIT:CAPS"></a><span class="term"><code class="literal">CCSS_PROPERTY_STATE_INHERIT</code></span></p></td>
+<td>inherit property from container.
+</td>
+</tr>
+<tr>
+<td><p><a name="CCSS-PROPERTY-STATE-SET:CAPS"></a><span class="term"><code class="literal">CCSS_PROPERTY_STATE_SET</code></span></p></td>
+<td>property is valid and set.
+</td>
+</tr>
+<tr>
+<td><p><a name="CCSS-PROPERTY-STATE-ERROR-OVERFLOW:CAPS"></a><span class="term"><code class="literal">CCSS_PROPERTY_STATE_ERROR_OVERFLOW</code></span></p></td>
+<td>error state, used for bounds checking.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-property-type-t"></a><h3>enum ccss_property_type_t</h3>
+<pre class="programlisting">typedef enum {
+	CCSS_PROPERTY_TYPE_DOUBLE,
+	CCSS_PROPERTY_TYPE_STRING
+} ccss_property_type_t;
+</pre>
+<p>
+Type descriptions for generic properties.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="CCSS-PROPERTY-TYPE-DOUBLE:CAPS"></a><span class="term"><code class="literal">CCSS_PROPERTY_TYPE_DOUBLE</code></span></p></td>
+<td>property represented by a floating point number.
+</td>
+</tr>
+<tr>
+<td><p><a name="CCSS-PROPERTY-TYPE-STRING:CAPS"></a><span class="term"><code class="literal">CCSS_PROPERTY_TYPE_STRING</code></span></p></td>
+<td>property represented by a string.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-property-create-f"></a><h3>ccss_property_create_f ()</h3>
+<pre class="programlisting"><a class="link" href="ccss-ccss-property-t.html#ccss-property-t" title="ccss_property_t"><span class="returnvalue">ccss_property_t</span></a> *   (*ccss_property_create_f)           (<em class="parameter"><code><span class="type">struct ccss_grammar_</span> const *grammar</code></em>,
+                                                         <em class="parameter"><code><span class="type">CRTerm</span> const *values</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *user_data</code></em>);</pre>
+<p>
+Hook function for instantiating a property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>grammar</code></em> :</span></p></td>
+<td>the grammar associated with this property.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>values</code></em> :</span></p></td>
+<td>libcroco CSS values to parse for the property, see <span class="type">CRTerm</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data passed to property- or function-handler.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>pointer to the allocated property instance or <code class="literal">NULL</code> if parsing fails.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-property-destroy-f"></a><h3>ccss_property_destroy_f ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*ccss_property_destroy_f)          (<em class="parameter"><code><a class="link" href="ccss-ccss-property-t.html#ccss-property-t" title="ccss_property_t"><span class="type">ccss_property_t</span></a> *self</code></em>);</pre>
+<p>
+Hook function for deallocating a property instance.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>pointer to property instance.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-property-convert-f"></a><h3>ccss_property_convert_f ()</h3>
+<pre class="programlisting"><span class="returnvalue">bool</span>                (*ccss_property_convert_f)          (<em class="parameter"><code><a class="link" href="ccss-ccss-property-t.html#ccss-property-t" title="ccss_property_t"><span class="type">ccss_property_t</span></a> const *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ccss-ccss-property-t.html#ccss-property-type-t" title="enum ccss_property_type_t"><span class="type">ccss_property_type_t</span></a> target</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *value</code></em>);</pre>
+<p>
+Hook function for converting a property instance.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>pointer to property instance.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>conversion target type, see <a class="link" href="ccss-ccss-property-t.html#ccss-property-type-t" title="enum ccss_property_type_t"><span class="type">ccss_property_type_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>pointer to memory location where to place the converted value.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the conversion was successful.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-property-factory-f"></a><h3>ccss_property_factory_f ()</h3>
+<pre class="programlisting"><span class="returnvalue">bool</span>                (*ccss_property_factory_f)          (<em class="parameter"><code><span class="type">struct ccss_grammar_</span> const *grammar</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct ccss_block_</span> *block</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">CRTerm</span> const *values</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *user_data</code></em>);</pre>
+<p>
+Hook function to handle the creation of multiple properties from a single CSS property, e.g. `border'.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>grammar</code></em> :</span></p></td>
+<td>the grammar associated with this property.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>block</code></em> :</span></p></td>
+<td>the <a class="link" href="ccss-ccss-block-t.html#ccss-block-t" title="ccss_block_t"><span class="type">ccss_block_t</span></a> the properties will be associated to.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>name of the property.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>values</code></em> :</span></p></td>
+<td>libcroco CSS values to parse for the property, see <span class="type">CRTerm</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data passed to property- or function-handler.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> when sucessful.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-property-inherit-f"></a><h3>ccss_property_inherit_f ()</h3>
+<pre class="programlisting"><span class="returnvalue">bool</span>                (*ccss_property_inherit_f)          (<em class="parameter"><code><span class="type">struct ccss_style_</span> const *container_style</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct ccss_style_</span> *style</code></em>);</pre>
+<p>
+Hook function to inherit multi-value properties like `border'.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>container_style</code></em> :</span></p></td>
+<td>style to inherit from.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>style to inherit to.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if property inheritance could be resolved.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-property-serialize-f"></a><h3>ccss_property_serialize_f ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              (*ccss_property_serialize_f)        (<em class="parameter"><code><a class="link" href="ccss-ccss-property-t.html#ccss-property-t" title="ccss_property_t"><span class="type">ccss_property_t</span></a> const *self</code></em>);</pre>
+<p>
+Hook function to reformat a property to CSS syntax.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>pointer to property instance.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if property inheritance could be resolved.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-property-init"></a><h3>ccss_property_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ccss_property_init                  (<em class="parameter"><code><a class="link" href="ccss-ccss-property-t.html#ccss-property-t" title="ccss_property_t"><span class="type">ccss_property_t</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ccss-ccss-property-t.html#ccss-property-class-t" title="ccss_property_class_t"><span class="type">ccss_property_class_t</span></a> const *property_class</code></em>);</pre>
+<p>
+Initializes <em class="parameter"><code>self</code></em>, needs to be called before the property is
+registered with ccss.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-property-t.html#ccss-property-t" title="ccss_property_t"><span class="type">ccss_property_t</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_class</code></em> :</span></p></td>
+<td>a <a class="link" href="ccss-ccss-property-t.html#ccss-property-class-t" title="ccss_property_class_t"><span class="type">ccss_property_class_t</span></a> vtable.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="Cutter Reference Manual" link="index.html" author="" name="cutter">
+  <chapters>
+    <sub name="Introduction" link="introduction.html">
+      <sub name="Overview of Cutter" link="overview.html">
+        <sub name="NEWS" link="news.html"/>
+        <sub name="README" link="readme.html"/>
+        <sub name="Features" link="features.html"/>
+        <sub name="Users" link="users.html"/>
+      </sub>
+      <sub name="Install Cutter to your platform" link="install.html">
+        <sub name="Install to Debian GNU/Linux" link="install-to-debian.html"/>
+        <sub name="Install to Ubuntu" link="install-to-ubuntu.html"/>
+        <sub name="Install to Fedora" link="install-to-fedora.html"/>
+        <sub name="Install to CentOS" link="install-to-centos.html"/>
+        <sub name="Install to FreeBSD" link="install-to-freebsd.html"/>
+        <sub name="Install to Solaris" link="install-to-solaris.html"/>
+        <sub name="Install to Mac OS X" link="install-to-mac-os-x.html"/>
+        <sub name="Install to Cygwin" link="install-to-cygwin.html"/>
+        <sub name="Install to other platform" link="install-to-others.html"/>
+      </sub>
+      <sub name="Getting start" link="start.html">
+        <sub name="Tutorial" link="tutorial.html"/>
+      </sub>
+    </sub>
+    <sub name="Reference" link="reference.html">
+      <sub name="Command" link="command.html">
+        <sub name="cutter" link="cutter.html"/>
+        <sub name="cut-diff" link="cut-diff.html"/>
+      </sub>
+      <sub name="Writing test" link="writing-test.html">
+        <sub name="Cutter" link="cutter-Cutter.html"/>
+        <sub name="Version Information" link="cutter-Version-Information.html"/>
+        <sub name="Available features" link="cutter-Available-features.html"/>
+        <sub name="Assertions" link="cutter-Assertions.html"/>
+        <sub name="Test Utilities" link="cutter-Test-Utilities.html"/>
+        <sub name="Types" link="cutter-Types.html"/>
+        <sub name="Multi Process" link="cutter-Multi-Process.html"/>
+        <sub name="GCutter" link="cutter-GCutter.html"/>
+        <sub name="Assertions with GLib support" link="cutter-Assertions-with-GLib-support.html"/>
+        <sub name="Test Utilities with GLib support" link="cutter-Test-Utilities-with-GLib-support.html"/>
+        <sub name="Types for GLib support" link="cutter-Types-for-GLib-support.html"/>
+        <sub name="Convenience test data API" link="cutter-Convenience-test-data-API.html"/>
+        <sub name="External command" link="GCutProcess.html"/>
+        <sub name="External command (deprecated)" link="GCutEgg.html"/>
+        <sub name="Abstracted event loop" link="GCutEventLoop.html"/>
+        <sub name="GLib event loop" link="cutter-GCutGLibEventLoop.html"/>
+        <sub name="CppCutter" link="cutter-CppCutter.html"/>
+        <sub name="Assertions with C++ support" link="cutter-Assertions-with-C++-support.html"/>
+        <sub name="GdkCutter Pixbuf" link="cutter-GdkCutter-Pixbuf.html"/>
+        <sub name="Assertions with gdk-pixbuf support" link="cutter-Assertions-with-gdk-pixbuf-support.html"/>
+        <sub name="SoupCutter" link="cutter-SoupCutter.html"/>
+        <sub name="Assertions for HTTP client and server" link="cutter-Assertions-for-HTTP-client-and-server.html"/>
+        <sub name="Convenience HTTP client API" link="SoupCutClient.html"/>
+        <sub name="Convenience HTTP server API" link="cutter-Convenience-HTTP-server-API.html"/>
+        <sub name="Experimental" link="cutter-Experimental.html"/>
+      </sub>
+      <sub name="Writing assertion" link="writing-assertion.html">
+        <sub name="Assertion writing helper" link="cutter-Assertion-writing-helper.html"/>
+        <sub name="Assertion Utilities for GEnum and GFlags" link="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html"/>
+        <sub name="Assertion Utilities for GError" link="cutter-Assertion-Utilities-for-GError.html"/>
+        <sub name="Assertion Utilities for GHashTable" link="cutter-Assertion-Utilities-for-GHashTable.html"/>
+        <sub name="Assertion Utilities for GList" link="cutter-Assertion-Utilities-for-GList.html"/>
+        <sub name="Assertion Utilities for GObject" link="cutter-Assertion-Utilities-for-GObject.html"/>
+        <sub name="Assertion Utilities for GValue" link="cutter-Assertion-Utilities-for-GValue.html"/>
+        <sub name="Object inspection functions" link="cutter-Object-inspection-functions.html"/>
+        <sub name="Assertion Utilities for GString" link="cutter-Assertion-Utilities-for-GString.html"/>
+      </sub>
+    </sub>
+    <sub name="Index of all symbols" link="index-all.html"/>
+    <sub name="Index of deprecated symbols" link="index-deprecated.html"/>
+    <sub name="Index of new symbols in 1.1.7" link="index-1-1-7.html"/>
+    <sub name="Index of new symbols in 1.1.6" link="index-1-1-6.html"/>
+    <sub name="Index of new symbols in 1.1.5" link="index-1-1-5.html"/>
+    <sub name="Index of new symbols in 1.1.4" link="index-1-1-4.html"/>
+    <sub name="Index of new symbols in 1.1.3" link="index-1-1-3.html"/>
+    <sub name="Index of new symbols in 1.1.2" link="index-1-1-2.html"/>
+    <sub name="Index of new symbols in 1.1.1" link="index-1-1-1.html"/>
+    <sub name="Index of new symbols in 1.1.0" link="index-1-1-0.html"/>
+    <sub name="Index of new symbols in 1.0.9" link="index-1-0-9.html"/>
+    <sub name="Index of new symbols in 1.0.8" link="index-1-0-8.html"/>
+    <sub name="Index of new symbols in 1.0.7" link="index-1-0-7.html"/>
+    <sub name="Index of new symbols in 1.0.6" link="index-1-0-6.html"/>
+    <sub name="Index of new symbols in 1.0.5" link="index-1-0-5.html"/>
+    <sub name="Index of new symbols in 1.0.4" link="index-1-0-4.html"/>
+    <sub name="Index of new symbols in 1.0.3" link="index-1-0-3.html"/>
+    <sub name="Index of new symbols in 1.0.2" link="index-1-0-2.html"/>
+    <sub name="Index of new symbols in 1.0.1" link="index-1-0-1.html"/>
+    <sub name="Index of new symbols in 1.0" link="index-1-0.html"/>
+    <sub name="Index of new symbols in 0.9" link="index-0-9.html"/>
+    <sub name="Index of new symbols in 0.8" link="index-0-8.html"/>
+    <sub name="Index of new symbols in 0.7" link="index-0-7.html"/>
+    <sub name="Index of new symbols in 0.6" link="index-0-6.html"/>
+    <sub name="Index of new symbols in 0.5" link="index-0-5.html"/>
+    <sub name="Index of new symbols in 0.4" link="index-0-4.html"/>
+    <sub name="Index of new symbols in 0.3" link="index-0-3.html"/>
+  </chapters>
+  <functions>
+    <function name="Cutter" link="news.html#id400789"/>
+    <function name="Document" link="news.html#id404435"/>
+    <function name="Thanks" link="news.html#id357478"/>
+    <function name="Cutter" link="news.html#id347119"/>
+    <function name="cut-diff" link="news.html#id347311"/>
+    <function name="Thanks" link="news.html#id347344"/>
+    <function name="Cutter" link="news.html#id405161"/>
+    <function name="cut-diff" link="news.html#id405455"/>
+    <function name="Documentation" link="news.html#id405487"/>
+    <function name="Thanks" link="news.html#id405513"/>
+    <function name="Cutter" link="news.html#id405545"/>
+    <function name="Document" link="news.html#id405688"/>
+    <function name="Thanks" link="news.html#id405714"/>
+    <function name="Cutter" link="news.html#id405746"/>
+    <function name="GCutter" link="news.html#id405800"/>
+    <function name="Document" link="news.html#id406022"/>
+    <function name="Thanks" link="news.html#id406048"/>
+    <function name="Cutter" link="news.html#id406080"/>
+    <function name="CppCutter" link="news.html#id406128"/>
+    <function name="Document" link="news.html#id406160"/>
+    <function name="Thanks" link="news.html#id406186"/>
+    <function name="Cutter" link="news.html#id406226"/>
+    <function name="GCutter" link="news.html#id406347"/>
+    <function name="Cutter" link="news.html#id406456"/>
+    <function name="CppCutter" link="news.html#id406571"/>
+    <function name="Thanks" link="news.html#id406666"/>
+    <function name="Improvements" link="news.html#id406695"/>
+    <function name="Bug fixes" link="news.html#id406814"/>
+    <function name="Thanks" link="news.html#id406833"/>
+    <function name="Program" link="readme.html#id415559"/>
+    <function name="Kinotan Icons" link="readme.html#id397087"/>
+    <function name="Progress" link="readme.html#id391715"/>
+    <function name="Summary of test result" link="readme.html#id391834"/>
+    <function name="XML report" link="readme.html#id391983"/>
+    <function name="Test coverage" link="readme.html#id392010"/>
+    <function name="Assertions" link="readme.html#id392041"/>
+    <function name="Attributes" link="readme.html#id392059"/>
+    <function name="Template" link="readme.html#id392089"/>
+    <function name="Fixture" link="features.html#id424917"/>
+    <function name="No test registration code" link="features.html#id426227"/>
+    <function name="Result output with useful format for debugging" link="features.html#id426252"/>
+    <function name="Many assertions" link="features.html#id426329"/>
+    <function name="Cross platform" link="features.html#id426485"/>
+    <function name="Data-Driven Testing support" link="features.html#id426530"/>
+    <function name="Coverage support" link="features.html#id426631"/>
+    <function name="Backtrace on crash" link="features.html#id426669"/>
+    <function name="Serialize/deserialize test result" link="features.html#id426686"/>
+    <function name="configure.ac" link="tutorial.html#id435712"/>
+    <function name="Makefile.am" link="tutorial.html#id435750"/>
+    <function name="Write a test program" link="tutorial.html#id435807"/>
+    <function name="Build a test" link="tutorial.html#id402693"/>
+    <function name="Run test" link="tutorial.html#id427100"/>
+    <function name="Implement stack" link="tutorial.html#id427294"/>
+    <function name="Test for push" link="tutorial.html#id427607"/>
+    <function name="Implement cut_stack_push()" link="tutorial.html#id427649"/>
+    <function name="Free memory" link="tutorial.html#id427741"/>
+    <function name="Implement stack_new() and stack_free()" link="tutorial.html#id427839"/>
+    <function name="Really implement stack_push()" link="tutorial.html#id427906"/>
+    <function name="Really implement stack_is_empty()" link="tutorial.html#id427960"/>
+    <function name="Test for pop" link="tutorial.html#id428011"/>
+    <function name="Implement stack_pop()" link="tutorial.html#id428058"/>
+    <function name="Allocate memory for data" link="tutorial.html#id428133"/>
+    <function name="Really implement stack_pop()" link="tutorial.html#id428179"/>
+    <function name="Eliminate a duplication in memory allocation process" link="tutorial.html#id428236"/>
+    <function name="Eliminate a duplication in error handling process" link="tutorial.html#id428288"/>
+    <function name="Merit" link="tutorial.html#id428363"/>
+    <function name="Stack test" link="tutorial.html#id428404"/>
+    <function name="Stack implementation" link="tutorial.html#id428435"/>
+    <function name="Support no Cutter installed environment" link="tutorial.html#id428467"/>
+    <function name="See also" link="tutorial.html#id428572"/>
+    <function name="setup ()" link="cutter-Cutter.html#setup"/>
+    <function name="cut_setup ()" link="cutter-Cutter.html#cut-setup"/>
+    <function name="teardown ()" link="cutter-Cutter.html#teardown"/>
+    <function name="cut_teardown ()" link="cutter-Cutter.html#cut-teardown"/>
+    <function name="cut_startup ()" link="cutter-Cutter.html#cut-startup"/>
+    <function name="cut_shutdown ()" link="cutter-Cutter.html#cut-shutdown"/>
+    <function name="cut_add_data()" link="cutter-Cutter.html#cut-add-data"/>
+    <function name="cut_add_data_backward_compatibility()" link="cutter-Cutter.html#cut-add-data-backward-compatibility"/>
+    <function name="cut_set_attributes()" link="cutter-Cutter.html#cut-set-attributes"/>
+    <function name="cut_get_current_test_context" link="cutter-Cutter.html#cut-get-current-test-context"/>
+    <function name="cut_set_current_test_context()" link="cutter-Cutter.html#cut-set-current-test-context"/>
+    <function name="cut_set_message ()" link="cutter-Cutter.html#cut-set-message"/>
+    <function name="cut_set_message_va_list ()" link="cutter-Cutter.html#cut-set-message-va-list"/>
+    <function name="cut_keep_message ()" link="cutter-Cutter.html#cut-keep-message"/>
+    <function name="cut_message ()" link="cutter-Cutter.html#cut-message"/>
+    <function name="CUT_EXPORT" link="cutter-Cutter.html#CUT-EXPORT:CAPS"/>
+    <function name="CUTTER_VERSION_MAJOR" link="cutter-Version-Information.html#CUTTER-VERSION-MAJOR:CAPS"/>
+    <function name="CUTTER_VERSION_MINOR" link="cutter-Version-Information.html#CUTTER-VERSION-MINOR:CAPS"/>
+    <function name="CUTTER_VERSION_MICRO" link="cutter-Version-Information.html#CUTTER-VERSION-MICRO:CAPS"/>
+    <function name="CUTTER_VERSION_STRING" link="cutter-Version-Information.html#CUTTER-VERSION-STRING:CAPS"/>
+    <function name="CUTTER_CHECK_VERSION()" link="cutter-Version-Information.html#CUTTER-CHECK-VERSION:CAPS"/>
+    <function name="CUT_SUPPORT_GLIB" link="cutter-Available-features.html#CUT-SUPPORT-GLIB:CAPS"/>
+    <function name="CUT_SUPPORT_GDK_PIXBUF" link="cutter-Available-features.html#CUT-SUPPORT-GDK-PIXBUF:CAPS"/>
+    <function name="CUT_SUPPORT_GIO" link="cutter-Available-features.html#CUT-SUPPORT-GIO:CAPS"/>
+    <function name="CUT_SUPPORT_LIBSOUP" link="cutter-Available-features.html#CUT-SUPPORT-LIBSOUP:CAPS"/>
+    <function name="CUT_SUPPORT_C99_STDINT_TYPES" link="cutter-Available-features.html#CUT-SUPPORT-C99-STDINT-TYPES:CAPS"/>
+    <function name="cut_assert ()" link="cutter-Assertions.html#cut-assert"/>
+    <function name="cut_assert_true ()" link="cutter-Assertions.html#cut-assert-true"/>
+    <function name="cut_assert_false ()" link="cutter-Assertions.html#cut-assert-false"/>
+    <function name="cut_assert_equal_boolean ()" link="cutter-Assertions.html#cut-assert-equal-boolean"/>
+    <function name="cut_assert_not_equal_boolean ()" link="cutter-Assertions.html#cut-assert-not-equal-boolean"/>
+    <function name="cut_assert_null ()" link="cutter-Assertions.html#cut-assert-null"/>
+    <function name="cut_assert_null_string ()" link="cutter-Assertions.html#cut-assert-null-string"/>
+    <function name="cut_assert_not_null ()" link="cutter-Assertions.html#cut-assert-not-null"/>
+    <function name="cut_assert_equal_int ()" link="cutter-Assertions.html#cut-assert-equal-int"/>
+    <function name="cut_assert_not_equal_int ()" link="cutter-Assertions.html#cut-assert-not-equal-int"/>
+    <function name="cut_assert_equal_int_least8()" link="cutter-Assertions.html#cut-assert-equal-int-least8"/>
+    <function name="cut_assert_not_equal_int_least8()" link="cutter-Assertions.html#cut-assert-not-equal-int-least8"/>
+    <function name="cut_assert_equal_int_least16()" link="cutter-Assertions.html#cut-assert-equal-int-least16"/>
+    <function name="cut_assert_not_equal_int_least16()" link="cutter-Assertions.html#cut-assert-not-equal-int-least16"/>
+    <function name="cut_assert_equal_int_least32()" link="cutter-Assertions.html#cut-assert-equal-int-least32"/>
+    <function name="cut_assert_not_equal_int_least32()" link="cutter-Assertions.html#cut-assert-not-equal-int-least32"/>
+    <function name="cut_assert_equal_int_least64()" link="cutter-Assertions.html#cut-assert-equal-int-least64"/>
+    <function name="cut_assert_not_equal_int_least64()" link="cutter-Assertions.html#cut-assert-not-equal-int-least64"/>
+    <function name="cut_assert_equal_int_fast8()" link="cutter-Assertions.html#cut-assert-equal-int-fast8"/>
+    <function name="cut_assert_not_equal_int_fast8()" link="cutter-Assertions.html#cut-assert-not-equal-int-fast8"/>
+    <function name="cut_assert_equal_int_fast16()" link="cutter-Assertions.html#cut-assert-equal-int-fast16"/>
+    <function name="cut_assert_not_equal_int_fast16()" link="cutter-Assertions.html#cut-assert-not-equal-int-fast16"/>
+    <function name="cut_assert_equal_int_fast32()" link="cutter-Assertions.html#cut-assert-equal-int-fast32"/>
+    <function name="cut_assert_not_equal_int_fast32()" link="cutter-Assertions.html#cut-assert-not-equal-int-fast32"/>
+    <function name="cut_assert_equal_int_fast64()" link="cutter-Assertions.html#cut-assert-equal-int-fast64"/>
+    <function name="cut_assert_not_equal_int_fast64()" link="cutter-Assertions.html#cut-assert-not-equal-int-fast64"/>
+    <function name="cut_assert_equal_intptr()" link="cutter-Assertions.html#cut-assert-equal-intptr"/>
+    <function name="cut_assert_not_equal_intptr()" link="cutter-Assertions.html#cut-assert-not-equal-intptr"/>
+    <function name="cut_assert_equal_intmax()" link="cutter-Assertions.html#cut-assert-equal-intmax"/>
+    <function name="cut_assert_not_equal_intmax()" link="cutter-Assertions.html#cut-assert-not-equal-intmax"/>
+    <function name="cut_assert_equal_uint ()" link="cutter-Assertions.html#cut-assert-equal-uint"/>
+    <function name="cut_assert_not_equal_uint ()" link="cutter-Assertions.html#cut-assert-not-equal-uint"/>
+    <function name="cut_assert_equal_uint_least8()" link="cutter-Assertions.html#cut-assert-equal-uint-least8"/>
+    <function name="cut_assert_not_equal_uint_least8()" link="cutter-Assertions.html#cut-assert-not-equal-uint-least8"/>
+    <function name="cut_assert_equal_uint_least16()" link="cutter-Assertions.html#cut-assert-equal-uint-least16"/>
+    <function name="cut_assert_not_equal_uint_least16()" link="cutter-Assertions.html#cut-assert-not-equal-uint-least16"/>
+    <function name="cut_assert_equal_uint_least32()" link="cutter-Assertions.html#cut-assert-equal-uint-least32"/>
+    <function name="cut_assert_not_equal_uint_least32()" link="cutter-Assertions.html#cut-assert-not-equal-uint-least32"/>
+    <function name="cut_assert_equal_uint_least64()" link="cutter-Assertions.html#cut-assert-equal-uint-least64"/>
+    <function name="cut_assert_not_equal_uint_least64()" link="cutter-Assertions.html#cut-assert-not-equal-uint-least64"/>
+    <function name="cut_assert_equal_uint_fast8()" link="cutter-Assertions.html#cut-assert-equal-uint-fast8"/>
+    <function name="cut_assert_not_equal_uint_fast8()" link="cutter-Assertions.html#cut-assert-not-equal-uint-fast8"/>
+    <function name="cut_assert_equal_uint_fast16()" link="cutter-Assertions.html#cut-assert-equal-uint-fast16"/>
+    <function name="cut_assert_not_equal_uint_fast16()" link="cutter-Assertions.html#cut-assert-not-equal-uint-fast16"/>
+    <function name="cut_assert_equal_uint_fast32()" link="cutter-Assertions.html#cut-assert-equal-uint-fast32"/>
+    <function name="cut_assert_not_equal_uint_fast32()" link="cutter-Assertions.html#cut-assert-not-equal-uint-fast32"/>
+    <function name="cut_assert_equal_uint_fast64()" link="cutter-Assertions.html#cut-assert-equal-uint-fast64"/>
+    <function name="cut_assert_not_equal_uint_fast64()" link="cutter-Assertions.html#cut-assert-not-equal-uint-fast64"/>
+    <function name="cut_assert_equal_uintptr()" link="cutter-Assertions.html#cut-assert-equal-uintptr"/>
+    <function name="cut_assert_not_equal_uintptr()" link="cutter-Assertions.html#cut-assert-not-equal-uintptr"/>
+    <function name="cut_assert_equal_uintmax()" link="cutter-Assertions.html#cut-assert-equal-uintmax"/>
+    <function name="cut_assert_not_equal_uintmax()" link="cutter-Assertions.html#cut-assert-not-equal-uintmax"/>
+    <function name="cut_assert_equal_size ()" link="cutter-Assertions.html#cut-assert-equal-size"/>
+    <function name="cut_assert_not_equal_size ()" link="cutter-Assertions.html#cut-assert-not-equal-size"/>
+    <function name="cut_assert_equal_double ()" link="cutter-Assertions.html#cut-assert-equal-double"/>
+    <function name="cut_assert_not_equal_double ()" link="cutter-Assertions.html#cut-assert-not-equal-double"/>
+    <function name="cut_assert_equal_char()" link="cutter-Assertions.html#cut-assert-equal-char"/>
+    <function name="cut_assert_not_equal_char()" link="cutter-Assertions.html#cut-assert-not-equal-char"/>
+    <function name="cut_assert_equal_string ()" link="cutter-Assertions.html#cut-assert-equal-string"/>
+    <function name="cut_assert_not_equal_string ()" link="cutter-Assertions.html#cut-assert-not-equal-string"/>
+    <function name="cut_assert_equal_string_with_free ()" link="cutter-Assertions.html#cut-assert-equal-string-with-free"/>
+    <function name="cut_assert_equal_string_or_null ()" link="cutter-Assertions.html#cut-assert-equal-string-or-null"/>
+    <function name="cut_assert_equal_substring ()" link="cutter-Assertions.html#cut-assert-equal-substring"/>
+    <function name="cut_assert_not_equal_substring ()" link="cutter-Assertions.html#cut-assert-not-equal-substring"/>
+    <function name="cut_assert_equal_memory ()" link="cutter-Assertions.html#cut-assert-equal-memory"/>
+    <function name="cut_assert_not_equal_memory ()" link="cutter-Assertions.html#cut-assert-not-equal-memory"/>
+    <function name="cut_assert_equal_string_array ()" link="cutter-Assertions.html#cut-assert-equal-string-array"/>
+    <function name="cut_assert_equal_string_array_with_free ()" link="cutter-Assertions.html#cut-assert-equal-string-array-with-free"/>
+    <function name="cut_assert_operator()" link="cutter-Assertions.html#cut-assert-operator"/>
+    <function name="cut_assert_operator_int()" link="cutter-Assertions.html#cut-assert-operator-int"/>
+    <function name="cut_assert_operator_uint()" link="cutter-Assertions.html#cut-assert-operator-uint"/>
+    <function name="cut_assert_operator_size()" link="cutter-Assertions.html#cut-assert-operator-size"/>
+    <function name="cut_assert_operator_double()" link="cutter-Assertions.html#cut-assert-operator-double"/>
+    <function name="cut_assert_equal()" link="cutter-Assertions.html#cut-assert-equal"/>
+    <function name="cut_assert_errno ()" link="cutter-Assertions.html#cut-assert-errno"/>
+    <function name="cut_assert_file_exist ()" link="cutter-Assertions.html#cut-assert-file-exist"/>
+    <function name="cut_assert_path_exist ()" link="cutter-Assertions.html#cut-assert-path-exist"/>
+    <function name="cut_assert_exist_path ()" link="cutter-Assertions.html#cut-assert-exist-path"/>
+    <function name="cut_assert_path_not_exist ()" link="cutter-Assertions.html#cut-assert-path-not-exist"/>
+    <function name="cut_assert_not_exist_path ()" link="cutter-Assertions.html#cut-assert-not-exist-path"/>
+    <function name="cut_assert_match ()" link="cutter-Assertions.html#cut-assert-match"/>
+    <function name="cut_assert_match_with_free ()" link="cutter-Assertions.html#cut-assert-match-with-free"/>
+    <function name="cut_assert_equal_pointer ()" link="cutter-Assertions.html#cut-assert-equal-pointer"/>
+    <function name="cut_assert_equal_fixture_data_string ()" link="cutter-Assertions.html#cut-assert-equal-fixture-data-string"/>
+    <function name="cut_assert_equal_sockaddr()" link="cutter-Assertions.html#cut-assert-equal-sockaddr"/>
+    <function name="cut_assert_equal_file_raw()" link="cutter-Assertions.html#cut-assert-equal-file-raw"/>
+    <function name="cut_assert_not_equal_file_raw()" link="cutter-Assertions.html#cut-assert-not-equal-file-raw"/>
+    <function name="cut_error ()" link="cutter-Assertions.html#cut-error"/>
+    <function name="cut_error_errno ()" link="cutter-Assertions.html#cut-error-errno"/>
+    <function name="cut_fail ()" link="cutter-Assertions.html#cut-fail"/>
+    <function name="cut_pend ()" link="cutter-Assertions.html#cut-pend"/>
+    <function name="cut_pending ()" link="cutter-Assertions.html#cut-pending"/>
+    <function name="cut_notify ()" link="cutter-Assertions.html#cut-notify"/>
+    <function name="cut_omit ()" link="cutter-Assertions.html#cut-omit"/>
+    <function name="cut_return ()" link="cutter-Assertions.html#cut-return"/>
+    <function name="cut_take ()" link="cutter-Test-Utilities.html#cut-take"/>
+    <function name="cut_take_memory ()" link="cutter-Test-Utilities.html#cut-take-memory"/>
+    <function name="cut_take_string ()" link="cutter-Test-Utilities.html#cut-take-string"/>
+    <function name="cut_take_strdup ()" link="cutter-Test-Utilities.html#cut-take-strdup"/>
+    <function name="cut_take_strndup ()" link="cutter-Test-Utilities.html#cut-take-strndup"/>
+    <function name="cut_take_memdup ()" link="cutter-Test-Utilities.html#cut-take-memdup"/>
+    <function name="cut_take_printf ()" link="cutter-Test-Utilities.html#cut-take-printf"/>
+    <function name="cut_take_string_array ()" link="cutter-Test-Utilities.html#cut-take-string-array"/>
+    <function name="cut_take_diff ()" link="cutter-Test-Utilities.html#cut-take-diff"/>
+    <function name="cut_take_replace ()" link="cutter-Test-Utilities.html#cut-take-replace"/>
+    <function name="cut_take_convert()" link="cutter-Test-Utilities.html#cut-take-convert"/>
+    <function name="cut_take_inspect_string ()" link="cutter-Test-Utilities.html#cut-take-inspect-string"/>
+    <function name="cut_set_fixture_data_dir ()" link="cutter-Test-Utilities.html#cut-set-fixture-data-dir"/>
+    <function name="cut_build_fixture_data_path ()" link="cutter-Test-Utilities.html#cut-build-fixture-data-path"/>
+    <function name="cut_build_fixture_path ()" link="cutter-Test-Utilities.html#cut-build-fixture-path"/>
+    <function name="cut_get_fixture_data_string ()" link="cutter-Test-Utilities.html#cut-get-fixture-data-string"/>
+    <function name="cut_get_fixture_data ()" link="cutter-Test-Utilities.html#cut-get-fixture-data"/>
+    <function name="cut_remove_path ()" link="cutter-Test-Utilities.html#cut-remove-path"/>
+    <function name="cut_build_path ()" link="cutter-Test-Utilities.html#cut-build-path"/>
+    <function name="cut_build_path_array ()" link="cutter-Test-Utilities.html#cut-build-path-array"/>
+    <function name="cut_make_directory ()" link="cutter-Test-Utilities.html#cut-make-directory"/>
+    <function name="CutDestroyFunction ()" link="cutter-Types.html#CutDestroyFunction"/>
+    <function name="CutCallbackFunction ()" link="cutter-Types.html#CutCallbackFunction"/>
+    <function name="cut_boolean" link="cutter-Types.html#cut-boolean"/>
+    <function name="CUT_TRUE" link="cutter-Types.html#CUT-TRUE:CAPS"/>
+    <function name="CUT_FALSE" link="cutter-Types.html#CUT-FALSE:CAPS"/>
+    <function name="CutSubProcess" link="cutter-Multi-Process.html#CutSubProcess"/>
+    <function name="CutSubProcessGroup" link="cutter-Multi-Process.html#CutSubProcessGroup"/>
+    <function name="cut_take_new_sub_process ()" link="cutter-Multi-Process.html#cut-take-new-sub-process"/>
+    <function name="cut_sub_process_run ()" link="cutter-Multi-Process.html#cut-sub-process-run"/>
+    <function name="cut_sub_process_run_async ()" link="cutter-Multi-Process.html#cut-sub-process-run-async"/>
+    <function name="cut_sub_process_wait ()" link="cutter-Multi-Process.html#cut-sub-process-wait"/>
+    <function name="cut_sub_process_is_success ()" link="cutter-Multi-Process.html#cut-sub-process-is-success"/>
+    <function name="cut_sub_process_is_running ()" link="cutter-Multi-Process.html#cut-sub-process-is-running"/>
+    <function name="cut_sub_process_get_test_directory ()" link="cutter-Multi-Process.html#cut-sub-process-get-test-directory"/>
+    <function name="cut_sub_process_set_test_directory ()" link="cutter-Multi-Process.html#cut-sub-process-set-test-directory"/>
+    <function name="cut_sub_process_get_source_directory ()" link="cutter-Multi-Process.html#cut-sub-process-get-source-directory"/>
+    <function name="cut_sub_process_set_source_directory ()" link="cutter-Multi-Process.html#cut-sub-process-set-source-directory"/>
+    <function name="cut_sub_process_get_multi_thread ()" link="cutter-Multi-Process.html#cut-sub-process-get-multi-thread"/>
+    <function name="cut_sub_process_set_multi_thread ()" link="cutter-Multi-Process.html#cut-sub-process-set-multi-thread"/>
+    <function name="cut_sub_process_get_max_threads ()" link="cutter-Multi-Process.html#cut-sub-process-get-max-threads"/>
+    <function name="cut_sub_process_set_max_threads ()" link="cutter-Multi-Process.html#cut-sub-process-set-max-threads"/>
+    <function name="cut_sub_process_get_exclude_files ()" link="cutter-Multi-Process.html#cut-sub-process-get-exclude-files"/>
+    <function name="cut_sub_process_set_exclude_files ()" link="cutter-Multi-Process.html#cut-sub-process-set-exclude-files"/>
+    <function name="cut_sub_process_get_exclude_directories ()" link="cutter-Multi-Process.html#cut-sub-process-get-exclude-directories"/>
+    <function name="cut_sub_process_set_exclude_directories ()" link="cutter-Multi-Process.html#cut-sub-process-set-exclude-directories"/>
+    <function name="cut_sub_process_get_target_test_case_names ()" link="cutter-Multi-Process.html#cut-sub-process-get-target-test-case-names"/>
+    <function name="cut_sub_process_set_target_test_case_names ()" link="cutter-Multi-Process.html#cut-sub-process-set-target-test-case-names"/>
+    <function name="cut_sub_process_get_target_test_names ()" link="cutter-Multi-Process.html#cut-sub-process-get-target-test-names"/>
+    <function name="cut_sub_process_set_target_test_names ()" link="cutter-Multi-Process.html#cut-sub-process-set-target-test-names"/>
+    <function name="cut_sub_process_get_elapsed ()" link="cutter-Multi-Process.html#cut-sub-process-get-elapsed"/>
+    <function name="cut_sub_process_get_total_elapsed ()" link="cutter-Multi-Process.html#cut-sub-process-get-total-elapsed"/>
+    <function name="cut_sub_process_is_crashed ()" link="cutter-Multi-Process.html#cut-sub-process-is-crashed"/>
+    <function name="cut_sub_process_get_fatal_failures ()" link="cutter-Multi-Process.html#cut-sub-process-get-fatal-failures"/>
+    <function name="cut_sub_process_set_fatal_failures ()" link="cutter-Multi-Process.html#cut-sub-process-set-fatal-failures"/>
+    <function name="cut_take_new_sub_process_group ()" link="cutter-Multi-Process.html#cut-take-new-sub-process-group"/>
+    <function name="cut_sub_process_group_add ()" link="cutter-Multi-Process.html#cut-sub-process-group-add"/>
+    <function name="cut_sub_process_group_run ()" link="cutter-Multi-Process.html#cut-sub-process-group-run"/>
+    <function name="cut_sub_process_group_run_async ()" link="cutter-Multi-Process.html#cut-sub-process-group-run-async"/>
+    <function name="cut_sub_process_group_wait ()" link="cutter-Multi-Process.html#cut-sub-process-group-wait"/>
+    <function name="GCUTTER_ENABLED" link="cutter-GCutter.html#GCUTTER-ENABLED:CAPS"/>
+    <function name="gcut_assert_equal_type ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-type"/>
+    <function name="cut_assert_equal_g_type ()" link="cutter-Assertions-with-GLib-support.html#cut-assert-equal-g-type"/>
+    <function name="gcut_assert_equal_value ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-value"/>
+    <function name="cut_assert_equal_g_value ()" link="cutter-Assertions-with-GLib-support.html#cut-assert-equal-g-value"/>
+    <function name="gcut_assert_equal_list ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-list"/>
+    <function name="gcut_assert_equal_list_int ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-list-int"/>
+    <function name="cut_assert_equal_g_list_int ()" link="cutter-Assertions-with-GLib-support.html#cut-assert-equal-g-list-int"/>
+    <function name="gcut_assert_equal_list_uint ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-list-uint"/>
+    <function name="gcut_assert_equal_list_string ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-list-string"/>
+    <function name="cut_assert_equal_g_list_string ()" link="cutter-Assertions-with-GLib-support.html#cut-assert-equal-g-list-string"/>
+    <function name="gcut_assert_equal_list_object ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-list-object"/>
+    <function name="gcut_assert_equal_list_object_custom ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-list-object-custom"/>
+    <function name="gcut_assert_equal_list_enum ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-list-enum"/>
+    <function name="gcut_assert_equal_list_flags ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-list-flags"/>
+    <function name="gcut_assert_equal_hash_table ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-hash-table"/>
+    <function name="gcut_assert_equal_hash_table_string_string ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-hash-table-string-string"/>
+    <function name="gcut_assert_error ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-error"/>
+    <function name="cut_assert_g_error ()" link="cutter-Assertions-with-GLib-support.html#cut-assert-g-error"/>
+    <function name="gcut_assert_equal_error ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-error"/>
+    <function name="gcut_assert_remove_path ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-remove-path"/>
+    <function name="cut_assert_remove_path ()" link="cutter-Assertions-with-GLib-support.html#cut-assert-remove-path"/>
+    <function name="gcut_assert_equal_time_val ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-time-val"/>
+    <function name="gcut_assert_equal_enum ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-enum"/>
+    <function name="gcut_assert_equal_flags ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-flags"/>
+    <function name="gcut_assert_equal_object ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-object"/>
+    <function name="gcut_assert_equal_object_custom ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-object-custom"/>
+    <function name="gcut_assert_equal_int64 ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-int64"/>
+    <function name="gcut_assert_not_equal_int64 ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-not-equal-int64"/>
+    <function name="gcut_assert_equal_uint64 ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-uint64"/>
+    <function name="gcut_assert_not_equal_uint64 ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-not-equal-uint64"/>
+    <function name="gcut_assert_equal_pid ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-pid"/>
+    <function name="gcut_assert_not_equal_pid ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-not-equal-pid"/>
+    <function name="gcut_assert_equal_string ()" link="cutter-Assertions-with-GLib-support.html#gcut-assert-equal-string"/>
+    <function name="gcut_take_object ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-take-object"/>
+    <function name="gcut_take_error ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-take-error"/>
+    <function name="gcut_take_list ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-take-list"/>
+    <function name="gcut_take_hash_table ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-take-hash-table"/>
+    <function name="gcut_take_string ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-take-string"/>
+    <function name="gcut_take_new_string ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-string"/>
+    <function name="gcut_list_new ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-list-new"/>
+    <function name="gcut_list_int_new ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-list-int-new"/>
+    <function name="gcut_list_uint_new ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-list-uint-new"/>
+    <function name="gcut_list_string_new ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-list-string-new"/>
+    <function name="gcut_list_string_new_array ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-list-string-new-array"/>
+    <function name="gcut_take_new_list_int ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-list-int"/>
+    <function name="gcut_take_new_list_uint ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-list-uint"/>
+    <function name="gcut_take_new_list_string ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-list-string"/>
+    <function name="gcut_take_new_list_string_backward_compatibility()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-list-string-backward-compatibility"/>
+    <function name="gcut_take_new_list_string_array ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-list-string-array"/>
+    <function name="gcut_take_new_list_object()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-list-object"/>
+    <function name="gcut_list_string_free ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-list-string-free"/>
+    <function name="gcut_list_object_free ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-list-object-free"/>
+    <function name="gcut_hash_table_string_string_new ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-hash-table-string-string-new"/>
+    <function name="gcut_hash_table_string_string_new_va_list ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-hash-table-string-string-new-va-list"/>
+    <function name="gcut_take_new_hash_table_string_string ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-take-new-hash-table-string-string"/>
+    <function name="gcut_get_fixture_data ()" link="cutter-Test-Utilities-with-GLib-support.html#gcut-get-fixture-data"/>
+    <function name="GCutInspectFunction ()" link="cutter-Types-for-GLib-support.html#GCutInspectFunction"/>
+    <function name="GCUT_TYPE_ERROR" link="cutter-Types-for-GLib-support.html#GCUT-TYPE-ERROR:CAPS"/>
+    <function name="GCUT_TYPE_SIZE" link="cutter-Types-for-GLib-support.html#GCUT-TYPE-SIZE:CAPS"/>
+    <function name="gcut_error_get_type ()" link="cutter-Types-for-GLib-support.html#gcut-error-get-type"/>
+    <function name="gcut_size_get_type ()" link="cutter-Types-for-GLib-support.html#gcut-size-get-type"/>
+    <function name="gcut_add_datum ()" link="cutter-Convenience-test-data-API.html#gcut-add-datum"/>
+    <function name="gcut_data_has_field ()" link="cutter-Convenience-test-data-API.html#gcut-data-has-field"/>
+    <function name="gcut_data_get_char()" link="cutter-Convenience-test-data-API.html#gcut-data-get-char"/>
+    <function name="gcut_data_get_string ()" link="cutter-Convenience-test-data-API.html#gcut-data-get-string"/>
+    <function name="gcut_data_get_int ()" link="cutter-Convenience-test-data-API.html#gcut-data-get-int"/>
+    <function name="gcut_data_get_uint ()" link="cutter-Convenience-test-data-API.html#gcut-data-get-uint"/>
+    <function name="gcut_data_get_int64()" link="cutter-Convenience-test-data-API.html#gcut-data-get-int64"/>
+    <function name="gcut_data_get_uint64()" link="cutter-Convenience-test-data-API.html#gcut-data-get-uint64"/>
+    <function name="gcut_data_get_size()" link="cutter-Convenience-test-data-API.html#gcut-data-get-size"/>
+    <function name="gcut_data_get_type ()" link="cutter-Convenience-test-data-API.html#gcut-data-get-type"/>
+    <function name="gcut_data_get_flags ()" link="cutter-Convenience-test-data-API.html#gcut-data-get-flags"/>
+    <function name="gcut_data_get_enum ()" link="cutter-Convenience-test-data-API.html#gcut-data-get-enum"/>
+    <function name="gcut_data_get_pointer ()" link="cutter-Convenience-test-data-API.html#gcut-data-get-pointer"/>
+    <function name="gcut_data_get_boxed ()" link="cutter-Convenience-test-data-API.html#gcut-data-get-boxed"/>
+    <function name="gcut_data_get_object()" link="cutter-Convenience-test-data-API.html#gcut-data-get-object"/>
+    <function name="gcut_data_get_boolean()" link="cutter-Convenience-test-data-API.html#gcut-data-get-boolean"/>
+    <function name="gcut_data_get_double()" link="cutter-Convenience-test-data-API.html#gcut-data-get-double"/>
+    <function name="GCUT_PROCESS_ERROR" link="GCutProcess.html#GCUT-PROCESS-ERROR:CAPS"/>
+    <function name="GCutProcess" link="GCutProcess.html#GCutProcess-struct"/>
+    <function name="GCutProcessClass" link="GCutProcess.html#GCutProcessClass"/>
+    <function name="enum GCutProcessError" link="GCutProcess.html#GCutProcessError"/>
+    <function name="gcut_process_error_quark ()" link="GCutProcess.html#gcut-process-error-quark"/>
+    <function name="gcut_process_new ()" link="GCutProcess.html#gcut-process-new"/>
+    <function name="gcut_process_new_command_line ()" link="GCutProcess.html#gcut-process-new-command-line"/>
+    <function name="gcut_process_new_va_list ()" link="GCutProcess.html#gcut-process-new-va-list"/>
+    <function name="gcut_process_new_argv ()" link="GCutProcess.html#gcut-process-new-argv"/>
+    <function name="gcut_process_new_strings ()" link="GCutProcess.html#gcut-process-new-strings"/>
+    <function name="gcut_process_new_array ()" link="GCutProcess.html#gcut-process-new-array"/>
+    <function name="gcut_process_set_flags ()" link="GCutProcess.html#gcut-process-set-flags"/>
+    <function name="gcut_process_get_flags ()" link="GCutProcess.html#gcut-process-get-flags"/>
+    <function name="gcut_process_set_env ()" link="GCutProcess.html#gcut-process-set-env"/>
+    <function name="gcut_process_get_env ()" link="GCutProcess.html#gcut-process-get-env"/>
+    <function name="gcut_process_run ()" link="GCutProcess.html#gcut-process-run"/>
+    <function name="gcut_process_get_pid ()" link="GCutProcess.html#gcut-process-get-pid"/>
+    <function name="gcut_process_wait ()" link="GCutProcess.html#gcut-process-wait"/>
+    <function name="gcut_process_kill ()" link="GCutProcess.html#gcut-process-kill"/>
+    <function name="gcut_process_write ()" link="GCutProcess.html#gcut-process-write"/>
+    <function name="gcut_process_flush ()" link="GCutProcess.html#gcut-process-flush"/>
+    <function name="gcut_process_get_output_string ()" link="GCutProcess.html#gcut-process-get-output-string"/>
+    <function name="gcut_process_get_error_string ()" link="GCutProcess.html#gcut-process-get-error-string"/>
+    <function name="gcut_process_get_input_channel ()" link="GCutProcess.html#gcut-process-get-input-channel"/>
+    <function name="gcut_process_get_output_channel ()" link="GCutProcess.html#gcut-process-get-output-channel"/>
+    <function name="gcut_process_get_error_channel ()" link="GCutProcess.html#gcut-process-get-error-channel"/>
+    <function name="gcut_process_get_output_stream ()" link="GCutProcess.html#gcut-process-get-output-stream"/>
+    <function name="gcut_process_get_error_stream ()" link="GCutProcess.html#gcut-process-get-error-stream"/>
+    <function name="gcut_process_get_forced_termination_wait_time ()" link="GCutProcess.html#gcut-process-get-forced-termination-wait-time"/>
+    <function name="gcut_process_set_forced_termination_wait_time ()" link="GCutProcess.html#gcut-process-set-forced-termination-wait-time"/>
+    <function name="gcut_process_get_event_loop ()" link="GCutProcess.html#gcut-process-get-event-loop"/>
+    <function name="gcut_process_set_event_loop ()" link="GCutProcess.html#gcut-process-set-event-loop"/>
+    <function name="The &quot;command&quot; property" link="GCutProcess.html#GCutProcess--command"/>
+    <function name="The &quot;error&quot; signal" link="GCutProcess.html#GCutProcess-error"/>
+    <function name="The &quot;error-received&quot; signal" link="GCutProcess.html#GCutProcess-error-received"/>
+    <function name="The &quot;output-received&quot; signal" link="GCutProcess.html#GCutProcess-output-received"/>
+    <function name="The &quot;reaped&quot; signal" link="GCutProcess.html#GCutProcess-reaped"/>
+    <function name="GCUT_EGG_ERROR" link="GCutEgg.html#GCUT-EGG-ERROR:CAPS"/>
+    <function name="GCutEgg" link="GCutEgg.html#GCutEgg-struct"/>
+    <function name="GCutEggClass" link="GCutEgg.html#GCutEggClass"/>
+    <function name="enum GCutEggError" link="GCutEgg.html#GCutEggError"/>
+    <function name="gcut_egg_error_quark ()" link="GCutEgg.html#gcut-egg-error-quark"/>
+    <function name="gcut_egg_new ()" link="GCutEgg.html#gcut-egg-new"/>
+    <function name="gcut_egg_new_va_list ()" link="GCutEgg.html#gcut-egg-new-va-list"/>
+    <function name="gcut_egg_new_argv ()" link="GCutEgg.html#gcut-egg-new-argv"/>
+    <function name="gcut_egg_new_strings ()" link="GCutEgg.html#gcut-egg-new-strings"/>
+    <function name="gcut_egg_new_array ()" link="GCutEgg.html#gcut-egg-new-array"/>
+    <function name="gcut_egg_set_flags ()" link="GCutEgg.html#gcut-egg-set-flags"/>
+    <function name="gcut_egg_get_flags ()" link="GCutEgg.html#gcut-egg-get-flags"/>
+    <function name="gcut_egg_set_env ()" link="GCutEgg.html#gcut-egg-set-env"/>
+    <function name="gcut_egg_get_env ()" link="GCutEgg.html#gcut-egg-get-env"/>
+    <function name="gcut_egg_hatch ()" link="GCutEgg.html#gcut-egg-hatch"/>
+    <function name="gcut_egg_close ()" link="GCutEgg.html#gcut-egg-close"/>
+    <function name="gcut_egg_write ()" link="GCutEgg.html#gcut-egg-write"/>
+    <function name="gcut_egg_get_pid ()" link="GCutEgg.html#gcut-egg-get-pid"/>
+    <function name="gcut_egg_wait ()" link="GCutEgg.html#gcut-egg-wait"/>
+    <function name="gcut_egg_kill ()" link="GCutEgg.html#gcut-egg-kill"/>
+    <function name="gcut_egg_get_input ()" link="GCutEgg.html#gcut-egg-get-input"/>
+    <function name="gcut_egg_get_output ()" link="GCutEgg.html#gcut-egg-get-output"/>
+    <function name="gcut_egg_get_error ()" link="GCutEgg.html#gcut-egg-get-error"/>
+    <function name="gcut_egg_get_forced_termination_wait_time ()" link="GCutEgg.html#gcut-egg-get-forced-termination-wait-time"/>
+    <function name="gcut_egg_set_forced_termination_wait_time ()" link="GCutEgg.html#gcut-egg-set-forced-termination-wait-time"/>
+    <function name="The &quot;command&quot; property" link="GCutEgg.html#GCutEgg--command"/>
+    <function name="The &quot;error&quot; signal" link="GCutEgg.html#GCutEgg-error"/>
+    <function name="The &quot;error-received&quot; signal" link="GCutEgg.html#GCutEgg-error-received"/>
+    <function name="The &quot;output-received&quot; signal" link="GCutEgg.html#GCutEgg-output-received"/>
+    <function name="The &quot;reaped&quot; signal" link="GCutEgg.html#GCutEgg-reaped"/>
+    <function name="GCUT_EVENT_LOOP_ERROR" link="GCutEventLoop.html#GCUT-EVENT-LOOP-ERROR:CAPS"/>
+    <function name="GCutEventLoop" link="GCutEventLoop.html#GCutEventLoop-struct"/>
+    <function name="GCutEventLoopClass" link="GCutEventLoop.html#GCutEventLoopClass"/>
+    <function name="gcut_event_loop_error_quark ()" link="GCutEventLoop.html#gcut-event-loop-error-quark"/>
+    <function name="gcut_event_loop_run ()" link="GCutEventLoop.html#gcut-event-loop-run"/>
+    <function name="gcut_event_loop_iterate ()" link="GCutEventLoop.html#gcut-event-loop-iterate"/>
+    <function name="gcut_event_loop_quit ()" link="GCutEventLoop.html#gcut-event-loop-quit"/>
+    <function name="gcut_event_loop_watch_io ()" link="GCutEventLoop.html#gcut-event-loop-watch-io"/>
+    <function name="gcut_event_loop_watch_child ()" link="GCutEventLoop.html#gcut-event-loop-watch-child"/>
+    <function name="gcut_event_loop_watch_child_full ()" link="GCutEventLoop.html#gcut-event-loop-watch-child-full"/>
+    <function name="gcut_event_loop_add_timeout ()" link="GCutEventLoop.html#gcut-event-loop-add-timeout"/>
+    <function name="gcut_event_loop_add_timeout_full ()" link="GCutEventLoop.html#gcut-event-loop-add-timeout-full"/>
+    <function name="gcut_event_loop_add_idle ()" link="GCutEventLoop.html#gcut-event-loop-add-idle"/>
+    <function name="gcut_event_loop_add_idle_full ()" link="GCutEventLoop.html#gcut-event-loop-add-idle-full"/>
+    <function name="gcut_event_loop_remove ()" link="GCutEventLoop.html#gcut-event-loop-remove"/>
+    <function name="GCutGLibEventLoop" link="cutter-GCutGLibEventLoop.html#GCutGLibEventLoop"/>
+    <function name="GCutGLibEventLoopClass" link="cutter-GCutGLibEventLoop.html#GCutGLibEventLoopClass"/>
+    <function name="gcut_glib_event_loop_new ()" link="cutter-GCutGLibEventLoop.html#gcut-glib-event-loop-new"/>
+    <function name="CPPCUTTER_ENABLED" link="cutter-CppCutter.html#CPPCUTTER-ENABLED:CAPS"/>
+    <function name="CPPCUT_BEGIN_TEST_DECLS" link="cutter-CppCutter.html#CPPCUT-BEGIN-TEST-DECLS:CAPS"/>
+    <function name="CPPCUT_END_TEST_DECLS" link="cutter-CppCutter.html#CPPCUT-END-TEST-DECLS:CAPS"/>
+    <function name="cppcut_message()" link="cutter-CppCutter.html#cppcut-message"/>
+    <function name="cppcut_assert_equal()" link="cutter-Assertions-with-C++-support.html#cppcut-assert-equal"/>
+    <function name="GDKCUTTER_PIXBUF_ENABLED" link="cutter-GdkCutter-Pixbuf.html#GDKCUTTER-PIXBUF-ENABLED:CAPS"/>
+    <function name="gdkcut_pixbuf_assert_equal ()" link="cutter-Assertions-with-gdk-pixbuf-support.html#gdkcut-pixbuf-assert-equal"/>
+    <function name="SOUPCUTTER_ENABLED" link="cutter-SoupCutter.html#SOUPCUTTER-ENABLED:CAPS"/>
+    <function name="soupcut_message_assert_equal_content_type ()" link="cutter-Assertions-for-HTTP-client-and-server.html#soupcut-message-assert-equal-content-type"/>
+    <function name="soupcut_client_assert_equal_content_type ()" link="cutter-Assertions-for-HTTP-client-and-server.html#soupcut-client-assert-equal-content-type"/>
+    <function name="soupcut_client_assert_response ()" link="cutter-Assertions-for-HTTP-client-and-server.html#soupcut-client-assert-response"/>
+    <function name="soupcut_client_assert_equal_body ()" link="cutter-Assertions-for-HTTP-client-and-server.html#soupcut-client-assert-equal-body"/>
+    <function name="soupcut_client_assert_match_body ()" link="cutter-Assertions-for-HTTP-client-and-server.html#soupcut-client-assert-match-body"/>
+    <function name="SoupCutClient" link="SoupCutClient.html#SoupCutClient-struct"/>
+    <function name="SoupCutClientClass" link="SoupCutClient.html#SoupCutClientClass"/>
+    <function name="soupcut_client_new ()" link="SoupCutClient.html#soupcut-client-new"/>
+    <function name="soupcut_client_set_base ()" link="SoupCutClient.html#soupcut-client-set-base"/>
+    <function name="soupcut_client_send_message ()" link="SoupCutClient.html#soupcut-client-send-message"/>
+    <function name="soupcut_client_get ()" link="SoupCutClient.html#soupcut-client-get"/>
+    <function name="soupcut_client_get_n_messages ()" link="SoupCutClient.html#soupcut-client-get-n-messages"/>
+    <function name="soupcut_client_get_latest_message ()" link="SoupCutClient.html#soupcut-client-get-latest-message"/>
+    <function name="soupcut_client_get_async_context ()" link="SoupCutClient.html#soupcut-client-get-async-context"/>
+    <function name="The &quot;async&quot; property" link="SoupCutClient.html#SoupCutClient--async"/>
+    <function name="soupcut_server_take ()" link="cutter-Convenience-HTTP-server-API.html#soupcut-server-take"/>
+    <function name="soupcut_server_take_new ()" link="cutter-Convenience-HTTP-server-API.html#soupcut-server-take-new"/>
+    <function name="soupcut_server_build_uri ()" link="cutter-Convenience-HTTP-server-API.html#soupcut-server-build-uri"/>
+    <function name="cut_fork" link="cutter-Experimental.html#cut-fork"/>
+    <function name="cut_wait_process()" link="cutter-Experimental.html#cut-wait-process"/>
+    <function name="cut_fork_get_stdout_message()" link="cutter-Experimental.html#cut-fork-get-stdout-message"/>
+    <function name="cut_fork_get_stderr_message()" link="cutter-Experimental.html#cut-fork-get-stderr-message"/>
+    <function name="cut_test_pass ()" link="cutter-Assertion-writing-helper.html#cut-test-pass"/>
+    <function name="cut_test_fail ()" link="cutter-Assertion-writing-helper.html#cut-test-fail"/>
+    <function name="cut_test_fail_va_list ()" link="cutter-Assertion-writing-helper.html#cut-test-fail-va-list"/>
+    <function name="CUT_RELATIVE_PATH" link="cutter-Assertion-writing-helper.html#CUT-RELATIVE-PATH:CAPS"/>
+    <function name="cut_push_backtrace ()" link="cutter-Assertion-writing-helper.html#cut-push-backtrace"/>
+    <function name="cut_pop_backtrace ()" link="cutter-Assertion-writing-helper.html#cut-pop-backtrace"/>
+    <function name="cut_trace()" link="cutter-Assertion-writing-helper.html#cut-trace"/>
+    <function name="cut_trace_with_info_expression()" link="cutter-Assertion-writing-helper.html#cut-trace-with-info-expression"/>
+    <function name="cut_append_diff ()" link="cutter-Assertion-writing-helper.html#cut-append-diff"/>
+    <function name="cut_set_expected()" link="cutter-Assertion-writing-helper.html#cut-set-expected"/>
+    <function name="cut_set_actual()" link="cutter-Assertion-writing-helper.html#cut-set-actual"/>
+    <function name="cut_inspect_string_array ()" link="cutter-Assertion-writing-helper.html#cut-inspect-string-array"/>
+    <function name="cut_equal_string ()" link="cutter-Assertion-writing-helper.html#cut-equal-string"/>
+    <function name="cut_equal_double ()" link="cutter-Assertion-writing-helper.html#cut-equal-double"/>
+    <function name="cut_equal_sockaddr()" link="cutter-Assertion-writing-helper.html#cut-equal-sockaddr"/>
+    <function name="cut_inspect_sockaddr()" link="cutter-Assertion-writing-helper.html#cut-inspect-sockaddr"/>
+    <function name="cut_get_test_directory ()" link="cutter-Assertion-writing-helper.html#cut-get-test-directory"/>
+    <function name="cut_get_source_directory ()" link="cutter-Assertion-writing-helper.html#cut-get-source-directory"/>
+    <function name="GCUT_ENUM_ERROR" link="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#GCUT-ENUM-ERROR:CAPS"/>
+    <function name="gcut_enum_error_quark ()" link="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#gcut-enum-error-quark"/>
+    <function name="enum GCutEnumError" link="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#GCutEnumError"/>
+    <function name="gcut_enum_inspect ()" link="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#gcut-enum-inspect"/>
+    <function name="gcut_enum_parse ()" link="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#gcut-enum-parse"/>
+    <function name="gcut_flags_inspect ()" link="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#gcut-flags-inspect"/>
+    <function name="gcut_flags_parse ()" link="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#gcut-flags-parse"/>
+    <function name="gcut_flags_get_all ()" link="cutter-Assertion-Utilities-for-GEnum-and-GFlags.html#gcut-flags-get-all"/>
+    <function name="gcut_error_equal ()" link="cutter-Assertion-Utilities-for-GError.html#gcut-error-equal"/>
+    <function name="gcut_error_inspect ()" link="cutter-Assertion-Utilities-for-GError.html#gcut-error-inspect"/>
+    <function name="gcut_hash_table_equal ()" link="cutter-Assertion-Utilities-for-GHashTable.html#gcut-hash-table-equal"/>
+    <function name="gcut_hash_table_inspect ()" link="cutter-Assertion-Utilities-for-GHashTable.html#gcut-hash-table-inspect"/>
+    <function name="gcut_hash_table_inspect_sorted ()" link="cutter-Assertion-Utilities-for-GHashTable.html#gcut-hash-table-inspect-sorted"/>
+    <function name="gcut_hash_table_string_equal ()" link="cutter-Assertion-Utilities-for-GHashTable.html#gcut-hash-table-string-equal"/>
+    <function name="gcut_hash_table_string_string_inspect ()" link="cutter-Assertion-Utilities-for-GHashTable.html#gcut-hash-table-string-string-inspect"/>
+    <function name="gcut_hash_table_string_string_copy ()" link="cutter-Assertion-Utilities-for-GHashTable.html#gcut-hash-table-string-string-copy"/>
+    <function name="gcut_list_equal ()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-equal"/>
+    <function name="gcut_list_inspect ()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-inspect"/>
+    <function name="gcut_list_equal_int ()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-equal-int"/>
+    <function name="gcut_list_inspect_int ()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-inspect-int"/>
+    <function name="gcut_list_equal_uint ()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-equal-uint"/>
+    <function name="gcut_list_inspect_uint ()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-inspect-uint"/>
+    <function name="gcut_list_equal_string ()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-equal-string"/>
+    <function name="gcut_list_inspect_string ()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-inspect-string"/>
+    <function name="gcut_list_inspect_object ()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-inspect-object"/>
+    <function name="gcut_list_inspect_enum ()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-inspect-enum"/>
+    <function name="gcut_list_inspect_flags ()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-inspect-flags"/>
+    <function name="gcut_list_int_equal()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-int-equal"/>
+    <function name="gcut_list_int_inspect()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-int-inspect"/>
+    <function name="gcut_list_uint_equal()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-uint-equal"/>
+    <function name="gcut_list_uint_inspect()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-uint-inspect"/>
+    <function name="gcut_list_string_equal()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-string-equal"/>
+    <function name="gcut_list_string_inspect()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-string-inspect"/>
+    <function name="gcut_list_object_inspect()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-object-inspect"/>
+    <function name="gcut_list_enum_inspect()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-enum-inspect"/>
+    <function name="gcut_list_flags_inspect()" link="cutter-Assertion-Utilities-for-GList.html#gcut-list-flags-inspect"/>
+    <function name="gcut_object_equal ()" link="cutter-Assertion-Utilities-for-GObject.html#gcut-object-equal"/>
+    <function name="gcut_object_inspect ()" link="cutter-Assertion-Utilities-for-GObject.html#gcut-object-inspect"/>
+    <function name="gcut_object_inspect_custom ()" link="cutter-Assertion-Utilities-for-GObject.html#gcut-object-inspect-custom"/>
+    <function name="gcut_value_equal ()" link="cutter-Assertion-Utilities-for-GValue.html#gcut-value-equal"/>
+    <function name="gcut_value_register_equal_func ()" link="cutter-Assertion-Utilities-for-GValue.html#gcut-value-register-equal-func"/>
+    <function name="gcut_inspect_direct ()" link="cutter-Object-inspection-functions.html#gcut-inspect-direct"/>
+    <function name="gcut_inspect_int ()" link="cutter-Object-inspection-functions.html#gcut-inspect-int"/>
+    <function name="gcut_inspect_uint ()" link="cutter-Object-inspection-functions.html#gcut-inspect-uint"/>
+    <function name="gcut_inspect_int64 ()" link="cutter-Object-inspection-functions.html#gcut-inspect-int64"/>
+    <function name="gcut_inspect_uint64 ()" link="cutter-Object-inspection-functions.html#gcut-inspect-uint64"/>
+    <function name="gcut_inspect_size ()" link="cutter-Object-inspection-functions.html#gcut-inspect-size"/>
+    <function name="gcut_inspect_char ()" link="cutter-Object-inspection-functions.html#gcut-inspect-char"/>
+    <function name="gcut_inspect_string ()" link="cutter-Object-inspection-functions.html#gcut-inspect-string"/>
+    <function name="gcut_inspect_type ()" link="cutter-Object-inspection-functions.html#gcut-inspect-type"/>
+    <function name="gcut_inspect_flags ()" link="cutter-Object-inspection-functions.html#gcut-inspect-flags"/>
+    <function name="gcut_inspect_enum ()" link="cutter-Object-inspection-functions.html#gcut-inspect-enum"/>
+    <function name="gcut_inspect_pointer ()" link="cutter-Object-inspection-functions.html#gcut-inspect-pointer"/>
+    <function name="gcut_inspect_boolean ()" link="cutter-Object-inspection-functions.html#gcut-inspect-boolean"/>
+    <function name="gcut_inspect_double ()" link="cutter-Object-inspection-functions.html#gcut-inspect-double"/>
+    <function name="gcut_string_equal ()" link="cutter-Assertion-Utilities-for-GString.html#gcut-string-equal"/>
+    <function name="gcut_string_inspect ()" link="cutter-Assertion-Utilities-for-GString.html#gcut-string-inspect"/>
+  </functions>
+</book>

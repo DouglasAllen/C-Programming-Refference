@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaEditorSelection</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="libanjuta-IAnjutaEditorSearch.html" title="IAnjutaEditorSearch">
+<link rel="next" href="libanjuta-IAnjutaEditorView.html" title="IAnjutaEditorView">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-IAnjutaEditorSearch.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaEditorView.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaEditorSelection.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaEditorSelection.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaEditorSelection"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaEditorSelection.top_of_page"></a>IAnjutaEditorSelection</span></h2>
+<p>IAnjutaEditorSelection — Text editor selection interface</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorSelection.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaEditorSelection.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-editor-selection.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaEditorSelection.html#IANJUTA-EDITOR-SELECTION-ERROR:CAPS" title="IANJUTA_EDITOR_SELECTION_ERROR">IANJUTA_EDITOR_SELECTION_ERROR</a>
+struct              <a class="link" href="libanjuta-IAnjutaEditorSelection.html#IAnjutaEditorSelectionIface" title="struct IAnjutaEditorSelectionIface">IAnjutaEditorSelectionIface</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaEditorSelection.html#ianjuta-editor-selection-error-quark" title="ianjuta_editor_selection_error_quark ()">ianjuta_editor_selection_error_quark</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="libanjuta-IAnjutaEditorSelection.html#ianjuta-editor-selection-get" title="ianjuta_editor_selection_get ()">ianjuta_editor_selection_get</a>        (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaIterable</span> *   <a class="link" href="libanjuta-IAnjutaEditorSelection.html#ianjuta-editor-selection-get-end" title="ianjuta_editor_selection_get_end ()">ianjuta_editor_selection_get_end</a>    (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">IAnjutaIterable</span> *   <a class="link" href="libanjuta-IAnjutaEditorSelection.html#ianjuta-editor-selection-get-start" title="ianjuta_editor_selection_get_start ()">ianjuta_editor_selection_get_start</a>  (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaEditorSelection.html#ianjuta-editor-selection-has-selection" title="ianjuta_editor_selection_has_selection ()">ianjuta_editor_selection_has_selection</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaEditorSelection.html#ianjuta-editor-selection-replace" title="ianjuta_editor_selection_replace ()">ianjuta_editor_selection_replace</a>    (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> length</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaEditorSelection.html#ianjuta-editor-selection-select-all" title="ianjuta_editor_selection_select_all ()">ianjuta_editor_selection_select_all</a> (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaEditorSelection.html#ianjuta-editor-selection-select-block" title="ianjuta_editor_selection_select_block ()">ianjuta_editor_selection_select_block</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaEditorSelection.html#ianjuta-editor-selection-select-function" title="ianjuta_editor_selection_select_function ()">ianjuta_editor_selection_select_function</a>
+                                                        (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaEditorSelection.html#ianjuta-editor-selection-set" title="ianjuta_editor_selection_set ()">ianjuta_editor_selection_set</a>        (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaIterable</span> *start</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaIterable</span> *end</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> scroll</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorSelection.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorSelection.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-EDITOR-SELECTION-ERROR:CAPS"></a><h3>IANJUTA_EDITOR_SELECTION_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_EDITOR_SELECTION_ERROR ianjuta_editor_selection_error_quark()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaEditorSelectionIface"></a><h3>struct IAnjutaEditorSelectionIface</h3>
+<pre class="programlisting">struct IAnjutaEditorSelectionIface {
+	IAnjutaEditorIface g_iface;
+	
+
+	gchar* (*get) (IAnjutaEditorSelection *obj, GError **err);
+	IAnjutaIterable* (*get_end) (IAnjutaEditorSelection *obj, GError **err);
+	IAnjutaIterable* (*get_start) (IAnjutaEditorSelection *obj, GError **err);
+	gboolean (*has_selection) (IAnjutaEditorSelection *obj, GError **err);
+	void (*replace) (IAnjutaEditorSelection *obj, const gchar *text,  gint length, GError **err);
+	void (*select_all) (IAnjutaEditorSelection *obj, GError **err);
+	void (*select_block) (IAnjutaEditorSelection *obj, GError **err);
+	void (*select_function) (IAnjutaEditorSelection *obj, GError **err);
+	void (*set) (IAnjutaEditorSelection *obj, IAnjutaIterable* start,  IAnjutaIterable* end,  gboolean scroll, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-selection-error-quark"></a><h3>ianjuta_editor_selection_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_editor_selection_error_quark
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-selection-get"></a><h3>ianjuta_editor_selection_get ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             ianjuta_editor_selection_get        (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Gets curerntly selected text in editor.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly allocated buffer of currently selected characters.
+NULL if there is no selection. The returned buffer must be freed after
+use.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-selection-get-end"></a><h3>ianjuta_editor_selection_get_end ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaIterable</span> *   ianjuta_editor_selection_get_end    (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Get end position of selection. If there is no selection, returns
+NULL.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>End of selection or NULL if there is no selection.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-selection-get-start"></a><h3>ianjuta_editor_selection_get_start ()</h3>
+<pre class="programlisting"><span class="returnvalue">IAnjutaIterable</span> *   ianjuta_editor_selection_get_start  (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Gets start position of selection text.
+</p>
+<p>
+Return: Start of selection or NULL if there is no selection.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-selection-has-selection"></a><h3>ianjuta_editor_selection_has_selection ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_editor_selection_has_selection
+                                                        (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Returns TRUE if editor has any text selected. The selection
+positions can be retrieved with <a class="link" href="libanjuta-IAnjutaEditorSelection.html#ianjuta-editor-selection-get-start" title="ianjuta_editor_selection_get_start ()"><code class="function">ianjuta_editor_selection_get_start()</code></a>
+and <a class="link" href="libanjuta-IAnjutaEditorSelection.html#ianjuta-editor-selection-get-end" title="ianjuta_editor_selection_get_end ()"><code class="function">ianjuta_editor_selection_get_end()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if there is text selected else FALSE.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-selection-replace"></a><h3>ianjuta_editor_selection_replace ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_editor_selection_replace    (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> length</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Replaces currently selected text with the <em class="parameter"><code>text</code></em>. Only <em class="parameter"><code>length</code></em> amount
+of characters are used from <em class="parameter"><code>text</code></em> buffer to replace.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>Replacement text.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>Length of the text to used in <em class="parameter"><code>text</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-selection-select-all"></a><h3>ianjuta_editor_selection_select_all ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_editor_selection_select_all (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-selection-select-block"></a><h3>ianjuta_editor_selection_select_block ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_editor_selection_select_block
+                                                        (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Selects current block of code. The definition of block of code
+depends on highlight mode used (programming language). Some
+highlight mode does not have block concept, in that case this
+method does not do anything.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-selection-select-function"></a><h3>ianjuta_editor_selection_select_function ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_editor_selection_select_function
+                                                        (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Select current function block. The definition of function block
+depends on highlight mode used (programming language). Some
+highlight mode does not have function concept, in that case this
+method does not do anything.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-selection-set"></a><h3>ianjuta_editor_selection_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_editor_selection_set        (<em class="parameter"><code><span class="type">IAnjutaEditorSelection</span> *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaIterable</span> *start</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaIterable</span> *end</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> scroll</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Select characters between start and end. Start and end don't have to
+be ordered.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start</code></em> :</span></p></td>
+<td>Begin of selection</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>end</code></em> :</span></p></td>
+<td>End of selection</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>scroll</code></em> :</span></p></td>
+<td>Scroll selection onscreen</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

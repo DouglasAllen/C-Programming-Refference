@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaDebugManager</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="libanjuta-IAnjutaDebuggerVariable.html" title="IAnjutaDebuggerVariable">
+<link rel="next" href="libanjuta-IAnjutaDocument.html" title="IAnjutaDocument">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-IAnjutaDebuggerVariable.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaDocument.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaDebugManager.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaDebugManager.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaDebugManager"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaDebugManager.top_of_page"></a>IAnjutaDebugManager</span></h2>
+<p>IAnjutaDebugManager — Common graphical interface to all debugger</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaDebugManager.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaDebugManager.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-debug-manager.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaDebugManager.html#IANJUTA-DEBUG-MANAGER-ERROR:CAPS" title="IANJUTA_DEBUG_MANAGER_ERROR">IANJUTA_DEBUG_MANAGER_ERROR</a>
+struct              <a class="link" href="libanjuta-IAnjutaDebugManager.html#IAnjutaDebugManagerIface" title="struct IAnjutaDebugManagerIface">IAnjutaDebugManagerIface</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaDebugManager.html#ianjuta-debug-manager-error-quark" title="ianjuta_debug_manager_error_quark ()">ianjuta_debug_manager_error_quark</a>   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaDebugManager.html#ianjuta-debug-manager-quit" title="ianjuta_debug_manager_quit ()">ianjuta_debug_manager_quit</a>          (<em class="parameter"><code><span class="type">IAnjutaDebugManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaDebugManager.html#ianjuta-debug-manager-start" title="ianjuta_debug_manager_start ()">ianjuta_debug_manager_start</a>         (<em class="parameter"><code><span class="type">IAnjutaDebugManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaDebugManager.html#ianjuta-debug-manager-start-remote" title="ianjuta_debug_manager_start_remote ()">ianjuta_debug_manager_start_remote</a>  (<em class="parameter"><code><span class="type">IAnjutaDebugManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *server</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaDebugManager.description"></a><h2>Description</h2>
+<p>
+This interface wrap the real debugger plugin and provide a
+common graphical user interface.
+</p>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaDebugManager.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-DEBUG-MANAGER-ERROR:CAPS"></a><h3>IANJUTA_DEBUG_MANAGER_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_DEBUG_MANAGER_ERROR ianjuta_debug_manager_error_quark()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaDebugManagerIface"></a><h3>struct IAnjutaDebugManagerIface</h3>
+<pre class="programlisting">struct IAnjutaDebugManagerIface {
+	GTypeInterface g_iface;
+	
+	/* Signal */
+	void (*breakpoint_changed) (IAnjutaDebugManager *obj, IAnjutaDebuggerBreakpointItem *breakpoint);
+	/* Signal */
+	void (*debugger_started) (IAnjutaDebugManager *obj);
+	/* Signal */
+	void (*debugger_stopped) (IAnjutaDebugManager *obj, GError *err);
+	/* Signal */
+	void (*frame_changed) (IAnjutaDebugManager *obj, guint frame,  gint thread);
+	/* Signal */
+	void (*location_changed) (IAnjutaDebugManager *obj, gulong address,  const gchar* uri,  guint line);
+	/* Signal */
+	void (*program_exited) (IAnjutaDebugManager *obj);
+	/* Signal */
+	void (*program_loaded) (IAnjutaDebugManager *obj);
+	/* Signal */
+	void (*program_moved) (IAnjutaDebugManager *obj, gint pid,  gint tid,  gulong address,  const gchar* file,  guint line);
+	/* Signal */
+	void (*program_running) (IAnjutaDebugManager *obj);
+	/* Signal */
+	void (*program_started) (IAnjutaDebugManager *obj);
+	/* Signal */
+	void (*program_stopped) (IAnjutaDebugManager *obj);
+	/* Signal */
+	void (*program_unloaded) (IAnjutaDebugManager *obj);
+	/* Signal */
+	void (*sharedlib_event) (IAnjutaDebugManager *obj);
+	/* Signal */
+	void (*signal_received) (IAnjutaDebugManager *obj, const gchar* name,  const gchar* description);
+
+	gboolean (*quit) (IAnjutaDebugManager *obj, GError **err);
+	gboolean (*start) (IAnjutaDebugManager *obj, const gchar *uri, GError **err);
+	gboolean (*start_remote) (IAnjutaDebugManager *obj, const gchar *server,  const gchar *uri, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-debug-manager-error-quark"></a><h3>ianjuta_debug_manager_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_debug_manager_error_quark   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-debug-manager-quit"></a><h3>ianjuta_debug_manager_quit ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_debug_manager_quit          (<em class="parameter"><code><span class="type">IAnjutaDebugManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Quit the debugger, can wait until the debugger is ready.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if sucessful, other FALSE.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-debug-manager-start"></a><h3>ianjuta_debug_manager_start ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_debug_manager_start         (<em class="parameter"><code><span class="type">IAnjutaDebugManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Start the debugger of the given uri
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>uri of the target</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if sucessful, other FALSE.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-debug-manager-start-remote"></a><h3>ianjuta_debug_manager_start_remote ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_debug_manager_start_remote  (<em class="parameter"><code><span class="type">IAnjutaDebugManager</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *server</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Start the debugger of the given uri
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>server (IP address:port)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>uri of the local target</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if sucessful, other FALSE.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="SoupCutClient">
+<refmeta>
+<refentrytitle role="top_of_page" id="SoupCutClient.top_of_page">便利なHTTPクライアントAPI</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>便利なHTTPクライアントAPI</refname>
+<refpurpose>HTTPクライアントとして動作するためのAPI。</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="SoupCutClient.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis>                    <link linkend="SoupCutClient-struct">SoupCutClient</link>;
+                    <link linkend="SoupCutClientClass">SoupCutClientClass</link>;
+<link linkend="SoupCutClient"><returnvalue>SoupCutClient</returnvalue></link> *     <link linkend="soupcut-client-new">soupcut_client_new</link>                  (<parameter><type>void</type></parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="soupcut-client-set-base">soupcut_client_set_base</link>             (<parameter><link linkend="SoupCutClient"><type>SoupCutClient</type></link> *client</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *uri</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="soupcut-client-send-message">soupcut_client_send_message</link>         (<parameter><link linkend="SoupCutClient"><type>SoupCutClient</type></link> *client</parameter>,
+                                                         <parameter><link linkend="SoupMessage"><type>SoupMessage</type></link> *message</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="soupcut-client-get">soupcut_client_get</link>                  (<parameter><link linkend="SoupCutClient"><type>SoupCutClient</type></link> *client</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *uri</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *first_query_name</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="soupcut-client-get-n-messages">soupcut_client_get_n_messages</link>       (<parameter><link linkend="SoupCutClient"><type>SoupCutClient</type></link> *client</parameter>);
+<link linkend="SoupMessage"><returnvalue>SoupMessage</returnvalue></link> *       <link linkend="soupcut-client-get-latest-message">soupcut_client_get_latest_message</link>   (<parameter><link linkend="SoupCutClient"><type>SoupCutClient</type></link> *client</parameter>);
+<link linkend="GMainContext"><returnvalue>GMainContext</returnvalue></link> *      <link linkend="soupcut-client-get-async-context">soupcut_client_get_async_context</link>    (<parameter><link linkend="SoupCutClient"><type>SoupCutClient</type></link> *client</parameter>);
+</synopsis>
+</refsynopsisdiv>
+<refsect1 id="SoupCutClient.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">オブジェクト階層</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----SoupCutClient
+</synopsis>
+</refsect1>
+<refsect1 id="SoupCutClient.properties" role="properties">
+<title role="properties.title">プロパティ</title>
+<synopsis>
+  "<link linkend="SoupCutClient--async">async</link>"                    <link linkend="gboolean"><type>gboolean</type></link>              : Read / Write
+</synopsis>
+</refsect1>
+
+<refsect1 id="SoupCutClient.description" role="desc">
+<title role="desc.title">説明</title>
+<para><link linkend="SoupCutClient"><type>SoupCutClient</type></link>オブジェクトはHTTPクライアントとして動作します。<link linkend="SoupCutClient"><type>SoupCutClient</type></link>は複数のリクエストやレスポンスを管理することができます。また、<link linkend="SoupCutClient"><type>SoupCutClient</type></link>に関連するアサーションのAPIも提供しています。</para>
+</refsect1>
+<refsect1 id="SoupCutClient.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="SoupCutClient-struct" role="struct">
+<title>SoupCutClient</title>
+<indexterm zone="SoupCutClient-struct"><primary>SoupCutClient</primary></indexterm>
+<programlisting>typedef struct _SoupCutClient SoupCutClient;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="SoupCutClientClass" role="struct">
+<title>SoupCutClientClass</title>
+<indexterm zone="SoupCutClientClass"><primary>SoupCutClientClass</primary></indexterm>
+<programlisting>typedef struct {
+    GObjectClass parent_class;
+} SoupCutClientClass;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="soupcut-client-new" role="function" condition="since:1.0.8">
+<title>soupcut_client_new ()</title>
+<indexterm zone="soupcut-client-new" role="1.0.8"><primary>soupcut_client_new</primary></indexterm>
+<programlisting><link linkend="SoupCutClient"><returnvalue>SoupCutClient</returnvalue></link> *     soupcut_client_new                  (<parameter><type>void</type></parameter>);</programlisting>
+<para>新たに<link linkend="SoupCutClient"><type>SoupCutClient</type></link>オブジェクトを生成して返します。</para><variablelist role="params">
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><link linkend="SoupCutClient"><type>SoupCutClient</type></link>オブジェクト。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.8から</para></refsect2>
+<refsect2 id="soupcut-client-set-base" role="function" condition="since:1.0.8">
+<title>soupcut_client_set_base ()</title>
+<indexterm zone="soupcut-client-set-base" role="1.0.8"><primary>soupcut_client_set_base</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                soupcut_client_set_base             (<parameter><link linkend="SoupCutClient"><type>SoupCutClient</type></link> *client</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *uri</parameter>);</programlisting>
+<para><parameter>client</parameter>のベースURIを<parameter>uri</parameter>に設定します。</para><variablelist role="params">
+<varlistentry><term><parameter>client</parameter> :</term>
+<listitem><simpara><link linkend="SoupCutClient"><type>SoupCutClient</type></link>オブジェクト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>uri</parameter> :</term>
+<listitem><simpara>ベースURIの文字列。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.8から</para></refsect2>
+<refsect2 id="soupcut-client-send-message" role="function" condition="since:1.0.8">
+<title>soupcut_client_send_message ()</title>
+<indexterm zone="soupcut-client-send-message" role="1.0.8"><primary>soupcut_client_send_message</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               soupcut_client_send_message         (<parameter><link linkend="SoupCutClient"><type>SoupCutClient</type></link> *client</parameter>,
+                                                         <parameter><link linkend="SoupMessage"><type>SoupMessage</type></link> *message</parameter>);</programlisting>
+<para><parameter>client</parameter>を使って<parameter>message</parameter>を送信します。<parameter>client</parameter>は過去に送信した全ての<link linkend="SoupMessage">SoupMessage</link>の情報を保持しています。</para><variablelist role="params">
+<varlistentry><term><parameter>client</parameter> :</term>
+<listitem><simpara><link linkend="SoupCutClient"><type>SoupCutClient</type></link>オブジェクト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message</parameter> :</term>
+<listitem><simpara><link linkend="SoupMessage"><type>SoupMessage</type></link>オブジェクト。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>レスポンスのステータスコード。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.8から</para></refsect2>
+<refsect2 id="soupcut-client-get" role="function" condition="since:1.0.8">
+<title>soupcut_client_get ()</title>
+<indexterm zone="soupcut-client-get" role="1.0.8"><primary>soupcut_client_get</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               soupcut_client_get                  (<parameter><link linkend="SoupCutClient"><type>SoupCutClient</type></link> *client</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *uri</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *first_query_name</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para><parameter>uri</parameter>とクエリパラメータで指定されたURIにGETリクエストを送信します。もしも<parameter>client</parameter>のベースURIが<link linkend="soupcut-client-set-base"><function>soupcut_client_set_base()</function></link>によって設定されていた場合は、URIはベースURIと<parameter>uri</parameter>を組み合わせたものとなります。そうでない場合は、<parameter>uri</parameter>は絶対URIである必要があります。</para><variablelist role="params">
+<varlistentry><term><parameter>client</parameter> :</term>
+<listitem><simpara><link linkend="SoupCutClient"><type>SoupCutClient</type></link>オブジェクト。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>uri</parameter> :</term>
+<listitem><simpara>URI文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_query_name</parameter> :</term>
+<listitem><simpara>ひとつめのクエリパラメータの名前</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara><parameter>first_query_name</parameter>から始まる、クエリパラメータの名前と値のペア。最後に<link linkend="NULL:CAPS"><literal>NULL</literal></link>を指定しなければいけません。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>レスポンスのステータスコード。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.8から</para></refsect2>
+<refsect2 id="soupcut-client-get-n-messages" role="function" condition="since:1.0.8">
+<title>soupcut_client_get_n_messages ()</title>
+<indexterm zone="soupcut-client-get-n-messages" role="1.0.8"><primary>soupcut_client_get_n_messages</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               soupcut_client_get_n_messages       (<parameter><link linkend="SoupCutClient"><type>SoupCutClient</type></link> *client</parameter>);</programlisting>
+<para><parameter>client</parameter>が送信した#SoupMessageの数。</para><variablelist role="params">
+<varlistentry><term><parameter>client</parameter> :</term>
+<listitem><simpara><link linkend="SoupCutClient"><type>SoupCutClient</type></link>オブジェクト。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>SoupMessageの数。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.8から</para></refsect2>
+<refsect2 id="soupcut-client-get-latest-message" role="function" condition="since:1.0.8">
+<title>soupcut_client_get_latest_message ()</title>
+<indexterm zone="soupcut-client-get-latest-message" role="1.0.8"><primary>soupcut_client_get_latest_message</primary></indexterm>
+<programlisting><link linkend="SoupMessage"><returnvalue>SoupMessage</returnvalue></link> *       soupcut_client_get_latest_message   (<parameter><link linkend="SoupCutClient"><type>SoupCutClient</type></link> *client</parameter>);</programlisting>
+<para><parameter>client</parameter>が最後に送信した<link linkend="SoupMessage"><type>SoupMessage</type></link>オブジェクト。</para><variablelist role="params">
+<varlistentry><term><parameter>client</parameter> :</term>
+<listitem><simpara><link linkend="SoupCutClient"><type>SoupCutClient</type></link>オブジェクト。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>最後に送信された<link linkend="SoupMessage"><type>SoupMessage</type></link>オブジェクト。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.8から</para></refsect2>
+<refsect2 id="soupcut-client-get-async-context" role="function" condition="since:1.0.8">
+<title>soupcut_client_get_async_context ()</title>
+<indexterm zone="soupcut-client-get-async-context" role="1.0.8"><primary>soupcut_client_get_async_context</primary></indexterm>
+<programlisting><link linkend="GMainContext"><returnvalue>GMainContext</returnvalue></link> *      soupcut_client_get_async_context    (<parameter><link linkend="SoupCutClient"><type>SoupCutClient</type></link> *client</parameter>);</programlisting>
+<para><parameter>client</parameter>の非同期コンテキスト。</para><variablelist role="params">
+<varlistentry><term><parameter>client</parameter> :</term>
+<listitem><simpara><link linkend="SoupCutClient"><type>SoupCutClient</type></link>オブジェクト。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>client</parameter>の<link linkend="GMainContext"><type>GMainContext</type></link>。<link linkend="NULL:CAPS"><literal>NULL</literal></link>が返る可能性があります。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.8から</para></refsect2>
+
+</refsect1>
+<refsect1 id="SoupCutClient.property-details" role="property_details">
+<title role="property_details.title">プロパティ詳細</title>
+<refsect2 id="SoupCutClient--async" role="property"><title><literal>"async"</literal>プロパティ</title>
+<indexterm zone="SoupCutClient--async"><primary>SoupCutClient:async</primary></indexterm>
+<programlisting>  "async"                    <link linkend="gboolean"><type>gboolean</type></link>              : Read / Write</programlisting>
+<para>セッションが非同期の場合は真。</para><para>デフォルト値: FALSE</para>
+</refsect2>
+</refsect1>
+<refsect1 id="SoupCutClient.see-also">
+<title>参考</title>
+<link linkend="cutter-Assertions-for-HTTP-client-and-server">HTTPクライアント・サーバ用の検証</link>
+</refsect1>
+
+</refentry>

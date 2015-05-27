@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GLibサポート用の型</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutterリファレンスマニュアル">
+<link rel="up" href="writing-test.html" title="テスト作成">
+<link rel="prev" href="cutter-Test-Utilities-with-GLib-support.html" title="GLibサポート付きテストユーティリティ">
+<link rel="next" href="cutter-Convenience-test-data-API.html" title="便利なテストデータ用API">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="cutter-Test-Utilities-with-GLib-support.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="writing-test.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutterリファレンスマニュアル</th>
+<td><a accesskey="n" href="cutter-Convenience-test-data-API.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#cutter-Types-for-GLib-support.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#cutter-Types-for-GLib-support.description" class="shortcut">説明</a>
+</td></tr>
+</table>
+<div class="refentry" title="GLibサポート用の型">
+<a name="cutter-Types-for-GLib-support"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="cutter-Types-for-GLib-support.top_of_page"></a>GLibサポート用の型</span></h2>
+<p>GLibサポート用の型 — GLibサポート付きテストで使う型です。</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="概要">
+<a name="cutter-Types-for-GLib-support.synopsis"></a><h2>概要</h2>
+<pre class="synopsis"><span class="returnvalue">void</span>                (<a class="link" href="cutter-Types-for-GLib-support.html#GCutInspectFunction" title="GCutInspectFunction ()">*GCutInspectFunction</a>)              (<em class="parameter"><code><span class="type">GString</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+#define             <a class="link" href="cutter-Types-for-GLib-support.html#GCUT-TYPE-ERROR:CAPS" title="GCUT_TYPE_ERROR">GCUT_TYPE_ERROR</a>
+#define             <a class="link" href="cutter-Types-for-GLib-support.html#GCUT-TYPE-SIZE:CAPS" title="GCUT_TYPE_SIZE">GCUT_TYPE_SIZE</a>
+<span class="returnvalue">GType</span>               <a class="link" href="cutter-Types-for-GLib-support.html#gcut-error-get-type" title="gcut_error_get_type ()">gcut_error_get_type</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">GType</span>               <a class="link" href="cutter-Types-for-GLib-support.html#gcut-size-get-type" title="gcut_size_get_type ()">gcut_size_get_type</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1" title="説明">
+<a name="cutter-Types-for-GLib-support.description"></a><h2>説明</h2>
+<p>GLibサポート付きテストで使う型がいくつかあります。</p>
+</div>
+<div class="refsect1" title="詳細">
+<a name="cutter-Types-for-GLib-support.details"></a><h2>詳細</h2>
+<div class="refsect2" title="GCutInspectFunction ()">
+<a name="GCutInspectFunction"></a><h3>GCutInspectFunction ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*GCutInspectFunction)              (<em class="parameter"><code><span class="type">GString</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p><em class="parameter"><code>data</code></em>要素の詳細を示すときに呼ばれる関数の型です。データ要素のポインタを渡されるので、<em class="parameter"><code>data</code></em>の詳細を<em class="parameter"><code>string</code></em>に追加してください。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>詳細情報を保存する<span class="type">GString</span>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>詳細化されるデータ。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>関数に渡すユーザ用データ。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.6から</p>
+</div>
+<hr>
+<div class="refsect2" title="GCUT_TYPE_ERROR">
+<a name="GCUT-TYPE-ERROR:CAPS"></a><h3>GCUT_TYPE_ERROR</h3>
+<pre class="programlisting">#define GCUT_TYPE_ERROR (gcut_error_get_type())
+</pre>
+<p><span class="type">GError</span>への参照を保持するGBoxed型の<span class="type">GType</span>。</p>
+<p class="since">1.0.7から</p>
+</div>
+<hr>
+<div class="refsect2" title="GCUT_TYPE_SIZE">
+<a name="GCUT-TYPE-SIZE:CAPS"></a><h3>GCUT_TYPE_SIZE</h3>
+<pre class="programlisting">#define GCUT_TYPE_SIZE (gcut_size_get_type())
+</pre>
+<p><span class="type">gsize</span>のための<span class="type">GType</span>。</p>
+<p class="since">1.1.3から</p>
+</div>
+<hr>
+<div class="refsect2" title="gcut_error_get_type ()">
+<a name="gcut-error-get-type"></a><h3>gcut_error_get_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">GType</span>               gcut_error_get_type                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gcut_size_get_type ()">
+<a name="gcut-size-get-type"></a><h3>gcut_size_get_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">GType</span>               gcut_size_get_type                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

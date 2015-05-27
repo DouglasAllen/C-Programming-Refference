@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-Cutter">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-Cutter.top_of_page">Cutter</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Cutter</refname>
+<refpurpose>C言語・C++言語用単体テストフレームワーク</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-Cutter.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis><link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="setup">setup</link>                               (<parameter><type>void</type></parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="cut-setup">cut_setup</link>                           (<parameter><type>void</type></parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="teardown">teardown</link>                            (<parameter><type>void</type></parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="cut-teardown">cut_teardown</link>                        (<parameter><type>void</type></parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="cut-startup">cut_startup</link>                         (<parameter><type>void</type></parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="cut-shutdown">cut_shutdown</link>                        (<parameter><type>void</type></parameter>);
+#define             <link linkend="cut-add-data">cut_add_data</link>                        (first_data_name,
+                                                         ...)
+#define             <link linkend="cut-add-data-backward-compatibility">cut_add_data_backward_compatibility</link> (context,
+                                                         ...)
+#define             <link linkend="cut-set-attributes">cut_set_attributes</link>                  (first_attribute_name,
+                                                         ...)
+#define             <link linkend="cut-get-current-test-context">cut_get_current_test_context</link>
+#define             <link linkend="cut-set-current-test-context">cut_set_current_test_context</link>        (test_context)
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="cut-set-message">cut_set_message</link>                     (<parameter>const <link linkend="char"><type>char</type></link> *format</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="cut-set-message-va-list">cut_set_message_va_list</link>             (<parameter>const <link linkend="char"><type>char</type></link> *format</parameter>,
+                                                         <parameter><link linkend="va-list"><type>va_list</type></link> args</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="cut-keep-message">cut_keep_message</link>                    (<parameter><type>void</type></parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="cut-message">cut_message</link>                         (<parameter>const <link linkend="char"><type>char</type></link> *format</parameter>,
+                                                         <parameter>...</parameter>);
+#define             <link linkend="CUT-EXPORT:CAPS">CUT_EXPORT</link>
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-Cutter.description" role="desc">
+<title role="desc.title">説明</title>
+<para>Cutterは以下のような特徴をもったC言語・C++言語用の単体テストフレームワークです。<itemizedlist>
+  <listitem><para>簡単に使えます。Cutterではテストプログラム中にCUTTER_DEFINE_TEST_STARTやCUTTER_DEFINE_TEST_ENDなどといった不思議なマクロを使う必要がありません。通常のプログラムと同じようにテストプログラムを書くことができます。ただし、プログラムが期待した通り動作していることを検証するために<link linkend="cut-assert-XXX"><function>cut_assert_XXX()</function></link>を使う必要があります。<informalexample><programlisting>
+#include &lt;cutter.h&gt;
+#include "my-stack.h"
+
+void
+test_my_stack (void)
+{
+    MyStack *stack = my_stack_new();
+
+    cut_assert_not_null(stack);
+    cut_assert(my_stack_is_empty(stack));
+    cut_assert_equal_int(0, my_stack_get_size(stack));
+
+    my_stack_push(stack, 10);
+    cut_assert(!my_stack_is_empty(stack));
+    cut_assert_equal_int(1, my_stack_get_size(stack));
+
+    my_stack_push(stack, 20);
+    cut_assert_equal_int(2, my_stack_get_size(stack));
+
+    cut_assert_equal(20, my_stack_pop(stack));
+    cut_assert(!my_stack_is_empty(stack));
+    cut_assert_equal_int(1, my_stack_get_size(stack));
+
+    cut_assert_equal(10, my_stack_pop(stack));
+    cut_assert(my_stack_is_empty(stack));
+    cut_assert_equal_int(0, my_stack_get_size(stack));
+}
+</programlisting></informalexample></para></listitem>
+  <listitem><para>簡素ですが有用な情報を出力をします。Cutterはデフォルトではテストが問題なく動いているときは静かに動きます。以下は、Cutter自身のテストの出力です。<informalexample><programlisting>
+...........................................................
+
+Finished in 0.213021 seconds
+
+59 test(s), 246 assertion(s), 0 failure(s), 0 error(s), 0 pending(s), 0 notification(s)
+</programlisting></informalexample>Cutterはテストが1つパスしたことを示すためには「.」だけを出力し、最後にテスト結果の要約を出力します。Cutterは各テストの名前や何個検証したかなどの情報は表示しません。これは、テスト成功時にはこれらの情報は必要ないからです。</para><para>Cutterは失敗時にはたくさんの情報を出力します。<informalexample><programlisting>
+.....................F.....................................
+
+1) Failure: test_error
+&lt;"Strange" == cut_test_result_get_test_name(result)&gt;
+expected: &lt;Strange!!!&gt;
+ but was: &lt;dummy-error-test&gt;
+test/test-cut-assertions.c:240: cut_assert_test_result()
+
+Finished in 0.223657 seconds
+
+59 test(s), 242 assertion(s), 1 failure(s), 0 error(s), 0 pending(s), 0 notification(s)
+</programlisting></informalexample>上記の結果はCutterの自己テストにおかしな期待値を追加したために起きています。<informalexample><programlisting>
+cut_assert_equal_string("Strange!!!", cut_test_result_get_test_name(result));
+</programlisting></informalexample>おかしな検証はtest/test-cut-assertions.cの240行目に書かれていて、その行は<link linkend="cut-assert-test-result"><function>cut_assert_test_result()</function></link>関数内にあります。この関数はtest_errorテストから呼び出されています。cut_test_result_get_test_name(result)が"Strange!!!"を返すことを期待していますが、実際は"dummy-error-name"が返ってきています。このような情報を上記のCutterの出力から得ることができます。これはデバッグの手助けになるでしょう。</para><para>Cutterの出力形式は実用的です。' but was:'はその上の'expected:'と並ぶようにインデントされています。これは期待値と実測値をパッと見て簡単に比較できるようにするためです。問題のあった行は「ファイル名:行: 関数」というように整形されています。これはEmacsと連携するためです。Emacsのcompilation-modeではこの形式が*compilation*バッファに表れると、next-errorコマンド(C-x `)で「ファイル名」の「行」へジャンプすることができます。これは問題行を素早く見つける手助けをします。</para><para>Cutterは簡単にテストを書くことを支援するだけではなく、簡単にデバッグをできることも支援します。</para></listitem>
+</itemizedlist></para>
+</refsect1>
+<refsect1 id="cutter-Cutter.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="setup" role="function" condition="deprecated:1.0.7: Use cut_setup() instead.">
+<title>setup ()</title>
+<indexterm zone="setup" role="deprecated"><primary>setup</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                setup                               (<parameter><type>void</type></parameter>);</programlisting>
+<warning><para><literal>setup</literal>はバージョン1.0.7から非推奨になりました。新しく書くコードでは使わないでください。代わりに<link linkend="cut-setup"><function>cut_setup()</function></link>を使ってください。</para></warning>
+<para>テストプログラム中で<link linkend="setup"><function>setup()</function></link>を定義していたら、cutterは各テストが実行される前に定義された<link linkend="setup"><function>setup()</function></link>を呼びだします。<link linkend="cut_setup"><function>cut_setup()</function></link>が定義されていた場合は、<link linkend="setup"><function>setup()</function></link>は無視されます。</para></refsect2>
+<refsect2 id="cut-setup" role="function" condition="since:1.0.6">
+<title>cut_setup ()</title>
+<indexterm zone="cut-setup" role="1.0.6"><primary>cut_setup</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                cut_setup                           (<parameter><type>void</type></parameter>);</programlisting>
+<para>テストプログラム中で<link linkend="cut_setup"><function>cut_setup()</function></link>を定義していたら、cutterは各テストが実行される前に定義された<link linkend="cut_setup"><function>cut_setup()</function></link>を呼びだします。<link linkend="cut-setup"><function>cut_setup()</function></link>と<link linkend="setup"><function>setup()</function></link>が定義されていた場合は<link linkend="cut-setup"><function>cut_setup()</function></link>だけが使われます。</para><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="teardown" role="function" condition="deprecated:1.0.7: Use cut_teardown() instead.">
+<title>teardown ()</title>
+<indexterm zone="teardown" role="deprecated"><primary>teardown</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                teardown                            (<parameter><type>void</type></parameter>);</programlisting>
+<warning><para><literal>teardown</literal>はバージョン1.0.7から非推奨になりました。新しく書くコードでは使わないでください。代わりに<link linkend="cut-teardown"><function>cut_teardown()</function></link>を使ってください。</para></warning>
+<para>テストプログラム中で<link linkend="teardown"><function>teardown()</function></link>を定義していたら、cutterは各テストの後に、たとえテストが失敗していた時でも、<link linkend="teardown"><function>teardown()</function></link>を呼びだします。<link linkend="cut-teardown"><function>cut_teardown()</function></link>が定義されていた場合は、<link linkend="teardown"><function>teardown()</function></link>は無視されます。</para></refsect2>
+<refsect2 id="cut-teardown" role="function" condition="since:1.0.6">
+<title>cut_teardown ()</title>
+<indexterm zone="cut-teardown" role="1.0.6"><primary>cut_teardown</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                cut_teardown                        (<parameter><type>void</type></parameter>);</programlisting>
+<para>テストプログラム中で<link linkend="cut-teardown"><function>cut_teardown()</function></link>を定義していたら、cutterは各テストの後に、たとえテストが失敗していた時でも、<link linkend="cut-teardown"><function>cut_teardown()</function></link>を呼びだします。<link linkend="cut-teardown"><function>cut_teardown()</function></link>と<link linkend="teardown"><function>teardown()</function></link>が定義されていた場合は<link linkend="cut-teardown"><function>cut_teardown()</function></link>だけが使われます。</para><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="cut-startup" role="function" condition="since:1.0.6">
+<title>cut_startup ()</title>
+<indexterm zone="cut-startup" role="1.0.6"><primary>cut_startup</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                cut_startup                         (<parameter><type>void</type></parameter>);</programlisting>
+<para>テストプログラム中で<link linkend="cut-startup"><function>cut_startup()</function></link>を定義していたら、cutterは各テストケースが実行される前に定義された<link linkend="cut-startup"><function>cut_startup()</function></link>を呼びだします。<link linkend="cut-startup"><function>cut_startup()</function></link>と<link linkend="startup"><function>startup()</function></link>が定義されていた場合は<link linkend="cut-startup"><function>cut_startup()</function></link>だけが使われます。</para><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="cut-shutdown" role="function" condition="since:1.0.6">
+<title>cut_shutdown ()</title>
+<indexterm zone="cut-shutdown" role="1.0.6"><primary>cut_shutdown</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                cut_shutdown                        (<parameter><type>void</type></parameter>);</programlisting>
+<para>テストプログラム中で<link linkend="shutdown"><function>shutdown()</function></link>を定義していたら、cutterは各テストケースが実行された後に定義された<link linkend="shutdown"><function>shutdown()</function></link>を呼びだします。<link linkend="cut-shutdown"><function>cut_shutdown()</function></link>と<link linkend="shutdown"><function>shutdown()</function></link>が定義されていた場合は<link linkend="cut-shutdown"><function>cut_shutdown()</function></link>だけが使われます。</para><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="cut-add-data" role="macro" condition="since:1.0.3">
+<title>cut_add_data()</title>
+<indexterm zone="cut-add-data" role="1.0.3"><primary>cut_add_data</primary></indexterm>
+<programlisting>#define             cut_add_data(first_data_name, ...)</programlisting>
+<para>データ駆動テストで使うデータを追加します。</para>
+<para>例: <informalexample><programlisting>
+#include &lt;cutter.h&gt;
+
+void data_translate (void);
+void test_translate (const void *data);
+
+static const char*
+translate (int input)
+{
+   switch(input) {
+   case 1:
+       return "first";
+   case 111:
+       return "a hundred eleven";
+   default:
+       return "unsupported";
+   }
+}
+
+typedef struct _TranslateTestData
+{
+    char *translated;
+    int input;
+} TranslateTestData;
+
+static TranslateTestData *
+translate_test_data_new (char *translated, int input)
+{
+    TranslateTestData *data;
+
+    data = malloc(sizeof(TranslateTestData));
+    data-&gt;translated = strdup(translated);
+    data-&gt;input = input;
+
+    return data;
+}
+
+static void
+translate_test_data_free (TranslateTestData *data)
+{
+    free(data-&gt;translated);
+    free(data);
+}
+
+void
+data_translate(void)
+{
+    cut_add_data("simple data",
+                 translate_test_data_new("first", 1),
+                 translate_test_data_free,
+                 "complex data",
+                 translate_test_data_new("a hundred eleven", 111),
+                 translate_test_data_free,
+                 NULL);
+}
+
+void
+test_translate(const void *data)
+{
+     const TranslateTestData *test_data = data;
+
+     cut_assert_equal_string(test_data-&gt;translated,
+                             translate(test_data-&gt;input));
+}
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>first_data_name</parameter> :</term>
+<listitem><simpara>最初のデータ名。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>最初のデータとデータ破棄関数。続けて任意の数の「名前・データ・データ破棄関数(<link linkend="CutDestroyFunction"><type>CutDestroyFunction</type></link>)」の三つ組を指定します。1.0.6から可変長の引数は<link linkend="NULL:CAPS"><literal>NULL</literal></link>終端しなければいけなくなりました。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.3から</para></refsect2>
+<refsect2 id="cut-add-data-backward-compatibility" role="macro" condition="deprecated:">
+<title>cut_add_data_backward_compatibility()</title>
+<indexterm zone="cut-add-data-backward-compatibility" role="deprecated"><primary>cut_add_data_backward_compatibility</primary></indexterm>
+<programlisting>#define             cut_add_data_backward_compatibility(context, ...)</programlisting>
+<warning><para><literal>cut_add_data_backward_compatibility</literal>は非推奨です。新しいコードでは使わないでください。</para></warning>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>context</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="cut-set-attributes" role="macro" condition="since:1.0.4">
+<title>cut_set_attributes()</title>
+<indexterm zone="cut-set-attributes" role="1.0.4"><primary>cut_set_attributes</primary></indexterm>
+<programlisting>#define             cut_set_attributes(first_attribute_name, ...)</programlisting>
+<para>テストの属性を設定します。</para>
+<para>例: <informalexample><programlisting>
+#include &lt;cutter.h&gt;
+
+void attributes_repeat (void);
+void test_repeat (void);
+
+void
+attributes_repeat(void)
+{
+    cut_set_attributes("description", "a test for repeat function",
+                       "bug", "111",
+                       "priority", "high",
+                       NULL);
+}
+
+void
+test_repeat(void)
+{
+     cut_assert_equal_string_with_free("XXX", repeat("X", 3));
+}
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>first_attribute_name</parameter> :</term>
+<listitem><simpara>最初の属性名。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>最初の属性値です。その後に任意個数の名前と値のペアが続きます。1.0.7から<link linkend="NULL:CAPS"><literal>NULL</literal></link>終端が必須になりました。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.4から</para></refsect2>
+<refsect2 id="cut-get-current-test-context" role="macro" condition="since:1.0.4">
+<title>cut_get_current_test_context</title>
+<indexterm zone="cut-get-current-test-context" role="1.0.4"><primary>cut_get_current_test_context</primary></indexterm>
+<programlisting>#define             cut_get_current_test_context()</programlisting>
+<para>現在のテストコンテキストを返します。「現在のテストコンテキスト」はスレッドローカルなオブジェクトです。もしテストの中で新しいスレッドを作らない場合はテストコンテキストを気にする必要はありません。新しいスレッドを作る場合だけ必要になります。テストのスレッドが持っている「現在のテストコンテキスト」を新しく作ったスレッドに渡す必要がありません。</para>
+<para>例: <informalexample><programlisting>
+int
+your_thread_function(void *data)
+{
+    CutTestContext *test_context = data;
+    cut_set_current_test_context(test_context);
+    ...
+}
+
+void
+run_your_thread(void)
+{
+    int result;
+    pthread_t your_thread;
+
+    result = pthread_create(&amp;your_thread, NULL,
+                            your_thread_function,
+                            cut_get_current_test_context());
+    ...
+}
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><link linkend="CutTestContext"><type>CutTestContext</type></link>オブジェクト。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.4から</para></refsect2>
+<refsect2 id="cut-set-current-test-context" role="macro" condition="since:1.0.4">
+<title>cut_set_current_test_context()</title>
+<indexterm zone="cut-set-current-test-context" role="1.0.4"><primary>cut_set_current_test_context</primary></indexterm>
+<programlisting>#define             cut_set_current_test_context(test_context)</programlisting>
+<para>現在のテストコンテキストを<parameter>test_context</parameter>にします。詳細は<link linkend="cut-get-current-test-context"><function>cut_get_current_test_context()</function></link>を見てください。</para><variablelist role="params">
+<varlistentry><term><parameter>test_context</parameter> :</term>
+<listitem><simpara>現在のテストコンテキストになる<link linkend="CutTestContext"><type>CutTestContext</type></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.4から</para></refsect2>
+<refsect2 id="cut-set-message" role="function" condition="deprecated:1.1.0: Use cut_message() instead.|since:1.0.6">
+<title>cut_set_message ()</title>
+<indexterm zone="cut-set-message" role="deprecated"><primary>cut_set_message</primary></indexterm><indexterm zone="cut-set-message" role="1.0.6"><primary>cut_set_message</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                cut_set_message                     (<parameter>const <link linkend="char"><type>char</type></link> *format</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<warning><para><literal>cut_set_message</literal>はバージョン1.1.0から非推奨になりました。新しく書くコードでは使わないでください。代わりに<link linkend="cut-message"><function>cut_message()</function></link>を使ってください。</para></warning>
+<para>次の検証で使われるメッセージです。</para><variablelist role="params">
+<varlistentry><term><parameter>format</parameter> :</term>
+<listitem><simpara>整形文字列。<link linkend="printf"><function>printf()</function></link>のドキュメントを見てください。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>整形文字列に挿入されるパラメータ。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="cut-set-message-va-list" role="function" condition="deprecated:1.1.0: Use cut_message() instead.|since:1.0.6">
+<title>cut_set_message_va_list ()</title>
+<indexterm zone="cut-set-message-va-list" role="deprecated"><primary>cut_set_message_va_list</primary></indexterm><indexterm zone="cut-set-message-va-list" role="1.0.6"><primary>cut_set_message_va_list</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                cut_set_message_va_list             (<parameter>const <link linkend="char"><type>char</type></link> *format</parameter>,
+                                                         <parameter><link linkend="va-list"><type>va_list</type></link> args</parameter>);</programlisting>
+<warning><para><literal>cut_set_message_va_list</literal>はバージョン1.1.0から非推奨になりました。新しく書くコードでは使わないで下さい。代わりに<link linkend="cut-message"><function>cut_message()</function></link>を使ってください。</para></warning>
+<para>次の検証で使われるメッセージです。</para><variablelist role="params">
+<varlistentry><term><parameter>format</parameter> :</term>
+<listitem><simpara>整形文字列。<link linkend="printf"><function>printf()</function></link>のドキュメントを見てください。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>args</parameter> :</term>
+<listitem><simpara>整形文字列に挿入されるパラメータ。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="cut-keep-message" role="function" condition="deprecated:1.1.0: Use cut_message() instead.|since:1.0.6">
+<title>cut_keep_message ()</title>
+<indexterm zone="cut-keep-message" role="deprecated"><primary>cut_keep_message</primary></indexterm><indexterm zone="cut-keep-message" role="1.0.6"><primary>cut_keep_message</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                cut_keep_message                    (<parameter><type>void</type></parameter>);</programlisting>
+<warning><para><literal>cut_keep_message</literal>はバージョン1.1.0から非推奨になりました。新しく書くコードでは使わないでください。代わりに<link linkend="cut-message"><function>cut_message()</function></link>を使ってください。</para></warning>
+<para><link linkend="cut-set-message"><function>cut_set_message()</function></link>または<link linkend="cut-set-message-va-list"><function>cut_set_message_va_list()</function></link>で設定した現在のメッセージを次の検証の後でも維持します。</para><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="cut-message" role="function" condition="since:1.1.0">
+<title>cut_message ()</title>
+<indexterm zone="cut-message" role="1.1.0"><primary>cut_message</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                cut_message                         (<parameter>const <link linkend="char"><type>char</type></link> *format</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para>追加の検証メッセージを指定します。</para>
+<para>例: <informalexample><programlisting>
+cut_assert_equal_string("abc", "def",
+                        cut_message("should fail!"));
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>format</parameter> :</term>
+<listitem><simpara>整形文字列。<link linkend="printf"><function>printf()</function></link>のドキュメントを見てください。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter> :</term>
+<listitem><simpara>整形文字列に挿入されるパラメータ。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.0から</para></refsect2>
+<refsect2 id="CUT-EXPORT:CAPS" role="macro" condition="since:1.1.2">
+<title>CUT_EXPORT</title>
+<indexterm zone="CUT-EXPORT:CAPS" role="1.1.2"><primary>CUT_EXPORT</primary></indexterm>
+<programlisting>#define             CUT_EXPORT</programlisting>
+<para>公開関数であるというしるしをつけます。このしるしはWindows環境上でだけ必要です。Windows上でもテストを実行したい場合はこのマクロを使う必要があります。そうでなければ使う必要はありません。</para>
+<para>例: <informalexample><programlisting>
+CUT_EXPORT void
+test_add (void)
+{
+  ...
+}
+</programlisting></informalexample></para><para role="since">1.1.2から</para></refsect2>
+
+</refsect1>
+<refsect1 id="cutter-Cutter.see-also">
+<title>参考</title>
+<link linkend="cutter-Assertions">検証</link>
+</refsect1>
+
+</refentry>

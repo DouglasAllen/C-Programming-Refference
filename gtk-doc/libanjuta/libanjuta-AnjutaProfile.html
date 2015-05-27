@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AnjutaProfile</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="libanjuta-api.html" title="libanjuta API">
+<link rel="prev" href="libanjuta-AnjutaPluginManager.html" title="AnjutaPluginManager">
+<link rel="next" href="libanjuta-AnjutaProfileManager.html" title="AnjutaProfileManager">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-AnjutaPluginManager.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libanjuta-api.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-AnjutaProfileManager.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-AnjutaProfile.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-AnjutaProfile.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-AnjutaProfile"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-AnjutaProfile.top_of_page"></a>AnjutaProfile</span></h2>
+<p>AnjutaProfile — Profile is a collection of plugins</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-AnjutaProfile.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-AnjutaProfile.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/anjuta-profile.h&gt;
+
+#define             <a class="link" href="libanjuta-AnjutaProfile.html#ANJUTA-PROFILE-ERROR:CAPS" title="ANJUTA_PROFILE_ERROR">ANJUTA_PROFILE_ERROR</a>
+struct              <a class="link" href="libanjuta-AnjutaProfile.html#AnjutaProfileClass" title="struct AnjutaProfileClass">AnjutaProfileClass</a>;
+enum                <a class="link" href="libanjuta-AnjutaProfile.html#AnjutaProfileError" title="enum AnjutaProfileError">AnjutaProfileError</a>;
+                    <a class="link" href="libanjuta-AnjutaProfile.html#AnjutaProfilePriv" title="AnjutaProfilePriv">AnjutaProfilePriv</a>;
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-AnjutaProfile.html#anjuta-profile-add-plugin" title="anjuta_profile_add_plugin ()">anjuta_profile_add_plugin</a>           (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-AnjutaPluginDescription.html#AnjutaPluginDescription" title="AnjutaPluginDescription"><span class="type">AnjutaPluginDescription</span></a> *plugin</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-AnjutaProfile.html#anjuta-profile-add-plugins-from-xml" title="anjuta_profile_add_plugins_from_xml ()">anjuta_profile_add_plugins_from_xml</a> (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *profile_xml_file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> exclude_from_sync</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-AnjutaProfile.html#anjuta-profile-error-quark" title="anjuta_profile_error_quark ()">anjuta_profile_error_quark</a>          (<em class="parameter"><code><span class="type">void</span></code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="libanjuta-AnjutaProfile.html#anjuta-profile-get-name" title="anjuta_profile_get_name ()">anjuta_profile_get_name</a>             (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="libanjuta-AnjutaProfile.html#anjuta-profile-get-plugins" title="anjuta_profile_get_plugins ()">anjuta_profile_get_plugins</a>          (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-AnjutaProfile.html#anjuta-profile-has-plugin" title="anjuta_profile_has_plugin ()">anjuta_profile_has_plugin</a>           (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-AnjutaPluginDescription.html#AnjutaPluginDescription" title="AnjutaPluginDescription"><span class="type">AnjutaPluginDescription</span></a> *plugin</code></em>);
+<span class="returnvalue">AnjutaProfile</span> *     <a class="link" href="libanjuta-AnjutaProfile.html#anjuta-profile-new" title="anjuta_profile_new ()">anjuta_profile_new</a>                  (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">AnjutaPluginManager</span> *plugin_manager</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-AnjutaProfile.html#anjuta-profile-remove-plugin" title="anjuta_profile_remove_plugin ()">anjuta_profile_remove_plugin</a>        (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-AnjutaPluginDescription.html#AnjutaPluginDescription" title="AnjutaPluginDescription"><span class="type">AnjutaPluginDescription</span></a> *plugin</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-AnjutaProfile.html#anjuta-profile-set-sync-file" title="anjuta_profile_set_sync_file ()">anjuta_profile_set_sync_file</a>        (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *sync_file</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-AnjutaProfile.html#anjuta-profile-sync" title="anjuta_profile_sync ()">anjuta_profile_sync</a>                 (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-AnjutaProfile.description"></a><h2>Description</h2>
+<p>
+A anjuta profile contains the list of all plugins used in one Anjuta session.
+It is possible to add and remove plugins,
+check if one is included or get the whole list. The plugins list can be saved
+into a xml file and loaded from it.
+</p>
+<p>
+A profile in an Anjuta session includes plugins from up to 3 different xml
+sources:
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term">$prefix/share/anjuta/profiles/default.profile</span></p></td>
+<td><p>
+       This contains the system plugins. It is loaded in every profile and
+       contains mandatory plugins for Anjuta. These plugins cannot be
+       unloaded.
+   </p></td>
+</tr>
+<tr>
+<td><p><span class="term">$project_dir/$project_name.anjuta</span></p></td>
+<td><p>
+       This contains the project plugins. It lists mandatory plugins for the
+       project. This file is version controlled and distributed with the source
+       code. Every user working on the project uses the same one. If there
+       is no project loaded, no project plugins are loaded.
+   </p></td>
+</tr>
+<tr>
+<td><p><span class="term">$project_dir/.anjuta/default.profile</span></p></td>
+<td><p>
+       This contains the user plugins. This is the only list of plugins
+       which is updated when the user add or remove one plugin.
+       If there is no project loaded, the user home directory is used
+       instead of the project directory but this list is used only in this case.
+       There is no global user plugins list.
+   </p></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libanjuta-AnjutaProfile.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ANJUTA-PROFILE-ERROR:CAPS"></a><h3>ANJUTA_PROFILE_ERROR</h3>
+<pre class="programlisting">#define ANJUTA_PROFILE_ERROR            (anjuta_profile_error_quark())
+</pre>
+<p>
+Error domain for Anjuta profile. Errors in this domain will be from the
+<a class="link" href="libanjuta-AnjutaProfile.html#AnjutaProfileError" title="enum AnjutaProfileError"><span class="type">AnjutaProfileError</span></a> enumeration. See <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for more information
+on error domains.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaProfileClass"></a><h3>struct AnjutaProfileClass</h3>
+<pre class="programlisting">struct AnjutaProfileClass {
+	GObjectClass parent_class;
+
+	/* Signals */
+	void(* plugin_added) (AnjutaProfile *self,
+						  AnjutaPluginDescription *plugin);
+	void(* plugin_removed) (AnjutaProfile *self,
+							AnjutaPluginDescription *plugin);
+	void(* changed) (AnjutaProfile *self, GList *plugins);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaProfileError"></a><h3>enum AnjutaProfileError</h3>
+<pre class="programlisting">typedef enum {
+	ANJUTA_PROFILE_ERROR_URI_READ_FAILED,
+	ANJUTA_PROFILE_ERROR_URI_WRITE_FAILED
+} AnjutaProfileError;
+</pre>
+<p>
+Error codes returned by anjuta profile functions.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="ANJUTA-PROFILE-ERROR-URI-READ-FAILED:CAPS"></a><span class="term"><code class="literal">ANJUTA_PROFILE_ERROR_URI_READ_FAILED</code></span></p></td>
+<td>Fail to read xml plugins list file.
+</td>
+</tr>
+<tr>
+<td><p><a name="ANJUTA-PROFILE-ERROR-URI-WRITE-FAILED:CAPS"></a><span class="term"><code class="literal">ANJUTA_PROFILE_ERROR_URI_WRITE_FAILED</code></span></p></td>
+<td>Fail to write xml plugins list file.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaProfilePriv"></a><h3>AnjutaProfilePriv</h3>
+<pre class="programlisting">typedef struct _AnjutaProfilePriv AnjutaProfilePriv;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-profile-add-plugin"></a><h3>anjuta_profile_add_plugin ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_profile_add_plugin           (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-AnjutaPluginDescription.html#AnjutaPluginDescription" title="AnjutaPluginDescription"><span class="type">AnjutaPluginDescription</span></a> *plugin</code></em>);</pre>
+<p>
+Add one plugin into the profile plugin list.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>profile</code></em> :</span></p></td>
+<td>a <span class="type">AnjutaProfile</span> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>a <a class="link" href="libanjuta-AnjutaPluginDescription.html#AnjutaPluginDescription" title="AnjutaPluginDescription"><span class="type">AnjutaPluginDescription</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-profile-add-plugins-from-xml"></a><h3>anjuta_profile_add_plugins_from_xml ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            anjuta_profile_add_plugins_from_xml (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *profile_xml_file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> exclude_from_sync</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Add all plugins inscribed in the xml file into the profile plugin list.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>profile</code></em> :</span></p></td>
+<td>a <span class="type">AnjutaProfile</span> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>profile_xml_file</code></em> :</span></p></td>
+<td>xml file containing plugin list.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>exclude_from_sync</code></em> :</span></p></td>
+<td>TRUE if these plugins shouldn't be saved in user session.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE on success, FALSE otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-profile-error-quark"></a><h3>anjuta_profile_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              anjuta_profile_error_quark          (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-profile-get-name"></a><h3>anjuta_profile_get_name ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       anjuta_profile_get_name             (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>);</pre>
+<p>
+Get the profile name.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>profile</code></em> :</span></p></td>
+<td>a <span class="type">AnjutaProfile</span> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the profile name.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-profile-get-plugins"></a><h3>anjuta_profile_get_plugins ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             anjuta_profile_get_plugins          (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>);</pre>
+<p>
+Get the profile current plugins list.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>profile</code></em> :</span></p></td>
+<td>a <span class="type">AnjutaProfile</span> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the plugins list.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-profile-has-plugin"></a><h3>anjuta_profile_has_plugin ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            anjuta_profile_has_plugin           (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-AnjutaPluginDescription.html#AnjutaPluginDescription" title="AnjutaPluginDescription"><span class="type">AnjutaPluginDescription</span></a> *plugin</code></em>);</pre>
+<p>
+Check if a plugin is included in the profile plugin list.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>profile</code></em> :</span></p></td>
+<td>a <span class="type">AnjutaProfile</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>a <a class="link" href="libanjuta-AnjutaPluginDescription.html#AnjutaPluginDescription" title="AnjutaPluginDescription"><span class="type">AnjutaPluginDescription</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the plugin is included in the list.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-profile-new"></a><h3>anjuta_profile_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">AnjutaProfile</span> *     anjuta_profile_new                  (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">AnjutaPluginManager</span> *plugin_manager</code></em>);</pre>
+<p>
+Create a new profile.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the new profile name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin_manager</code></em> :</span></p></td>
+<td>the <span class="type">AnjutaPluginManager</span> used by this profile.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new <span class="type">AnjutaProfile</span> object.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-profile-remove-plugin"></a><h3>anjuta_profile_remove_plugin ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_profile_remove_plugin        (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-AnjutaPluginDescription.html#AnjutaPluginDescription" title="AnjutaPluginDescription"><span class="type">AnjutaPluginDescription</span></a> *plugin</code></em>);</pre>
+<p>
+Remove one plugin from the profile plugin list.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>profile</code></em> :</span></p></td>
+<td>a <span class="type">AnjutaProfile</span> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>a <a class="link" href="libanjuta-AnjutaPluginDescription.html#AnjutaPluginDescription" title="AnjutaPluginDescription"><span class="type">AnjutaPluginDescription</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-profile-set-sync-file"></a><h3>anjuta_profile_set_sync_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_profile_set_sync_file        (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *sync_file</code></em>);</pre>
+<p>
+Define the file used to save plugins list.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>profile</code></em> :</span></p></td>
+<td>a <span class="type">AnjutaProfile</span> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sync_file</code></em> :</span></p></td>
+<td>file used to save profile.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-profile-sync"></a><h3>anjuta_profile_sync ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            anjuta_profile_sync                 (<em class="parameter"><code><span class="type">AnjutaProfile</span> *profile</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Save the current plugins list in the xml file set with <a class="link" href="libanjuta-AnjutaProfile.html#anjuta-profile-set-sync-file" title="anjuta_profile_set_sync_file ()"><code class="function">anjuta_profile_set_sync_file()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>profile</code></em> :</span></p></td>
+<td>a <span class="type">AnjutaProfile</span> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE on success, FALSE otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libanjuta-AnjutaProfile.see-also"></a><h2>See Also</h2>
+<span class="type">AnjutaProfileManager</span>, <a class="link" href="AnjutaPlugin.html" title="AnjutaPlugin"><span class="type">AnjutaPlugin</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

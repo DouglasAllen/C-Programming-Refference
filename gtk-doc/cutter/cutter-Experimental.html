@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Experimental</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutter Reference Manual">
+<link rel="up" href="writing-test.html" title="Writing test">
+<link rel="prev" href="cutter-Convenience-HTTP-server-API.html" title="Convenience HTTP server API">
+<link rel="next" href="writing-assertion.html" title="Writing assertion">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="cutter-Convenience-HTTP-server-API.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="writing-test.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutter Reference Manual</th>
+<td><a accesskey="n" href="writing-assertion.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#cutter-Experimental.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#cutter-Experimental.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="Experimental">
+<a name="cutter-Experimental"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="cutter-Experimental.top_of_page"></a>Experimental</span></h2>
+<p>Experimental — Experimental API.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="cutter-Experimental.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="cutter-Experimental.html#cut-fork" title="cut_fork">cut_fork</a>
+#define             <a class="link" href="cutter-Experimental.html#cut-wait-process" title="cut_wait_process()">cut_wait_process</a>                    (pid,
+                                                         usec_timeout)
+#define             <a class="link" href="cutter-Experimental.html#cut-fork-get-stdout-message" title="cut_fork_get_stdout_message()">cut_fork_get_stdout_message</a>         (pid)
+#define             <a class="link" href="cutter-Experimental.html#cut-fork-get-stderr-message" title="cut_fork_get_stderr_message()">cut_fork_get_stderr_message</a>         (pid)
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="cutter-Experimental.description"></a><h2>Description</h2>
+<p>
+This API may be changed in the future.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="cutter-Experimental.details"></a><h2>Details</h2>
+<div class="refsect2" title="cut_fork">
+<a name="cut-fork"></a><h3>cut_fork</h3>
+<pre class="programlisting">#define             cut_fork()</pre>
+<p>
+Makes child process.
+</p>
+<p>
+e.g.:
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">int</span> pid<span class="symbol">;</span>
+pid <span class="symbol">=</span> <span class="function"><a href="../cutter/cutter-Experimental.html#cut-fork">cut_fork</a></span><span class="symbol">();</span>
+<span class="function"><a href="../cutter/cutter-Assertions.html#cut-assert-errno">cut_assert_errno</a></span><span class="symbol">();</span>
+
+<span class="keyword">if</span> <span class="symbol">(</span>pid <span class="symbol">==</span> <span class="number">0</span><span class="symbol">) {</span>
+  <span class="function">do_something_for_child_process</span><span class="symbol">();</span>
+  <span class="function">_exit</span><span class="symbol">(</span>EXIT_SUCCESS<span class="symbol">);</span>
+<span class="symbol">}</span>
+
+<span class="function">do_something_for_parent_process</span><span class="symbol">();</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Process ID.
+
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 0.8</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_wait_process()">
+<a name="cut-wait-process"></a><h3>cut_wait_process()</h3>
+<pre class="programlisting">#define             cut_wait_process(pid, usec_timeout)</pre>
+<p>
+Waits a process specified by <em class="parameter"><code>pid</code></em>.
+</p>
+<p>
+e.g.:
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">int</span> pid<span class="symbol">;</span>
+pid <span class="symbol">=</span> <span class="function"><a href="../cutter/cutter-Experimental.html#cut-fork">cut_fork</a></span><span class="symbol">();</span>
+<span class="function"><a href="../cutter/cutter-Assertions.html#cut-assert-errno">cut_assert_errno</a></span><span class="symbol">();</span>
+
+<span class="keyword">if</span> <span class="symbol">(</span>pid <span class="symbol">==</span> <span class="number">0</span><span class="symbol">) {</span>
+  <span class="function">do_something_for_child_process</span><span class="symbol">();</span>
+  <span class="function">_exit</span><span class="symbol">(</span>EXIT_SUCCESS<span class="symbol">);</span>
+<span class="symbol">}</span>
+
+<span class="function">do_something_for_parent_process</span><span class="symbol">();</span>
+<span class="function"><a href="../cutter/cutter-Assertions.html#cut-assert-equal-int">cut_assert_equal_int</a></span><span class="symbol">(</span>EXIT_SUCCESS<span class="symbol">,</span> <span class="function"><a href="../cutter/cutter-Experimental.html#cut-wait-process">cut_wait_process</a></span><span class="symbol">(</span>pid<span class="symbol">,</span> <span class="number">100</span><span class="symbol">));</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pid</code></em> :</span></p></td>
+<td>Process ID to wait.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>usec_timeout</code></em> :</span></p></td>
+<td>Timeout in usec.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.8</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_fork_get_stdout_message()">
+<a name="cut-fork-get-stdout-message"></a><h3>cut_fork_get_stdout_message()</h3>
+<pre class="programlisting">#define             cut_fork_get_stdout_message(pid)</pre>
+<p>
+Reads a message from a process specified by <em class="parameter"><code>pid</code></em>.
+</p>
+<p>
+e.g.:
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">int</span> pid<span class="symbol">;</span>
+pid <span class="symbol">=</span> <span class="function"><a href="../cutter/cutter-Experimental.html#cut-fork">cut_fork</a></span><span class="symbol">();</span>
+<span class="function"><a href="../cutter/cutter-Assertions.html#cut-assert-errno">cut_assert_errno</a></span><span class="symbol">();</span>
+
+<span class="keyword">if</span> <span class="symbol">(</span>pid <span class="symbol">==</span> <span class="number">0</span><span class="symbol">) {</span>
+  <span class="function">g_print</span><span class="symbol">(</span><span class="string">&quot;I'm a child.&quot;</span><span class="symbol">);</span>
+  <span class="function">_exit</span><span class="symbol">(</span>EXIT_SUCCESS<span class="symbol">);</span>
+<span class="symbol">}</span>
+
+<span class="function"><a href="../cutter/cutter-Assertions.html#cut-assert-equal-string">cut_assert_equal_string</a></span><span class="symbol">(</span><span class="string">&quot;I'm a child.&quot;</span><span class="symbol">,</span> <span class="function"><a href="../cutter/cutter-Experimental.html#cut-fork-get-stdout-message">cut_fork_get_stdout_message</a></span><span class="symbol">(</span>pid<span class="symbol">));</span>
+<span class="function"><a href="../cutter/cutter-Assertions.html#cut-assert-equal-int">cut_assert_equal_int</a></span><span class="symbol">(</span>EXIT_SUCCESS<span class="symbol">,</span> <span class="function"><a href="../cutter/cutter-Experimental.html#cut-wait-process">cut_wait_process</a></span><span class="symbol">(</span>pid<span class="symbol">,</span> <span class="number">100</span><span class="symbol">));</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pid</code></em> :</span></p></td>
+<td>Process ID.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a message read from stdout of a process specified by <em class="parameter"><code>pid</code></em>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.8</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_fork_get_stderr_message()">
+<a name="cut-fork-get-stderr-message"></a><h3>cut_fork_get_stderr_message()</h3>
+<pre class="programlisting">#define             cut_fork_get_stderr_message(pid)</pre>
+<p>
+Reads a message from a process specified by <em class="parameter"><code>pid</code></em>.
+</p>
+<p>
+e.g.:
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">int</span> pid<span class="symbol">;</span>
+pid <span class="symbol">=</span> <span class="function"><a href="../cutter/cutter-Experimental.html#cut-fork">cut_fork</a></span><span class="symbol">();</span>
+<span class="function"><a href="../cutter/cutter-Assertions.html#cut-assert-errno">cut_assert_errno</a></span><span class="symbol">();</span>
+
+<span class="keyword">if</span> <span class="symbol">(</span>pid <span class="symbol">==</span> <span class="number">0</span><span class="symbol">) {</span>
+  <span class="function">g_print</span><span class="symbol">(</span><span class="string">&quot;I'm a child.&quot;</span><span class="symbol">);</span>
+  <span class="function">_exit</span><span class="symbol">(</span>EXIT_SUCCESS<span class="symbol">);</span>
+<span class="symbol">}</span>
+
+<span class="function"><a href="../cutter/cutter-Assertions.html#cut-assert-equal-string">cut_assert_equal_string</a></span><span class="symbol">(</span><span class="string">&quot;I'm a child.&quot;</span><span class="symbol">,</span> <span class="function"><a href="../cutter/cutter-Experimental.html#cut-fork-get-stderr-message">cut_fork_get_stderr_message</a></span><span class="symbol">(</span>pid<span class="symbol">));</span>
+<span class="function"><a href="../cutter/cutter-Assertions.html#cut-assert-equal-int">cut_assert_equal_int</a></span><span class="symbol">(</span>EXIT_SUCCESS<span class="symbol">,</span> <span class="function"><a href="../cutter/cutter-Experimental.html#cut-wait-process">cut_wait_process</a></span><span class="symbol">(</span>pid<span class="symbol">,</span> <span class="number">100</span><span class="symbol">));</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pid</code></em> :</span></p></td>
+<td>Process ID.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a message read from stderr of a process specified by <em class="parameter"><code>pid</code></em>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.8</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

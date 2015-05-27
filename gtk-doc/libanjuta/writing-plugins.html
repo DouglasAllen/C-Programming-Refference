@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Writing plugins</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="prev" href="anjuta-architecture.html" title="Anjuta Architecture">
+<link rel="next" href="writing-plugins-simple.html" title="Hello world plugin">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="anjuta-architecture.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td> </td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="writing-plugins-simple.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="writing-plugins"></a>Writing plugins</h2></div></div></div>
+<div class="toc"><dl>
+<dt><span class="sect1"><a href="writing-plugins.html#writing-plugins-description">Hello world plugin description, icon and UI files</a></span></dt>
+<dt><span class="sect1"><a href="writing-plugins-simple.html">Hello world plugin</a></span></dt>
+<dt><span class="sect1"><a href="writing-plugins-sources.html">Hello world advanced plugin</a></span></dt>
+<dt><span class="sect1"><a href="writing-plugins-build-setup.html">Build setup</a></span></dt>
+</dl></div>
+<p>
+		Before writing any Anjuta plugin, please read
+		<a class="xref" href="anjuta-architecture.html" title="Anjuta Architecture"><i>Anjuta Architecture</i></a>
+		to get a picture of how plugins interact with Anjuta shell and other
+		plugins. Only a general overview is necessary for now. Eventually, as
+		we procceed through this article, you can visit respective sections
+		to read more.
+		This is a tutorial style article and is never meant to be a cover-all
+		document. You should read other relevent documents linked at respective
+		places throughout this document to know further.
+	</p>
+<p>
+		We are going to write the legacy <span class="emphasis"><em>Hello World</em></span> plugin.
+		It really doesn't do anything other than displaying hello world. We
+		will then continue with an advanced version of this plugin.
+		Unlike the basic Hello world plugin, this advanced version
+		will have much more. In addition to having
+		a widget where <span class="emphasis"><em>Hello World</em></span> is displayed, it will also
+		have a menu enty (UI) to display a dialog, implement a
+		<span class="type">IAnjutaFile</span> interface
+		and access other plugins using their interfaces.
+	</p>
+<div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="writing-plugins-description"></a>Hello world plugin description, icon and UI files</h2></div></div></div>
+<p>
+			We first begin by creating three helper files for our plugin. The
+			first file is called <a class="xref" href="plugin-description-file.html" title="Plugin description file"><i>Plugin description file</i></a>. This file describes our plugin to Anjuta
+			plugin loader. Various plugin meta information are store in this
+			file, including its name and description. Before a plugin is loaded
+			into memory, Anjuta will examine this file and accordingly decide to
+			load it when required.
+			</p>
+<pre class="programlisting">
+[Anjuta Plugin]
+_Name=Hellow
+_Description=An example hello world plugin.
+Location=anjuta-hello-world:HelloWorldPlugin
+Icon=anjuta-hello-world-plugin.png
+			</pre>
+<p>
+			The first two fields are name and description field. They start
+			with '_', because the fields are translatable. Location field
+			tells where the plugin class is located. It is of the form
+			library:class, where library is the shared library name without
+			the 'lib' prefix and '.so' suffix. <span class="emphasis"><em>class</em></span> is
+			the plugin class we define. Our plugin library is
+			libanjuta-hello-world.so, so the plugin location would be
+			<span class="emphasis"><em>anjuta-hello-world:HelloWorldPlugin</em></span>.
+			More details in	<a class="xref" href="plugin-description-file.html" title="Plugin description file"><i>Plugin description file</i></a>.
+			Next field 'Icon', gives the name of icon file for our
+			hello world plugin.
+		</p>
+<p>
+			Next file is the XML UI definition file. This file describes the UI
+			structure of our plugin and how it should be connected to our action
+			functions. More details in
+			<a class="link" href="AnjutaUI.html" title="AnjutaUI"><span class="type">AnjutaUI</span></a>. The first
+			hello world plugin doesn't use this file, but the second advanced
+			one uses it.
+			</p>
+<pre class="programlisting">
+&lt;!--*- xml -*--&gt;
+&lt;ui&gt;
+  &lt;menubar name="MenuMain"&gt;
+    &lt;menu name="MenuFile" action="ActionMenuFile"&gt;
+      &lt;placeholder name="PlaceholderFileMenus"&gt;
+        &lt;menuitem name="HelloWorldAction" action="ActionFileHelloWorld" /&gt;
+      &lt;/placeholder&gt;
+    &lt;/menu&gt;
+  &lt;/menubar&gt;
+&lt;/ui&gt;
+			</pre>
+<p>			
+		</p>
+<p>
+			The last file is the icon file in PNG format. All these three files
+			are installed in different places. The prefix of their installation
+			should match with that of Anjuta, otherwise Anjuta will not be able
+			to find our plugin. See <a class="xref" href="writing-plugins-build-setup.html" title="Build setup">the section called “Build setup”</a> for installation of these files.
+		</p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

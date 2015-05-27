@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaEditorView</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="libanjuta-IAnjutaEditorSelection.html" title="IAnjutaEditorSelection">
+<link rel="next" href="libanjuta-IAnjutaEditorZoom.html" title="IAnjutaEditorZoom">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-IAnjutaEditorSelection.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaEditorZoom.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaEditorView.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaEditorView.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaEditorView"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaEditorView.top_of_page"></a>IAnjutaEditorView</span></h2>
+<p>IAnjutaEditorView — Text editor view interface</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorView.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaEditorView.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-editor-view.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaEditorView.html#IANJUTA-EDITOR-VIEW-ERROR:CAPS" title="IANJUTA_EDITOR_VIEW_ERROR">IANJUTA_EDITOR_VIEW_ERROR</a>
+struct              <a class="link" href="libanjuta-IAnjutaEditorView.html#IAnjutaEditorViewIface" title="struct IAnjutaEditorViewIface">IAnjutaEditorViewIface</a>;
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaEditorView.html#ianjuta-editor-view-create" title="ianjuta_editor_view_create ()">ianjuta_editor_view_create</a>          (<em class="parameter"><code><span class="type">IAnjutaEditorView</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaEditorView.html#ianjuta-editor-view-error-quark" title="ianjuta_editor_view_error_quark ()">ianjuta_editor_view_error_quark</a>     (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="libanjuta-IAnjutaEditorView.html#ianjuta-editor-view-get-count" title="ianjuta_editor_view_get_count ()">ianjuta_editor_view_get_count</a>       (<em class="parameter"><code><span class="type">IAnjutaEditorView</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaEditorView.html#ianjuta-editor-view-remove-current" title="ianjuta_editor_view_remove_current ()">ianjuta_editor_view_remove_current</a>  (<em class="parameter"><code><span class="type">IAnjutaEditorView</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorView.description"></a><h2>Description</h2>
+<p>
+An editor view is a visual representation of the editor. An editor
+can have multiple views. All views of an editor show the same editor
+content (buffer). Consequently, any change done in one view is
+updated in all other views.
+</p>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorView.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-EDITOR-VIEW-ERROR:CAPS"></a><h3>IANJUTA_EDITOR_VIEW_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_EDITOR_VIEW_ERROR ianjuta_editor_view_error_quark()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaEditorViewIface"></a><h3>struct IAnjutaEditorViewIface</h3>
+<pre class="programlisting">struct IAnjutaEditorViewIface {
+	IAnjutaEditorIface g_iface;
+	
+
+	void (*create) (IAnjutaEditorView *obj, GError **err);
+	gint (*get_count) (IAnjutaEditorView *obj, GError **err);
+	void (*remove_current) (IAnjutaEditorView *obj, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-view-create"></a><h3>ianjuta_editor_view_create ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_editor_view_create          (<em class="parameter"><code><span class="type">IAnjutaEditorView</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Creates a new view for the editor. The newly created view gets
+the user focus and scrolls to the same location as last view.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-view-error-quark"></a><h3>ianjuta_editor_view_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_editor_view_error_quark     (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-view-get-count"></a><h3>ianjuta_editor_view_get_count ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                ianjuta_editor_view_get_count       (<em class="parameter"><code><span class="type">IAnjutaEditorView</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Total number of views currently present. It will never be less
+than 1. Invalid return values are considered error condition.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-view-remove-current"></a><h3>ianjuta_editor_view_remove_current ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_editor_view_remove_current  (<em class="parameter"><code><span class="type">IAnjutaEditorView</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Removes currently focused editor view. It does not remove the
+last view of the editor. That is, if currently there is only
+one view of the editor, this function does nothing.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cutter</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutter Reference Manual">
+<link rel="up" href="command.html" title="Command">
+<link rel="prev" href="command.html" title="Command">
+<link rel="next" href="cut-diff.html" title="cut-diff">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="command.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="command.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutter Reference Manual</th>
+<td><a accesskey="n" href="cut-diff.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" title="cutter">
+<a name="cutter"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="cutter.top_of_page"></a>cutter</span></h2>
+<p>cutter — xUnit family unit testing framework for C and C++</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1" title="NAME">
+<a name="id404424"></a><h2>NAME</h2>
+<p>cutter - xUnit family unit testing framework for C and C++</p>
+</div>
+<div class="refsect1" title="SYNOPSIS">
+<a name="id396942"></a><h2>SYNOPSIS</h2>
+<p>
+  <code class="code">cutter</code>
+   [
+  <span class="emphasis"><em>option ...</em></span>
+  ] 
+  <span class="emphasis"><em>test-directory</em></span>
+  
+</p>
+<p>
+  <code class="code">cutter</code>
+   --mode=analyze [
+  <span class="emphasis"><em>option ...</em></span>
+  ] 
+  <span class="emphasis"><em>log-directory</em></span>
+  
+</p>
+</div>
+<div class="refsect1" title="DESCRIPTION">
+<a name="id400301"></a><h2>DESCRIPTION</h2>
+<p>Cutter is a xUnit family unit testing framework for C and C++. Cutter provides programmers two important interfaces:</p>
+<div class="orderedlist"><ol class="orderedlist" type="1">
+<li class="listitem"><p>easy to write API</p></li>
+<li class="listitem"><p>easy to debug UI</p></li>
+</ol></div>
+<p>Cutter helps programmers to write their new tests, run their existing tests, get feedbacks from ran their tests.</p>
+<p>
+  <span class="emphasis"><em>test-directory</em></span>
+   is a directory which has test_*.so. test_*.so are searched recursively.
+</p>
+<p>
+  <span class="emphasis"><em>log-directory</em></span>
+   is a directory which has Cutter log files. Cutter logs test results when --stream-directory option is specified.
+</p>
+</div>
+<div class="refsect1" title="OPTIONS">
+<a name="id429135"></a><h2>OPTIONS</h2>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a name="cutter.--version"></a>--version</span></p></td>
+<td><p>Cutter shows its own version and exits.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--mode"></a>--mode=[test|analyze]</span></p></td>
+<td>
+<p>It specifies run mode. Cutter runs tests when run mode is test. Cutter analyzes test results when run mode is analyze.</p>
+<p>The default is test.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.-s"></a>-s DIRECTORY, --source-directory=DIRECTORY</span></p></td>
+<td><p>Cutter prepends DIRECTORY to file name when test fails. This is for tolls (like Emacs) which have function jumping to error line.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.-t"></a>-t TEST_CASE_NAME, --test-case=TEST_CASE_NAME</span></p></td>
+<td>
+<p>Cutter runs test cases that are matched with TEST_CASE_NAME. If TEST_CASE_NAME is surrounded by "/" (e.g. /test_/), TEST_CASE_NAME is handled as regular expression.</p>
+<p>This option can be specified n times. In the case, Cutter runs test cases that are matched with any TEST_CASE_NAME. (OR)</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.-n"></a>-n TEST_NAME, --name=TEST_NAME</span></p></td>
+<td>
+<p>Cutter runs tests that are matched with TEST_NAME. If TEST_NAME is surrounded by "/" (e.g. /test_/), TEST_NAME is handled as regular expression.</p>
+<p>This option can be specified n times. In the case, Cutter runs test that are matched with any TEST_NAME. (OR)</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.-m"></a>-m, --multi-thread</span></p></td>
+<td>
+<p>Cutter runs a test case in a new thread.</p>
+<p>The default is off.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--max-threads"></a>--max-threads=MAX_THREADS</span></p></td>
+<td>
+<p>Run test cases and iterated tests with MAX_THREADS threads concurrently at a maximum. -1 means no limit.</p>
+<p>The default is 10.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--disable-signal-handling"></a>--disable-signal-handling</span></p></td>
+<td>
+<p>Disable signal handling that provides aborting test by C-c, provides backtrace on SEGV and so on. If your test target uses signal, Cutter's signal handling may cause a problem. In the case, you should disable Cutter's signal handling by this option.</p>
+<p>The default is enabled.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--test-case-order"></a>--test-case-order=[none|name|name-desc]</span></p></td>
+<td>
+<p>It specifies test case order.</p>
+<p>If 'none' is specified, Cutter doesn't sort. If 'name' is specified, Cutter sorts test cases by name in ascending order. If 'name-desc' is specified, Cutter sorts test cases by name in descending order.</p>
+<p>The default is none.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--exclude-file"></a>--exclude-file=FILE</span></p></td>
+<td><p>Cutter doesn't read FILE on test collecting.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--exclude-directory"></a>--exclude-directory=DIRECTORY</span></p></td>
+<td><p>Cutter doesn't search tests under DIRECTORY.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--fatal-failures"></a>--fatal-failures</span></p></td>
+<td>
+<p>Cutter treats failures as fatal problem. It means that Cutter stops test run.</p>
+<p>The default is off.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--keep-opening-modules"></a>--keep-opening-modules</span></p></td>
+<td>
+<p>Cutter keeps opening loaded modules to resolve symbols for debugging.</p>
+<p>The default is off.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--enable-convenience-attribute-definition"></a>--enable-convenience-attribute-definition</span></p></td>
+<td>
+<p>It enables convenience but danger "#{ATTRIBUTE_NAME}_#{TEST_NAME - 'test_' PREFIX}" attribute set function.</p>
+<p>The default is off.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--stop-before-test"></a>--stop-before-test</span></p></td>
+<td>
+<p>It sets a breakpoint immediately before each test. You can dive into test function easily by running cutter on your debugger and stepping into the next function.</p>
+<p>The default is off.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.-u"></a>-u[console|gtk], --ui=[console|gtk]</span></p></td>
+<td>
+<p>It specifies UI.</p>
+<p>The default is console UI.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.-v"></a>-v[s|silent|n|normal|v|verbose], --verbose=[s|silent|n|normal|v|verbose]</span></p></td>
+<td>
+<p>It specifies verbose level.</p>
+<p>This option is only for console UI.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.-c"></a>-c[yes|true|no|false|auto], --color=[yes|true|no|false|auto]</span></p></td>
+<td>
+<p>If 'yes' or 'true' is specified, Cutter uses colorized output by escape sequence. If 'no' or 'false' is specified, Cutter never use colorized output. If 'auto' or the option is omitted, Cutter uses colorized output if available.</p>
+<p>This option is only for console UI.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--pdf-report"></a>--pdf-report=FILE</span></p></td>
+<td><p>Cutter outputs a test report to FILE as PDF format.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--xml-report"></a>--xml-report=FILE</span></p></td>
+<td><p>Cutter outputs a test report to FILE as XML format.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--stream"></a>--stream=[xml]</span></p></td>
+<td>
+<p>It specifies stream backend. Stream backend streams test results.</p>
+<p>There is only XML stream backend for now.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--stream-fd"></a>--stream-fd=FILE_DESCRIPTOR</span></p></td>
+<td>
+<p>It specifies output file descriptor. The XML stream backend streams to FILE_DESCRIPTOR.</p>
+<p>This option is only for XML stream backend.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--stream-directory"></a>--stream-directory=DIRECTORY</span></p></td>
+<td>
+<p>It specifies output directory. The XML stream backend streams to a file under DIRECTORY.</p>
+<p>This option is only for XML stream backend.</p>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--question"></a>-?, --help</span></p></td>
+<td><p>Cutter shows common options.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--help-stream"></a>--help-stream</span></p></td>
+<td><p>Cutter shows stream related options.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--help-report"></a>--help-report</span></p></td>
+<td><p>Cutter shows report related options.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--help-ui"></a>--help-ui</span></p></td>
+<td><p>Cutter shows UI related options.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="cutter.--help-all"></a>--help-all</span></p></td>
+<td><p>Cutter shows all options.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1" title="EXIT STATUS">
+<a name="id436147"></a><h2>EXIT STATUS</h2>
+<p>The exit status is 0 if all tests are passed and non-0 otherwise.  Omission test result and notification test result are not treated as failure.</p>
+</div>
+<div class="refsect1" title="FILES">
+<a name="id436159"></a><h2>FILES</h2>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><a name="cutter./usr/local/share/doc/cutter/"></a>/usr/local/share/doc/cutter/</span></p></td>
+<td><p>The directory has Cutter documents. e.g. reference manual, tutorial and so on.</p></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1" title="EXAMPLE">
+<a name="id436188"></a><h2>EXAMPLE</h2>
+<p>In the following example, cutter runs tests under tests/ directory and shows test progress verbosely.</p>
+<pre class="programlisting">% cutter -v v test/</pre>
+<p>In the following example, test results are saved under logs/ directory:</p>
+<pre class="programlisting">% cutter --stream=xml --stream-directory=logs/ test/</pre>
+</div>
+<div class="refsect1" title="SEE ALSO">
+<a name="id436215"></a><h2>SEE ALSO</h2>
+<p>GLib's reference manual.</p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

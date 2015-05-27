@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaBuildable</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="next" href="libanjuta-IAnjutaBuilder.html" title="IAnjutaBuilder">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="plugin-interfaces.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaBuilder.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaBuildable.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaBuildable.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaBuildable.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaBuildable"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaBuildable.top_of_page"></a>IAnjutaBuildable</span></h2>
+<p>IAnjutaBuildable — Implemented by plugins that can build. This interface
+will be replaced by <span class="type">IAnjutaBuilder</span> (for build functions) and
+<span class="type">IAnjutaEnvironment</span> for ianjuta_buildable_set_command,
+ianjuta_buildable_reset_command and ianjuta_buildable_get_command.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaBuildable.stability-level"></a><h2>Stability Level</h2>
+Obsolete, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaBuildable.synopsis"></a><h2>Synopsis</h2>
+<a name="IAnjutaBuildableCommand"></a><pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-buildable.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaBuildable.html#IANJUTA-BUILDABLE-ERROR:CAPS" title="IANJUTA_BUILDABLE_ERROR">IANJUTA_BUILDABLE_ERROR</a>
+enum                <a class="link" href="libanjuta-IAnjutaBuildable.html#IAnjutaBuildableCommand-enum" title="enum IAnjutaBuildableCommand">IAnjutaBuildableCommand</a>;
+struct              <a class="link" href="libanjuta-IAnjutaBuildable.html#IAnjutaBuildableIface" title="struct IAnjutaBuildableIface">IAnjutaBuildableIface</a>;
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaBuildable.html#ianjuta-buildable-build" title="ianjuta_buildable_build ()">ianjuta_buildable_build</a>             (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaBuildable.html#ianjuta-buildable-clean" title="ianjuta_buildable_clean ()">ianjuta_buildable_clean</a>             (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaBuildable.html#ianjuta-buildable-configure" title="ianjuta_buildable_configure ()">ianjuta_buildable_configure</a>         (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaBuildable.html#ianjuta-buildable-error-quark" title="ianjuta_buildable_error_quark ()">ianjuta_buildable_error_quark</a>       (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaBuildable.html#ianjuta-buildable-execute" title="ianjuta_buildable_execute ()">ianjuta_buildable_execute</a>           (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaBuildable.html#ianjuta-buildable-generate" title="ianjuta_buildable_generate ()">ianjuta_buildable_generate</a>          (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="libanjuta-IAnjutaBuildable.html#ianjuta-buildable-get-command" title="ianjuta_buildable_get_command ()">ianjuta_buildable_get_command</a>       (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaBuildable.html#IAnjutaBuildableCommand"><span class="type">IAnjutaBuildableCommand</span></a> command_id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaBuildable.html#ianjuta-buildable-install" title="ianjuta_buildable_install ()">ianjuta_buildable_install</a>           (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaBuildable.html#ianjuta-buildable-reset-commands" title="ianjuta_buildable_reset_commands ()">ianjuta_buildable_reset_commands</a>    (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libanjuta-IAnjutaBuildable.html#ianjuta-buildable-set-command" title="ianjuta_buildable_set_command ()">ianjuta_buildable_set_command</a>       (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaBuildable.html#IAnjutaBuildableCommand"><span class="type">IAnjutaBuildableCommand</span></a> command_id</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *command</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaBuildable.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GEnum
+   +----IAnjutaBuildableCommand
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaBuildable.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaBuildable.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-BUILDABLE-ERROR:CAPS"></a><h3>IANJUTA_BUILDABLE_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_BUILDABLE_ERROR ianjuta_buildable_error_quark()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaBuildableCommand-enum"></a><h3>enum IAnjutaBuildableCommand</h3>
+<pre class="programlisting">typedef enum {
+	IANJUTA_BUILDABLE_COMMAND_COMPILE,
+	IANJUTA_BUILDABLE_COMMAND_BUILD,
+	IANJUTA_BUILDABLE_COMMAND_BUILD_TARBALL,
+	IANJUTA_BUILDABLE_COMMAND_INSTALL,
+	IANJUTA_BUILDABLE_COMMAND_CONFIGURE,
+	IANJUTA_BUILDABLE_COMMAND_GENERATE,
+	IANJUTA_BUILDABLE_COMMAND_CLEAN,
+	IANJUTA_BUILDABLE_COMMAND_EXECUTE,
+	IANJUTA_BUILDABLE_COMMAND_IS_BUILT,
+	IANJUTA_BUILDABLE_COMMAND_AUTORECONF,
+	IANJUTA_BUILDABLE_COMMAND_DISTCLEAN,
+	IANJUTA_BUILDABLE_N_COMMANDS
+} IAnjutaBuildableCommand;
+</pre>
+<p>
+The enumeration is used to speficy the disered build operation
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="IANJUTA-BUILDABLE-COMMAND-COMPILE:CAPS"></a><span class="term"><code class="literal">IANJUTA_BUILDABLE_COMMAND_COMPILE</code></span></p></td>
+<td>Compile source
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-BUILDABLE-COMMAND-BUILD:CAPS"></a><span class="term"><code class="literal">IANJUTA_BUILDABLE_COMMAND_BUILD</code></span></p></td>
+<td>Build file (normally using make)
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-BUILDABLE-COMMAND-BUILD-TARBALL:CAPS"></a><span class="term"><code class="literal">IANJUTA_BUILDABLE_COMMAND_BUILD_TARBALL</code></span></p></td>
+<td>make dist
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-BUILDABLE-COMMAND-INSTALL:CAPS"></a><span class="term"><code class="literal">IANJUTA_BUILDABLE_COMMAND_INSTALL</code></span></p></td>
+<td>make install
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-BUILDABLE-COMMAND-CONFIGURE:CAPS"></a><span class="term"><code class="literal">IANJUTA_BUILDABLE_COMMAND_CONFIGURE</code></span></p></td>
+<td>./configure
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-BUILDABLE-COMMAND-GENERATE:CAPS"></a><span class="term"><code class="literal">IANJUTA_BUILDABLE_COMMAND_GENERATE</code></span></p></td>
+<td>./autogen.sh
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-BUILDABLE-COMMAND-CLEAN:CAPS"></a><span class="term"><code class="literal">IANJUTA_BUILDABLE_COMMAND_CLEAN</code></span></p></td>
+<td>make clean
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-BUILDABLE-COMMAND-EXECUTE:CAPS"></a><span class="term"><code class="literal">IANJUTA_BUILDABLE_COMMAND_EXECUTE</code></span></p></td>
+<td>./hello
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-BUILDABLE-COMMAND-IS-BUILT:CAPS"></a><span class="term"><code class="literal">IANJUTA_BUILDABLE_COMMAND_IS_BUILT</code></span></p></td>
+<td>check whether object files are up-to-date
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-BUILDABLE-COMMAND-AUTORECONF:CAPS"></a><span class="term"><code class="literal">IANJUTA_BUILDABLE_COMMAND_AUTORECONF</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-BUILDABLE-COMMAND-DISTCLEAN:CAPS"></a><span class="term"><code class="literal">IANJUTA_BUILDABLE_COMMAND_DISTCLEAN</code></span></p></td>
+<td>make distclean
+</td>
+</tr>
+<tr>
+<td><p><a name="IANJUTA-BUILDABLE-N-COMMANDS:CAPS"></a><span class="term"><code class="literal">IANJUTA_BUILDABLE_N_COMMANDS</code></span></p></td>
+<td>size of enum
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaBuildableIface"></a><h3>struct IAnjutaBuildableIface</h3>
+<pre class="programlisting">struct IAnjutaBuildableIface {
+	GTypeInterface g_iface;
+	
+
+	void (*build) (IAnjutaBuildable *obj, const gchar *uri, GError **err);
+	void (*clean) (IAnjutaBuildable *obj, const gchar *uri, GError **err);
+	void (*configure) (IAnjutaBuildable *obj, const gchar *uri, GError **err);
+	void (*execute) (IAnjutaBuildable *obj, const gchar *uri, GError **err);
+	void (*generate) (IAnjutaBuildable *obj, const gchar *uri, GError **err);
+	const gchar* (*get_command) (IAnjutaBuildable *obj, IAnjutaBuildableCommand command_id, GError **err);
+	void (*install) (IAnjutaBuildable *obj, const gchar *uri, GError **err);
+	void (*reset_commands) (IAnjutaBuildable *obj, GError **err);
+	void (*set_command) (IAnjutaBuildable *obj, IAnjutaBuildableCommand command_id,  const gchar *command, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-buildable-build"></a><h3>ianjuta_buildable_build ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_buildable_build             (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+fixme
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>fixme</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-buildable-clean"></a><h3>ianjuta_buildable_clean ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_buildable_clean             (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+fixme
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>fixme</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-buildable-configure"></a><h3>ianjuta_buildable_configure ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_buildable_configure         (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+fixme
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>fixme</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-buildable-error-quark"></a><h3>ianjuta_buildable_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_buildable_error_quark       (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-buildable-execute"></a><h3>ianjuta_buildable_execute ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_buildable_execute           (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+fixme
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>fixme</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-buildable-generate"></a><h3>ianjuta_buildable_generate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_buildable_generate          (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+fixme
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>fixme</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-buildable-get-command"></a><h3>ianjuta_buildable_get_command ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       ianjuta_buildable_get_command       (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaBuildable.html#IAnjutaBuildableCommand"><span class="type">IAnjutaBuildableCommand</span></a> command_id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Retrieves the currently set command override.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>command_id</code></em> :</span></p></td>
+<td>Command to get override.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The overridden command. NULL if no override set.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-buildable-install"></a><h3>ianjuta_buildable_install ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_buildable_install           (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+fixme
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>fixme</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-buildable-reset-commands"></a><h3>ianjuta_buildable_reset_commands ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_buildable_reset_commands    (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Resets the command overrides to defaults.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-buildable-set-command"></a><h3>ianjuta_buildable_set_command ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ianjuta_buildable_set_command       (<em class="parameter"><code><span class="type">IAnjutaBuildable</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libanjuta-IAnjutaBuildable.html#IAnjutaBuildableCommand"><span class="type">IAnjutaBuildableCommand</span></a> command_id</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *command</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Overrides the default command for the given command.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>command_id</code></em> :</span></p></td>
+<td>Command to override.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>command</code></em> :</span></p></td>
+<td>Build command to override.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

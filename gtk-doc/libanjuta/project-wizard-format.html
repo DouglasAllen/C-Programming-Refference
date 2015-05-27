@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>New Project Wizard format</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="prev" href="plugin-description-file.html" title="Plugin description file">
+<link rel="next" href="header-block.html" title="Wizard header">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="plugin-description-file.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td> </td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="header-block.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="project-wizard-format"></a>New Project Wizard format</h2></div></div></div>
+<div class="toc"><dl>
+<dt><span class="sect1"><a href="project-wizard-format.html#overview">Overview</a></span></dt>
+<dt><span class="sect1"><a href="header-block.html">Wizard header</a></span></dt>
+<dt><span class="sect1"><a href="page-block.html">Wizard pages</a></span></dt>
+<dt><span class="sect1"><a href="content-block.html">Wizard content</a></span></dt>
+<dt><span class="sect1"><a href="action-block.html">Wizard actions</a></span></dt>
+<dt><span class="sect1"><a href="internationalization.html">Internationalization</a></span></dt>
+<dt><span class="sect1"><a href="distribution.html">Distribution</a></span></dt>
+</dl></div>
+<p>
+		The new project wizard has been rewritten for Anjuta 2. It
+		is a generic plugin able to create different kind of projects.
+		The files needed by each project and the associated graphical
+		interface used to get user choices are defined in a text file
+		read by the plugin. This documentation will described the
+		format of this file which is called a template.
+	</p>
+<div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="overview"></a>Overview</h2></div></div></div>
+<p>
+			The template files <span class="emphasis"><em>look like</em></span>
+			xml documents and have normally the extension
+			<code class="filename">.wiz</code>. All templates and others
+			related files are installed by default in <code class="filename">$anjuta_install_dir/share/anjuta/project</code>. But the project wizard looks
+			for templates in the sub directory <code class="filename">anjuta/project</code> of
+			all user data directories as defined by
+			<a class="ulink" href="http://www.freedesktop.org/Standards/basedir-spec" target="_top">XDG Base Directory Specification</a> too. It is possible to
+			override a Anjuta project template by an user one put, 
+			by example, in <code class="filename">~/.local/share/anjuta/project</code>.
+		</p>
+<p> The template file is divided in four parts:
+			an header block, one or more page blocks, a content block
+			and an optional action block. The file is read several times, one
+			time for each block but before reading it,
+			the whole file go though a transformation pass and only
+			the resulting file must be a valid xml file. The transformation
+			pass use <a class="ulink" href="http://autogen.sourceforge.net" target="_top">autogen</a>.
+		</p>
+<p>
+		<span class="emphasis"><em>Autogen</em></span> is a quite complete text transformation program, 
+		it is able to make string substitutions, conditionally
+		generate text, include files and it can even be extended with the
+		guile language. Autogen takes as input a template file which is
+		the wizard template file and some definitions which are generated
+		at run time according to the user choices. Note that the first
+		line of an autogen template need to have special format not
+		compatible with an xml file, so this line is added at run time
+		when needed. It defines the
+		start and end macros marker of autogen which is fixed and
+		defined as "[+" and "+]" in the wizard template.
+		</p>
+<p>
+		All blocks on the project wizard are included in a <span class="emphasis"><em>project-template
+		</em></span> block. This is needed because a valid XML file should have a
+		single root block. This block was not used in older version of the format,
+		so it is optional to keep backward compatibility.
+		</p>
+<p>
+		The <span class="emphasis"><em>header</em></span> block is the only exception, it is read 
+		directly from the template file and do not use autogen.
+		It must be the first block and must be valid a xml
+		block, that's why the first line of the template could not
+		contains the autogen special line. The parsing is stopped when
+		 the end of this block is
+		reached, so we do not care for the remaining of the file. This
+		block contains informations about the project kind like a name and
+		a short description.
+		</p>
+<p>
+		The <span class="emphasis"><em>page</em></span> blocks are read one by one after being transformed by
+		autogen, they define some properties of the project which could
+		be changed by the user, things like project name or use of a
+		particular library. The graphical interface is created at run
+		time according to these properties. Each page is generated when
+		the user has completed all previous pages.
+		You can ask the user for something on one
+		page and his answers become available as autogen variables for
+		generating the next page. You can, by example, skip a complete page
+		for configuring a CVS reposit, if the user has decided to
+		not use it. In case you insert or remove a complete page you need
+		to take care to not do it before one already displayed.
+		</p>
+<p>
+		When all pages have been displayed. The program will read the <span class="emphasis"><em>content</em></span>
+		block which defined all files and directories needed by the project.
+		This block goes through autogen so you can use this to adjust file
+		names and paths. Typically, at least creating a project file with
+		the name given by the user. Note that the project files itself are
+		transformed with autogen if needed.
+		</p>
+<p>
+		Finally, if it exist the <span class="emphasis"><em>action</em></span> block is read and the
+		corresponding commands are executed in their order of apparition.
+		Typically, it is useful for
+		loading in Anjuta the newly created project.
+		</p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

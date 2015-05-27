@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Plugin interfaces</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="prev" href="AnjutaCellRendererCaptionedImage.html" title="AnjutaCellRendererCaptionedImage">
+<link rel="next" href="libanjuta-IAnjutaBuildable.html" title="IAnjutaBuildable">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="AnjutaCellRendererCaptionedImage.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td> </td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaBuildable.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="plugin-interfaces"></a>Plugin interfaces</h2></div></div></div>
+<div class="toc"><dl>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaBuildable.html">IAnjutaBuildable</a></span><span class="refpurpose"> — Implemented by plugins that can build. This interface
+will be replaced by <span class="type">IAnjutaBuilder</span> (for build functions) and
+<span class="type">IAnjutaEnvironment</span> for ianjuta_buildable_set_command,
+ianjuta_buildable_reset_command and ianjuta_buildable_get_command.</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaBuilder.html">IAnjutaBuilder</a></span><span class="refpurpose"> — Implemented by plugins that can build</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaDebugger.html">IAnjutaDebugger</a></span><span class="refpurpose"> — Debugger interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaDebuggerBreakpoint.html">IAnjutaDebuggerBreakpoint</a></span><span class="refpurpose"> — Breakpoint Debugger interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaDebuggerInstruction.html">IAnjutaDebuggerInstruction</a></span><span class="refpurpose"> — Debugger interface for machine instruction</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaDebuggerMemory.html">IAnjutaDebuggerMemory</a></span><span class="refpurpose"> — Memory interface for debuggers</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaDebuggerRegister.html">IAnjutaDebuggerRegister</a></span><span class="refpurpose"> — Register interface for debuggers</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaDebuggerVariable.html">IAnjutaDebuggerVariable</a></span><span class="refpurpose"> — Variables interface for debuggers</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaDebugManager.html">IAnjutaDebugManager</a></span><span class="refpurpose"> — Common graphical interface to all debugger</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaDocument.html">IAnjutaDocument</a></span><span class="refpurpose"> — Interface for all kind of editable resources that
+will be managed by IAnjutaDocumentManager</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaDocumentManager.html">IAnjutaDocumentManager</a></span><span class="refpurpose"> — Interface for plugin that manages all the editors</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditor.html">IAnjutaEditor</a></span><span class="refpurpose"> — Text editor interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorAssist.html">IAnjutaEditorAssist</a></span><span class="refpurpose"> — Text editor assist interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorCell.html">IAnjutaEditorCell</a></span><span class="refpurpose"> — Text editor character cell</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorCellStyle.html">IAnjutaEditorCellStyle</a></span><span class="refpurpose"> — Text editor cell style interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorComment.html">IAnjutaEditorComment</a></span><span class="refpurpose"> — Text editor comment interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorConvert.html">IAnjutaEditorConvert</a></span><span class="refpurpose"> — Text editor convert interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorFactory.html">IAnjutaEditorFactory</a></span><span class="refpurpose"> — Text editor factory that creates IAnjutaEditor objects</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorFolds.html">IAnjutaEditorFolds</a></span><span class="refpurpose"> — Text editor folds inteface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorGoto.html">IAnjutaEditorGoto</a></span><span class="refpurpose"> — Text editor navigation interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorHover.html">IAnjutaEditorHover</a></span><span class="refpurpose"> — Text editor hover interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorLanguage.html">IAnjutaEditorLanguage</a></span><span class="refpurpose"> — Text editor language interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorLineMode.html">IAnjutaEditorLineMode</a></span><span class="refpurpose"> — Text editor line mode</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorSearch.html">IAnjutaEditorSearch</a></span><span class="refpurpose"> — Text editor search interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorSelection.html">IAnjutaEditorSelection</a></span><span class="refpurpose"> — Text editor selection interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorView.html">IAnjutaEditorView</a></span><span class="refpurpose"> — Text editor view interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEditorZoom.html">IAnjutaEditorZoom</a></span><span class="refpurpose"> — Text editor zoom interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaEnvironment.html">IAnjutaEnvironment</a></span><span class="refpurpose"> — Implemented by plugins doing cross compilation</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaFile.html">IAnjutaFile</a></span><span class="refpurpose"> — Implemented by plugins that can open files.</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaFileLoader.html">IAnjutaFileLoader</a></span><span class="refpurpose"> — Loader to load files</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaFileManager.html">IAnjutaFileManager</a></span><span class="refpurpose"> — File manager plugin</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaFileSavable.html">IAnjutaFileSavable</a></span><span class="refpurpose"> — Implemented by plugins that can save files.</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaHelp.html">IAnjutaHelp</a></span><span class="refpurpose"> — Implemented by plugins that can provide help support</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaIndicable.html">IAnjutaIndicable</a></span><span class="refpurpose"> — Implemented by indicate that indicate a range</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaIterable.html">IAnjutaIterable</a></span><span class="refpurpose"> — Implemented by objects that can iterate</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaIterableTree.html">IAnjutaIterableTree</a></span><span class="refpurpose"> — Implemented by tree objects that can iterate</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaLanguage.html">IAnjutaLanguage</a></span><span class="refpurpose"> — Interface to manage multiple programming languages</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaLoader.html">IAnjutaLoader</a></span><span class="refpurpose"> — Interface to load file or stream</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaMarkable.html">IAnjutaMarkable</a></span><span class="refpurpose"> — Implemented by editors (or views) with markers support</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaMessageManager.html">IAnjutaMessageManager</a></span><span class="refpurpose"> — The plugin that managers all message views</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaMessageView.html">IAnjutaMessageView</a></span><span class="refpurpose"> — A view where messages of different kind can be shown</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaPluginFactory.html">IAnjutaPluginFactory</a></span><span class="refpurpose"> — Create Anjuta plugin objects</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaPreferences.html">IAnjutaPreferences</a></span><span class="refpurpose"> — Preferences interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaPrint.html">IAnjutaPrint</a></span><span class="refpurpose"> — Print interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaProjectManager.html">IAnjutaProjectManager</a></span><span class="refpurpose"> — Interface for project managers</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaProjectChooser.html">IAnjutaProjectChooser</a></span><span class="refpurpose"> — Interface for selecting project node</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaProjectBackend.html">IAnjutaProjectBackend</a></span><span class="refpurpose"> — Interface for creating new project</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaStream.html">IAnjutaStream</a></span><span class="refpurpose"> — Implemented by plugins that can open file streams</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaStreamLoader.html">IAnjutaStreamLoader</a></span><span class="refpurpose"> — Loader to load streams</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaStreamSavable.html">IAnjutaStreamSavable</a></span><span class="refpurpose"> — Implemented by plugins that can save file streams</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaSymbol.html">IAnjutaSymbol</a></span><span class="refpurpose"> — Source code symbol interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaSymbolQuery.html">IAnjutaSymbolQuery</a></span><span class="refpurpose"> — Source code symbol query interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaSymbolManager.html">IAnjutaSymbolManager</a></span><span class="refpurpose"> — Source code symbols manager inteface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaTerminal.html">IAnjutaTerminal</a></span><span class="refpurpose"> — Interface for command line terminals</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaTodo.html">IAnjutaTodo</a></span><span class="refpurpose"> — Task manager interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaVcs.html">IAnjutaVcs</a></span><span class="refpurpose"> — Version control system interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-IAnjutaWizard.html">IAnjutaWizard</a></span><span class="refpurpose"> — Interface for wizards that can create new stuffs</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libanjuta-libanjuta-iface-marshallers.html">libanjuta-iface-marshallers</a></span><span class="refpurpose"></span>
+</dt>
+</dl></div>
+<span style="color: red">&lt;xi:include&gt;&lt;/xi:include&gt;</span><span style="color: red">&lt;xi:include&gt;&lt;/xi:include&gt;</span>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

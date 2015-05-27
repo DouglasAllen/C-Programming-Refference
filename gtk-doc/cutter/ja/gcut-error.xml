@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-Assertion-Utilities-for-GError">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-Assertion-Utilities-for-GError.top_of_page">GError用の検証ユーティリティ</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GError用の検証ユーティリティ</refname>
+<refpurpose><link linkend="GError"><type>GError</type></link>に関する検証をもっと簡単に書くためのユーティリティ。</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-Assertion-Utilities-for-GError.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="gcut-error-equal">gcut_error_equal</link>                    (<parameter>const <link linkend="GError"><type>GError</type></link> *error1</parameter>,
+                                                         <parameter>const <link linkend="GError"><type>GError</type></link> *error2</parameter>);
+<link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             <link linkend="gcut-error-inspect">gcut_error_inspect</link>                  (<parameter>const <link linkend="GError"><type>GError</type></link> *error</parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-Assertion-Utilities-for-GError.description" role="desc">
+<title role="desc.title">説明</title>
+<para>検証を書くためには等価性を検証し、期待値と実測値を表示する必要があります。</para>
+<para>このユーティリティは<link linkend="GError"><type>GError</type></link>に関する検証の作成を補助します。</para>
+</refsect1>
+<refsect1 id="cutter-Assertion-Utilities-for-GError.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="gcut-error-equal" role="function" condition="since:1.0.5">
+<title>gcut_error_equal ()</title>
+<indexterm zone="gcut-error-equal" role="1.0.5"><primary>gcut_error_equal</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            gcut_error_equal                    (<parameter>const <link linkend="GError"><type>GError</type></link> *error1</parameter>,
+                                                         <parameter>const <link linkend="GError"><type>GError</type></link> *error2</parameter>);</programlisting>
+<para>ふたつの<link linkend="GError"><type>GError</type></link>、<parameter>error1</parameter>と<parameter>error2</parameter>を比較します。</para><variablelist role="params">
+<varlistentry><term><parameter>error1</parameter> :</term>
+<listitem><simpara>比較する<link linkend="GError"><type>GError</type></link>の値。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error2</parameter> :</term>
+<listitem><simpara>比較する<link linkend="GError"><type>GError</type></link>の値。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>error1</parameter>と<parameter>error2</parameter>が同じドメイン、コード、メッセージなら<link linkend="TRUE:CAPS"><literal>TRUE</literal></link>、そうでなれば<link linkend="FALSE:CAPS"><literal>FALSE</literal></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-error-inspect" role="function" condition="since:1.0.5">
+<title>gcut_error_inspect ()</title>
+<indexterm zone="gcut-error-inspect" role="1.0.5"><primary>gcut_error_inspect</primary></indexterm>
+<programlisting><link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             gcut_error_inspect                  (<parameter>const <link linkend="GError"><type>GError</type></link> *error</parameter>);</programlisting>
+<para><parameter>error</parameter>の詳細を返します。返された文字列が必要なくなったときは開放してください。</para><variablelist role="params">
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara><link linkend="GError"><type>GError</type></link>の値。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>error</parameter>の詳細を示した文字列。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+
+</refsect1>
+
+</refentry>

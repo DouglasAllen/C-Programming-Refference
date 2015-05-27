@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MrpObject</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Libplanner Reference Manual">
+<link rel="up" href="ch01.html" title="Libplanner API">
+<link rel="prev" href="libplanner-mrp-group.html" title="MrpGroup">
+<link rel="next" href="libplanner-mrp-project.html" title="MrpProject">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libplanner-mrp-group.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libplanner Reference Manual</th>
+<td><a accesskey="n" href="libplanner-mrp-project.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libplanner-mrp-object.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libplanner-mrp-object.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libplanner-mrp-object.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#libplanner-mrp-object.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#libplanner-mrp-object.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libplanner-mrp-object"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libplanner-mrp-object.top_of_page"></a>MrpObject</span></h2>
+<p>MrpObject</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libplanner-mrp-object.synopsis"></a><h2>Synopsis</h2>
+<a name="MrpObject"></a><pre class="synopsis">
+#include &lt;libplanner/planner.h&gt;
+
+                    <a class="link" href="libplanner-mrp-object.html#MrpObjectPriv" title="MrpObjectPriv">MrpObjectPriv</a>;
+struct              <a class="link" href="libplanner-mrp-object.html#MrpObject-struct" title="struct MrpObject">MrpObject</a>;
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-object.html#mrp-object-removed" title="mrp_object_removed ()">mrp_object_removed</a>                  (<em class="parameter"><code><a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *object</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-object.html#mrp-object-changed" title="mrp_object_changed ()">mrp_object_changed</a>                  (<em class="parameter"><code><a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *object</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-object.html#mrp-object-set" title="mrp_object_set ()">mrp_object_set</a>                      (<em class="parameter"><code><span class="type">gpointer</span> object</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *first_property_name</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-object.html#mrp-object-get" title="mrp_object_get ()">mrp_object_get</a>                      (<em class="parameter"><code><span class="type">gpointer</span> object</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *first_property_name</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-object.html#mrp-object-set-valist" title="mrp_object_set_valist ()">mrp_object_set_valist</a>               (<em class="parameter"><code><a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *first_property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-object.html#mrp-object-get-valist" title="mrp_object_get_valist ()">mrp_object_get_valist</a>               (<em class="parameter"><code><a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *first_property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);
+<span class="returnvalue">GList</span> *             <a class="link" href="libplanner-mrp-object.html#mrp-object-get-properties" title="mrp_object_get_properties ()">mrp_object_get_properties</a>           (<em class="parameter"><code><a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *object</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-object.html#mrp-object-get-property" title="mrp_object_get_property ()">mrp_object_get_property</a>             (<em class="parameter"><code><a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-object.html#mrp-object-set-property" title="mrp_object_set_property ()">mrp_object_set_property</a>             (<em class="parameter"><code><a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *value</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-object.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----MrpObject
+         +----<a class="link" href="libplanner-mrp-project.html#MrpProject">MrpProject</a>
+         +----<a class="link" href="libplanner-mrp-task.html#MrpTask">MrpTask</a>
+         +----<a class="link" href="libplanner-mrp-resource.html#MrpResource">MrpResource</a>
+         +----<a class="link" href="libplanner-mrp-group.html#MrpGroup">MrpGroup</a>
+         +----<a class="link" href="libplanner-mrp-assignment.html#MrpAssignment">MrpAssignment</a>
+         +----<a class="link" href="libplanner-mrp-calendar.html#MrpCalendar">MrpCalendar</a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-object.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="libplanner-mrp-object.html#MrpObject--project" title='The "project" property'>project</a>"                  <a class="link" href="libplanner-mrp-project.html#MrpProject"><span class="type">MrpProject</span></a>*           : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-object.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="libplanner-mrp-object.html#MrpObject-prop-changed" title='The "prop-changed" signal'>prop-changed</a>"                                   : <code class="literal">Has Details</code>
+  "<a class="link" href="libplanner-mrp-object.html#MrpObject-removed" title='The "removed" signal'>removed</a>"                                        : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-object.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-object.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="MrpObjectPriv"></a><h3>MrpObjectPriv</h3>
+<pre class="programlisting">typedef struct _MrpObjectPriv MrpObjectPriv;</pre>
+<p>
+A private struct for internal use only.  The definition of this
+structure is not publically available.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MrpObject-struct"></a><h3>struct MrpObject</h3>
+<pre class="programlisting">struct MrpObject;</pre>
+<p>
+The base class for objects in libmrproject.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-object-removed"></a><h3>mrp_object_removed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_object_removed                  (<em class="parameter"><code><a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *object</code></em>);</pre>
+<p>
+Emits the signal <code class="literal">removed</code>. This means that any references to the object
+should be dropped, since the object is removed from the project.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-object-changed"></a><h3>mrp_object_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_object_changed                  (<em class="parameter"><code><a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *object</code></em>);</pre>
+<p>
+Emits the signal needs-saving on the project that this object belongs to,
+indicating that the project has unsaved changes.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-object-set"></a><h3>mrp_object_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_object_set                      (<em class="parameter"><code><span class="type">gpointer</span> object</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *first_property_name</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+<a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> can have custom properties, which are added runtime, for example
+by a user or plugin. <a class="link" href="libplanner-mrp-object.html#mrp-object-set" title="mrp_object_set ()"><code class="function">mrp_object_set()</code></a> allows you to set these the value of
+those properties. It also handles the regular <span class="type">GObject</span> properties, so you can
+use it to set both custom properties and regular properties at the same time.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>first_property_name</code></em> :</span></p></td>
+<td>the name of the first property to set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>first value to set, followed by additional name/value pairs to set, NULL terminated</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-object-get"></a><h3>mrp_object_get ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_object_get                      (<em class="parameter"><code><span class="type">gpointer</span> object</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *first_property_name</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Retrieves the values of a variable number of custom properties or regular
+properties from an object. See <a class="link" href="libplanner-mrp-object.html#mrp-object-set" title="mrp_object_set ()"><code class="function">mrp_object_set()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-project.html#MrpProject"><span class="type">MrpProject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>first_property_name</code></em> :</span></p></td>
+<td>the name of the first property to get</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>first value to get, followed by additional name/value pairs to get, NULL terminated</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-object-set-valist"></a><h3>mrp_object_set_valist ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_object_set_valist               (<em class="parameter"><code><a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *first_property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);</pre>
+<p>
+va_list version of <a class="link" href="libplanner-mrp-object.html#mrp-object-set" title="mrp_object_set ()"><code class="function">mrp_object_set()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>first_property_name</code></em> :</span></p></td>
+<td>the name of the first property to set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>var_args</code></em> :</span></p></td>
+<td>va_list of arguments</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-object-get-valist"></a><h3>mrp_object_get_valist ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_object_get_valist               (<em class="parameter"><code><a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *first_property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);</pre>
+<p>
+va_list version of <a class="link" href="libplanner-mrp-object.html#mrp-object-get" title="mrp_object_get ()"><code class="function">mrp_object_get()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>first_property_name</code></em> :</span></p></td>
+<td>the name of the first property to get</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>var_args</code></em> :</span></p></td>
+<td>va_list of arguments</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-object-get-properties"></a><h3>mrp_object_get_properties ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *             mrp_object_get_properties           (<em class="parameter"><code><a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *object</code></em>);</pre>
+<p>
+Retrieves the list of custom properties for the type of <em class="parameter"><code>object</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of <a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a>, must not be changed or freed.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-object-get-property"></a><h3>mrp_object_get_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_object_get_property             (<em class="parameter"><code><a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *value</code></em>);</pre>
+<p>
+Gets a custom property. This is mostly for language bindings. C programmers
+should use mrp_object_get instead.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>the property to get</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the value to get</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-object-set-property"></a><h3>mrp_object_set_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_object_set_property             (<em class="parameter"><code><a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *value</code></em>);</pre>
+<p>
+Sets a custom property. This is mostly for language bindings. C programmers
+should use mrp_object_set instead.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>the property to set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the value to set</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-object.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="MrpObject--project"></a><h3>The <code class="literal">"project"</code> property</h3>
+<pre class="programlisting">  "project"                  <a class="link" href="libplanner-mrp-project.html#MrpProject"><span class="type">MrpProject</span></a>*           : Read / Write</pre>
+<p>The project this object belongs to.</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-object.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="MrpObject-prop-changed"></a><h3>The <code class="literal">"prop-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *mrpobject,
+                                                        <span class="type">gpointer</span>   arg1,
+                                                        <span class="type">GValue</span>    *arg2,
+                                                        <span class="type">gpointer</span>   user_data)      : <code class="literal">Has Details</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mrpobject</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MrpObject-removed"></a><h3>The <code class="literal">"removed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="libplanner-mrp-object.html#MrpObject"><span class="type">MrpObject</span></a> *mrpobject,
+                                                        <span class="type">gpointer</span>   user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mrpobject</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-gcut-main">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-gcut-main.top_of_page">gcut-main</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>gcut-main</refname>
+<refpurpose/>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-gcut-main.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis><link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-init">gcut_init</link>                           (<parameter><type>void</type></parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-value-equal-init">gcut_value_equal_init</link>               (<parameter><type>void</type></parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-quit">gcut_quit</link>                           (<parameter><type>void</type></parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                <link linkend="gcut-value-equal-quit">gcut_value_equal_quit</link>               (<parameter><type>void</type></parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-gcut-main.description" role="desc">
+<title role="desc.title">説明</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="cutter-gcut-main.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="gcut-init" role="function">
+<title>gcut_init ()</title>
+<indexterm zone="gcut-init"><primary>gcut_init</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_init                           (<parameter><type>void</type></parameter>);</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="gcut-value-equal-init" role="function">
+<title>gcut_value_equal_init ()</title>
+<indexterm zone="gcut-value-equal-init"><primary>gcut_value_equal_init</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_value_equal_init               (<parameter><type>void</type></parameter>);</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="gcut-quit" role="function">
+<title>gcut_quit ()</title>
+<indexterm zone="gcut-quit"><primary>gcut_quit</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_quit                           (<parameter><type>void</type></parameter>);</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="gcut-value-equal-quit" role="function">
+<title>gcut_value_equal_quit ()</title>
+<indexterm zone="gcut-value-equal-quit"><primary>gcut_value_equal_quit</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                gcut_value_equal_quit               (<parameter><type>void</type></parameter>);</programlisting>
+<para>
+</para></refsect2>
+
+</refsect1>
+
+</refentry>

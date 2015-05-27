@@ -2,7 +2,7 @@ OBJ=segfault.o
 
 CXXFLAGS+=-g
 
-segfault.exe: $(OBJ)
+segfault: $(OBJ)
 	$(CXX) -o $@ $^
 
 clean:

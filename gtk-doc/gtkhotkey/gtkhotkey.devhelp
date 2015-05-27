@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="Gtk Hotkey Reference Manual" link="index.html" author="" name="gtkhotkey">
+  <chapters>
+    <sub name="Core API" link="ch01.html">
+      <sub name="GtkHotkeyInfo" link="GtkHotkeyInfo.html"/>
+      <sub name="GtkHotkeyListener" link="GtkHotkeyListener.html"/>
+      <sub name="GtkHotkeyRegistry" link="GtkHotkeyRegistry.html"/>
+    </sub>
+  </chapters>
+  <functions>
+    <function name="GtkHotkeyInfo" link="GtkHotkeyInfo.html#GtkHotkeyInfo-struct"/>
+    <function name="gtk_hotkey_info_bind ()" link="GtkHotkeyInfo.html#gtk-hotkey-info-bind"/>
+    <function name="gtk_hotkey_info_unbind ()" link="GtkHotkeyInfo.html#gtk-hotkey-info-unbind"/>
+    <function name="gtk_hotkey_info_get_application_id ()" link="GtkHotkeyInfo.html#gtk-hotkey-info-get-application-id"/>
+    <function name="gtk_hotkey_info_get_key_id ()" link="GtkHotkeyInfo.html#gtk-hotkey-info-get-key-id"/>
+    <function name="gtk_hotkey_info_get_app_info ()" link="GtkHotkeyInfo.html#gtk-hotkey-info-get-app-info"/>
+    <function name="gtk_hotkey_info_get_signature ()" link="GtkHotkeyInfo.html#gtk-hotkey-info-get-signature"/>
+    <function name="gtk_hotkey_info_get_description ()" link="GtkHotkeyInfo.html#gtk-hotkey-info-get-description"/>
+    <function name="gtk_hotkey_info_set_description ()" link="GtkHotkeyInfo.html#gtk-hotkey-info-set-description"/>
+    <function name="gtk_hotkey_info_equals ()" link="GtkHotkeyInfo.html#gtk-hotkey-info-equals"/>
+    <function name="gtk_hotkey_info_activated ()" link="GtkHotkeyInfo.html#gtk-hotkey-info-activated"/>
+    <function name="gtk_hotkey_info_new ()" link="GtkHotkeyInfo.html#gtk-hotkey-info-new"/>
+    <function name="The &quot;app-info&quot; property" link="GtkHotkeyInfo.html#GtkHotkeyInfo--app-info"/>
+    <function name="The &quot;application-id&quot; property" link="GtkHotkeyInfo.html#GtkHotkeyInfo--application-id"/>
+    <function name="The &quot;bound&quot; property" link="GtkHotkeyInfo.html#GtkHotkeyInfo--bound"/>
+    <function name="The &quot;description&quot; property" link="GtkHotkeyInfo.html#GtkHotkeyInfo--description"/>
+    <function name="The &quot;key-id&quot; property" link="GtkHotkeyInfo.html#GtkHotkeyInfo--key-id"/>
+    <function name="The &quot;signature&quot; property" link="GtkHotkeyInfo.html#GtkHotkeyInfo--signature"/>
+    <function name="The &quot;activated&quot; signal" link="GtkHotkeyInfo.html#GtkHotkeyInfo-activated"/>
+    <function name="GtkHotkeyListener" link="GtkHotkeyListener.html#GtkHotkeyListener-struct"/>
+    <function name="enum GtkHotkeyListenerError" link="GtkHotkeyListener.html#GtkHotkeyListenerError"/>
+    <function name="GTK_HOTKEY_LISTENER_ERROR" link="GtkHotkeyListener.html#GTK-HOTKEY-LISTENER-ERROR--CAPS"/>
+    <function name="gtk_hotkey_listener_get_default ()" link="GtkHotkeyListener.html#gtk-hotkey-listener-get-default"/>
+    <function name="gtk_hotkey_listener_activated ()" link="GtkHotkeyListener.html#gtk-hotkey-listener-activated"/>
+    <function name="gtk_hotkey_listener_bind_hotkey ()" link="GtkHotkeyListener.html#gtk-hotkey-listener-bind-hotkey"/>
+    <function name="gtk_hotkey_listener_unbind_hotkey ()" link="GtkHotkeyListener.html#gtk-hotkey-listener-unbind-hotkey"/>
+    <function name="The &quot;activated&quot; signal" link="GtkHotkeyListener.html#GtkHotkeyListener-activated"/>
+    <function name="GtkHotkeyRegistry" link="GtkHotkeyRegistry.html#GtkHotkeyRegistry-struct"/>
+    <function name="enum GtkHotkeyRegistryError" link="GtkHotkeyRegistry.html#GtkHotkeyRegistryError"/>
+    <function name="GTK_HOTKEY_REGISTRY_ERROR" link="GtkHotkeyRegistry.html#GTK-HOTKEY-REGISTRY-ERROR--CAPS"/>
+    <function name="gtk_hotkey_registry_get_default ()" link="GtkHotkeyRegistry.html#gtk-hotkey-registry-get-default"/>
+    <function name="gtk_hotkey_registry_get_hotkey ()" link="GtkHotkeyRegistry.html#gtk-hotkey-registry-get-hotkey"/>
+    <function name="gtk_hotkey_registry_get_application_hotkeys ()" link="GtkHotkeyRegistry.html#gtk-hotkey-registry-get-application-hotkeys"/>
+    <function name="gtk_hotkey_registry_get_all_hotkeys ()" link="GtkHotkeyRegistry.html#gtk-hotkey-registry-get-all-hotkeys"/>
+    <function name="gtk_hotkey_registry_store_hotkey ()" link="GtkHotkeyRegistry.html#gtk-hotkey-registry-store-hotkey"/>
+    <function name="gtk_hotkey_registry_delete_hotkey ()" link="GtkHotkeyRegistry.html#gtk-hotkey-registry-delete-hotkey"/>
+    <function name="gtk_hotkey_registry_has_hotkey ()" link="GtkHotkeyRegistry.html#gtk-hotkey-registry-has-hotkey"/>
+    <function name="gtk_hotkey_registry_hotkey_stored ()" link="GtkHotkeyRegistry.html#gtk-hotkey-registry-hotkey-stored"/>
+    <function name="gtk_hotkey_registry_hotkey_deleted ()" link="GtkHotkeyRegistry.html#gtk-hotkey-registry-hotkey-deleted"/>
+    <function name="The &quot;hotkey-deleted&quot; signal" link="GtkHotkeyRegistry.html#GtkHotkeyRegistry-hotkey-deleted"/>
+    <function name="The &quot;hotkey-stored&quot; signal" link="GtkHotkeyRegistry.html#GtkHotkeyRegistry-hotkey-stored"/>
+  </functions>
+</book>

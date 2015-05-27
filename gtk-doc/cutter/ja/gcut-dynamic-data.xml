@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-gcut-dynamic-data">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-gcut-dynamic-data.top_of_page">GCutDynamicData</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GCutDynamicData</refname>
+<refpurpose/>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-gcut-dynamic-data.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis/>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-gcut-dynamic-data.description" role="desc">
+<title role="desc.title">説明</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="cutter-gcut-dynamic-data.details" role="details">
+<title role="details.title">詳細</title>
+
+</refsect1>
+
+</refentry>

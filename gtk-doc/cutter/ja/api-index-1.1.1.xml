@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<indexdiv>
+<indexdiv><title>C</title>
+<indexentry><primaryie linkends="cut-assert-equal-sockaddr"><link linkend="cut-assert-equal-sockaddr">cut_assert_equal_sockaddr</link>, macro in <link linkend="cutter-Assertions">検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="cut-equal-sockaddr"><link linkend="cut-equal-sockaddr">cut_equal_sockaddr</link>, macro in <link linkend="cutter-Assertion-writing-helper">検証作成の補助</link></primaryie></indexentry>
+<indexentry><primaryie linkends="cut-inspect-sockaddr"><link linkend="cut-inspect-sockaddr">cut_inspect_sockaddr</link>, macro in <link linkend="cutter-Assertion-writing-helper">検証作成の補助</link></primaryie></indexentry>
+<indexentry><primaryie linkends="cut-make-directory"><link linkend="cut-make-directory">cut_make_directory</link>, function in <link linkend="cutter-Test-Utilities">テストユーティリティ</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>D</title>
+<indexentry><primaryie linkends="gcut-data-get-object"><link linkend="gcut-data-get-object">gcut_data_get_object</link>, macro in <link linkend="cutter-Convenience-test-data-API">便利なテストデータ用API</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>L</title>
+<indexentry><primaryie linkends="gcut-list-new"><link linkend="gcut-list-new">gcut_list_new</link>, function in <link linkend="cutter-Test-Utilities-with-GLib-support">GLibサポート付きテストユーティリティ</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gcut-list-object-free"><link linkend="gcut-list-object-free">gcut_list_object_free</link>, function in <link linkend="cutter-Test-Utilities-with-GLib-support">GLibサポート付きテストユーティリティ</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>T</title>
+<indexentry><primaryie linkends="gcut-take-new-list-object"><link linkend="gcut-take-new-list-object">gcut_take_new_list_object</link>, macro in <link linkend="cutter-Test-Utilities-with-GLib-support">GLibサポート付きテストユーティリティ</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

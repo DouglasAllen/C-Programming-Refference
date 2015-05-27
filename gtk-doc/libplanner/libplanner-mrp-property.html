@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MrpProperty</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Libplanner Reference Manual">
+<link rel="up" href="ch01.html" title="Libplanner API">
+<link rel="prev" href="libplanner-mrp-error.html" title="MrpError">
+<link rel="next" href="libplanner-mrp-time.html" title="mrptime">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libplanner-mrp-error.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libplanner Reference Manual</th>
+<td><a accesskey="n" href="libplanner-mrp-time.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libplanner-mrp-property.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libplanner-mrp-property.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libplanner-mrp-property"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libplanner-mrp-property.top_of_page"></a>MrpProperty</span></h2>
+<p>MrpProperty — represents a custom property in the project.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libplanner-mrp-property.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libplanner/planner.h&gt;
+
+typedef             <a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty">MrpProperty</a>;
+enum                <a class="link" href="libplanner-mrp-property.html#MrpPropertyType" title="enum MrpPropertyType">MrpPropertyType</a>;
+<a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="returnvalue">MrpProperty</span></a> *       <a class="link" href="libplanner-mrp-property.html#mrp-property-new" title="mrp_property_new ()">mrp_property_new</a>                    (<em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpPropertyType" title="enum MrpPropertyType"><span class="type">MrpPropertyType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *description</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> user_defined</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libplanner-mrp-property.html#mrp-property-get-name" title="mrp_property_get_name ()">mrp_property_get_name</a>               (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>);
+<a class="link" href="libplanner-mrp-property.html#MrpPropertyType" title="enum MrpPropertyType"><span class="returnvalue">MrpPropertyType</span></a>     <a class="link" href="libplanner-mrp-property.html#mrp-property-get-property-type" title="mrp_property_get_property_type ()">mrp_property_get_property_type</a>      (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-property.html#mrp-property-set-label" title="mrp_property_set_label ()">mrp_property_set_label</a>              (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libplanner-mrp-property.html#mrp-property-get-label" title="mrp_property_get_label ()">mrp_property_get_label</a>              (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-property.html#mrp-property-set-description" title="mrp_property_set_description ()">mrp_property_set_description</a>        (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *description</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libplanner-mrp-property.html#mrp-property-get-description" title="mrp_property_get_description ()">mrp_property_get_description</a>        (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-property.html#mrp-property-set-user-defined" title="mrp_property_set_user_defined ()">mrp_property_set_user_defined</a>       (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> user_defined</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libplanner-mrp-property.html#mrp-property-get-user-defined" title="mrp_property_get_user_defined ()">mrp_property_get_user_defined</a>       (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>);
+<a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="returnvalue">MrpProperty</span></a> *       <a class="link" href="libplanner-mrp-property.html#mrp-property-ref" title="mrp_property_ref ()">mrp_property_ref</a>                    (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libplanner-mrp-property.html#mrp-property-unref" title="mrp_property_unref ()">mrp_property_unref</a>                  (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libplanner-mrp-property.html#mrp-property-type-as-string" title="mrp_property_type_as_string ()">mrp_property_type_as_string</a>         (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpPropertyType" title="enum MrpPropertyType"><span class="type">MrpPropertyType</span></a> type</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-property.description"></a><h2>Description</h2>
+<p>
+MrpProperty is a typedef to <span class="type">GParamSpec</span>. It is used to add properties to
+projects, resources and tasks in run time, for example by the user of a
+GUI application, or plugins that add functionality.
+</p>
+</div>
+<div class="refsect1">
+<a name="libplanner-mrp-property.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="MrpProperty"></a><h3>MrpProperty</h3>
+<pre class="programlisting">typedef GParamSpec MrpProperty;
+</pre>
+<p>
+Object representing a custom property in the project.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MrpPropertyType"></a><h3>enum MrpPropertyType</h3>
+<pre class="programlisting">typedef enum {
+	MRP_PROPERTY_TYPE_NONE,
+	MRP_PROPERTY_TYPE_INT,
+	MRP_PROPERTY_TYPE_FLOAT,
+	MRP_PROPERTY_TYPE_STRING,
+	MRP_PROPERTY_TYPE_STRING_LIST,
+	MRP_PROPERTY_TYPE_DATE,
+	MRP_PROPERTY_TYPE_DURATION,
+	MRP_PROPERTY_TYPE_COST
+} MrpPropertyType;
+</pre>
+<p>
+The different types of custom properties. Cost and duration are simply
+float and integer values, but the extra information provided makes it
+possible to format the values properly in a GUI.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="MRP-PROPERTY-TYPE-NONE:CAPS"></a><span class="term"><code class="literal">MRP_PROPERTY_TYPE_NONE</code></span></p></td>
+<td>invalid (unset type)
+</td>
+</tr>
+<tr>
+<td><p><a name="MRP-PROPERTY-TYPE-INT:CAPS"></a><span class="term"><code class="literal">MRP_PROPERTY_TYPE_INT</code></span></p></td>
+<td>integer type
+</td>
+</tr>
+<tr>
+<td><p><a name="MRP-PROPERTY-TYPE-FLOAT:CAPS"></a><span class="term"><code class="literal">MRP_PROPERTY_TYPE_FLOAT</code></span></p></td>
+<td>float type
+</td>
+</tr>
+<tr>
+<td><p><a name="MRP-PROPERTY-TYPE-STRING:CAPS"></a><span class="term"><code class="literal">MRP_PROPERTY_TYPE_STRING</code></span></p></td>
+<td>string type
+</td>
+</tr>
+<tr>
+<td><p><a name="MRP-PROPERTY-TYPE-STRING-LIST:CAPS"></a><span class="term"><code class="literal">MRP_PROPERTY_TYPE_STRING_LIST</code></span></p></td>
+<td>not implemented
+</td>
+</tr>
+<tr>
+<td><p><a name="MRP-PROPERTY-TYPE-DATE:CAPS"></a><span class="term"><code class="literal">MRP_PROPERTY_TYPE_DATE</code></span></p></td>
+<td>date type
+</td>
+</tr>
+<tr>
+<td><p><a name="MRP-PROPERTY-TYPE-DURATION:CAPS"></a><span class="term"><code class="literal">MRP_PROPERTY_TYPE_DURATION</code></span></p></td>
+<td>duration type
+</td>
+</tr>
+<tr>
+<td><p><a name="MRP-PROPERTY-TYPE-COST:CAPS"></a><span class="term"><code class="literal">MRP_PROPERTY_TYPE_COST</code></span></p></td>
+<td>cost type (float)
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-property-new"></a><h3>mrp_property_new ()</h3>
+<pre class="programlisting"><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="returnvalue">MrpProperty</span></a> *       mrp_property_new                    (<em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpPropertyType" title="enum MrpPropertyType"><span class="type">MrpPropertyType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *description</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> user_defined</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a>. <em class="parameter"><code>name</code></em> must be unique in the application.
+<em class="parameter"><code>user_defined</code></em> specifies if the property was created by a user or a plugin
+or Planner itself.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name of the property</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-property.html#MrpPropertyType" title="enum MrpPropertyType"><span class="type">MrpPropertyType</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>the human readable label</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>description</code></em> :</span></p></td>
+<td>a string describing the property</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_defined</code></em> :</span></p></td>
+<td>a <span class="type">gboolean</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly create property</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-property-get-name"></a><h3>mrp_property_get_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       mrp_property_get_name               (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>);</pre>
+<p>
+Fetches the name of <em class="parameter"><code>property</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the name of <em class="parameter"><code>property</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-property-get-property-type"></a><h3>mrp_property_get_property_type ()</h3>
+<pre class="programlisting"><a class="link" href="libplanner-mrp-property.html#MrpPropertyType" title="enum MrpPropertyType"><span class="returnvalue">MrpPropertyType</span></a>     mrp_property_get_property_type      (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>);</pre>
+<p>
+Fetches the type of <em class="parameter"><code>property</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the type of <em class="parameter"><code>property</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-property-set-label"></a><h3>mrp_property_set_label ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_property_set_label              (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>);</pre>
+<p>
+Sets the label of <em class="parameter"><code>property</code></em> and signals the "property-changed" signal on
+the project <em class="parameter"><code>property</code></em> is attached to.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>a string containing the new label</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-property-get-label"></a><h3>mrp_property_get_label ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       mrp_property_get_label              (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>);</pre>
+<p>
+Fetches the label of <em class="parameter"><code>property</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the label of <em class="parameter"><code>property</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-property-set-description"></a><h3>mrp_property_set_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_property_set_description        (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *description</code></em>);</pre>
+<p>
+Sets the description of <em class="parameter"><code>property</code></em> and signals the "property-changed" signal on the project <em class="parameter"><code>property</code></em> is attached to.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>description</code></em> :</span></p></td>
+<td>a string containing the new description</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-property-get-description"></a><h3>mrp_property_get_description ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       mrp_property_get_description        (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>);</pre>
+<p>
+Fetches the description of <em class="parameter"><code>property</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the description of <em class="parameter"><code>property</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-property-set-user-defined"></a><h3>mrp_property_set_user_defined ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_property_set_user_defined       (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> user_defined</code></em>);</pre>
+<p>
+Sets if <em class="parameter"><code>property</code></em> is user-defined or created by a plugin or Planner
+itself.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_defined</code></em> :</span></p></td>
+<td>if the property is user defined</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-property-get-user-defined"></a><h3>mrp_property_get_user_defined ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            mrp_property_get_user_defined       (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>);</pre>
+<p>
+Fetches if <em class="parameter"><code>property</code></em> is uesr defined or not.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if <em class="parameter"><code>property</code></em> is user defined, otherwise <code class="literal">FALSE</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-property-ref"></a><h3>mrp_property_ref ()</h3>
+<pre class="programlisting"><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="returnvalue">MrpProperty</span></a> *       mrp_property_ref                    (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>);</pre>
+<p>
+Add a reference to <em class="parameter"><code>property</code></em>. User should call this when storing a reference
+to <em class="parameter"><code>property</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the property</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-property-unref"></a><h3>mrp_property_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                mrp_property_unref                  (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a> *property</code></em>);</pre>
+<p>
+Remove a reference from <em class="parameter"><code>property</code></em>. If the reference count reaches 0 the
+property will be freed. User should not use it's reference after calling
+<a class="link" href="libplanner-mrp-property.html#mrp-property-unref" title="mrp_property_unref ()"><code class="function">mrp_property_unref()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-property.html#MrpProperty" title="MrpProperty"><span class="type">MrpProperty</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mrp-property-type-as-string"></a><h3>mrp_property_type_as_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       mrp_property_type_as_string         (<em class="parameter"><code><a class="link" href="libplanner-mrp-property.html#MrpPropertyType" title="enum MrpPropertyType"><span class="type">MrpPropertyType</span></a> type</code></em>);</pre>
+<p>
+Transform a <span class="type">MrpPropertyTYpe</span> into a human readable string.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>an <a class="link" href="libplanner-mrp-property.html#MrpPropertyType" title="enum MrpPropertyType"><span class="type">MrpPropertyType</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a string representation of <em class="parameter"><code>type</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

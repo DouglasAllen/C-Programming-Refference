@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-Assertion-Utilities-for-GHashTable">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-Assertion-Utilities-for-GHashTable.top_of_page">GHashTable用の検証ユーティリティ</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GHashTable用の検証ユーティリティ</refname>
+<refpurpose><link linkend="GHashTable"><type>GHashTable</type></link>に関する検証をもっと簡単に書くためのユーティリティ。</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-Assertion-Utilities-for-GHashTable.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="gcut-hash-table-equal">gcut_hash_table_equal</link>               (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash1</parameter>,
+                                                         <parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash2</parameter>,
+                                                         <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> equal_func</parameter>);
+<link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             <link linkend="gcut-hash-table-inspect">gcut_hash_table_inspect</link>             (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> key_inspect_func</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> value_inspect_func</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             <link linkend="gcut-hash-table-inspect-sorted">gcut_hash_table_inspect_sorted</link>      (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> key_inspect_func</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> value_inspect_func</parameter>,
+                                                         <parameter><link linkend="GCompareFunc"><type>GCompareFunc</type></link> key_compare_func</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+<link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="gcut-hash-table-string-equal">gcut_hash_table_string_equal</link>        (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash1</parameter>,
+                                                         <parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash2</parameter>);
+<link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             <link linkend="gcut-hash-table-string-string-inspect">gcut_hash_table_string_string_inspect</link>
+                                                        (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash</parameter>);
+<link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link> *        <link linkend="gcut-hash-table-string-string-copy">gcut_hash_table_string_string_copy</link>  (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash</parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-Assertion-Utilities-for-GHashTable.description" role="desc">
+<title role="desc.title">説明</title>
+<para>検証を書くためには等価性を検証し、期待値と実測値を表示する必要があります。</para>
+<para>このユーティリティは<link linkend="GHashTable"><type>GHashTable</type></link>に関する検証の作成を補助します。</para>
+</refsect1>
+<refsect1 id="cutter-Assertion-Utilities-for-GHashTable.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="gcut-hash-table-equal" role="function" condition="since:1.0.5">
+<title>gcut_hash_table_equal ()</title>
+<indexterm zone="gcut-hash-table-equal" role="1.0.5"><primary>gcut_hash_table_equal</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            gcut_hash_table_equal               (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash1</parameter>,
+                                                         <parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash2</parameter>,
+                                                         <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> equal_func</parameter>);</programlisting>
+<para>ふたつの<link linkend="GHashTable"><type>GHashTable</type></link>、<parameter>hash1</parameter>と<parameter>hash2</parameter>を比較します。<parameter>equal_func</parameter>は<parameter>hash1</parameter>と<parameter>hash2</parameter>の同じキーに対応する値それぞれについて呼ばれます。</para>
+<para>例: <informalexample><programlisting>
+TODO
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>hash1</parameter> :</term>
+<listitem><simpara>比較する<link linkend="GHashTable"><type>GHashTable</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>hash2</parameter> :</term>
+<listitem><simpara>比較する<link linkend="GHashTable"><type>GHashTable</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>equal_func</parameter> :</term>
+<listitem><simpara>ふたつの値を比較する関数。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>同じキーに対応するすべての<parameter>hash1</parameter>と<parameter>hash2</parameter>の値が<parameter>equal_func</parameter>でTRUEとなったらTRUE、そうでない場合はFALSE。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-hash-table-inspect" role="function" condition="since:1.0.5">
+<title>gcut_hash_table_inspect ()</title>
+<indexterm zone="gcut-hash-table-inspect" role="1.0.5"><primary>gcut_hash_table_inspect</primary></indexterm>
+<programlisting><link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             gcut_hash_table_inspect             (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> key_inspect_func</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> value_inspect_func</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para><parameter>hash</parameter>の詳細を返します。<parameter>hash</parameter>の各キーは<parameter>key_inspect_func</parameter>で詳細化し、<parameter>hash</parameter>の各値は<parameter>value_inspect_func</parameter>で詳細化します。返された文字列が必要なくなったときは開放してください。</para>
+<para>例: <informalexample><programlisting>
+TODO
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>hash</parameter> :</term>
+<listitem><simpara>詳細を示す<link linkend="GHashTable"><type>GHashTable</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key_inspect_func</parameter> :</term>
+<listitem><simpara>各キーの詳細を示す関数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value_inspect_func</parameter> :</term>
+<listitem><simpara>各値の詳細を示す関数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>関数に渡すユーザ用データ。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>hash</parameter>の詳細を示した文字列。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-hash-table-inspect-sorted" role="function" condition="since:1.0.9">
+<title>gcut_hash_table_inspect_sorted ()</title>
+<indexterm zone="gcut-hash-table-inspect-sorted" role="1.0.9"><primary>gcut_hash_table_inspect_sorted</primary></indexterm>
+<programlisting><link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             gcut_hash_table_inspect_sorted      (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> key_inspect_func</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> value_inspect_func</parameter>,
+                                                         <parameter><link linkend="GCompareFunc"><type>GCompareFunc</type></link> key_compare_func</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para><parameter>key_compare_func</parameter>を使ってキーを基準にして<parameter>hash</parameter>を並び替えて、その詳細を返します。<parameter>hash</parameter>の各キーは<parameter>key_inspect_func</parameter>で詳細化し、<parameter>hash</parameter>の各値は<parameter>value_inspect_func</parameter>で詳細化します。返された文字列が必要なくなったときは開放してください。</para>
+<para><parameter>key_compare_func</parameter>が<link linkend="NULL:CAPS"><literal>NULL</literal></link>なら<parameter>hash</parameter>を並び替えません。これは<link linkend="gcut-hash-table-inspect"><function>gcut_hash_table_inspect()</function></link>と同じ動作です。</para>
+<para>例: <informalexample><programlisting>
+TODO
+</programlisting></informalexample></para><variablelist role="params">
+<varlistentry><term><parameter>hash</parameter> :</term>
+<listitem><simpara>並び替えて詳細を示す<link linkend="GHashTable"><type>GHashTable</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key_inspect_func</parameter> :</term>
+<listitem><simpara>各キーの詳細を示す関数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value_inspect_func</parameter> :</term>
+<listitem><simpara>各値の詳細を示す関数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key_compare_func</parameter> :</term>
+<listitem><simpara>各キーを比較する関数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>関数に渡すユーザ用データ。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>hash</parameter>を並び替えて詳細を示した文字列。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.9から</para></refsect2>
+<refsect2 id="gcut-hash-table-string-equal" role="function" condition="since:1.0.5">
+<title>gcut_hash_table_string_equal ()</title>
+<indexterm zone="gcut-hash-table-string-equal" role="1.0.5"><primary>gcut_hash_table_string_equal</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            gcut_hash_table_string_equal        (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash1</parameter>,
+                                                         <parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash2</parameter>);</programlisting>
+<para>ふたつの<link linkend="GHashTable"><type>GHashTable</type></link>、<parameter>hash1</parameter>と<parameter>hash2</parameter>を比較します。<parameter>hash1</parameter>と<parameter>hash2</parameter>は文字列のキーと文字列の値を持っていなければいけません。</para><variablelist role="params">
+<varlistentry><term><parameter>hash1</parameter> :</term>
+<listitem><simpara>比較する<link linkend="GHashTable"><type>GHashTable</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>hash2</parameter> :</term>
+<listitem><simpara>比較する<link linkend="GHashTable"><type>GHashTable</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>hash1</parameter>と<parameter>hash2</parameter>の同じキーの値それぞれすべてが同じ内容の文字列の場合TRUE、そうでない場合はFALSE。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-hash-table-string-string-inspect" role="function" condition="since:1.0.5">
+<title>gcut_hash_table_string_string_inspect ()</title>
+<indexterm zone="gcut-hash-table-string-string-inspect" role="1.0.5"><primary>gcut_hash_table_string_string_inspect</primary></indexterm>
+<programlisting><link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             gcut_hash_table_string_string_inspect
+                                                        (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash</parameter>);</programlisting>
+<para><parameter>hash</parameter>の詳細を返します。<parameter>hash</parameter>は文字列のキーと文字列の値を持っていなければいけません。返された文字列が必要なくなったときは開放してください。</para><variablelist role="params">
+<varlistentry><term><parameter>hash</parameter> :</term>
+<listitem><simpara>詳細を示す<link linkend="GHashTable"><type>GHashTable</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>hash</parameter>の詳細を示した文字列。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-hash-table-string-string-copy" role="function" condition="since:1.0.8">
+<title>gcut_hash_table_string_string_copy ()</title>
+<indexterm zone="gcut-hash-table-string-string-copy" role="1.0.8"><primary>gcut_hash_table_string_string_copy</primary></indexterm>
+<programlisting><link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link> *        gcut_hash_table_string_string_copy  (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash</parameter>);</programlisting>
+<para><parameter>hash</parameter>を複製します。<parameter>hash</parameter>は文字列のキーと文字列の値を持っていなければいけません。返された<parameter>hash</parameter>は<link linkend="g-hash-table-unref"><function>g_hash_table_unref()</function></link>で開放しなければいけません。</para><variablelist role="params">
+<varlistentry><term><parameter>hash</parameter> :</term>
+<listitem><simpara>複製する<link linkend="GHashTable"><type>GHashTable</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>複製された<link linkend="GHashTable"><type>GHashTable</type></link>。必要がなくなったら開放しなければいけません。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.8から</para></refsect2>
+
+</refsect1>
+
+</refentry>

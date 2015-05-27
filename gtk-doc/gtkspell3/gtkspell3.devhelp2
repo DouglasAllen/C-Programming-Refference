@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="GtkSpell Manual" link="index.html" author="" name="gtkspell3" version="2" language="c">
+  <chapters>
+    <sub name="Tutorial" link="tutorial.html">
+      <sub name="GtkSpell Tutorial" link="chapter-tutorial.html">
+        <sub name="Basic GtkSpell" link="chapter-tutorial.html#tutorial-basic"/>
+        <sub name="Building using GtkSpell" link="tutorial-building.html"/>
+      </sub>
+    </sub>
+    <sub name="Function Reference" link="reference.html">
+      <sub name="gtkspell" link="gtkspell3-gtkspell.html"/>
+    </sub>
+  </chapters>
+  <functions>
+    <keyword type="struct" name="GtkSpell" link="gtkspell3-gtkspell.html#GtkSpell"/>
+    <keyword type="function" name="gtkspell_new_attach ()" link="gtkspell3-gtkspell.html#gtkspell-new-attach"/>
+    <keyword type="function" name="gtkspell_set_language ()" link="gtkspell3-gtkspell.html#gtkspell-set-language"/>
+    <keyword type="function" name="gtkspell_recheck_all ()" link="gtkspell3-gtkspell.html#gtkspell-recheck-all"/>
+    <keyword type="function" name="gtkspell_get_from_text_view ()" link="gtkspell3-gtkspell.html#gtkspell-get-from-text-view"/>
+    <keyword type="function" name="gtkspell_detach ()" link="gtkspell3-gtkspell.html#gtkspell-detach"/>
+    <keyword type="macro" name="GTKSPELL_ERROR" link="gtkspell3-gtkspell.html#GTKSPELL-ERROR:CAPS"/>
+    <keyword type="enum" name="enum GtkSpellError" link="gtkspell3-gtkspell.html#GtkSpellError"/>
+  </functions>
+</book>

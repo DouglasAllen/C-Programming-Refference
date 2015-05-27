@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ClutterIMText</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="clutter-imcontext Reference Manual">
+<link rel="up" href="ch03.html" title="Widget">
+<link rel="prev" href="ch03.html" title="Widget">
+<link rel="next" href="object-tree.html" title="Object Hierarchy">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch03.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">clutter-imcontext Reference Manual</th>
+<td><a accesskey="n" href="object-tree.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ClutterIMText.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ClutterIMText.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#ClutterIMText.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#ClutterIMText.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ClutterIMText"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ClutterIMText.top_of_page"></a>ClutterIMText</span></h2>
+<p>ClutterIMText — Text widget with Input Method Context embbed</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="ClutterIMText.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="ClutterIMText.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;clutter-imtext/clutter-imtext.h&gt;
+
+struct              <a class="link" href="ClutterIMText.html#ClutterIMText-struct" title="struct ClutterIMText">ClutterIMText</a>;
+struct              <a class="link" href="ClutterIMText.html#ClutterIMTextClass" title="struct ClutterIMTextClass">ClutterIMTextClass</a>;
+<span class="returnvalue">ClutterActor</span> *      <a class="link" href="ClutterIMText.html#clutter-imtext-new" title="clutter_imtext_new ()">clutter_imtext_new</a>                  (<em class="parameter"><code>const <span class="type">gchar</span> *text</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ClutterIMText.html#clutter-imtext-set-autoshow-im" title="clutter_imtext_set_autoshow_im ()">clutter_imtext_set_autoshow_im</a>      (<em class="parameter"><code><a class="link" href="ClutterIMText.html" title="ClutterIMText"><span class="type">ClutterIMText</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> autoshow</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ClutterIMText.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----GInitiallyUnowned
+         +----ClutterActor
+               +----ClutterText
+                     +----ClutterIMText
+</pre>
+</div>
+<div class="refsect1">
+<a name="ClutterIMText.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+ClutterIMText implements
+ ClutterContainer,  ClutterScriptable,  ClutterAnimatable and  AtkImplementorIface.</p>
+</div>
+<div class="refsect1">
+<a name="ClutterIMText.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="ClutterIMText.html" title="ClutterIMText"><span class="type">ClutterIMText</span></a> is a widget which can work with Different Input Method. It derives from
+<span class="type">ClutterText</span> to add the capability to handle Input Method Related function and signals.
+</p>
+</div>
+<div class="refsect1">
+<a name="ClutterIMText.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ClutterIMText-struct"></a><h3>struct ClutterIMText</h3>
+<pre class="programlisting">struct ClutterIMText;</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ClutterIMTextClass"></a><h3>struct ClutterIMTextClass</h3>
+<pre class="programlisting">struct ClutterIMTextClass {
+  ClutterTextClass parent_class;
+};
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="clutter-imtext-new"></a><h3>clutter_imtext_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">ClutterActor</span> *      clutter_imtext_new                  (<em class="parameter"><code>const <span class="type">gchar</span> *text</code></em>);</pre>
+<p>
+Create a new <a class="link" href="ClutterIMText.html" title="ClutterIMText"><span class="type">ClutterIMText</span></a> with the specified text
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>text to set  to</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <span class="type">ClutterActor</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="clutter-imtext-set-autoshow-im"></a><h3>clutter_imtext_set_autoshow_im ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                clutter_imtext_set_autoshow_im      (<em class="parameter"><code><a class="link" href="ClutterIMText.html" title="ClutterIMText"><span class="type">ClutterIMText</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> autoshow</code></em>);</pre>
+<p>
+Set to True if you want to ask IM to show it's UI when <a class="link" href="ClutterIMText.html" title="ClutterIMText"><span class="type">ClutterIMText</span></a> is on focus
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="ClutterIMText.html" title="ClutterIMText"><span class="type">ClutterIMText</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>autoshow</code></em> :</span></p></td>
+<td>TRUE to send show event to IM on focus</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="ClutterIMText.see-also"></a><h2>See Also</h2>
+<span class="type">ClutterText</span>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

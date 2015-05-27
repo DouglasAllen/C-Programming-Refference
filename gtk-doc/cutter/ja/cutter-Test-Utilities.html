@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>テストユーティリティ</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutterリファレンスマニュアル">
+<link rel="up" href="writing-test.html" title="テスト作成">
+<link rel="prev" href="cutter-Assertions.html" title="検証">
+<link rel="next" href="cutter-Types.html" title="型">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="cutter-Assertions.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="writing-test.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutterリファレンスマニュアル</th>
+<td><a accesskey="n" href="cutter-Types.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#cutter-Test-Utilities.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#cutter-Test-Utilities.description" class="shortcut">説明</a>
+</td></tr>
+</table>
+<div class="refentry" title="テストユーティリティ">
+<a name="cutter-Test-Utilities"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="cutter-Test-Utilities.top_of_page"></a>テストユーティリティ</span></h2>
+<p>テストユーティリティ — テストをもっと簡単に書くためのユーティリティ。</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="概要">
+<a name="cutter-Test-Utilities.synopsis"></a><h2>概要</h2>
+<pre class="synopsis"><span class="returnvalue">void</span> *              <a class="link" href="cutter-Test-Utilities.html#cut-take" title="cut_take ()">cut_take</a>                            (<em class="parameter"><code><span class="type">void</span> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="cutter-Types.html#CutDestroyFunction" title="CutDestroyFunction ()"><span class="type">CutDestroyFunction</span></a> destroy_function</code></em>);
+const <span class="returnvalue">void</span> *        <a class="link" href="cutter-Test-Utilities.html#cut-take-memory" title="cut_take_memory ()">cut_take_memory</a>                     (<em class="parameter"><code><span class="type">void</span> *memory</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="cutter-Test-Utilities.html#cut-take-string" title="cut_take_string ()">cut_take_string</a>                     (<em class="parameter"><code><span class="type">char</span> *string</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="cutter-Test-Utilities.html#cut-take-strdup" title="cut_take_strdup ()">cut_take_strdup</a>                     (<em class="parameter"><code>const <span class="type">char</span> *string</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="cutter-Test-Utilities.html#cut-take-strndup" title="cut_take_strndup ()">cut_take_strndup</a>                    (<em class="parameter"><code>const <span class="type">char</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> size</code></em>);
+const <span class="returnvalue">void</span> *        <a class="link" href="cutter-Test-Utilities.html#cut-take-memdup" title="cut_take_memdup ()">cut_take_memdup</a>                     (<em class="parameter"><code>const <span class="type">void</span> *memory</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> size</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="cutter-Test-Utilities.html#cut-take-printf" title="cut_take_printf ()">cut_take_printf</a>                     (<em class="parameter"><code>const <span class="type">char</span> *format</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">char</span> **             <a class="link" href="cutter-Test-Utilities.html#cut-take-string-array" title="cut_take_string_array ()">cut_take_string_array</a>               (<em class="parameter"><code><span class="type">char</span> **strings</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="cutter-Test-Utilities.html#cut-take-diff" title="cut_take_diff ()">cut_take_diff</a>                       (<em class="parameter"><code>const <span class="type">char</span> *from</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *to</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="cutter-Test-Utilities.html#cut-take-replace" title="cut_take_replace ()">cut_take_replace</a>                    (<em class="parameter"><code>const <span class="type">char</span> *target</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pattern</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *replacement</code></em>);
+#define             <a class="link" href="cutter-Test-Utilities.html#cut-take-convert" title="cut_take_convert()">cut_take_convert</a>                    (string,
+                                                         to_code_set,
+                                                         from_code_set)
+const <span class="returnvalue">char</span> *        <a class="link" href="cutter-Test-Utilities.html#cut-take-inspect-string" title="cut_take_inspect_string ()">cut_take_inspect_string</a>             (<em class="parameter"><code>const <span class="type">char</span> *string</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="cutter-Test-Utilities.html#cut-set-fixture-data-dir" title="cut_set_fixture_data_dir ()">cut_set_fixture_data_dir</a>            (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="cutter-Test-Utilities.html#cut-build-fixture-data-path" title="cut_build_fixture_data_path ()">cut_build_fixture_data_path</a>         (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="cutter-Test-Utilities.html#cut-build-fixture-path" title="cut_build_fixture_path ()">cut_build_fixture_path</a>              (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="cutter-Test-Utilities.html#cut-get-fixture-data-string" title="cut_get_fixture_data_string ()">cut_get_fixture_data_string</a>         (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="cutter-Test-Utilities.html#cut-get-fixture-data" title="cut_get_fixture_data ()">cut_get_fixture_data</a>                (<em class="parameter"><code><span class="type">size_t</span> *size</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="cutter-Test-Utilities.html#cut-remove-path" title="cut_remove_path ()">cut_remove_path</a>                     (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="cutter-Test-Utilities.html#cut-build-path" title="cut_build_path ()">cut_build_path</a>                      (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="cutter-Test-Utilities.html#cut-build-path-array" title="cut_build_path_array ()">cut_build_path_array</a>                (<em class="parameter"><code>const <span class="type">char</span> **paths</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="cutter-Test-Utilities.html#cut-make-directory" title="cut_make_directory ()">cut_make_directory</a>                  (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="説明">
+<a name="cutter-Test-Utilities.description"></a><h2>説明</h2>
+<p>テストを書くためには、テスト環境を前処理・後処理するコードや、検証する結果を準備するコードなどたくさんのコードを書く必要があります。Cutterはもっと簡単にテストを書くためにユーティリティを提供します。</p>
+<p>このユーティリティはGLibサポート無しでも使えます。</p>
+</div>
+<div class="refsect1" title="詳細">
+<a name="cutter-Test-Utilities.details"></a><h2>詳細</h2>
+<div class="refsect2" title="cut_take ()">
+<a name="cut-take"></a><h3>cut_take ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span> *              cut_take                            (<em class="parameter"><code><span class="type">void</span> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="cutter-Types.html#CutDestroyFunction" title="CutDestroyFunction ()"><span class="type">CutDestroyFunction</span></a> destroy_function</code></em>);</pre>
+<p><em class="parameter"><code>object</code></em>の所有権をCutterに渡し、<em class="parameter"><code>object</code></em>自身を返します。<em class="parameter"><code>object</code></em>は<em class="parameter"><code>destroy_func</code></em>を用いて破棄されます。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>Cutterが所有権をもつことになるオブジェクト。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>destroy_function</code></em> :</span></p></td>
+<td>オブジェクト用の破棄関数。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有する<em class="parameter"><code>object</code></em>。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_take_memory ()">
+<a name="cut-take-memory"></a><h3>cut_take_memory ()</h3>
+<pre class="programlisting">const <span class="returnvalue">void</span> *        cut_take_memory                     (<em class="parameter"><code><span class="type">void</span> *memory</code></em>);</pre>
+<p><em class="parameter"><code>memory</code></em>の所有権をCutterに渡し、<em class="parameter"><code>memory</code></em>自身を返します。<em class="parameter"><code>memory</code></em>は<code class="function">free()</code>で破棄されます。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>memory</code></em> :</span></p></td>
+<td>Cutterが所有権を持つことになるメモリ。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有する<em class="parameter"><code>memory</code></em>。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_take_string ()">
+<a name="cut-take-string"></a><h3>cut_take_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        cut_take_string                     (<em class="parameter"><code><span class="type">char</span> *string</code></em>);</pre>
+<p><em class="parameter"><code>string</code></em>の所有権をCutterに渡し、<em class="parameter"><code>string</code></em>それ自身を返します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>Cutterが所有権を持つことになる文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有する<em class="parameter"><code>string</code></em>。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="cut_take_strdup ()">
+<a name="cut-take-strdup"></a><h3>cut_take_strdup ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        cut_take_strdup                     (<em class="parameter"><code>const <span class="type">char</span> *string</code></em>);</pre>
+<p><em class="parameter"><code>string</code></em>を複製し、その所有権をCutterに渡し、複製されたメモリを返します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>複製される文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有する複製された文字列。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_take_strndup ()">
+<a name="cut-take-strndup"></a><h3>cut_take_strndup ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        cut_take_strndup                    (<em class="parameter"><code>const <span class="type">char</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> size</code></em>);</pre>
+<p><em class="parameter"><code>string</code></em>の先頭<em class="parameter"><code>size</code></em>バイトを複製し、その所有権ををCutterに渡し、複製された文字列を返します。複製された文字列は常に<code class="literal">NULL</code>終端しています。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>複製される文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
+<td>複製するバイト数。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有する複製された文字列。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_take_memdup ()">
+<a name="cut-take-memdup"></a><h3>cut_take_memdup ()</h3>
+<pre class="programlisting">const <span class="returnvalue">void</span> *        cut_take_memdup                     (<em class="parameter"><code>const <span class="type">void</span> *memory</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> size</code></em>);</pre>
+<p><em class="parameter"><code>memory</code></em>の<em class="parameter"><code>size</code></em>バイトを複製し、その所有権をCutterに渡し、複製されたメモリを返します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>memory</code></em> :</span></p></td>
+<td>複製されるメモリ。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
+<td>複製するバイト数。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有する複製されたメモリ。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_take_printf ()">
+<a name="cut-take-printf"></a><h3>cut_take_printf ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        cut_take_printf                     (<em class="parameter"><code>const <span class="type">char</span> *format</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p><code class="function">printf()</code>のように文字列を整形しますが、整形された文字列はCutterが所有します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>整形文字列。<code class="function">printf()</code>のドキュメントを見てください。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>整形文字列に挿入されるパラメータ。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有する整形された文字列。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="cut_take_string_array ()">
+<a name="cut-take-string-array"></a><h3>cut_take_string_array ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> **             cut_take_string_array               (<em class="parameter"><code><span class="type">char</span> **strings</code></em>);</pre>
+<p>配列の所有権をCutterに渡し、<em class="parameter"><code>strings</code></em>それ自身を返します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>strings</code></em> :</span></p></td>
+<td>Cutterが所有権を持つことになる文字列の配列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有する<em class="parameter"><code>strings</code></em>。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="cut_take_diff ()">
+<a name="cut-take-diff"></a><h3>cut_take_diff ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        cut_take_diff                       (<em class="parameter"><code>const <span class="type">char</span> *from</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *to</code></em>);</pre>
+<p><em class="parameter"><code>from</code></em>と<em class="parameter"><code>to</code></em>のdiffを計算します。diffの所有者はCutterです。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>from</code></em> :</span></p></td>
+<td>元の文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>to</code></em> :</span></p></td>
+<td>修正された文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有する<em class="parameter"><code>from</code></em>と<em class="parameter"><code>to</code></em>のdiff。開放しないでください。</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="cut_take_replace ()">
+<a name="cut-take-replace"></a><h3>cut_take_replace ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        cut_take_replace                    (<em class="parameter"><code>const <span class="type">char</span> *target</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pattern</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *replacement</code></em>);</pre>
+<p><em class="parameter"><code>target</code></em>文字列中で、<em class="parameter"><code>pattern</code></em>にマッチする部分を<em class="parameter"><code>replacement</code></em>で置き換えます。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>置換対象の文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pattern</code></em> :</span></p></td>
+<td>正規表現パターン。（文字列で指定）</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>replacement</code></em> :</span></p></td>
+<td>マッチした部分を置き換える文字列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有する複製された文字列。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.6から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_take_convert()">
+<a name="cut-take-convert"></a><h3>cut_take_convert()</h3>
+<pre class="programlisting">#define             cut_take_convert(string, to_code_set, from_code_set)</pre>
+<p><em class="parameter"><code>string</code></em>のコードセットを<em class="parameter"><code>from_code_set</code></em>から<em class="parameter"><code>to_code_set</code></em>へ変換します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>変換対象の文字列。<code class="literal">NULL</code>終端。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>to_code_set</code></em> :</span></p></td>
+<td>変換先のコードセット名。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>from_code_set</code></em> :</span></p></td>
+<td>
+<em class="parameter"><code>string</code></em>のコードセット名。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有する変換された文字列。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.3から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_take_inspect_string ()">
+<a name="cut-take-inspect-string"></a><h3>cut_take_inspect_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        cut_take_inspect_string             (<em class="parameter"><code>const <span class="type">char</span> *string</code></em>);</pre>
+<p><em class="parameter"><code>string</code></em>の詳細を返す。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>詳細な情報を取得したい文字列。<code class="literal">NULL</code>または<code class="literal">NULL</code>終端でなければいけません。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有する整形された文字列。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.4から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_set_fixture_data_dir ()">
+<a name="cut-set-fixture-data-dir"></a><h3>cut_set_fixture_data_dir ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                cut_set_fixture_data_dir            (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p><a class="link" href="cutter-Test-Utilities.html#cut-get-fixture-data-string" title="cut_get_fixture_data_string ()"><code class="function">cut_get_fixture_data_string()</code></a>などで使われるフィクスチャデータのディレクトリを指定します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>フィクスチャデータディレクトリのパスの最初の要素。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>パスの残りの要素。1.0.7から<code class="literal">NULL</code>終端が必須となりました。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.2から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_build_fixture_data_path ()">
+<a name="cut-build-fixture-data-path"></a><h3>cut_build_fixture_data_path ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              cut_build_fixture_data_path         (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">cut_build_fixture_data_path</code>はバージョン1.1.6からヒス衣装になりました。新しく書くコードでは使わないでください。代わりに<a class="link" href="cutter-Test-Utilities.html#cut-build-fixture-path" title="cut_build_fixture_path ()"><code class="function">cut_build_fixture_path()</code></a>を使ってください。</p>
+</div>
+<p>フィクスチャデータへのパスを生成します。もし、<em class="parameter"><code>path</code></em>が相対パスなら、パスは<a class="link" href="cutter-Test-Utilities.html#cut-set-fixture-data-dir" title="cut_set_fixture_data_dir ()"><code class="function">cut_set_fixture_data_dir()</code></a>で指定したディレクトリか、現在のディレクトリからの相対パスとして処理されます。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>フィクスチャデータのパスの最初の要素。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>パスの残りの要素。1.0.7から<code class="literal">NULL</code>終端が必須となりました。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>フィクスチャデータのパス。返された文字列が必要なくなったときは開放してください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.2から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_build_fixture_path ()">
+<a name="cut-build-fixture-path"></a><h3>cut_build_fixture_path ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        cut_build_fixture_path              (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>フィクスチャデータへのパスを生成します。もし、<em class="parameter"><code>path</code></em>が相対パスなら、パスは<a class="link" href="cutter-Test-Utilities.html#cut-set-fixture-data-dir" title="cut_set_fixture_data_dir ()"><code class="function">cut_set_fixture_data_dir()</code></a>で指定したディレクトリか、現在のディレクトリからの相対パスとして処理されます。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>フィクスチャデータのパスの最初の要素。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>パスの残りの要素。<code class="literal">NULL</code>終端が必須です。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有するフィクスチャデータのパス。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.6から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_get_fixture_data_string ()">
+<a name="cut-get-fixture-data-string"></a><h3>cut_get_fixture_data_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        cut_get_fixture_data_string         (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>"<em class="parameter"><code>path</code></em>/..."にあるフィクスチャデータを読み込み、文字列として返します。文字列はCutterが所持します。<a class="link" href="cutter-Test-Utilities.html#cut-build-fixture-data-path" title="cut_build_fixture_data_path ()"><code class="function">cut_build_fixture_data_path()</code></a>の説明にはフィクスチャデータのパスがどのように決定されるかが書かれています。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>フィクスチャデータのパスの最初の要素。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>パスの残りの要素。1.0.7から<code class="literal">NULL</code>終端が必須となりました。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>フィクスチャデータの内容。Cutterが所有しているので開放しないください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.2から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_get_fixture_data ()">
+<a name="cut-get-fixture-data"></a><h3>cut_get_fixture_data ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        cut_get_fixture_data                (<em class="parameter"><code><span class="type">size_t</span> *size</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>"<em class="parameter"><code>path</code></em>/..."にあるフィクスチャデータを読み込み、文字列として返します。文字列はCutterが所持します。<a class="link" href="cutter-Test-Utilities.html#cut-build-fixture-data-path" title="cut_build_fixture_data_path ()"><code class="function">cut_build_fixture_data_path()</code></a>の説明にはフィクスチャデータのパスがどのように決定されるかが書かれています。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
+<td>フィクスチャデータのサイズを返すアドレスまたは<code class="literal">NULL</code>。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>フィクスチャデータのパスの最初の要素。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>パスの残りの要素。<code class="literal">NULL</code>終端が必須です。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>フィクスチャデータの内容。Cutterが所有しているので開放しないください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.6から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_remove_path ()">
+<a name="cut-remove-path"></a><h3>cut_remove_path ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                cut_remove_path                     (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p><em class="parameter"><code>path</code></em>と、その下にあるパスを再帰的に削除します。いかなるエラーも報告しません。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>削除するパスの最初の要素。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>パスの残りの要素。1.0.7から<code class="literal">NULL</code>終端が必須となりました。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.2から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_build_path ()">
+<a name="cut-build-path"></a><h3>cut_build_path ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        cut_build_path                      (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p><em class="parameter"><code>path</code></em>と続く要素を使ってパスを作ります。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>パスの最初の要素。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>パスの残りの要素。<code class="literal">NULL</code>終端。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有する作成したパス。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.7から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_build_path_array ()">
+<a name="cut-build-path-array"></a><h3>cut_build_path_array ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        cut_build_path_array                (<em class="parameter"><code>const <span class="type">char</span> **paths</code></em>);</pre>
+<p><em class="parameter"><code>paths</code></em>からパスを作ります。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>paths</code></em> :</span></p></td>
+<td>パスの要素を含んだ<code class="literal">NULL</code>終端の文字列の配列。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有する作成したパス。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.5から</p>
+</div>
+<hr>
+<div class="refsect2" title="cut_make_directory ()">
+<a name="cut-make-directory"></a><h3>cut_make_directory ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                cut_make_directory                  (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p><em class="parameter"><code>path</code></em>と、その途中にあるパスを再帰的に作成します。いかなるエラーも報告しません。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>作成するパスの最初の要素。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>パスの残りの要素。<code class="literal">NULL</code>終端。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.1.1から</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

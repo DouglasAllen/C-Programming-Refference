@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Features</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutter Reference Manual">
+<link rel="up" href="overview.html" title="Overview of Cutter">
+<link rel="prev" href="readme.html" title="README">
+<link rel="next" href="users.html" title="Users">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="readme.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="overview.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutter Reference Manual</th>
+<td><a accesskey="n" href="users.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" title="Features">
+<a name="features"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="features.top_of_page"></a>Features</span></h2>
+<p>Features — What can be done with Cutter</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1" title="Introduction">
+<a name="id428989"></a><h2>Introduction</h2>
+<p>Cutter has basic features of a unit testing framework:</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>Fixture</p></li>
+<li class="listitem"><p>No test registration code</p></li>
+<li class="listitem"><p>Result output with useful format for debugging</p></li>
+<li class="listitem"><p>Many assertions</p></li>
+</ul></div>
+<p>Cutter also has many useful advanced features:</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>Cross platform</p></li>
+<li class="listitem"><p>Data-Driven Testing support</p></li>
+<li class="listitem"><p>Coverage support</p></li>
+<li class="listitem"><p>Backtrace on crash</p></li>
+<li class="listitem"><p>Serialize/deserialize test result</p></li>
+<li class="listitem"><p>Multi-process/multi-thread support</p></li>
+<li class="listitem"><p>Image diff</p></li>
+<li class="listitem"><p>...</p></li>
+</ul></div>
+</div>
+<div class="refsect1" title="Basic">
+<a name="id424907"></a><h2>Basic</h2>
+<p>This section explains how Cutter provides features that are considered about basic unit testing framework features.</p>
+<div class="refsect2" title="Fixture">
+<a name="id424917"></a><h3>Fixture</h3>
+<p>
+  Fixture in a unit testing framework is a mechanism that set up test data before each test. It is usually implemented by executing setup/teardown process. See also
+  <a class="ulink" href="http://en.wikipedia.org/wiki/Test_fixture" target="_top">Test fixture (Wikipedia)</a>
+  .
+</p>
+<p>In Cutter, if cut_setup()/cut_teardown() functions are defined in a test program like the following, their functions are treated as setup/teardown processes:</p>
+<pre class="programlisting">void
+cut_setup (void)
+{
+   /* set up test data */
+}
+
+void
+cut_teardown (void)
+{
+   /* tear down test data */
+}</pre>
+<p>Cutter also supports cut_startup()/cut_shutdown() functions that are called on each test case starting/completing:</p>
+<pre class="programlisting">void
+cut_startup (void)
+{
+   /* set up the test case */
+}
+
+void
+cut_shutdown (void)
+{
+   /* tear down the test case*/
+}</pre>
+<p>Their functions are called the following order:</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+<p>cut_startup()</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="circle">
+<li class="listitem">
+<p>cut_setup()</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="square"><li class="listitem"><p>run test1</p></li></ul></div>
+</li>
+<li class="listitem"><p>cut_teardown()</p></li>
+<li class="listitem">
+<p>cut_setup()</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="square"><li class="listitem"><p>run test2</p></li></ul></div>
+</li>
+<li class="listitem"><p>cut_teardown()</p></li>
+<li class="listitem"><p>...</p></li>
+</ul></div>
+</li>
+<li class="listitem"><p>cut_shutdown()</p></li>
+</ul></div>
+<p>Cutter also supports functions that are called on all test starting/completing as experimental features. Their functions are called warmup/cooldown. Here is the call order:</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+<p>run warmup</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="circle">
+<li class="listitem">
+<p>cut_startup() of test case1</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="square">
+<li class="listitem">
+<p>cut_setup() of test case1</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>run test1-1</p></li></ul></div>
+</li>
+<li class="listitem"><p>cut_teardown() of test case1</p></li>
+<li class="listitem">
+<p>cut_setup() of test case1</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>run test1-2</p></li></ul></div>
+</li>
+<li class="listitem"><p>cut_teardown() of test case1</p></li>
+<li class="listitem"><p>...</p></li>
+</ul></div>
+</li>
+<li class="listitem"><p>cut_shutdown() of test case1</p></li>
+<li class="listitem">
+<p>cut_startup() of test case2</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="square">
+<li class="listitem">
+<p>cut_setup() of test case2</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>run test2-1</p></li></ul></div>
+</li>
+<li class="listitem"><p>cut_teardown() of test case2</p></li>
+<li class="listitem">
+<p>cut_setup() of test case2</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>run test2-2</p></li></ul></div>
+</li>
+<li class="listitem"><p>cut_teardown() of test case2</p></li>
+<li class="listitem"><p>...</p></li>
+</ul></div>
+</li>
+<li class="listitem"><p>cut_shutdown() of test case1</p></li>
+<li class="listitem"><p>...</p></li>
+</ul></div>
+</li>
+<li class="listitem"><p>run cooldown</p></li>
+</ul></div>
+<p>The last two functions are useful for testing a library that has initialize/finalize functions of itself. But they are experimental features. So explanation of their usage is omitted. If you want to use them, please contact us.</p>
+</div>
+<hr>
+<div class="refsect2" title="No test registration code">
+<a name="id426227"></a><h3>No test registration code</h3>
+<p>Most of unit testing frameworks for dynamic languages doesn't require that users register their tests. Tests are found by frameworks and ran. But most of unit testing frameworks for C require that users register their tests.</p>
+<p>Cutter finds test functions automatically like frameworks for dynamic languages to write tests easily. Public functions that their name starts with "test_" are recognized as test functions. Here is a sample test function definition:</p>
+<pre class="programlisting">void test_my_function (void);
+
+void
+test_my_function (void)
+{
+    /* a test function */
+}</pre>
+</div>
+<hr>
+<div class="refsect2" title="Result output with useful format for debugging">
+<a name="id426252"></a><h3>Result output with useful format for debugging</h3>
+<p>Cutter outputs a test result to confirm and fix a problem quickly. In particular Cutter outputs</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>no problem parts simply and</p></li>
+<li class="listitem"><p>problem parts verbosely.</p></li>
+</ul></div>
+<p>Cutter outputs no problem parts simply (they may not be displayed) to avoid important parts are buried.</p>
+<p>Cutter outputs information of problem parts as many as possible to provide users information to judge what is a problem.</p>
+<p>For example, we assume that an expected string and an actual string are different on string equality check test. Cutter arranges and displays the expected string and the actual string to confirm difference between them easily:</p>
+<pre class="programlisting">expected: &lt;abc def ghi jkl&gt;
+ but was: &lt;abc DEF ghi jkl&gt;</pre>
+<p>If their aren't arranged or displayed in the same line, it's difficult to find difference between them:</p>
+<pre class="programlisting">expected: &lt;abc def ghi jkl&gt;
+but was: &lt;abc DEF ghi jkl&gt;
+
+&lt;abc def ghi jkl&gt; is expected but was &lt;abc DEF ghi jkl&gt;</pre>
+<p>Cutter also outputs diff between the expected string and the actual string to show where is different explicitly:</p>
+<pre class="programlisting">expected: &lt;abc def ghi jkl&gt;
+ but was: &lt;abc DEF ghi jkl&gt;
+
+diff:
+- abc def ghi jkl
+?     ^^^
++ abc DEF ghi jkl
+?     ^^^</pre>
+<p>Cutter strongly helps us to confirm a problem on test failure as mentioned above.</p>
+</div>
+<hr>
+<div class="refsect2" title="Many assertions">
+<a name="id426329"></a><h3>Many assertions</h3>
+<p>
+  <a class="ulink" href="http://en.wikipedia.org/wiki/XUnit" target="_top">xUnit</a>
+   based unit testing frameworks provides assertions to assert test target works as we had expected. For example, many frameworks provides assertions like the followings:
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>assert: asserts that target is true value</p></li>
+<li class="listitem"><p>assert_equal: asserts that an actual value equals an expected value</p></li>
+</ul></div>
+<p>In Cutter, the following assertions are corresponding the above assertions:</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>cut_assert()</p></li>
+<li class="listitem"><p>cut_assert_true(): asserts same as cut_assert() but it clearly specifies "true value" (Cutter recommends to use it because it's self-describing rather than cut_assert())</p></li>
+<li class="listitem"><p>cut_assert_equal_int()</p></li>
+<li class="listitem"><p>cut_assert_equal_uint()</p></li>
+<li class="listitem"><p>cut_assert_equal_string()</p></li>
+<li class="listitem"><p>...</p></li>
+</ul></div>
+<p>Cutter also provides many built-in assertions than common assertions as mentioned above to write tests easily. For example, Cutter provides built-in assertions like the followings:</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>cut_assert_errno(): asserts that errno is 0</p></li>
+<li class="listitem"><p>cut_assert_match(): asserts that an expected string matches an actual string</p></li>
+<li class="listitem"><p>cut_assert_path_exist(): asserts that specified path exists</p></li>
+<li class="listitem"><p>...</p></li>
+</ul></div>
+<p>
+  See 
+  Assertions
+   and
+  Assertions with GLib support
+   in the reference manual for assertion list.
+</p>
+</div>
+</div>
+<div class="refsect1" title="Advanced">
+<a name="id426474"></a><h2>Advanced</h2>
+<p>This section explains how Cutter provides features that are provided by a few unit testing frameworks or not provided any unit testing frameworks.</p>
+<div class="refsect2" title="Cross platform">
+<a name="id426485"></a><h3>Cross platform</h3>
+<p>For now, Cutter works on the following platforms:</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>GNU/Linux</p></li>
+<li class="listitem"><p>FreeBSD</p></li>
+<li class="listitem"><p>Mac OS X</p></li>
+<li class="listitem"><p>Windows (MinGW)</p></li>
+</ul></div>
+</div>
+<hr>
+<div class="refsect2" title="Data-Driven Testing support">
+<a name="id426530"></a><h3>Data-Driven Testing support</h3>
+<p>
+  There is a testing method called 
+  <a class="ulink" href="http://en.wikipedia.org/wiki/Data-driven_testing" target="_top">Data-Driven Testing</a>
+  .
+</p>
+<p>
+  Cutter supports Data-Driven Testing. See 
+  <a class="ulink" href="http://cutter.sourceforge.net/reference/cutter-cutter.html#cut-add-data" target="_top">cut_add_data()</a>
+  for writing a data-driven test.
+</p>
+<p>Data-driven tests are executed by the following order:</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>call data setup function</p></li>
+<li class="listitem">
+<p>cut_setup()</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>run test with test data1</p></li></ul></div>
+</li>
+<li class="listitem"><p>cut_teardown()</p></li>
+<li class="listitem">
+<p>cut_setup()</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>run test with test data2</p></li></ul></div>
+</li>
+<li class="listitem"><p>cut_teardown()</p></li>
+<li class="listitem"><p>...</p></li>
+</ul></div>
+</div>
+<hr>
+<div class="refsect2" title="Coverage support">
+<a name="id426631"></a><h3>Coverage support</h3>
+<p>
+  <a class="ulink" href="http://en.wikipedia.org/wiki/Code_coverage" target="_top">Code coverage</a>
+  is a measure for how code is tested cyclopaedically.
+</p>
+<p>Cutter provides a M4 macro to help us measuring code coverage. If you use GNU Autoconf/GNU Automake, you can add code coverage support into your build system easily.</p>
+<p>
+  See about AC_CHECK_COVERAGE in 
+  <a class="link" href="readme.html" title="README">README</a>
+   and
+  <a class="link" href="tutorial.html" title="Tutorial">TUTORIAL</a>
+  .
+</p>
+</div>
+<hr>
+<div class="refsect2" title="Backtrace on crash">
+<a name="id426669"></a><h3>Backtrace on crash</h3>
+<p>It's natural that a program written in C and/or C++crashes. Cutter tries to retrieve a backtrace on SEGV signal is raised. If a backtrace is retrieved, Cutter outputs it and exit. Of course Cutter cannot always retrieve a backtrace because the test process is broken.</p>
+<p>To check details of a problem, we need to use a debugger like GDB. But we can use a backtrace as the first step.</p>
+</div>
+<hr>
+<div class="refsect2" title="Serialize/deserialize test result">
+<a name="id426686"></a><h3>Serialize/deserialize test result</h3>
+<p>There are some methods to confirm how high software's quality:</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>measuring transition between test status and number of found bugs.</p></li>
+<li class="listitem"><p>measuring transition between test status and number of reported bugs.</p></li>
+<li class="listitem"><p>measuring transition between test status and source code size.</p></li>
+</ul></div>
+<p>For example, if number of tests are grown but number of found bugs aren't grown, we may be doing inefficient test or software quality might be high without test. If number of tests are grown but number of reported bugs are grown, we may be testing irrelevance points. If source code size is grown but number of tests aren't grown, we may lazy.</p>
+<p>We can analyze software development status with test result logs in chronological order not just the current test result. We may use analyzed result to improve software quality.</p>
+<p>Cutter can save a test result to a file as XML. Cutter can also read saved XML and restore a test result.</p>
+<p>Cutter will provide a feature that charts test result logs.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

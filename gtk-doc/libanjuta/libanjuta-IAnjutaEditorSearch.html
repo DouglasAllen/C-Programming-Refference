@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IAnjutaEditorSearch</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="plugin-interfaces.html" title="Plugin interfaces">
+<link rel="prev" href="libanjuta-IAnjutaEditorLineMode.html" title="IAnjutaEditorLineMode">
+<link rel="next" href="libanjuta-IAnjutaEditorSelection.html" title="IAnjutaEditorSelection">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-IAnjutaEditorLineMode.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-IAnjutaEditorSelection.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libanjuta-IAnjutaEditorSearch.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libanjuta-IAnjutaEditorSearch.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libanjuta-IAnjutaEditorSearch"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libanjuta-IAnjutaEditorSearch.top_of_page"></a>IAnjutaEditorSearch</span></h2>
+<p>IAnjutaEditorSearch — Text editor search interface</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorSearch.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="libanjuta-IAnjutaEditorSearch.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/interfaces/ianjuta-editor-search.h&gt;
+
+#define             <a class="link" href="libanjuta-IAnjutaEditorSearch.html#IANJUTA-EDITOR-SEARCH-ERROR:CAPS" title="IANJUTA_EDITOR_SEARCH_ERROR">IANJUTA_EDITOR_SEARCH_ERROR</a>
+struct              <a class="link" href="libanjuta-IAnjutaEditorSearch.html#IAnjutaEditorSearchIface" title="struct IAnjutaEditorSearchIface">IAnjutaEditorSearchIface</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaEditorSearch.html#ianjuta-editor-search-backward" title="ianjuta_editor_search_backward ()">ianjuta_editor_search_backward</a>      (<em class="parameter"><code><span class="type">IAnjutaEditorSearch</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *search</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> case_sensitive</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> *start</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> *end</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> **result_start</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> **result_end</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libanjuta-IAnjutaEditorSearch.html#ianjuta-editor-search-error-quark" title="ianjuta_editor_search_error_quark ()">ianjuta_editor_search_error_quark</a>   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libanjuta-IAnjutaEditorSearch.html#ianjuta-editor-search-forward" title="ianjuta_editor_search_forward ()">ianjuta_editor_search_forward</a>       (<em class="parameter"><code><span class="type">IAnjutaEditorSearch</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *search</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> case_sensitive</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> *start</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> *end</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> **result_start</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> **result_end</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorSearch.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libanjuta-IAnjutaEditorSearch.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IANJUTA-EDITOR-SEARCH-ERROR:CAPS"></a><h3>IANJUTA_EDITOR_SEARCH_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_EDITOR_SEARCH_ERROR ianjuta_editor_search_error_quark()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IAnjutaEditorSearchIface"></a><h3>struct IAnjutaEditorSearchIface</h3>
+<pre class="programlisting">struct IAnjutaEditorSearchIface {
+	IAnjutaEditorIface g_iface;
+	
+
+	gboolean (*backward) (IAnjutaEditorSearch *obj, const gchar* search,  gboolean case_sensitive,  IAnjutaEditorCell* start,  IAnjutaEditorCell* end,  IAnjutaEditorCell** result_start,  IAnjutaEditorCell** result_end, GError **err);
+	gboolean (*forward) (IAnjutaEditorSearch *obj, const gchar* search,  gboolean case_sensitive,  IAnjutaEditorCell* start,  IAnjutaEditorCell* end,  IAnjutaEditorCell** result_start,  IAnjutaEditorCell** result_end, GError **err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-search-backward"></a><h3>ianjuta_editor_search_backward ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_editor_search_backward      (<em class="parameter"><code><span class="type">IAnjutaEditorSearch</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *search</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> case_sensitive</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> *start</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> *end</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> **result_start</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> **result_end</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Search backward from end to start
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>search</code></em> :</span></p></td>
+<td>String to search for</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start</code></em> :</span></p></td>
+<td>Where to search from</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>end</code></em> :</span></p></td>
+<td>Where to stop searching</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result_start</code></em> :</span></p></td>
+<td>Will be set to the start of the search_result (or NULL). <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result_end</code></em> :</span></p></td>
+<td>Will be set to the end of the search_result (or NULL). <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-search-error-quark"></a><h3>ianjuta_editor_search_error_quark ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              ianjuta_editor_search_error_quark   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ianjuta-editor-search-forward"></a><h3>ianjuta_editor_search_forward ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ianjuta_editor_search_forward       (<em class="parameter"><code><span class="type">IAnjutaEditorSearch</span> *obj</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *search</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> case_sensitive</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> *start</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> *end</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> **result_start</code></em>,
+                                                         <em class="parameter"><code><span class="type">IAnjutaEditorCell</span> **result_end</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Search forward from start to end
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>Self</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>search</code></em> :</span></p></td>
+<td>String to search for</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start</code></em> :</span></p></td>
+<td>Where to search from</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>end</code></em> :</span></p></td>
+<td>Where to stop searching</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result_start</code></em> :</span></p></td>
+<td>Will be set to the start of the search_result (or NULL). <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result_end</code></em> :</span></p></td>
+<td>Will be set to the end of the search_result (or NULL). <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Error propagation and reporting</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

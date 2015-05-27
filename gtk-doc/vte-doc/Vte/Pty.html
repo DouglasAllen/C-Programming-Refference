@@ -1,0 +1,1938 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Vte::Pty
+  
+    &mdash; Documentation by YARD 0.7.2
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (P)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Vte.html" title="Vte (module)">Vte</a></span></span>
+     &raquo; 
+    <span class="title">Pty</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="property_list_link" href="#">Property List</a>
+  
+    <a id="signal_list_link" href="#">Signal List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Vte::Pty
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">GObject::Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">GObject::Object</li>
+          
+            <li class="next">Vte::Pty</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2">Gio::Initable</dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">/usr/lib/ruby/gems/1.9.1/gems/vte-1.0.0/ext/vte/rbvte-pty.c</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note todo">
+    <strong>TODO:</strong> 
+    <div class='inline'><p>
+fixme
+</p>
+</div>
+  </div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.26
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+  
+  
+
+
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#child_setup-instance_method" title="#child_setup (instance method)">- (self) <strong>child_setup</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+FIXMEchpe.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#close-instance_method" title="#close (instance method)">- (self) <strong>close</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Cleans up the PTY, specifically any logging performed for the session.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Object) <strong>initialize</strong> </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_size-instance_method" title="#set_size (instance method)">- (Boolean) <strong>set_size</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Attempts to resize the pseudo terminal&#8217;s window size.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_term-instance_method" title="#set_term (instance method)">- (String) <strong>set_term</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+The value to set for the TERM environment variable just after forking.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_utf8-instance_method" title="#set_utf8 (instance method)">- (Boolean) <strong>set_utf8</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Tells the kernel whether the terminal is UTF-8 or not, in case it can make
+use of the info.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#size-instance_method" title="#size (instance method)">- (Boolean, Integer) <strong>size</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Reads the pseudo terminal&#8217;s window size.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#term%3D-instance_method" title="#term= (instance method)">- (String) <strong>term=</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+The value to set for the TERM environment variable just after forking.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#utf8%3D-instance_method" title="#utf8= (instance method)">- (Boolean) <strong>utf8=</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Tells the kernel whether the terminal is UTF-8 or not, in case it can make
+use of the info.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Property Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fd-property_property" title="#fd (property property)">- (Integer) <strong>fd</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+The file descriptor of the PTY master.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flags-property_property" title="#flags (property property)">- (PtyFlags) <strong>flags</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Controls how the session is recorded in lastlog, utmp, and wtmp, and
+whether to use the GNOME PTY helper.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#term-property_property" title="#term (property property)">- (String) <strong>term</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+The value to set for the TERM environment variable just after forking.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>initialize</strong>(fd) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>initialize</strong>(flags) </span>
+    
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note todo">
+    <strong>TODO:</strong> 
+    <div class='inline'><p>
+fixme
+</p>
+</div>
+  </div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <h3>Overloads:</h3>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>initialize</strong>(fd) </span>
+        <div class="docstring">
+  <div class="discussion">
+    <p>
+Creates a new <span class='object_link'><a href="" title="Vte::Pty (class)">Vte::Pty</a></span> for the PTY master <tt>fd</tt>. No entry will be
+made in the lastlog, utmp or wtmp system files. Note that the newly created
+<span class='object_link'><a href="" title="Vte::Pty (class)">Vte::Pty</a></span> will take ownership of <tt>fd</tt> and close it on finalize.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>fd</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+a file descriptor to the PTY
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>GLib::Error?</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.26
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>initialize</strong>(flags) </span>
+        <div class="docstring">
+  <div class="discussion">
+    <p>
+Allocates a new pseudo-terminal. You can later use fork or the
+GLib::Spawn.async familty of functions to start a process on the PTY. If
+using fork, you MUST call <span class='object_link'><a href="#child_setup-instance_method" title="Vte::Pty#child_setup (method)">#child_setup</a></span> in the child. If using
+GLib::Spawn.async and friends, you MUST either use vte_pty_child_setup ()
+directly as the child setup function, or call <span class='object_link'><a href="#child_setup-instance_method" title="Vte::Pty#child_setup (method)">#child_setup</a></span> from your own
+child setup function supplied. Also, you MUST pass the
+G_SPAWN_DO_NOT_REAP_CHILD flag. When using the GNOME PTY Helper, unless
+some of the VTE_PTY_NO_LASTLOG, VTE_PTY_NO_UTMP or VTE_PTY_NO_WTMP
+flags are passed in <tt>flags</tt>, the session is logged in the
+corresponding lastlog, utmp or wtmp system files. When passing
+VTE_PTY_NO_HELPER in <tt>flags</tt>, the GNOME PTY Helper bypassed
+entirely. When passing VTE_PTY_NO_FALLBACK in <tt>flags</tt>, and opening
+a PTY using the PTY helper fails, there will be no fallback to allocate a
+PTY using Unix98 PTY functions.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>flags</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="#Flags-enumeration" title="Vte::Pty::Flags (enumeration)">Vte::Pty::Flags</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+flags from Flags
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>GLib::Error?</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.26
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File '/usr/lib/ruby/gems/1.9.1/gems/vte-1.0.0/ext/vte/rbvte-pty.c', line 76</span>
+
+static VALUE
+rg_initialize(VALUE self, VALUE flags_or_fd)
+{
+    VtePty *pty = NULL;
+    GError *error = NULL;
+
+    if (TYPE(flags_or_fd) == T_FIXNUM) {
+        pty = vte_pty_new_foreign(NUM2INT(flags_or_fd), &amp;error);
+    } else {
+        pty = vte_pty_new(RVAL2GFLAGS(flags_or_fd, VTE_TYPE_PTY_FLAGS), &amp;error);
+    }
+    if (error)
+        RAISE_GERROR(error);
+
+    G_INITIALIZE(self, pty);
+
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="child_setup-instance_method">
+  
+    - (<tt>self</tt>) <strong>child_setup</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note todo">
+    <strong>TODO:</strong> 
+    <div class='inline'><p>
+fixme
+</p>
+</div>
+  </div>
+
+<p>
+FIXMEchpe
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.26
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105
+106
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File '/usr/lib/ruby/gems/1.9.1/gems/vte-1.0.0/ext/vte/rbvte-pty.c', line 103</span>
+
+static VALUE
+rg_child_setup(VALUE self)
+{
+    vte_pty_child_setup(_SELF(self));
+
+    return self;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="close-instance_method">
+  
+    - (<tt>self</tt>) <strong>close</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note todo">
+    <strong>TODO:</strong> 
+    <div class='inline'><p>
+fixme
+</p>
+</div>
+  </div>
+
+<p>
+Cleans up the PTY, specifically any logging performed for the session. The
+file descriptor to the PTY master remains open.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.26
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121
+122
+123
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File '/usr/lib/ruby/gems/1.9.1/gems/vte-1.0.0/ext/vte/rbvte-pty.c', line 120</span>
+
+static VALUE
+rg_close(VALUE self)
+{
+    vte_pty_close(_SELF(self));
+
+    return self;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="set_size-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>set_size</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note todo">
+    <strong>TODO:</strong> 
+    <div class='inline'><p>
+fixme
+</p>
+</div>
+  </div>
+
+<p>
+Attempts to resize the pseudo terminal&#8217;s window size.  If successful,
+the OS kernel will send SIGWINCH to the child process group. If setting
+the window size failed, <tt>error</tt> will be set to a GIOError.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>rows</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the desired number of rows
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>columns</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the desired number of columns
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+true on success, false on failure with <tt>error</tt> filled in
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>GLib::Error?</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.26
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File '/usr/lib/ruby/gems/1.9.1/gems/vte-1.0.0/ext/vte/rbvte-pty.c', line 167</span>
+
+static VALUE
+rg_set_size(VALUE self, VALUE rows, VALUE columns)
+{
+    gboolean result;
+    GError *error = NULL;
+
+    result = vte_pty_set_size(_SELF(self), NUM2INT(rows), NUM2INT(columns), &amp;error);
+    if (error)
+        RAISE_GERROR(error);
+
+    return self;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="set_term-instance_method">
+  
+    - (<tt>String</tt>) <strong>set_term</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+The value to set for the TERM environment variable just after forking.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Read / Write
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Entity:</h3>
+<ul class="entity">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+<span class='object_link'><a href="#term-instance_method" title="Vte::Pty#term (method)">#term</a></span>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.26
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="set_utf8-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>set_utf8</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note todo">
+    <strong>TODO:</strong> 
+    <div class='inline'><p>
+fixme
+</p>
+</div>
+  </div>
+
+<p>
+Tells the kernel whether the terminal is UTF-8 or not, in case it can make
+use of the info.  Linux 2.6.5 or so defines IUTF8 to make the line
+discipline do multibyte backspace correctly.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>utf8</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+whether or not the pty is in UTF-8 mode
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+true on success, false on failure with <tt>error</tt> filled in
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>GLib::Error?</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Setter:</h3>
+<ul class="setter">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+<span class='object_link'><a href="#utf8%3D-instance_method" title="Vte::Pty#utf8= (method)">#utf8=</a></span>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.26
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File '/usr/lib/ruby/gems/1.9.1/gems/vte-1.0.0/ext/vte/rbvte-pty.c', line 193</span>
+
+static VALUE
+rg_set_utf8(VALUE self, VALUE utf8)
+{
+    gboolean result;
+    GError *error = NULL;
+
+    result = vte_pty_set_utf8(_SELF(self), RVAL2CBOOL(utf8), &amp;error);
+    if (error)
+        RAISE_GERROR(error);
+
+    return self;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="size-instance_method">
+  
+    - (<tt>Boolean</tt>, <tt>Integer</tt>) <strong>size</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note todo">
+    <strong>TODO:</strong> 
+    <div class='inline'><p>
+fixme
+</p>
+</div>
+  </div>
+
+<p>
+Reads the pseudo terminal&#8217;s window size. If getting the window size
+failed, <tt>error</tt> will be set to a GIOError.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>, <tt>Integer</tt>, <tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+true on success, false on failure with <tt>error</tt> filled in
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>GLib::Error?</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.26
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File '/usr/lib/ruby/gems/1.9.1/gems/vte-1.0.0/ext/vte/rbvte-pty.c', line 138</span>
+
+static VALUE
+rg_size(VALUE self)
+{
+    int rows, columns;
+    gboolean result;
+    GError *error = NULL;
+
+    result = vte_pty_get_size(_SELF(self), &amp;rows, &amp;columns, &amp;error);
+    if (error)
+        RAISE_GERROR(error);
+
+    return rb_ary_new3(2, INT2NUM(rows), INT2NUM(columns));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="term=-instance_method">
+  
+    - (<tt>String</tt>) <strong>term=</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+The value to set for the TERM environment variable just after forking.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Read / Write
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Entity:</h3>
+<ul class="entity">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+<span class='object_link'><a href="#term-instance_method" title="Vte::Pty#term (method)">#term</a></span>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.26
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="utf8=-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>utf8=</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Tells the kernel whether the terminal is UTF-8 or not, in case it can make
+use of the info.  Linux 2.6.5 or so defines IUTF8 to make the line
+discipline do multibyte backspace correctly.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'></span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+whether or not the pty is in UTF-8 mode
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+true on success, false on failure with <tt>error</tt> filled in
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Entity:</h3>
+<ul class="entity">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+<span class='object_link'><a href="#set_utf8-instance_method" title="Vte::Pty#set_utf8 (method)">#set_utf8</a></span>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.26
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+</div>
+    
+  </div>
+
+  <div id="property_method_details" class="method_details_list">
+    <h2>Property Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="fd-property_property">
+  
+    - (<tt>Integer</tt>) <strong>fd</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note todo">
+    <strong>TODO:</strong> 
+    <div class='inline'><p>
+fixme
+</p>
+</div>
+  </div>
+
+<p>
+The file descriptor of the PTY master.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Read / Write / Construct Only
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Accessor:</h3>
+<ul class="accessor">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+<span class='object_link'><a href="#fd-instance_method" title="Vte::Pty#fd (method)">#fd</a></span>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.26
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+226
+227
+228
+229
+230
+231
+232
+233
+234</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File '/usr/lib/ruby/gems/1.9.1/gems/vte-1.0.0/ext/vte/rbvte-pty.c', line 226</span>
+
+/*
+*  Document-property: fd
+*
+*  The file descriptor of the PTY master.
+*
+*  @return [Integer] Read / Write / Construct Only
+*  @since 0.26
+*  @todo fixme
+*/</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="flags-property_property">
+  
+    - (<tt>PtyFlags</tt>) <strong>flags</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note todo">
+    <strong>TODO:</strong> 
+    <div class='inline'><p>
+fixme
+</p>
+</div>
+  </div>
+
+<p>
+Controls how the session is recorded in lastlog, utmp, and wtmp, and
+whether to use the GNOME PTY helper.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>PtyFlags</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Read / Write / Construct Only
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Accessor:</h3>
+<ul class="accessor">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+<span class='object_link'><a href="#flags-instance_method" title="Vte::Pty#flags (method)">#flags</a></span>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.26
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File '/usr/lib/ruby/gems/1.9.1/gems/vte-1.0.0/ext/vte/rbvte-pty.c', line 236</span>
+
+/*
+*  Document-property: flags
+*
+*  Controls how the session is recorded in lastlog, utmp, and wtmp,
+*  and whether to use the GNOME PTY helper.
+*
+*  @return [PtyFlags] Read / Write / Construct Only
+*  @since 0.26
+*  @todo fixme
+*/</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="term-property_property">
+  
+    - (<tt>String</tt>) <strong>term</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note todo">
+    <strong>TODO:</strong> 
+    <div class='inline'><p>
+fixme
+</p>
+</div>
+  </div>
+
+<p>
+The value to set for the TERM environment variable just after forking.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Read / Write
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Accessor:</h3>
+<ul class="accessor">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+<span class='object_link'><a href="#term-instance_method" title="Vte::Pty#term (method)">#term</a></span>
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+<span class='object_link'><a href="#set_term-instance_method" title="Vte::Pty#set_term (method)">#set_term</a></span>
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+<span class='object_link'><a href="#term%3D-instance_method" title="Vte::Pty#term= (method)">#term=</a></span>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.26
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File '/usr/lib/ruby/gems/1.9.1/gems/vte-1.0.0/ext/vte/rbvte-pty.c', line 247</span>
+
+/*
+*  Document-property: term
+*
+*  The value to set for the TERM environment variable just after
+*  forking.
+*
+*  @return [String] Read / Write
+*  @since 0.26
+*  @todo fixme
+*/</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Fri Sep 16 19:22:09 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

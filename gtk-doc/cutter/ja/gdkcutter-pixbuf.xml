@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-GdkCutter-Pixbuf">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-GdkCutter-Pixbuf.top_of_page">GdkCutter Pixbuf</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GdkCutter Pixbuf</refname>
+<refpurpose>gdk-pixbufサポート付きのCutter。</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-GdkCutter-Pixbuf.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis>#define             <link linkend="GDKCUTTER-PIXBUF-ENABLED:CAPS">GDKCUTTER_PIXBUF_ENABLED</link>
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-GdkCutter-Pixbuf.description" role="desc">
+<title role="desc.title">説明</title>
+<para>GdkCutter Pixbufはgdk-pixbufベースのたくさんの便利な機能をCutterに追加します。画像のテストを書きたい場合はGdkCutter Pixbufの使用を検討してください。</para>
+<para>GdkCutter Pixbufを使うことは簡単です。&lt;cutter.h&gt;または&lt;gcutter.h&gt;の代わりに&lt;gdk-cutter-pixbuf.h&gt;をincludeし、cutter.pcまたはgcutter.pcの代わりにgdkcutter-pixbuf.pcを使うだけです。</para>
+<para>
+test-xxx.c:
+<informalexample><programlisting>
+-#include &lt;cutter.h&gt;
++#include &lt;gdkcutter-pixbuf.h&gt;
+</programlisting></informalexample>
+</para>
+<para>
+configure.ac:
+<informalexample><programlisting>
+-AC_CHECK_CUTTER
++AC_CHECK_GDKCUTTER_PIXBUF
+</programlisting></informalexample>
+</para>
+<para>
+Makefile.am:
+<informalexample><programlisting>
+-XXX_CFLAGS = $(CUTTER_CFLAGS)
+-XXX_LIBS = $(CUTTER_LIBS)
++XXX_CFLAGS = $(GDKCUTTER_PIXBUF_CFLAGS)
++XXX_LIBS = $(GDKCUTTER_PIXBUF_LIBS)
+</programlisting></informalexample>
+</para>
+</refsect1>
+<refsect1 id="cutter-GdkCutter-Pixbuf.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="GDKCUTTER-PIXBUF-ENABLED:CAPS" role="macro" condition="since:1.0.6">
+<title>GDKCUTTER_PIXBUF_ENABLED</title>
+<indexterm zone="GDKCUTTER-PIXBUF-ENABLED:CAPS" role="1.0.6"><primary>GDKCUTTER_PIXBUF_ENABLED</primary></indexterm>
+<programlisting>#define GDKCUTTER_PIXBUF_ENABLED 1
+</programlisting>
+<para>GdkCutter Pixbufが有効なとき定義されます。</para><para role="since">1.0.6から</para></refsect2>
+
+</refsect1>
+<refsect1 id="cutter-GdkCutter-Pixbuf.see-also">
+<title>参考</title>
+<link linkend="cutter-Assertions-with-gdk-pixbuf-support">gdk-pixbufサポート付きの検証</link>
+</refsect1>
+
+</refentry>

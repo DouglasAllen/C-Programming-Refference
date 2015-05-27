@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-Types">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-Types.top_of_page">型</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>型</refname>
+<refpurpose>テストで使う型です。</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-Types.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis><link linkend="void"><returnvalue>void</returnvalue></link>                (<link linkend="CutDestroyFunction">*CutDestroyFunction</link>)               (<parameter><link linkend="void"><type>void</type></link> *data</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                (<link linkend="CutCallbackFunction">*CutCallbackFunction</link>)              (<parameter><type>void</type></parameter>);
+typedef             <link linkend="cut-boolean">cut_boolean</link>;
+#define             <link linkend="CUT-TRUE:CAPS">CUT_TRUE</link>
+#define             <link linkend="CUT-FALSE:CAPS">CUT_FALSE</link>
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-Types.description" role="desc">
+<title role="desc.title">説明</title>
+<para>テストで使う型がいくつかあります。</para>
+</refsect1>
+<refsect1 id="cutter-Types.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="CutDestroyFunction" role="function">
+<title>CutDestroyFunction ()</title>
+<indexterm zone="CutDestroyFunction"><primary>CutDestroyFunction</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                (*CutDestroyFunction)               (<parameter><link linkend="void"><type>void</type></link> *data</parameter>);</programlisting>
+<para>データが破棄されるときに呼ばれる関数の型です。データのポインタを受け取り、そのデータ用に割り当てられたメモリとリソースを開放します。</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter> :</term>
+<listitem><simpara>破棄するデータ。</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="CutCallbackFunction" role="function">
+<title>CutCallbackFunction ()</title>
+<indexterm zone="CutCallbackFunction"><primary>CutCallbackFunction</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                (*CutCallbackFunction)              (<parameter><type>void</type></parameter>);</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="cut-boolean" role="typedef">
+<title>cut_boolean</title>
+<indexterm zone="cut-boolean"><primary>cut_boolean</primary></indexterm>
+<programlisting>typedef int cut_boolean;
+</programlisting>
+<para>標準的な真偽値型。この型の値は<link linkend="CUT-TRUE:CAPS"><literal>CUT_TRUE</literal></link>と<link linkend="CUT-FALSE:CAPS"><literal>CUT_FALSE</literal></link>だけです。</para></refsect2>
+<refsect2 id="CUT-TRUE:CAPS" role="macro">
+<title>CUT_TRUE</title>
+<indexterm zone="CUT-TRUE:CAPS"><primary>CUT_TRUE</primary></indexterm>
+<programlisting>#define CUT_TRUE
+</programlisting>
+<para><link linkend="cut-boolean"><type>cut_boolean</type></link>型のために<link linkend="CUT-TRUE:CAPS"><literal>CUT_TRUE</literal></link>を定義します。</para></refsect2>
+<refsect2 id="CUT-FALSE:CAPS" role="macro">
+<title>CUT_FALSE</title>
+<indexterm zone="CUT-FALSE:CAPS"><primary>CUT_FALSE</primary></indexterm>
+<programlisting>#define CUT_FALSE
+</programlisting>
+<para><link linkend="cut-boolean"><type>cut_boolean</type></link>型のために<link linkend="CUT-FALSE:CAPS"><literal>CUT_FALSE</literal></link>を定義します。</para></refsect2>
+
+</refsect1>
+
+</refentry>

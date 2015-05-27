@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Available features</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutter Reference Manual">
+<link rel="up" href="writing-test.html" title="Writing test">
+<link rel="prev" href="cutter-Version-Information.html" title="Version Information">
+<link rel="next" href="cutter-Assertions.html" title="Assertions">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="cutter-Version-Information.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="writing-test.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutter Reference Manual</th>
+<td><a accesskey="n" href="cutter-Assertions.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#cutter-Available-features.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#cutter-Available-features.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="Available features">
+<a name="cutter-Available-features"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="cutter-Available-features.top_of_page"></a>Available features</span></h2>
+<p>Available features — Available features in the installed Cutter.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="cutter-Available-features.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="cutter-Available-features.html#CUT-SUPPORT-GLIB:CAPS" title="CUT_SUPPORT_GLIB">CUT_SUPPORT_GLIB</a>
+#define             <a class="link" href="cutter-Available-features.html#CUT-SUPPORT-GDK-PIXBUF:CAPS" title="CUT_SUPPORT_GDK_PIXBUF">CUT_SUPPORT_GDK_PIXBUF</a>
+#define             <a class="link" href="cutter-Available-features.html#CUT-SUPPORT-GIO:CAPS" title="CUT_SUPPORT_GIO">CUT_SUPPORT_GIO</a>
+#define             <a class="link" href="cutter-Available-features.html#CUT-SUPPORT-LIBSOUP:CAPS" title="CUT_SUPPORT_LIBSOUP">CUT_SUPPORT_LIBSOUP</a>
+#define             <a class="link" href="cutter-Available-features.html#CUT-SUPPORT-C99-STDINT-TYPES:CAPS" title="CUT_SUPPORT_C99_STDINT_TYPES">CUT_SUPPORT_C99_STDINT_TYPES</a>
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="cutter-Available-features.description"></a><h2>Description</h2>
+<p>
+There are some macros to check a feature is available in the
+installed Cutter.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="cutter-Available-features.details"></a><h2>Details</h2>
+<div class="refsect2" title="CUT_SUPPORT_GLIB">
+<a name="CUT-SUPPORT-GLIB:CAPS"></a><h3>CUT_SUPPORT_GLIB</h3>
+<pre class="programlisting">#define CUT_SUPPORT_GLIB 1
+</pre>
+<p>
+Shows GLib support is available. That is, we can use &lt;gcutter.h&gt;.
+It is always defined.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="CUT_SUPPORT_GDK_PIXBUF">
+<a name="CUT-SUPPORT-GDK-PIXBUF:CAPS"></a><h3>CUT_SUPPORT_GDK_PIXBUF</h3>
+<pre class="programlisting">#define CUT_SUPPORT_GDK_PIXBUF 1
+</pre>
+<p>
+Shows GdkPixbuf support is available.
+That is, we can use &lt;gdkcutter-pixbuf.h&gt;.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="CUT_SUPPORT_GIO">
+<a name="CUT-SUPPORT-GIO:CAPS"></a><h3>CUT_SUPPORT_GIO</h3>
+<pre class="programlisting">#define CUT_SUPPORT_GIO 1
+</pre>
+<p>
+Shows GIO support is available.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="CUT_SUPPORT_LIBSOUP">
+<a name="CUT-SUPPORT-LIBSOUP:CAPS"></a><h3>CUT_SUPPORT_LIBSOUP</h3>
+<pre class="programlisting">#define CUT_SUPPORT_LIBSOUP 1
+</pre>
+<p>
+Shows LibSoup support is available.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="CUT_SUPPORT_C99_STDINT_TYPES">
+<a name="CUT-SUPPORT-C99-STDINT-TYPES:CAPS"></a><h3>CUT_SUPPORT_C99_STDINT_TYPES</h3>
+<pre class="programlisting">#define CUT_SUPPORT_C99_STDINT_TYPES 1
+</pre>
+<p>
+Shows C99 stdint types support is available.
+That is, we can use assertions that use C99 stdint types.
+e.g. <a class="link" href="cutter-Assertions.html#cut-assert-equal-int-least8" title="cut_assert_equal_int_least8()"><code class="function">cut_assert_equal_int_least8()</code></a>.
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

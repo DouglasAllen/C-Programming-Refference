@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-Assertion-Utilities-for-GEnum-and-GFlags">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-Assertion-Utilities-for-GEnum-and-GFlags.top_of_page">GEnumとGFlags用の検証ユーティリティ</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GEnumとGFlags用の検証ユーティリティ</refname>
+<refpurpose><link linkend="GEnum"><type>GEnum</type></link>または<link linkend="GFlags"><type>GFlags</type></link>に関する検証をもっと簡単に書くためのユーティリティ。</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-Assertion-Utilities-for-GEnum-and-GFlags.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis>#define             <link linkend="GCUT-ENUM-ERROR:CAPS">GCUT_ENUM_ERROR</link>
+<link linkend="GQuark"><returnvalue>GQuark</returnvalue></link>              <link linkend="gcut-enum-error-quark">gcut_enum_error_quark</link>               (<parameter><type>void</type></parameter>);
+enum                <link linkend="GCutEnumError">GCutEnumError</link>;
+<link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             <link linkend="gcut-enum-inspect">gcut_enum_inspect</link>                   (<parameter><link linkend="GType"><type>GType</type></link> enum_type</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> enum_value</parameter>);
+<link linkend="gint"><returnvalue>gint</returnvalue></link>                <link linkend="gcut-enum-parse">gcut_enum_parse</link>                     (<parameter><link linkend="GType"><type>GType</type></link> enum_type</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *enum_value</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);
+<link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             <link linkend="gcut-flags-inspect">gcut_flags_inspect</link>                  (<parameter><link linkend="GType"><type>GType</type></link> flags_type</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> flags_value</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="gcut-flags-parse">gcut_flags_parse</link>                    (<parameter><link linkend="GType"><type>GType</type></link> flags_type</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *flags_value</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="gcut-flags-get-all">gcut_flags_get_all</link>                  (<parameter><link linkend="GType"><type>GType</type></link> flags_type</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-Assertion-Utilities-for-GEnum-and-GFlags.description" role="desc">
+<title role="desc.title">説明</title>
+<para>検証を書くためには等価性を検証し、期待値と実測値を表示する必要があります。</para>
+<para>このユーティリティは<link linkend="GEnum"><type>GEnum</type></link>または<link linkend="GFlags"><type>GFlags</type></link>に関する検証の作成を補助します。</para>
+</refsect1>
+<refsect1 id="cutter-Assertion-Utilities-for-GEnum-and-GFlags.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="GCUT-ENUM-ERROR:CAPS" role="macro" condition="since:1.0.6">
+<title>GCUT_ENUM_ERROR</title>
+<indexterm zone="GCUT-ENUM-ERROR:CAPS" role="1.0.6"><primary>GCUT_ENUM_ERROR</primary></indexterm>
+<programlisting>#define GCUT_ENUM_ERROR (gcut_enum_error_quark())
+</programlisting>
+<para>列挙型関連操作用のエラードメインです。このドメインのエラーは<link linkend="GCutEnumError"><type>GCutEnumError</type></link>列挙型のどれかです。</para><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-enum-error-quark" role="function">
+<title>gcut_enum_error_quark ()</title>
+<indexterm zone="gcut-enum-error-quark"><primary>gcut_enum_error_quark</primary></indexterm>
+<programlisting><link linkend="GQuark"><returnvalue>GQuark</returnvalue></link>              gcut_enum_error_quark               (<parameter><type>void</type></parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GCutEnumError" role="enum" condition="since:1.0.6">
+<title>enum GCutEnumError</title>
+<indexterm zone="GCutEnumError" role="1.0.6"><primary>GCutEnumError</primary></indexterm>
+<programlisting>typedef enum
+{
+    GCUT_ENUM_ERROR_INVALID_TYPE,
+    GCUT_ENUM_ERROR_INVALID_VALUE
+} GCutEnumError;
+</programlisting>
+<para>列挙型関連操作で返されるエラーコード。</para><variablelist role="enum">
+<varlistentry id="GCUT-ENUM-ERROR-INVALID-TYPE:CAPS" role="constant">
+<term><literal>GCUT_ENUM_ERROR_INVALID_TYPE</literal></term>
+<listitem><simpara>不正な型。</simpara></listitem>
+</varlistentry>
+<varlistentry id="GCUT-ENUM-ERROR-INVALID-VALUE:CAPS" role="constant">
+<term><literal>GCUT_ENUM_ERROR_INVALID_VALUE</literal></term>
+<listitem><simpara>不正な値。</simpara></listitem>
+</varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-enum-inspect" role="function" condition="since:1.0.5">
+<title>gcut_enum_inspect ()</title>
+<indexterm zone="gcut-enum-inspect" role="1.0.5"><primary>gcut_enum_inspect</primary></indexterm>
+<programlisting><link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             gcut_enum_inspect                   (<parameter><link linkend="GType"><type>GType</type></link> enum_type</parameter>,
+                                                         <parameter><link linkend="gint"><type>gint</type></link> enum_value</parameter>);</programlisting>
+<para><parameter>enum_type</parameter>の値<parameter>enum_value</parameter>の詳細を返します。返された文字列が必要なくなったときは開放してください。</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter> :</term>
+<listitem><simpara><link linkend="GEnum"><type>GEnum</type></link>の型。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>enum_value</parameter> :</term>
+<listitem><simpara>詳細を示す<link linkend="GEnum"><type>GEnum</type></link>の値。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>enum_value</parameter>の詳細を示した文字列。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-enum-parse" role="function" condition="since:1.0.6">
+<title>gcut_enum_parse ()</title>
+<indexterm zone="gcut-enum-parse" role="1.0.6"><primary>gcut_enum_parse</primary></indexterm>
+<programlisting><link linkend="gint"><returnvalue>gint</returnvalue></link>                gcut_enum_parse                     (<parameter><link linkend="GType"><type>GType</type></link> enum_type</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *enum_value</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para><parameter>enum_value</parameter>をパースし、<parameter>enum_type</parameter>型の列挙値を返します。<parameter>enum_value</parameter>は列挙名またはニックネームでなければいけません。<parameter>enum_value</parameter>がマッチしない場合は<parameter>error</parameter>に<link linkend="GCutEnumError"><type>GCutEnumError</type></link>エラーが設定されます。</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter> :</term>
+<listitem><simpara><link linkend="GEnum"><type>GEnum</type></link>の型。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>enum_value</parameter> :</term>
+<listitem><simpara>パースされる文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>エラーを返すアドレスまたは<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>enum_value</parameter>に対応する<parameter>enum_type</parameter>の値。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-flags-inspect" role="function" condition="since:1.0.5">
+<title>gcut_flags_inspect ()</title>
+<indexterm zone="gcut-flags-inspect" role="1.0.5"><primary>gcut_flags_inspect</primary></indexterm>
+<programlisting><link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             gcut_flags_inspect                  (<parameter><link linkend="GType"><type>GType</type></link> flags_type</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> flags_value</parameter>);</programlisting>
+<para><parameter>flags_type</parameter>の値<parameter>flags_value</parameter>の詳細を返します。返された文字列が必要なくなったときは開放してください。</para><variablelist role="params">
+<varlistentry><term><parameter>flags_type</parameter> :</term>
+<listitem><simpara><link linkend="GFlags"><type>GFlags</type></link>の型。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags_value</parameter> :</term>
+<listitem><simpara>詳細を示す<link linkend="GFlags"><type>GFlags</type></link>の値。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>flags_value</parameter>の詳細を示した文字列。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-flags-parse" role="function" condition="since:1.0.6">
+<title>gcut_flags_parse ()</title>
+<indexterm zone="gcut-flags-parse" role="1.0.6"><primary>gcut_flags_parse</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               gcut_flags_parse                    (<parameter><link linkend="GType"><type>GType</type></link> flags_type</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *flags_value</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para><parameter>flags_value</parameter>をパースし、<parameter>flags_type</parameter>型のフラグ値を返します。<parameter>flags_value</parameter>は"ニックネームまたは名前1|ニックネームまたは名前2|...|ニックネームまたは名前N"という書式でなければいけません。<parameter>flags_value</parameter>が未知のフラグを含んでいる場合は、<parameter>error</parameter>に<link linkend="GCutEnumError"><type>GCutEnumError</type></link>エラーが設定されます。</para><variablelist role="params">
+<varlistentry><term><parameter>flags_type</parameter> :</term>
+<listitem><simpara><link linkend="GFlags"><type>GFlags</type></link>の型。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags_value</parameter> :</term>
+<listitem><simpara>パースされる文字列。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>エラーを返すアドレスまたは<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>flags_value</parameter>に対応する<parameter>flags_type</parameter>の値。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+<refsect2 id="gcut-flags-get-all" role="function" condition="since:1.0.6">
+<title>gcut_flags_get_all ()</title>
+<indexterm zone="gcut-flags-get-all" role="1.0.6"><primary>gcut_flags_get_all</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               gcut_flags_get_all                  (<parameter><link linkend="GType"><type>GType</type></link> flags_type</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>すべてのフラグ値が有効なフラグ値を返します。</para><variablelist role="params">
+<varlistentry><term><parameter>flags_type</parameter> :</term>
+<listitem><simpara><link linkend="GFlags"><type>GFlags</type></link>の型。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>エラーを返すアドレスまたは<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>すべてのフラグ値が有効なフラグ値。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.6から</para></refsect2>
+
+</refsect1>
+
+</refentry>

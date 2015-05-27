@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-Assertion-Utilities-for-GObject">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-Assertion-Utilities-for-GObject.top_of_page">GObject用の検証ユーティリティ</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GObject用の検証ユーティリティ</refname>
+<refpurpose><link linkend="GObject"><type>GObject</type></link>に関する検証をもっと簡単に書くためのユーティリティ。</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-Assertion-Utilities-for-GObject.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="gcut-object-equal">gcut_object_equal</link>                   (<parameter>const <link linkend="GObject"><type>GObject</type></link> *object1</parameter>,
+                                                         <parameter>const <link linkend="GObject"><type>GObject</type></link> *object2</parameter>,
+                                                         <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> equal_func</parameter>);
+<link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             <link linkend="gcut-object-inspect">gcut_object_inspect</link>                 (<parameter>const <link linkend="GObject"><type>GObject</type></link> *object</parameter>);
+<link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             <link linkend="gcut-object-inspect-custom">gcut_object_inspect_custom</link>          (<parameter>const <link linkend="GObject"><type>GObject</type></link> *object</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> inspect_func</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-Assertion-Utilities-for-GObject.description" role="desc">
+<title role="desc.title">説明</title>
+<para>検証を書くためには等価性を検証し、期待値と実測値を表示する必要があります。</para>
+<para>このユーティリティは<link linkend="GObject"><type>GObject</type></link>に関する検証の作成を補助します。</para>
+</refsect1>
+<refsect1 id="cutter-Assertion-Utilities-for-GObject.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="gcut-object-equal" role="function" condition="since:1.0.5">
+<title>gcut_object_equal ()</title>
+<indexterm zone="gcut-object-equal" role="1.0.5"><primary>gcut_object_equal</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            gcut_object_equal                   (<parameter>const <link linkend="GObject"><type>GObject</type></link> *object1</parameter>,
+                                                         <parameter>const <link linkend="GObject"><type>GObject</type></link> *object2</parameter>,
+                                                         <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> equal_func</parameter>);</programlisting>
+<para>ふたつの<link linkend="GObject"><type>GObject</type></link>、<parameter>object1</parameter>と<parameter>object2</parameter>を<parameter>equal_func</parameter>で比較します。<parameter>equal_func</parameter>がNULLの場合は<parameter>object1</parameter>と<parameter>object2</parameter>は単にメモリの位置だけで比較します。</para><variablelist role="params">
+<varlistentry><term><parameter>object1</parameter> :</term>
+<listitem><simpara>比較する<link linkend="GObject"><type>GObject</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>object2</parameter> :</term>
+<listitem><simpara>比較する<link linkend="GObject"><type>GObject</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>equal_func</parameter> :</term>
+<listitem><simpara>ふたつの<link linkend="GObject"><type>GObject</type></link>を比較する関数。NULLも可。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>object1</parameter> == <parameter>object2</parameter>あるいは<parameter>equal_func</parameter>(<parameter>object1</parameter>, <parameter>object2</parameter>)がTRUEならTRUE、そうでない場合はFALSE。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-object-inspect" role="function" condition="since:1.0.5">
+<title>gcut_object_inspect ()</title>
+<indexterm zone="gcut-object-inspect" role="1.0.5"><primary>gcut_object_inspect</primary></indexterm>
+<programlisting><link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             gcut_object_inspect                 (<parameter>const <link linkend="GObject"><type>GObject</type></link> *object</parameter>);</programlisting>
+<para><parameter>object</parameter>のプロパティの詳細を返します。返された文字列が必要なくなったときは開放してください。</para><variablelist role="params">
+<varlistentry><term><parameter>object</parameter> :</term>
+<listitem><simpara><link linkend="GObject"><type>GObject</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>object</parameter>の詳細を示した文字列。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+<refsect2 id="gcut-object-inspect-custom" role="function" condition="since:1.0.5">
+<title>gcut_object_inspect_custom ()</title>
+<indexterm zone="gcut-object-inspect-custom" role="1.0.5"><primary>gcut_object_inspect_custom</primary></indexterm>
+<programlisting><link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             gcut_object_inspect_custom          (<parameter>const <link linkend="GObject"><type>GObject</type></link> *object</parameter>,
+                                                         <parameter><link linkend="GCutInspectFunction"><type>GCutInspectFunction</type></link> inspect_func</parameter>,
+                                                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para><parameter>object</parameter>を<parameter>inspect_func</parameter>で詳細を示します。返された文字列が必要なくなったときは開放してください。</para><variablelist role="params">
+<varlistentry><term><parameter>object</parameter> :</term>
+<listitem><simpara><link linkend="GObject"><type>GObject</type></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>inspect_func</parameter> :</term>
+<listitem><simpara><parameter>object</parameter>の詳細を示す関数。</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter> :</term>
+<listitem><simpara>関数に渡すユーザ用データ。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara><parameter>object</parameter>の詳細を示した文字列。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.0.5から</para></refsect2>
+
+</refsect1>
+
+</refentry>

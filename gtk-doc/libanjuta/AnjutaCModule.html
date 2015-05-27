@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AnjutaCModule</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="libanjuta-internal-api.html" title="libanjuta internal API">
+<link rel="prev" href="AnjutaCPluginFactory.html" title="AnjutaCPluginFactory">
+<link rel="next" href="libanjuta-anjuta-utils-priv.html" title="anjuta-utils-priv">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AnjutaCPluginFactory.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libanjuta-internal-api.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="libanjuta-anjuta-utils-priv.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AnjutaCModule.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#AnjutaCModule.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#AnjutaCModule.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#AnjutaCModule.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="AnjutaCModule"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AnjutaCModule.top_of_page"></a>AnjutaCModule</span></h2>
+<p>AnjutaCModule — Anjuta C module</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="AnjutaCModule.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/anjuta-c-module.h&gt;
+
+                    <a class="link" href="AnjutaCModule.html#AnjutaCModule-struct" title="AnjutaCModule">AnjutaCModule</a>;
+                    <a class="link" href="AnjutaCModule.html#AnjutaCModuleClass" title="AnjutaCModuleClass">AnjutaCModuleClass</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="AnjutaCModule.html#anjuta-c-module-get-last-error" title="anjuta_c_module_get_last_error ()">anjuta_c_module_get_last_error</a>      (<em class="parameter"><code><a class="link" href="AnjutaCModule.html" title="AnjutaCModule"><span class="type">AnjutaCModule</span></a> *module</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a class="link" href="AnjutaCModule.html" title="AnjutaCModule"><span class="returnvalue">AnjutaCModule</span></a> *     <a class="link" href="AnjutaCModule.html#anjuta-c-module-new" title="anjuta_c_module_new ()">anjuta_c_module_new</a>                 (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="AnjutaCModule.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/GTypeModule.html">GTypeModule</a>
+         +----AnjutaCModule
+</pre>
+</div>
+<div class="refsect1">
+<a name="AnjutaCModule.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+AnjutaCModule implements
+ <a href="http://library.gnome.org/devel/gobject/unstable/GTypePlugin.html">GTypePlugin</a>.</p>
+</div>
+<div class="refsect1">
+<a name="AnjutaCModule.description"></a><h2>Description</h2>
+<p>
+A module is the part of the plugin containing the code. For machine code
+compiled from C sources by example, it is a shared library and contained in
+a .so file on Linux. GLib provides a portable way to load dynamically such
+code with <a href="http://library.gnome.org/devel/glib/unstable/glib-Dynamic-Loading-of-Modules.html#GModule"><span class="type">GModule</span></a> objects.
+</p>
+<p>
+In GLib you can register a dynamic type which means that you links a GLib
+type with a module. When the type is used for the first time the module is
+loaded. When the type is not used anymore, the module is unloaded. Most of
+the code necessary to do this is already written in GLib <a href="http://library.gnome.org/devel/gobject/unstable/GTypeModule.html"><span class="type">GTypeModule</span></a> object
+except the load and unload function.
+</p>
+<p>
+<a class="link" href="AnjutaCModule.html" title="AnjutaCModule"><span class="type">AnjutaCModule</span></a> is used only by a <a class="link" href="AnjutaCPluginFactory.html" title="AnjutaCPluginFactory"><span class="type">AnjutaCPluginFactory</span></a>. It derives from
+<a href="http://library.gnome.org/devel/gobject/unstable/GTypeModule.html"><span class="type">GTypeModule</span></a> and implements the load and unload function using a <a href="http://library.gnome.org/devel/glib/unstable/glib-Dynamic-Loading-of-Modules.html#GModule"><span class="type">GModule</span></a>
+object for a module written in C.
+</p>
+<p>
+Anjuta plugin types are not registered before loading the module.
+The loading of the module is done explicitly and types are registered just 
+after in a function included in the plugin. This function is named
+anjuta_glue_register_components and has a <a href="http://library.gnome.org/devel/gobject/unstable/GTypeModule.html"><span class="type">GTypeModule</span></a> as argument.
+The plugin must registers at the least the plugin type dynamically. It can
+register other types, but this is currently not used.
+</p>
+<p>
+After loading a module one or more plugin objects will be created using the
+name of the plugin type which has just been registered. The module
+will stay loaded while at least one plugin object is present. If all
+plugins objects are destroyed the unload function will be called and the
+module can be unloaded and removed from memory.
+</p>
+<p>
+It could be useful that some modules stay in memory even if there is no
+object using it. A typical example is if some plugin code or some code of
+a library used by a plugin registers a GLib type statically. GLib types can
+be registered statically at run time but cannot be unregistered later.
+The code (or rather the data used in the registration) must stay in the 
+memory even if the type is not used. In order to avoid this, you must
+register every type dynamically. You could have other situations where a
+module cannot be unloaded. By default, Anjuta plugin modules are not
+unloaded unless it is explicitly allowed.
+</p>
+</div>
+<div class="refsect1">
+<a name="AnjutaCModule.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="AnjutaCModule-struct"></a><h3>AnjutaCModule</h3>
+<pre class="programlisting">typedef struct _AnjutaCModule AnjutaCModule;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaCModuleClass"></a><h3>AnjutaCModuleClass</h3>
+<pre class="programlisting">typedef struct _AnjutaCModuleClass AnjutaCModuleClass;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-c-module-get-last-error"></a><h3>anjuta_c_module_get_last_error ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            anjuta_c_module_get_last_error      (<em class="parameter"><code><a class="link" href="AnjutaCModule.html" title="AnjutaCModule"><span class="type">AnjutaCModule</span></a> *module</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Receives the error that occured when the module was loaded
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
+<td>AnjutaCModule object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>return location for a GError</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if there was an Error, FALSE otherwise</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-c-module-new"></a><h3>anjuta_c_module_new ()</h3>
+<pre class="programlisting"><a class="link" href="AnjutaCModule.html" title="AnjutaCModule"><span class="returnvalue">AnjutaCModule</span></a> *     anjuta_c_module_new                 (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);</pre>
+<p>
+Create a new <a class="link" href="AnjutaCModule.html" title="AnjutaCModule"><span class="type">AnjutaCModule</span></a> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>The full path of the module</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>The name of the module</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="AnjutaCModule.html" title="AnjutaCModule"><span class="type">AnjutaCModule</span></a> object.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="AnjutaCModule.see-also"></a><h2>See Also</h2>
+<a class="link" href="AnjutaCPluginFactory.html" title="AnjutaCPluginFactory"><span class="type">AnjutaCPluginFactory</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

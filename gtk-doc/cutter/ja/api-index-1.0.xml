@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<indexdiv>
+<indexdiv><title>C</title>
+<indexentry><primaryie linkends="cut-assert-equal-pointer"><link linkend="cut-assert-equal-pointer">cut_assert_equal_pointer</link>, function in <link linkend="cutter-Assertions">検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="cut-assert-g-error"><link linkend="cut-assert-g-error">cut_assert_g_error</link>, function in <link linkend="cutter-Assertions-with-GLib-support">GLibサポート付きの検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="cut-assert-match"><link linkend="cut-assert-match">cut_assert_match</link>, function in <link linkend="cutter-Assertions">検証</link></primaryie></indexentry>
+<indexentry><primaryie linkends="cut-assert-match-with-free"><link linkend="cut-assert-match-with-free">cut_assert_match_with_free</link>, function in <link linkend="cutter-Assertions">検証</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AnjutaPreferences</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="libanjuta-api.html" title="libanjuta API">
+<link rel="prev" href="libanjuta-AnjutaShell.html" title="AnjutaShell">
+<link rel="next" href="AnjutaPreferencesDialog.html" title="AnjutaPreferencesDialog">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libanjuta-AnjutaShell.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libanjuta-api.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="AnjutaPreferencesDialog.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AnjutaPreferences.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#AnjutaPreferences.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#AnjutaPreferences.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="AnjutaPreferences"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AnjutaPreferences.top_of_page"></a>AnjutaPreferences</span></h2>
+<p>AnjutaPreferences — Anjuta Prefereces system.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="AnjutaPreferences.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="AnjutaPreferences.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/anjuta-preferences.h&gt;
+
+struct              <a class="link" href="AnjutaPreferences.html#AnjutaPreferences-struct" title="struct AnjutaPreferences">AnjutaPreferences</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            (<a class="link" href="AnjutaPreferences.html#AnjutaPreferencesCallback" title="AnjutaPreferencesCallback ()">*AnjutaPreferencesCallback</a>)        (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> *pr</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
+struct              <a class="link" href="AnjutaPreferences.html#AnjutaPreferencesClass" title="struct AnjutaPreferencesClass">AnjutaPreferencesClass</a>;
+                    <a class="link" href="AnjutaPreferences.html#AnjutaPreferencesPriv" title="AnjutaPreferencesPriv">AnjutaPreferencesPriv</a>;
+                    <a class="link" href="AnjutaPreferences.html#AnjutaProperty" title="AnjutaProperty">AnjutaProperty</a>;
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaPreferences.html#anjuta-preferences-add-from-builder" title="anjuta_preferences_add_from_builder ()">anjuta_preferences_add_from_builder</a> (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> *pr</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkBuilder.html"><span class="type">GtkBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GSettings.html"><span class="type">GSettings</span></a> *settings</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *glade_widget_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stitle</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *icon_filename</code></em>);
+<a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="returnvalue">AnjutaPreferences</span></a> * <a class="link" href="AnjutaPreferences.html#anjuta-preferences-default" title="anjuta_preferences_default ()">anjuta_preferences_default</a>          (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="AnjutaPreferences.html#anjuta-preferences-get-dialog" title="anjuta_preferences_get_dialog ()">anjuta_preferences_get_dialog</a>       (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> *pr</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="AnjutaPreferences.html#anjuta-preferences-is-dialog-created" title="anjuta_preferences_is_dialog_created ()">anjuta_preferences_is_dialog_created</a>
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> *pr</code></em>);
+<a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="returnvalue">AnjutaPreferences</span></a> * <a class="link" href="AnjutaPreferences.html#anjuta-preferences-new" title="anjuta_preferences_new ()">anjuta_preferences_new</a>              (<em class="parameter"><code><span class="type">AnjutaPluginManager</span> *plugin_manager</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaPreferences.html#anjuta-preferences-register-all-properties-from-builder-xml" title="anjuta_preferences_register_all_properties_from_builder_xml ()">anjuta_preferences_register_all_properties_from_builder_xml</a>
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> *pr</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkBuilder.html"><span class="type">GtkBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GSettings.html"><span class="type">GSettings</span></a> *settings</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *parent</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="AnjutaPreferences.html#anjuta-preferences-register-property" title="anjuta_preferences_register_property ()">anjuta_preferences_register_property</a>
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> *pr</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GSettings.html"><span class="type">GSettings</span></a> *settings</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *object</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaPreferences.html#anjuta-preferences-remove-page" title="anjuta_preferences_remove_page ()">anjuta_preferences_remove_page</a>      (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> *pr</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *page_name</code></em>);
+<a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="AnjutaPreferences.html#anjuta-property-get-widget" title="anjuta_property_get_widget ()">anjuta_property_get_widget</a>          (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html#AnjutaProperty" title="AnjutaProperty"><span class="type">AnjutaProperty</span></a> *prop</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="AnjutaPreferences.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----AnjutaPreferences
+</pre>
+</div>
+<div class="refsect1">
+<a name="AnjutaPreferences.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> is a way to let plugins register their preferences. There
+are mainly two ways a plugin could register its preferences in Anjuta.
+</p>
+<p>
+First is to not use <a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> at all. Simply register a
+preferences page in <a class="link" href="AnjutaPreferencesDialog.html" title="AnjutaPreferencesDialog"><span class="type">AnjutaPreferencesDialog</span></a> using the function
+<a class="link" href="AnjutaPreferencesDialog.html#anjuta-preferences-dialog-add-page" title="anjuta_preferences_dialog_add_page ()"><code class="function">anjuta_preferences_dialog_add_page()</code></a>. The plugin should take
+care of loading, saving and widgets synchronization of the
+preferences values. This can be done using <a href="http://library.gnome.org/devel/gio/unstable/GSettings.html"><span class="type">GSettings</span></a> bindings
+for example.
+</p>
+<p>
+Second is to use <code class="function">anjuta_preferences_add_page()</code>, which will
+automatically register the preferences keys and values from
+a glade xml file. The glade xml file contains a preferences
+page of the plugin. The widget names in the page are
+given in a particular way (see <code class="function">anjuta_preferences_add_page()</code>) to
+let it know property key details. The preference dialog will automatically
+setup the bindings between GSettings and the widgets.
+</p>
+</div>
+<div class="refsect1">
+<a name="AnjutaPreferences.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="AnjutaPreferences-struct"></a><h3>struct AnjutaPreferences</h3>
+<pre class="programlisting">struct AnjutaPreferences;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaPreferencesCallback"></a><h3>AnjutaPreferencesCallback ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            (*AnjutaPreferencesCallback)        (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> *pr</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaPreferencesClass"></a><h3>struct AnjutaPreferencesClass</h3>
+<pre class="programlisting">struct AnjutaPreferencesClass {
+	GObjectClass parent;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaPreferencesPriv"></a><h3>AnjutaPreferencesPriv</h3>
+<pre class="programlisting">typedef struct _AnjutaPreferencesPriv AnjutaPreferencesPriv;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaProperty"></a><h3>AnjutaProperty</h3>
+<pre class="programlisting">typedef struct _AnjutaProperty AnjutaProperty;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-preferences-add-from-builder"></a><h3>anjuta_preferences_add_from_builder ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_preferences_add_from_builder (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> *pr</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkBuilder.html"><span class="type">GtkBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GSettings.html"><span class="type">GSettings</span></a> *settings</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *glade_widget_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stitle</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *icon_filename</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-preferences-default"></a><h3>anjuta_preferences_default ()</h3>
+<pre class="programlisting"><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="returnvalue">AnjutaPreferences</span></a> * anjuta_preferences_default          (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Get the default instace of anjuta preferences
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> object.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-preferences-get-dialog"></a><h3>anjuta_preferences_get_dialog ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         anjuta_preferences_get_dialog       (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> *pr</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-preferences-is-dialog-created"></a><h3>anjuta_preferences_is_dialog_created ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            anjuta_preferences_is_dialog_created
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> *pr</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-preferences-new"></a><h3>anjuta_preferences_new ()</h3>
+<pre class="programlisting"><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="returnvalue">AnjutaPreferences</span></a> * anjuta_preferences_new              (<em class="parameter"><code><span class="type">AnjutaPluginManager</span> *plugin_manager</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> object
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin_manager</code></em> :</span></p></td>
+<td>
+<span class="type">AnjutaPluginManager</span> to be used</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> object.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-preferences-register-all-properties-from-builder-xml"></a><h3>anjuta_preferences_register_all_properties_from_builder_xml ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_preferences_register_all_properties_from_builder_xml
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> *pr</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkBuilder.html"><span class="type">GtkBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GSettings.html"><span class="type">GSettings</span></a> *settings</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *parent</code></em>);</pre>
+<p>
+This will register all the properties names of the format described above
+without considering the UI. Useful if you have the widgets shown elsewhere
+but you want them to be part of preferences system.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pr</code></em> :</span></p></td>
+<td>a <a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> Object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>GtkBuilder object containing the properties widgets.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
+<td>Parent widget in the builder object</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-preferences-register-property"></a><h3>anjuta_preferences_register_property ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            anjuta_preferences_register_property
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> *pr</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GSettings.html"><span class="type">GSettings</span></a> *settings</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *object</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);</pre>
+<p>
+This registers only one widget. The widget could be shown elsewhere.
+The widget needs to fulfill the properties described in
+<span class="type">anjuta_preferences_add_page</span> documentation.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pr</code></em> :</span></p></td>
+<td>a <a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
+<td>the <a href="http://library.gnome.org/devel/gio/unstable/GSettings.html"><span class="type">GSettings</span></a> object associated with that property</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>Widget to register</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Property key</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if sucessful.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-preferences-remove-page"></a><h3>anjuta_preferences_remove_page ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_preferences_remove_page      (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences"><span class="type">AnjutaPreferences</span></a> *pr</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *page_name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-property-get-widget"></a><h3>anjuta_property_get_widget ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         anjuta_property_get_widget          (<em class="parameter"><code><a class="link" href="AnjutaPreferences.html#AnjutaProperty" title="AnjutaProperty"><span class="type">AnjutaProperty</span></a> *prop</code></em>);</pre>
+<p>
+Gets the widget associated with the property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prop</code></em> :</span></p></td>
+<td>an <a class="link" href="AnjutaPreferences.html#AnjutaProperty" title="AnjutaProperty"><span class="type">AnjutaProperty</span></a> reference</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> object associated with the property.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="AnjutaPreferences.see-also"></a><h2>See Also</h2>
+<a class="link" href="AnjutaPreferencesDialog.html" title="AnjutaPreferencesDialog"><span class="type">AnjutaPreferencesDialog</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

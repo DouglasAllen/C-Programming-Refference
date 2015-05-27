@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-GCutGLibEventLoop">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-GCutGLibEventLoop.top_of_page">GLib用イベントループ</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GLib用イベントループ</refname>
+<refpurpose>GLibのGMainContextとGMainLoop用のイベントループAPI。</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-GCutGLibEventLoop.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis>                    <link linkend="GCutGLibEventLoop">GCutGLibEventLoop</link>;
+                    <link linkend="GCutGLibEventLoopClass">GCutGLibEventLoopClass</link>;
+<link linkend="GCutEventLoop"><returnvalue>GCutEventLoop</returnvalue></link> *     <link linkend="gcut-glib-event-loop-new">gcut_glib_event_loop_new</link>            (<parameter><link linkend="GMainContext"><type>GMainContext</type></link> *context</parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-GCutGLibEventLoop.description" role="desc">
+<title role="desc.title">説明</title>
+<para><link linkend="GCutGLibEventLoop"><type>GCutGLibEventLoop</type></link>はGLibのGMainContextとGMainLoop用の<link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>実装です。</para>
+</refsect1>
+<refsect1 id="cutter-GCutGLibEventLoop.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="GCutGLibEventLoop" role="struct">
+<title>GCutGLibEventLoop</title>
+<indexterm zone="GCutGLibEventLoop"><primary>GCutGLibEventLoop</primary></indexterm>
+<programlisting>typedef struct {
+    GCutEventLoop object;
+} GCutGLibEventLoop;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="GCutGLibEventLoopClass" role="struct">
+<title>GCutGLibEventLoopClass</title>
+<indexterm zone="GCutGLibEventLoopClass"><primary>GCutGLibEventLoopClass</primary></indexterm>
+<programlisting>typedef struct {
+    GCutEventLoopClass parent_class;
+} GCutGLibEventLoopClass;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="gcut-glib-event-loop-new" role="function" condition="since:1.1.6">
+<title>gcut_glib_event_loop_new ()</title>
+<indexterm zone="gcut-glib-event-loop-new" role="1.1.6"><primary>gcut_glib_event_loop_new</primary></indexterm>
+<programlisting><link linkend="GCutEventLoop"><returnvalue>GCutEventLoop</returnvalue></link> *     gcut_glib_event_loop_new            (<parameter><link linkend="GMainContext"><type>GMainContext</type></link> *context</parameter>);</programlisting>
+<para><parameter>context</parameter>用の新しい<link linkend="GCutEeventLoop"><type>GCutEeventLoop</type></link>を作ります。<parameter>context</parameter>が<link linkend="NULL:CAPS"><literal>NULL</literal></link>ならGLibのデフォルトGMainContextが使われます。</para><variablelist role="params">
+<varlistentry><term><parameter>context</parameter> :</term>
+<listitem><simpara><link linkend="GMainContext"><type>GMainContext</type></link>または<link linkend="NULL:CAPS"><literal>NULL</literal></link>。</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>新しい<link linkend="GCutEventLoop"><type>GCutEventLoop</type></link>。</simpara></listitem></varlistentry>
+</variablelist><para role="since">1.1.6から</para></refsect2>
+
+</refsect1>
+
+</refentry>

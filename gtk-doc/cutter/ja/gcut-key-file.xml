@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-gcut-key-file">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-gcut-key-file.top_of_page">gcut-key-file</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>gcut-key-file</refname>
+<refpurpose/>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-gcut-key-file.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis><link linkend="gint"><returnvalue>gint</returnvalue></link>                <link linkend="gcut-key-file-get-enum">gcut_key_file_get_enum</link>              (<parameter><link linkend="GKeyFile"><type>GKeyFile</type></link> *key_file</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *group_name</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *key</parameter>,
+                                                         <parameter><link linkend="GType"><type>GType</type></link> enum_type</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);
+<link linkend="guint"><returnvalue>guint</returnvalue></link>               <link linkend="gcut-key-file-get-flags">gcut_key_file_get_flags</link>             (<parameter><link linkend="GKeyFile"><type>GKeyFile</type></link> *key_file</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *group_name</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *key</parameter>,
+                                                         <parameter><link linkend="GType"><type>GType</type></link> flags_type</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-gcut-key-file.description" role="desc">
+<title role="desc.title">説明</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="cutter-gcut-key-file.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="gcut-key-file-get-enum" role="function">
+<title>gcut_key_file_get_enum ()</title>
+<indexterm zone="gcut-key-file-get-enum"><primary>gcut_key_file_get_enum</primary></indexterm>
+<programlisting><link linkend="gint"><returnvalue>gint</returnvalue></link>                gcut_key_file_get_enum              (<parameter><link linkend="GKeyFile"><type>GKeyFile</type></link> *key_file</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *group_name</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *key</parameter>,
+                                                         <parameter><link linkend="GType"><type>GType</type></link> enum_type</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>key_file</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>group_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>enum_type</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gcut-key-file-get-flags" role="function">
+<title>gcut_key_file_get_flags ()</title>
+<indexterm zone="gcut-key-file-get-flags"><primary>gcut_key_file_get_flags</primary></indexterm>
+<programlisting><link linkend="guint"><returnvalue>guint</returnvalue></link>               gcut_key_file_get_flags             (<parameter><link linkend="GKeyFile"><type>GKeyFile</type></link> *key_file</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *group_name</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *key</parameter>,
+                                                         <parameter><link linkend="GType"><type>GType</type></link> flags_type</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>key_file</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>group_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags_type</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+</refentry>

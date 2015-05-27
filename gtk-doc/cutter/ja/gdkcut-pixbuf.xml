@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-gdkcut-pixbuf">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-gdkcut-pixbuf.top_of_page">gdkcut-pixbuf</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>gdkcut-pixbuf</refname>
+<refpurpose/>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-gdkcut-pixbuf.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="gdkcut-pixbuf-equal-property">gdkcut_pixbuf_equal_property</link>        (<parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf1</parameter>,
+                                                         <parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf2</parameter>);
+<link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="gdkcut-pixbuf-equal-content">gdkcut_pixbuf_equal_content</link>         (<parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf1</parameter>,
+                                                         <parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf2</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> threshold</parameter>);
+<link linkend="GdkPixbuf"><returnvalue>GdkPixbuf</returnvalue></link> *         <link linkend="gdkcut-pixbuf-diff">gdkcut_pixbuf_diff</link>                  (<parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf1</parameter>,
+                                                         <parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf2</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> threshold</parameter>);
+<link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             <link linkend="gdkcut-pixbuf-save-diff">gdkcut_pixbuf_save_diff</link>             (<parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf1</parameter>,
+                                                         <parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf2</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> threshold</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *prefix</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-gdkcut-pixbuf.description" role="desc">
+<title role="desc.title">説明</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="cutter-gdkcut-pixbuf.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="gdkcut-pixbuf-equal-property" role="function">
+<title>gdkcut_pixbuf_equal_property ()</title>
+<indexterm zone="gdkcut-pixbuf-equal-property"><primary>gdkcut_pixbuf_equal_property</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            gdkcut_pixbuf_equal_property        (<parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf1</parameter>,
+                                                         <parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf2</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>pixbuf1</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pixbuf2</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gdkcut-pixbuf-equal-content" role="function">
+<title>gdkcut_pixbuf_equal_content ()</title>
+<indexterm zone="gdkcut-pixbuf-equal-content"><primary>gdkcut_pixbuf_equal_content</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            gdkcut_pixbuf_equal_content         (<parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf1</parameter>,
+                                                         <parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf2</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> threshold</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>pixbuf1</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pixbuf2</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>threshold</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gdkcut-pixbuf-diff" role="function">
+<title>gdkcut_pixbuf_diff ()</title>
+<indexterm zone="gdkcut-pixbuf-diff"><primary>gdkcut_pixbuf_diff</primary></indexterm>
+<programlisting><link linkend="GdkPixbuf"><returnvalue>GdkPixbuf</returnvalue></link> *         gdkcut_pixbuf_diff                  (<parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf1</parameter>,
+                                                         <parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf2</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> threshold</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>pixbuf1</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pixbuf2</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>threshold</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gdkcut-pixbuf-save-diff" role="function">
+<title>gdkcut_pixbuf_save_diff ()</title>
+<indexterm zone="gdkcut-pixbuf-save-diff"><primary>gdkcut_pixbuf_save_diff</primary></indexterm>
+<programlisting><link linkend="gchar"><returnvalue>gchar</returnvalue></link> *             gdkcut_pixbuf_save_diff             (<parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf1</parameter>,
+                                                         <parameter>const <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> *pixbuf2</parameter>,
+                                                         <parameter><link linkend="guint"><type>guint</type></link> threshold</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *prefix</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>pixbuf1</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pixbuf2</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>threshold</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>prefix</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="cutter-cut-console">
+<refmeta>
+<refentrytitle role="top_of_page" id="cutter-cut-console.top_of_page">cut-console</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Cutterライブラリ</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>cut-console</refname>
+<refpurpose/>
+</refnamediv>
+
+<refsynopsisdiv id="cutter-cut-console.synopsis" role="synopsis">
+<title role="synopsis.title">概要</title>
+
+<synopsis>#define             <link linkend="CUT-CONSOLE-COLOR-RED:CAPS">CUT_CONSOLE_COLOR_RED</link>
+#define             <link linkend="CUT-CONSOLE-COLOR-RED-BACK:CAPS">CUT_CONSOLE_COLOR_RED_BACK</link>
+#define             <link linkend="CUT-CONSOLE-COLOR-GREEN:CAPS">CUT_CONSOLE_COLOR_GREEN</link>
+#define             <link linkend="CUT-CONSOLE-COLOR-GREEN-BACK:CAPS">CUT_CONSOLE_COLOR_GREEN_BACK</link>
+#define             <link linkend="CUT-CONSOLE-COLOR-YELLOW:CAPS">CUT_CONSOLE_COLOR_YELLOW</link>
+#define             <link linkend="CUT-CONSOLE-COLOR-BLUE:CAPS">CUT_CONSOLE_COLOR_BLUE</link>
+#define             <link linkend="CUT-CONSOLE-COLOR-BLUE-BACK:CAPS">CUT_CONSOLE_COLOR_BLUE_BACK</link>
+#define             <link linkend="CUT-CONSOLE-COLOR-MAGENTA:CAPS">CUT_CONSOLE_COLOR_MAGENTA</link>
+#define             <link linkend="CUT-CONSOLE-COLOR-CYAN:CAPS">CUT_CONSOLE_COLOR_CYAN</link>
+#define             <link linkend="CUT-CONSOLE-COLOR-CYAN-BACK:CAPS">CUT_CONSOLE_COLOR_CYAN_BACK</link>
+#define             <link linkend="CUT-CONSOLE-COLOR-WHITE:CAPS">CUT_CONSOLE_COLOR_WHITE</link>
+#define             <link linkend="CUT-CONSOLE-COLOR-WHITE-BACK:CAPS">CUT_CONSOLE_COLOR_WHITE_BACK</link>
+#define             <link linkend="CUT-CONSOLE-COLOR-BLACK-BACK:CAPS">CUT_CONSOLE_COLOR_BLACK_BACK</link>
+#define             <link linkend="CUT-CONSOLE-COLOR-NORMAL:CAPS">CUT_CONSOLE_COLOR_NORMAL</link>
+<link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="cut-console-guess-color-usability">cut_console_guess_color_usability</link>   (<parameter><type>void</type></parameter>);
+<link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            <link linkend="cut-console-parse-color-arg">cut_console_parse_color_arg</link>         (<parameter>const <link linkend="gchar"><type>gchar</type></link> *option_name</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *value</parameter>,
+                                                         <parameter><link linkend="gboolean"><type>gboolean</type></link> *use_color</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="cutter-cut-console.description" role="desc">
+<title role="desc.title">説明</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="cutter-cut-console.details" role="details">
+<title role="details.title">詳細</title>
+<refsect2 id="CUT-CONSOLE-COLOR-RED:CAPS" role="macro">
+<title>CUT_CONSOLE_COLOR_RED</title>
+<indexterm zone="CUT-CONSOLE-COLOR-RED:CAPS"><primary>CUT_CONSOLE_COLOR_RED</primary></indexterm>
+<programlisting>#define CUT_CONSOLE_COLOR_RED "\033[01;31m"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="CUT-CONSOLE-COLOR-RED-BACK:CAPS" role="macro">
+<title>CUT_CONSOLE_COLOR_RED_BACK</title>
+<indexterm zone="CUT-CONSOLE-COLOR-RED-BACK:CAPS"><primary>CUT_CONSOLE_COLOR_RED_BACK</primary></indexterm>
+<programlisting>#define CUT_CONSOLE_COLOR_RED_BACK "\033[41m"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="CUT-CONSOLE-COLOR-GREEN:CAPS" role="macro">
+<title>CUT_CONSOLE_COLOR_GREEN</title>
+<indexterm zone="CUT-CONSOLE-COLOR-GREEN:CAPS"><primary>CUT_CONSOLE_COLOR_GREEN</primary></indexterm>
+<programlisting>#define CUT_CONSOLE_COLOR_GREEN "\033[01;32m"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="CUT-CONSOLE-COLOR-GREEN-BACK:CAPS" role="macro">
+<title>CUT_CONSOLE_COLOR_GREEN_BACK</title>
+<indexterm zone="CUT-CONSOLE-COLOR-GREEN-BACK:CAPS"><primary>CUT_CONSOLE_COLOR_GREEN_BACK</primary></indexterm>
+<programlisting>#define CUT_CONSOLE_COLOR_GREEN_BACK "\033[01;42m"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="CUT-CONSOLE-COLOR-YELLOW:CAPS" role="macro">
+<title>CUT_CONSOLE_COLOR_YELLOW</title>
+<indexterm zone="CUT-CONSOLE-COLOR-YELLOW:CAPS"><primary>CUT_CONSOLE_COLOR_YELLOW</primary></indexterm>
+<programlisting>#define CUT_CONSOLE_COLOR_YELLOW "\033[01;33m"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="CUT-CONSOLE-COLOR-BLUE:CAPS" role="macro">
+<title>CUT_CONSOLE_COLOR_BLUE</title>
+<indexterm zone="CUT-CONSOLE-COLOR-BLUE:CAPS"><primary>CUT_CONSOLE_COLOR_BLUE</primary></indexterm>
+<programlisting>#define CUT_CONSOLE_COLOR_BLUE "\033[01;34m"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="CUT-CONSOLE-COLOR-BLUE-BACK:CAPS" role="macro">
+<title>CUT_CONSOLE_COLOR_BLUE_BACK</title>
+<indexterm zone="CUT-CONSOLE-COLOR-BLUE-BACK:CAPS"><primary>CUT_CONSOLE_COLOR_BLUE_BACK</primary></indexterm>
+<programlisting>#define CUT_CONSOLE_COLOR_BLUE_BACK "\033[01;44m"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="CUT-CONSOLE-COLOR-MAGENTA:CAPS" role="macro">
+<title>CUT_CONSOLE_COLOR_MAGENTA</title>
+<indexterm zone="CUT-CONSOLE-COLOR-MAGENTA:CAPS"><primary>CUT_CONSOLE_COLOR_MAGENTA</primary></indexterm>
+<programlisting>#define CUT_CONSOLE_COLOR_MAGENTA "\033[01;35m"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="CUT-CONSOLE-COLOR-CYAN:CAPS" role="macro">
+<title>CUT_CONSOLE_COLOR_CYAN</title>
+<indexterm zone="CUT-CONSOLE-COLOR-CYAN:CAPS"><primary>CUT_CONSOLE_COLOR_CYAN</primary></indexterm>
+<programlisting>#define CUT_CONSOLE_COLOR_CYAN "\033[01;36m"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="CUT-CONSOLE-COLOR-CYAN-BACK:CAPS" role="macro">
+<title>CUT_CONSOLE_COLOR_CYAN_BACK</title>
+<indexterm zone="CUT-CONSOLE-COLOR-CYAN-BACK:CAPS"><primary>CUT_CONSOLE_COLOR_CYAN_BACK</primary></indexterm>
+<programlisting>#define CUT_CONSOLE_COLOR_CYAN_BACK "\033[01;46m"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="CUT-CONSOLE-COLOR-WHITE:CAPS" role="macro">
+<title>CUT_CONSOLE_COLOR_WHITE</title>
+<indexterm zone="CUT-CONSOLE-COLOR-WHITE:CAPS"><primary>CUT_CONSOLE_COLOR_WHITE</primary></indexterm>
+<programlisting>#define CUT_CONSOLE_COLOR_WHITE "\033[01;37m"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="CUT-CONSOLE-COLOR-WHITE-BACK:CAPS" role="macro">
+<title>CUT_CONSOLE_COLOR_WHITE_BACK</title>
+<indexterm zone="CUT-CONSOLE-COLOR-WHITE-BACK:CAPS"><primary>CUT_CONSOLE_COLOR_WHITE_BACK</primary></indexterm>
+<programlisting>#define CUT_CONSOLE_COLOR_WHITE_BACK "\033[01;47m"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="CUT-CONSOLE-COLOR-BLACK-BACK:CAPS" role="macro">
+<title>CUT_CONSOLE_COLOR_BLACK_BACK</title>
+<indexterm zone="CUT-CONSOLE-COLOR-BLACK-BACK:CAPS"><primary>CUT_CONSOLE_COLOR_BLACK_BACK</primary></indexterm>
+<programlisting>#define CUT_CONSOLE_COLOR_BLACK_BACK "\033[01;40m"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="CUT-CONSOLE-COLOR-NORMAL:CAPS" role="macro">
+<title>CUT_CONSOLE_COLOR_NORMAL</title>
+<indexterm zone="CUT-CONSOLE-COLOR-NORMAL:CAPS"><primary>CUT_CONSOLE_COLOR_NORMAL</primary></indexterm>
+<programlisting>#define CUT_CONSOLE_COLOR_NORMAL "\033[00m"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="cut-console-guess-color-usability" role="function">
+<title>cut_console_guess_color_usability ()</title>
+<indexterm zone="cut-console-guess-color-usability"><primary>cut_console_guess_color_usability</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            cut_console_guess_color_usability   (<parameter><type>void</type></parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="cut-console-parse-color-arg" role="function">
+<title>cut_console_parse_color_arg ()</title>
+<indexterm zone="cut-console-parse-color-arg"><primary>cut_console_parse_color_arg</primary></indexterm>
+<programlisting><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>            cut_console_parse_color_arg         (<parameter>const <link linkend="gchar"><type>gchar</type></link> *option_name</parameter>,
+                                                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *value</parameter>,
+                                                         <parameter><link linkend="gboolean"><type>gboolean</type></link> *use_color</parameter>,
+                                                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>option_name</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>use_color</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter> :</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>戻り値</emphasis> :</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+</refentry>

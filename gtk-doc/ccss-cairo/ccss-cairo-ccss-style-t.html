@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ccss_style_t</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="CCSS/Cairo Reference Manual">
+<link rel="up" href="basic.html" title="Basic Usage">
+<link rel="prev" href="ccss-cairo-ccss-grammar-t.html" title="ccss_grammar_t">
+<link rel="next" href="ccss-index.html" title="Index">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ccss-cairo-ccss-grammar-t.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="basic.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">CCSS/Cairo Reference Manual</th>
+<td><a accesskey="n" href="ccss-index.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ccss-cairo-ccss-style-t.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ccss-cairo-ccss-style-t.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ccss-cairo-ccss-style-t"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ccss-cairo-ccss-style-t.top_of_page"></a>ccss_style_t</span></h2>
+<p>ccss_style_t</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="ccss-cairo-ccss-style-t.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">enum                <a class="link" href="ccss-cairo-ccss-style-t.html#ccss-cairo-gap-side-t" title="enum ccss_cairo_gap_side_t">ccss_cairo_gap_side_t</a>;
+<span class="returnvalue">void</span>                <a class="link" href="ccss-cairo-ccss-style-t.html#ccss-cairo-style-draw-rectangle" title="ccss_cairo_style_draw_rectangle ()">ccss_cairo_style_draw_rectangle</a>     (<em class="parameter"><code><span class="type">ccss_style_t</span> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ccss-cairo-ccss-style-t.html#ccss-cairo-style-draw-rectangle-with-gap" title="ccss_cairo_style_draw_rectangle_with_gap ()">ccss_cairo_style_draw_rectangle_with_gap</a>
+                                                        (<em class="parameter"><code><span class="type">ccss_style_t</span> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ccss-cairo-ccss-style-t.html#ccss-cairo-gap-side-t" title="enum ccss_cairo_gap_side_t"><span class="type">ccss_cairo_gap_side_t</span></a> gap_side</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> gap_start</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> gap_width</code></em>);
+<span class="returnvalue">bool</span>                <a class="link" href="ccss-cairo-ccss-style-t.html#ccss-cairo-style-get-double" title="ccss_cairo_style_get_double ()">ccss_cairo_style_get_double</a>         (<em class="parameter"><code><span class="type">ccss_style_t</span> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *value</code></em>);
+<span class="returnvalue">bool</span>                <a class="link" href="ccss-cairo-ccss-style-t.html#ccss-cairo-style-get-string" title="ccss_cairo_style_get_string ()">ccss_cairo_style_get_string</a>         (<em class="parameter"><code><span class="type">ccss_style_t</span> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **value</code></em>);
+<span class="returnvalue">bool</span>                <a class="link" href="ccss-cairo-ccss-style-t.html#ccss-cairo-style-get-property" title="ccss_cairo_style_get_property ()">ccss_cairo_style_get_property</a>       (<em class="parameter"><code><span class="type">ccss_style_t</span> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">ccss_property_t</span> const **property</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ccss-cairo-ccss-style-t.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="ccss-cairo-ccss-style-t.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ccss-cairo-gap-side-t"></a><h3>enum ccss_cairo_gap_side_t</h3>
+<pre class="programlisting">typedef enum {
+	CCSS_CAIRO_GAP_SIDE_LEFT,
+	CCSS_CAIRO_GAP_SIDE_RIGHT,
+	CCSS_CAIRO_GAP_SIDE_TOP,
+	CCSS_CAIRO_GAP_SIDE_BOTTOM
+} ccss_cairo_gap_side_t;
+</pre>
+<p>
+This enum mirrors <span class="type">GtkPositionType</span>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="CCSS-CAIRO-GAP-SIDE-LEFT:CAPS"></a><span class="term"><code class="literal">CCSS_CAIRO_GAP_SIDE_LEFT</code></span></p></td>
+<td>gap on the left.
+</td>
+</tr>
+<tr>
+<td><p><a name="CCSS-CAIRO-GAP-SIDE-RIGHT:CAPS"></a><span class="term"><code class="literal">CCSS_CAIRO_GAP_SIDE_RIGHT</code></span></p></td>
+<td>gap on the right.
+</td>
+</tr>
+<tr>
+<td><p><a name="CCSS-CAIRO-GAP-SIDE-TOP:CAPS"></a><span class="term"><code class="literal">CCSS_CAIRO_GAP_SIDE_TOP</code></span></p></td>
+<td>gap on top.
+</td>
+</tr>
+<tr>
+<td><p><a name="CCSS-CAIRO-GAP-SIDE-BOTTOM:CAPS"></a><span class="term"><code class="literal">CCSS_CAIRO_GAP_SIDE_BOTTOM</code></span></p></td>
+<td>gap on the bottom.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-cairo-style-draw-rectangle"></a><h3>ccss_cairo_style_draw_rectangle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ccss_cairo_style_draw_rectangle     (<em class="parameter"><code><span class="type">ccss_style_t</span> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>);</pre>
+<p>
+Draw a rectangle using this style instance.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <span class="type">ccss_style_t</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
+<td>the target to draw onto.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>the starting x coordinate.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>the starting y coordinate.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>width of the outline to draw.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>height of the outline to draw.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-cairo-style-draw-rectangle-with-gap"></a><h3>ccss_cairo_style_draw_rectangle_with_gap ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ccss_cairo_style_draw_rectangle_with_gap
+                                                        (<em class="parameter"><code><span class="type">ccss_style_t</span> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ccss-cairo-ccss-style-t.html#ccss-cairo-gap-side-t" title="enum ccss_cairo_gap_side_t"><span class="type">ccss_cairo_gap_side_t</span></a> gap_side</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> gap_start</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> gap_width</code></em>);</pre>
+<p>
+Draw a rectangle with gap using this style instance.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a ccss_style_t.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
+<td>the target to draw onto.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>the starting x coordinate.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>the starting y coordinate.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>width of the outline to draw.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>height of the outline to draw.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gap_side</code></em> :</span></p></td>
+<td>side in which to leave the gap.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gap_start</code></em> :</span></p></td>
+<td>starting position of the gap.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gap_width</code></em> :</span></p></td>
+<td>width of the gap.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-cairo-style-get-double"></a><h3>ccss_cairo_style_get_double ()</h3>
+<pre class="programlisting"><span class="returnvalue">bool</span>                ccss_cairo_style_get_double         (<em class="parameter"><code><span class="type">ccss_style_t</span> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *value</code></em>);</pre>
+<p>
+Query a numeric property with fallbacks, e.g. `border-color' if `border-left-color' is not given.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <span class="type">ccss_style_t</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>name of the property.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>location to store the converted property.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the property was found and could be converted.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-cairo-style-get-string"></a><h3>ccss_cairo_style_get_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">bool</span>                ccss_cairo_style_get_string         (<em class="parameter"><code><span class="type">ccss_style_t</span> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **value</code></em>);</pre>
+<p>
+Query a string property with fallbacks, e.g. `border-color' if `border-left-color' is not given.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <span class="type">ccss_style_t</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>name of the property.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>location to store the converted property.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the property was found and could be converted.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ccss-cairo-style-get-property"></a><h3>ccss_cairo_style_get_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">bool</span>                ccss_cairo_style_get_property       (<em class="parameter"><code><span class="type">ccss_style_t</span> const *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">ccss_property_t</span> const **property</code></em>);</pre>
+<p>
+Query a custom property with fallbacks, e.g. `border-color' if `border-left-color' is not given.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <span class="type">ccss_style_t</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>name of the property.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the property was found.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

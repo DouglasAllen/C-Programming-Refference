@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>便利なHTTPサーバーAPI</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutterリファレンスマニュアル">
+<link rel="up" href="writing-test.html" title="テスト作成">
+<link rel="prev" href="SoupCutClient.html" title="便利なHTTPクライアントAPI">
+<link rel="next" href="cutter-Experimental.html" title="実験">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="SoupCutClient.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="writing-test.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutterリファレンスマニュアル</th>
+<td><a accesskey="n" href="cutter-Experimental.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#cutter-Convenience-HTTP-server-API.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#cutter-Convenience-HTTP-server-API.description" class="shortcut">説明</a>
+</td></tr>
+</table>
+<div class="refentry" title="便利なHTTPサーバーAPI">
+<a name="cutter-Convenience-HTTP-server-API"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="cutter-Convenience-HTTP-server-API.top_of_page"></a>便利なHTTPサーバーAPI</span></h2>
+<p>便利なHTTPサーバーAPI — HTTPサーバーとして動作するためのAPI。</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="概要">
+<a name="cutter-Convenience-HTTP-server-API.synopsis"></a><h2>概要</h2>
+<pre class="synopsis"><span class="returnvalue">SoupServer</span> *        <a class="link" href="cutter-Convenience-HTTP-server-API.html#soupcut-server-take" title="soupcut_server_take ()">soupcut_server_take</a>                 (<em class="parameter"><code><span class="type">SoupServer</span> *server</code></em>);
+<span class="returnvalue">SoupServer</span> *        <a class="link" href="cutter-Convenience-HTTP-server-API.html#soupcut-server-take-new" title="soupcut_server_take_new ()">soupcut_server_take_new</a>             (<em class="parameter"><code><span class="type">GMainContext</span> *context</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="cutter-Convenience-HTTP-server-API.html#soupcut-server-build-uri" title="soupcut_server_build_uri ()">soupcut_server_build_uri</a>            (<em class="parameter"><code><span class="type">SoupServer</span> *server</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="説明">
+<a name="cutter-Convenience-HTTP-server-API.description"></a><h2>説明</h2>
+<p><span class="type">SoupServer</span>の便利なラッパー。</p>
+</div>
+<div class="refsect1" title="詳細">
+<a name="cutter-Convenience-HTTP-server-API.details"></a><h2>詳細</h2>
+<div class="refsect2" title="soupcut_server_take ()">
+<a name="soupcut-server-take"></a><h3>soupcut_server_take ()</h3>
+<pre class="programlisting"><span class="returnvalue">SoupServer</span> *        soupcut_server_take                 (<em class="parameter"><code><span class="type">SoupServer</span> *server</code></em>);</pre>
+<p>サーバーは tear down 時に自動的にシャットダウンされ、<code class="function">g_object_unref()</code>により解放されます。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>
+<span class="type">SoupServer</span>オブジェクト。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>server</code></em>はCutterが所有権を持つので、<code class="function">g_object_unref()</code>を呼ばないでください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.8から</p>
+</div>
+<hr>
+<div class="refsect2" title="soupcut_server_take_new ()">
+<a name="soupcut-server-take-new"></a><h3>soupcut_server_take_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">SoupServer</span> *        soupcut_server_take_new             (<em class="parameter"><code><span class="type">GMainContext</span> *context</code></em>);</pre>
+<p>コンテキストが<em class="parameter"><code>context</code></em>である<span class="type">SoupServer</span>オブジェクトを生成して返します。サーバーはtear down 時に自動的にシャットダウンされ、</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>サーバーの<span class="type">GMainContext</span>コンテキスト。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>新たに<span class="type">SoupServer</span>オブジェクトを生成します。作成されたサーバーはCutterが所有権を持つので、<code class="function">g_object_unref()</code>を呼ばないでください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.8から</p>
+</div>
+<hr>
+<div class="refsect2" title="soupcut_server_build_uri ()">
+<a name="soupcut-server-build-uri"></a><h3>soupcut_server_build_uri ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       soupcut_server_build_uri            (<em class="parameter"><code><span class="type">SoupServer</span> *server</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>);</pre>
+<p>@server のベースURIにパスとして @path を組み合わせたURIの文字列を作成します。</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>
+<span class="type">SoupServer</span>オブジェクト。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>パス。</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>戻り値</em></span> :</span></p></td>
+<td>Cutterが所有するURI文字列。解放しないで下さい。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.8から</p>
+</div>
+</div>
+<div class="refsect1" title="参考">
+<a name="cutter-Convenience-HTTP-server-API.see-also"></a><h2>参考</h2>
+<a class="link" href="cutter-Assertions-for-HTTP-client-and-server.html" title="HTTPクライアント・サーバ用の検証">HTTPクライアント・サーバ用の検証</a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

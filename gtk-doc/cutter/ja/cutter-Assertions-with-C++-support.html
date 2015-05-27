@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>C++サポート付きの検証</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Cutterリファレンスマニュアル">
+<link rel="up" href="writing-test.html" title="テスト作成">
+<link rel="prev" href="cutter-CppCutter.html" title="CppCutter">
+<link rel="next" href="cutter-GdkCutter-Pixbuf.html" title="GdkCutter Pixbuf">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="cutter-CppCutter.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="writing-test.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cutterリファレンスマニュアル</th>
+<td><a accesskey="n" href="cutter-GdkCutter-Pixbuf.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#cutter-Assertions-with-C++-support.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#cutter-Assertions-with-C++-support.description" class="shortcut">説明</a>
+</td></tr>
+</table>
+<div class="refentry" title="C++サポート付きの検証">
+<a name="cutter-Assertions-with-C++-support"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="cutter-Assertions-with-C++-support.top_of_page"></a>C++サポート付きの検証</span></h2>
+<p>C++サポート付きの検証 — C++サポート付きであなたのプログラムが期待通りに動作しているかを検証します。</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="概要">
+<a name="cutter-Assertions-with-C++-support.synopsis"></a><h2>概要</h2>
+<pre class="synopsis">#define             <a class="link" href="cutter-Assertions-with-C++-support.html#cppcut-assert-equal" title="cppcut_assert_equal()">cppcut_assert_equal</a>                 (expected,
+                                                         actual,
+                                                         ...)
+</pre>
+</div>
+<div class="refsect1" title="説明">
+<a name="cutter-Assertions-with-C++-support.description"></a><h2>説明</h2>
+</div>
+<div class="refsect1" title="詳細">
+<a name="cutter-Assertions-with-C++-support.details"></a><h2>詳細</h2>
+<div class="refsect2" title="cppcut_assert_equal()">
+<a name="cppcut-assert-equal"></a><h3>cppcut_assert_equal()</h3>
+<pre class="programlisting">#define             cppcut_assert_equal(expected, actual, ...)</pre>
+<p>この検証はテンプレートを利用しています。任意のオブジェクトのリファレンスを<em class="parameter"><code>expected</code></em>と<em class="parameter"><code>actual</code></em>に渡せます。</p>
+<p><em class="parameter"><code>expected</code></em> == <em class="parameter"><code>actual</code></em>が成り立つときパスします。</p>
+<p>例: </p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="../cutter/ja/cutter-Assertions-with-C++-support.html#cppcut-assert-equal">cppcut_assert_equal</a></span><span class="symbol">(</span><span class="number">3</span><span class="symbol">,</span> <span class="number">1</span> <span class="symbol">+</span> <span class="number">2</span><span class="symbol">);</span>
+<span class="function"><a href="../cutter/ja/cutter-Assertions-with-C++-support.html#cppcut-assert-equal">cppcut_assert_equal</a></span><span class="symbol">(</span><span class="number">3</span><span class="symbol">,</span> <span class="number">1</span> <span class="symbol">+</span> <span class="number">2</span><span class="symbol">,</span> <span class="function"><a href="../cutter/ja/cutter-CppCutter.html#cppcut-message">cppcut_message</a></span><span class="symbol">(</span><span class="string">&quot;easy expression&quot;</span><span class="symbol">));</span>
+<span class="function"><a href="../cutter/ja/cutter-Assertions-with-C++-support.html#cppcut-assert-equal">cppcut_assert_equal</a></span><span class="symbol">(</span><span class="number">3</span><span class="symbol">,</span> <span class="number">1</span> <span class="symbol">+</span> <span class="number">2</span><span class="symbol">,</span> <span class="function"><a href="../cutter/ja/cutter-CppCutter.html#cppcut-message">cppcut_message</a></span><span class="symbol">() &lt;&lt;</span> <span class="string">&quot;easy expression&quot;</span><span class="symbol">));</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>expected</code></em> :</span></p></td>
+<td>期待値。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>actual</code></em> :</span></p></td>
+<td>実測値。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>追加メッセージ（省略可能）。詳細は<a class="link" href="cutter-CppCutter.html#cppcut-message" title="cppcut_message()"><code class="function">cppcut_message()</code></a>を見てください。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">1.0.9から</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

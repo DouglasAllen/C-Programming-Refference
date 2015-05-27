@@ -14,19 +14,28 @@
 #include <string.h>
 #include <time.h>
 
+void print_date (char * title, struct tm* t)
+{
+	printf ("%s\n", title);
+	printf ("Date : %d/%d/%d\n", t->tm_year, t->tm_mon, t->tm_mday);
+	printf ("Time : %d:%d:%d\n\n", t->tm_hour, t->tm_min, t->tm_sec);
+}
+
 int main()
 {
-	struct tm t;
+	struct tm t;	
+  t.tm_year   = 115;
+	t.tm_mon    = 4;
+	t.tm_mday   = 19;
+	t.tm_hour   = 13;
+	t.tm_min    = 20;
+  t.tm_sec    = 10.0;  
+	t.tm_wday   = 1;
 
-   t.tm_sec    = 10;
-   t.tm_min    = 10;
-   t.tm_hour   = 6;
-   t.tm_mday   = 25;
-   t.tm_mon    = 2;
-   t.tm_year   = 89;
-   t.tm_wday   = 6;
-
-   puts(asctime(&t));
+	puts(asctime(&t));
+	
+	
+	print_date("from struct tm t", &t);
 	
 	time_t now;
   time( &now );
@@ -34,7 +43,6 @@ int main()
   printf( "Date: %.24s GMT\n", asctime( gmtime( &now ) ));
 	
 	puts(asctime( gmtime( &now )));
-
    
-   return(0);
+  return(0);
 }

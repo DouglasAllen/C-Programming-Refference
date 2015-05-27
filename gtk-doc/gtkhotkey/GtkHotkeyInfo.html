@@ -1,0 +1,721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkHotkeyInfo</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="Gtk Hotkey Reference Manual">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="ch01.html" title="Core API">
+<link rel="next" href="GtkHotkeyListener.html" title="GtkHotkeyListener">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="Core API">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch01.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Gtk Hotkey Reference Manual</th>
+<td><a accesskey="n" href="GtkHotkeyListener.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GtkHotkeyInfo.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#GtkHotkeyInfo.description" class="shortcut">Description</a>
+                 | 
+                <a href="#GtkHotkeyInfo.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#GtkHotkeyInfo.properties" class="shortcut">Properties</a>
+                 | 
+                <a href="#GtkHotkeyInfo.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="GtkHotkeyInfo"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GtkHotkeyInfo.top_of_page"></a>GtkHotkeyInfo</span></h2>
+<p>GtkHotkeyInfo — Primary representation of a hotkey</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GtkHotkeyInfo.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo-struct" title="GtkHotkeyInfo">GtkHotkeyInfo</a>;
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkHotkeyInfo.html#gtk-hotkey-info-bind" title="gtk_hotkey_info_bind ()">gtk_hotkey_info_bind</a>                (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkHotkeyInfo.html#gtk-hotkey-info-unbind" title="gtk_hotkey_info_unbind ()">gtk_hotkey_info_unbind</a>              (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a class="link" href="GtkHotkeyInfo.html#gtk-hotkey-info-get-application-id" title="gtk_hotkey_info_get_application_id ()">gtk_hotkey_info_get_application_id</a>  (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a class="link" href="GtkHotkeyInfo.html#gtk-hotkey-info-get-key-id" title="gtk_hotkey_info_get_key_id ()">gtk_hotkey_info_get_key_id</a>          (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self);
+<a
+href="http://library.gnome.org/devel/gio/unstable/GAppInfo.html"
+>GAppInfo</a>*           <a class="link" href="GtkHotkeyInfo.html#gtk-hotkey-info-get-app-info" title="gtk_hotkey_info_get_app_info ()">gtk_hotkey_info_get_app_info</a>        (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a class="link" href="GtkHotkeyInfo.html#gtk-hotkey-info-get-signature" title="gtk_hotkey_info_get_signature ()">gtk_hotkey_info_get_signature</a>       (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a class="link" href="GtkHotkeyInfo.html#gtk-hotkey-info-get-description" title="gtk_hotkey_info_get_description ()">gtk_hotkey_info_get_description</a>     (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self);
+void                <a class="link" href="GtkHotkeyInfo.html#gtk-hotkey-info-set-description" title="gtk_hotkey_info_set_description ()">gtk_hotkey_info_set_description</a>     (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *description);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkHotkeyInfo.html#gtk-hotkey-info-equals" title="gtk_hotkey_info_equals ()">gtk_hotkey_info_equals</a>              (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *hotkey1,
+                                                         <a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *hotkey2,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> sloppy_equals);
+void                <a class="link" href="GtkHotkeyInfo.html#gtk-hotkey-info-activated" title="gtk_hotkey_info_activated ()">gtk_hotkey_info_activated</a>           (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> event_time);
+<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a>*      <a class="link" href="GtkHotkeyInfo.html#gtk-hotkey-info-new" title="gtk_hotkey_info_new ()">gtk_hotkey_info_new</a>                 (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *app_id,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *key_id,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *signature,
+                                                         <a
+href="http://library.gnome.org/devel/gio/unstable/GAppInfo.html"
+>GAppInfo</a> *app_info);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GtkHotkeyInfo.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----GtkHotkeyInfo
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GtkHotkeyInfo.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo--app-info" title='The "app-info" property'>app-info</a>"                 <a
+href="http://library.gnome.org/devel/gio/unstable/GAppInfo.html"
+>GAppInfo</a>*             : Read / Write / Construct Only
+  "<a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo--application-id" title='The "application-id" property'>application-id</a>"           <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write / Construct Only
+  "<a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo--bound" title='The "bound" property'>bound</a>"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read
+  "<a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo--description" title='The "description" property'>description</a>"              <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write
+  "<a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo--key-id" title='The "key-id" property'>key-id</a>"                   <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write / Construct Only
+  "<a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo--signature" title='The "signature" property'>signature</a>"                <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GtkHotkeyInfo.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo-activated" title='The "activated" signal'>activated</a>"                                      : Run Last
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GtkHotkeyInfo.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo"><span class="type">GtkHotkeyInfo</span></a> is the primary object around which the GtkHotkey library
+revolves.
+</p>
+<p>
+Hotkeys are stored and managed via a <a class="link" href="GtkHotkeyRegistry.html" title="GtkHotkeyRegistry"><span class="type">GtkHotkeyRegistry</span></a>, while the actual
+binding and listening for key-presses is done by a <a class="link" href="GtkHotkeyListener.html" title="GtkHotkeyListener"><span class="type">GtkHotkeyListener</span></a>.</p>
+<p>
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GtkHotkeyInfo.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="GtkHotkeyInfo-struct"></a><h3>GtkHotkeyInfo</h3>
+<pre class="programlisting">typedef struct _GtkHotkeyInfo GtkHotkeyInfo;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtk-hotkey-info-bind"></a><h3>gtk_hotkey_info_bind ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_hotkey_info_bind                (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+Register the hotkey with the system. The <a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo-activated" title='The "activated" signal'><span class="type">"activated"</span></a> signal
+will now be emitted when the user presses the keyboard combination
+matching the hotkey's signature.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td> The hotkey to bind
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> Place to return a <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+><span class="type">GError</span></a>, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> to ignore
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> on success, and <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a> on error in which case <em class="parameter"><code>error</code></em>
+         is also set
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtk-hotkey-info-unbind"></a><h3>gtk_hotkey_info_unbind ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_hotkey_info_unbind              (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+Remove the hotkey binding from the system. The <a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo-activated" title='The "activated" signal'><span class="type">"activated"</span></a>
+signal will no longer be emitted when the hotkey is pressed.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td> The hotkey to unbind
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> Place to return a <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+><span class="type">GError</span></a>, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> to ignore
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> on success, and <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a> on error in which case <em class="parameter"><code>error</code></em>
+         is also set
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtk-hotkey-info-get-application-id"></a><h3>gtk_hotkey_info_get_application_id ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        gtk_hotkey_info_get_application_id  (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self);</pre>
+<p>
+Get the unique system identifier for the hotkey. See 
+<a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo--application-id" title='The "application-id" property'><span class="type">"application-id"</span></a> for details.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtk-hotkey-info-get-key-id"></a><h3>gtk_hotkey_info_get_key_id ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        gtk_hotkey_info_get_key_id          (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self);</pre>
+<p>
+Get the identifier the owning application use to identify this hotkey.
+See <a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo--key-id" title='The "key-id" property'><span class="type">"key-id"</span></a> for details.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtk-hotkey-info-get-app-info"></a><h3>gtk_hotkey_info_get_app_info ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gio/unstable/GAppInfo.html"
+>GAppInfo</a>*           gtk_hotkey_info_get_app_info        (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self);</pre>
+<p>
+Not to be confused with the value of the <a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo--application-id" title='The "application-id" property'><span class="type">"application-id"</span></a>
+property. The hotkey can be associated with an installed desktop application
+via a <a
+href="http://library.gnome.org/devel/gio/unstable/GAppInfo.html"
+><span class="type">GAppInfo</span></a>. This is not mandatory and this method returns <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>
+if no desktop application has been associated with this hotkey.
+</p>
+<p>
+See the <a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo--app-info" title='The "app-info" property'><span class="type">"app-info"</span></a> property for details.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtk-hotkey-info-get-signature"></a><h3>gtk_hotkey_info_get_signature ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        gtk_hotkey_info_get_signature       (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self);</pre>
+<p>
+Get the keyboard signature of the hotkey. This could for example be
+'&lt;Alt&gt;F3' or '&lt;Control&gt;&lt;Shift&gt;G'.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtk-hotkey-info-get-description"></a><h3>gtk_hotkey_info_get_description ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        gtk_hotkey_info_get_description     (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self);</pre>
+<p>
+Get the free form description of the hotkey. The description is not guaranteed
+to be set and may be <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>.
+</p>
+<p>
+FIXME: Do we need to take i18n into account here?</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The description of the hotkey or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> if none is set
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtk-hotkey-info-set-description"></a><h3>gtk_hotkey_info_set_description ()</h3>
+<pre class="programlisting">void                gtk_hotkey_info_set_description     (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *description);</pre>
+<p>
+Set a description for the hotkey. See also <a class="link" href="GtkHotkeyInfo.html#gtk-hotkey-info-get-description" title="gtk_hotkey_info_get_description ()"><code class="function">gtk_hotkey_info_get_description()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>description</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtk-hotkey-info-equals"></a><h3>gtk_hotkey_info_equals ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_hotkey_info_equals              (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *hotkey1,
+                                                         <a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *hotkey2,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> sloppy_equals);</pre>
+<p>
+Compare two <a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo"><span class="type">GtkHotkeyInfo</span></a>s to see if they are equal. This method
+allows an optional 'sloppy equality' which ignores <a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo--description" title='The "description" property'><span class="type">"description"</span></a>
+and <a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo--app-info" title='The "app-info" property'><span class="type">"app-info"</span></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hotkey1</code></em> :</span></p></td>
+<td> The first hotkey to compare
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hotkey2</code></em> :</span></p></td>
+<td> Second hotkey to compare to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sloppy_equals</code></em> :</span></p></td>
+<td> If <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> sloppy equality will be used. This ignores
+                the <a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo--description" title='The "description" property'><span class="type">"description"</span></a> and <a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo--app-info" title='The "app-info" property'><span class="type">"app-info"</span></a>
+                properties of the objects.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if all the properties of the hotkeys match. Two <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> hotkeys
+          are also considered equal.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtk-hotkey-info-activated"></a><h3>gtk_hotkey_info_activated ()</h3>
+<pre class="programlisting">void                gtk_hotkey_info_activated           (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *self,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> event_time);</pre>
+<p>
+Emit the <a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo-activated" title='The "activated" signal'><span class="type">"activated"</span></a> signal on a hotkey. Mainly called
+by <a class="link" href="GtkHotkeyListener.html" title="GtkHotkeyListener"><span class="type">GtkHotkeyListener</span></a> implementations. This method should not normally be
+used by applications.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td> <a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo"><span class="type">GtkHotkeyInfo</span></a> to emit the <a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo-activated" title='The "activated" signal'><span class="type">"activated"</span></a> signal
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_time</code></em> :</span></p></td>
+<td> The system time the event happened on. This is useful for
+             applications to pass through focus stealing prevention when
+             mapping windows
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gtk-hotkey-info-new"></a><h3>gtk_hotkey_info_new ()</h3>
+<pre class="programlisting"><a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a>*      gtk_hotkey_info_new                 (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *app_id,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *key_id,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *signature,
+                                                         <a
+href="http://library.gnome.org/devel/gio/unstable/GAppInfo.html"
+>GAppInfo</a> *app_info);</pre>
+<p>
+Create a new hotkey. To actually trigger the hotkey when the user enters
+the right keyboard combination call <a class="link" href="GtkHotkeyInfo.html#gtk-hotkey-info-bind" title="gtk_hotkey_info_bind ()"><code class="function">gtk_hotkey_info_bind()</code></a>. To save and
+load your hotkey settings use the <a class="link" href="GtkHotkeyRegistry.html" title="GtkHotkeyRegistry"><span class="type">GtkHotkeyRegistry</span></a> provided by
+<a class="link" href="GtkHotkeyRegistry.html#gtk-hotkey-registry-get-default" title="gtk_hotkey_registry_get_default ()"><code class="function">gtk_hotkey_registry_get_default()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>app_id</code></em> :</span></p></td>
+<td> Unique identifier the running application can choose for it self. 
+         May be a free form string, but a descriptive name is encouraged
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key_id</code></em> :</span></p></td>
+<td> A key the application uses to recognize the hotkey. May be a free 
+         form string, but a descriptive name is encouraged
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>signature</code></em> :</span></p></td>
+<td> A key press signature parsable by <a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-Keyboard-Accelerators.html#gtk-accelerator-parse"
+><code class="function">gtk_accelerator_parse()</code></a>. For 
+            examplpe '&lt;Alt&gt;F3' or '&lt;Control&gt;&lt;Shift&gt;G'.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>app_info</code></em> :</span></p></td>
+<td> An optional <a
+href="http://library.gnome.org/devel/gio/unstable/GAppInfo.html"
+><span class="type">GAppInfo</span></a> to associate with the hotkey. Pass <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> to
+           ignore this
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A new <a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo"><span class="type">GtkHotkeyInfo</span></a> or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> on error. Error conditions could for 
+          example be invalid an invalid <em class="parameter"><code>signature</code></em>, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> arguments.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GtkHotkeyInfo.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="GtkHotkeyInfo--app-info"></a><h3>The <code class="literal">"app-info"</code> property</h3>
+<pre class="programlisting">  "app-info"                 <a
+href="http://library.gnome.org/devel/gio/unstable/GAppInfo.html"
+>GAppInfo</a>*             : Read / Write / Construct Only</pre>
+<p>
+A <a
+href="http://library.gnome.org/devel/gio/unstable/GAppInfo.html"
+><span class="type">GAppInfo</span></a> associated with the key. This is mainly useful for external
+applications which can use the information provided by the <a
+href="http://library.gnome.org/devel/gio/unstable/GAppInfo.html"
+><span class="type">GAppInfo</span></a>
+to display meaningful messages to the user. Like 'The keyboard
+combination &lt;Alt&gt;F3' is already assigned to the application
+"Deskbar Applet", please select another'.</p>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GtkHotkeyInfo--application-id"></a><h3>The <code class="literal">"application-id"</code> property</h3>
+<pre class="programlisting">  "application-id"           <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write / Construct Only</pre>
+<p>
+A free form string chosen by the application using the hotkey, under
+which the application identifies itself.</p>
+<p>
+</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GtkHotkeyInfo--bound"></a><h3>The <code class="literal">"bound"</code> property</h3>
+<pre class="programlisting">  "bound"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read</pre>
+<p>
+Property reflecting whether or not this hotkey has been bound to
+a <a class="link" href="GtkHotkeyListener.html" title="GtkHotkeyListener"><span class="type">GtkHotkeyListener</span></a>. If this property is <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> you will receive
+<a class="link" href="GtkHotkeyInfo.html#GtkHotkeyInfo-activated" title='The "activated" signal'><span class="type">"activated"</span></a> signals when the hotkey is triggered
+by the user.</p>
+<p>
+</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GtkHotkeyInfo--description"></a><h3>The <code class="literal">"description"</code> property</h3>
+<pre class="programlisting">  "description"              <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write</pre>
+<p>
+An optional free form description of the hotkey.</p>
+<p>
+</p>
+<p>Default value: ""</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GtkHotkeyInfo--key-id"></a><h3>The <code class="literal">"key-id"</code> property</h3>
+<pre class="programlisting">  "key-id"                   <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write / Construct Only</pre>
+<p>
+A free form string the application using the hotkey has attributed
+the hotkey so that it can be identified later on. Applications are
+encouraged to choose descriptive key ids.</p>
+<p>
+</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GtkHotkeyInfo--signature"></a><h3>The <code class="literal">"signature"</code> property</h3>
+<pre class="programlisting">  "signature"                <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write / Construct Only</pre>
+<p>
+The keyboard signature of the hotkey. This could for example by
+'&lt;Alt&gt;F3' or '&lt;Control&gt;&lt;Shift&gt;G'. The signature should be parsable by
+<a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-Keyboard-Accelerators.html#gtk-accelerator-parse"
+><code class="function">gtk_accelerator_parse()</code></a>.</p>
+<p>
+</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GtkHotkeyInfo.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="GtkHotkeyInfo-activated"></a><h3>The <code class="literal">"activated"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo">GtkHotkeyInfo</a> *hotkey,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>          event_time,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>       user_data)       : Run Last</pre>
+<p>
+Emitted when a hotkey has been activated.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hotkey</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkHotkeyInfo.html" title="GtkHotkeyInfo"><span class="type">GtkHotkeyInfo</span></a> for the hotkey that was activated
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_time</code></em> :</span></p></td>
+<td> Time for event triggering the keypress. This is mainly
+             used to pass to window management functions to pass through
+             focus stealing prevention
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GtkHotkeyInfo.see-also"></a><h2>See Also</h2>
+#GtkHotkeyRegistry
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

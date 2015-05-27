@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AnjutaStatus</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Anjuta Developers Reference Manual">
+<link rel="up" href="libanjuta-api.html" title="libanjuta API">
+<link rel="prev" href="AnjutaUI.html" title="AnjutaUI">
+<link rel="next" href="AnjutaPlugin.html" title="AnjutaPlugin">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AnjutaUI.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libanjuta-api.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Anjuta Developers Reference Manual</th>
+<td><a accesskey="n" href="AnjutaPlugin.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AnjutaStatus.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#AnjutaStatus.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#AnjutaStatus.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#AnjutaStatus.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#AnjutaStatus.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="AnjutaStatus"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AnjutaStatus.top_of_page"></a>AnjutaStatus</span></h2>
+<p>AnjutaStatus — Program status such as status message, progress etc.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="AnjutaStatus.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="AnjutaStatus.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libanjuta/anjuta-status.h&gt;
+
+struct              <a class="link" href="AnjutaStatus.html#AnjutaStatus-struct" title="struct AnjutaStatus">AnjutaStatus</a>;
+struct              <a class="link" href="AnjutaStatus.html#AnjutaStatusClass" title="struct AnjutaStatusClass">AnjutaStatusClass</a>;
+                    <a class="link" href="AnjutaStatus.html#AnjutaStatusPriv" title="AnjutaStatusPriv">AnjutaStatusPriv</a>;
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status" title="anjuta_status ()">anjuta_status</a>                       (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mesg</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> timeout</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-add-widget" title="anjuta_status_add_widget ()">anjuta_status_add_widget</a>            (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-busy-pop" title="anjuta_status_busy_pop ()">anjuta_status_busy_pop</a>              (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-busy-push" title="anjuta_status_busy_push ()">anjuta_status_busy_push</a>             (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-clear-stack" title="anjuta_status_clear_stack ()">anjuta_status_clear_stack</a>           (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-disable-splash" title="anjuta_status_disable_splash ()">anjuta_status_disable_splash</a>        (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> disable_splash</code></em>);
+<a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="AnjutaStatus.html#anjuta-status-new" title="anjuta_status_new ()">anjuta_status_new</a>                   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-pop" title="anjuta_status_pop ()">anjuta_status_pop</a>                   (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-progress-add-ticks" title="anjuta_status_progress_add_ticks ()">anjuta_status_progress_add_ticks</a>    (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> ticks</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-progress-increment-ticks" title="anjuta_status_progress_increment_ticks ()">anjuta_status_progress_increment_ticks</a>
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> ticks</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-progress-pulse" title="anjuta_status_progress_pulse ()">anjuta_status_progress_pulse</a>        (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-progress-reset" title="anjuta_status_progress_reset ()">anjuta_status_progress_reset</a>        (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-progress-tick" title="anjuta_status_progress_tick ()">anjuta_status_progress_tick</a>         (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-push" title="anjuta_status_push ()">anjuta_status_push</a>                  (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mesg</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-set" title="anjuta_status_set ()">anjuta_status_set</a>                   (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mesg</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-set-default" title="anjuta_status_set_default ()">anjuta_status_set_default</a>           (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value_format</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-set-splash" title="anjuta_status_set_splash ()">anjuta_status_set_splash</a>            (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *splash_file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> splash_progress_position</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-set-title" title="anjuta_status_set_title ()">anjuta_status_set_title</a>             (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *title</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="AnjutaStatus.html#anjuta-status-set-title-window" title="anjuta_status_set_title_window ()">anjuta_status_set_title_window</a>      (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *window</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="AnjutaStatus.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk/GtkWidget.html">GtkWidget</a>
+               +----<a href="http://library.gnome.org/devel/gtk/GtkContainer.html">GtkContainer</a>
+                     +----<a href="http://library.gnome.org/devel/gtk/GtkBox.html">GtkBox</a>
+                           +----<a href="http://library.gnome.org/devel/gtk/GtkHBox.html">GtkHBox</a>
+                                 +----AnjutaStatus
+</pre>
+</div>
+<div class="refsect1">
+<a name="AnjutaStatus.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+AnjutaStatus implements
+ AtkImplementorIface,  <a href="http://library.gnome.org/devel/gtk/GtkBuildable.html">GtkBuildable</a> and  <a href="http://library.gnome.org/devel/gtk/gtk3-Orientable.html#GtkOrientable">GtkOrientable</a>.</p>
+</div>
+<div class="refsect1">
+<a name="AnjutaStatus.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="AnjutaStatus.html#AnjutaStatus-busy" title='The "busy" signal'>busy</a>"                                           : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="AnjutaStatus.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="AnjutaStatus.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="AnjutaStatus-struct"></a><h3>struct AnjutaStatus</h3>
+<pre class="programlisting">struct AnjutaStatus;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaStatusClass"></a><h3>struct AnjutaStatusClass</h3>
+<pre class="programlisting">struct AnjutaStatusClass {
+	GtkBoxClass parent_class;
+	
+	/* signals */
+	void (*busy) (AnjutaStatus *status, gboolean state);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AnjutaStatusPriv"></a><h3>AnjutaStatusPriv</h3>
+<pre class="programlisting">typedef struct _AnjutaStatusPriv AnjutaStatusPriv;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status"></a><h3>anjuta_status ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status                       (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mesg</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> timeout</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-add-widget"></a><h3>anjuta_status_add_widget ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_add_widget            (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-busy-pop"></a><h3>anjuta_status_busy_pop ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_busy_pop              (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-busy-push"></a><h3>anjuta_status_busy_push ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_busy_push             (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-clear-stack"></a><h3>anjuta_status_clear_stack ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_clear_stack           (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-disable-splash"></a><h3>anjuta_status_disable_splash ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_disable_splash        (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> disable_splash</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-new"></a><h3>anjuta_status_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         anjuta_status_new                   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-pop"></a><h3>anjuta_status_pop ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_pop                   (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-progress-add-ticks"></a><h3>anjuta_status_progress_add_ticks ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_progress_add_ticks    (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> ticks</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-progress-increment-ticks"></a><h3>anjuta_status_progress_increment_ticks ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_progress_increment_ticks
+                                                        (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> ticks</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-progress-pulse"></a><h3>anjuta_status_progress_pulse ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_progress_pulse        (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-progress-reset"></a><h3>anjuta_status_progress_reset ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_progress_reset        (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-progress-tick"></a><h3>anjuta_status_progress_tick ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_progress_tick         (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *icon</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-push"></a><h3>anjuta_status_push ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_push                  (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mesg</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-set"></a><h3>anjuta_status_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_set                   (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mesg</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-set-default"></a><h3>anjuta_status_set_default ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_set_default           (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value_format</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-set-splash"></a><h3>anjuta_status_set_splash ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_set_splash            (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *splash_file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> splash_progress_position</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-set-title"></a><h3>anjuta_status_set_title ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_set_title             (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *title</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="anjuta-status-set-title-window"></a><h3>anjuta_status_set_title_window ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                anjuta_status_set_title_window      (<em class="parameter"><code><a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *status</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *window</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="AnjutaStatus.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="AnjutaStatus-busy"></a><h3>The <code class="literal">"busy"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="AnjutaStatus.html" title="AnjutaStatus"><span class="type">AnjutaStatus</span></a> *anjutastatus,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>      arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)         : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>anjutastatus</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>
