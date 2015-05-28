@@ -6,26 +6,38 @@
 #~ SRCS_C = 
 #~ OBJS = $(SRCS_C:.c=.o)
 
-all: asctime clock_t \
-      clock_t1 \
-			ctime \
-			ctime1 \
-			difftime \
-      facebook_ruby \
-      gettime \
-			gettimeofday \
-			gmtime  \
-			gmtime1\
-			localtime \
-			mktime \
-			strftime \
-			sunriset \
-      time time_t \
-			time_func \
-			yesterday
-			
-.PHONY : all
+#~ all : time_cpp
+	#~ asctime clock_t \
+	#~ clock_t1 \
+	#~ ctime \
+	#~ ctime1 \
+	#~ difftime \
+	#~ facebook_ruby \
+	#~ gettime \
+	#~ gettimeofday \
+	#~ gmtime  \
+	#~ gmtime1\
+	#~ gmtime2\
+	#~ localtime \
+	#~ mktime \
+	#~ strftime \
+	#~ sunriset \
+	#~ time \
+	#~ time time_t \
+	#~ time_func \
+	#~ yesterday			
 
+all : time_cpp \
+			time \
+      elapsed_time \
+			elapsed_time1 \
+	    gmtime  \
+	    gmtime1\
+	    gmtime2
+			
+time_cpp : better_current_gmtime_struct_builder.c
+	cc -Wall -g better_current_gmtime_struct_builder.c -o better_current_gmtime_struct_builder
+.PHONY : all	
 #~ asctime : asctime.o
 	#~ cc -o asctime asctime.o
 #~ asctime.o : asctime.c
@@ -90,6 +102,8 @@ sunriset.o : sunriset.c
 	#~ cc -o yesterday yesterday.o
 #~ yesterday.o : yesterday.c
 	#~ cc -c yesterday.c
+	
+
 
 .PHONY: clean
 clean:

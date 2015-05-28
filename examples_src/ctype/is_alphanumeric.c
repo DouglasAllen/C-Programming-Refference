@@ -11,7 +11,7 @@ main()
   int i;
   char ch;
 
-  for (i=0; i<128; i++)
+  for (i=0; i<256; i++)
   {
    ch = i;
    if (ch == 127) printf("DEL is a Control Character\n");

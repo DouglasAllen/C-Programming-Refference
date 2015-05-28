@@ -23,6 +23,9 @@ void print_date (char * title, struct tm* t)
 
 int main()
 {
+	time_t now;
+  time( &now );
+	
 	struct tm t;	
   t.tm_year   = 115;
 	t.tm_mon    = 4;
@@ -32,13 +35,10 @@ int main()
   t.tm_sec    = 10.0;  
 	t.tm_wday   = 1;
 
-	puts(asctime(&t));
+	puts(asctime(&t));	
 	
+	print_date("from struct tm t", &t);	
 	
-	print_date("from struct tm t", &t);
-	
-	time_t now;
-  time( &now );
   /* Get the time (seconds since 1/1/70) */
   printf( "Date: %.24s GMT\n", asctime( gmtime( &now ) ));
 	
