@@ -1,110 +1,86 @@
 .cc.o:
 	$(ECHO) compiling $(<)
 	$(Q) $(CXX) $(INCFLAGS) $(CPPFLAGS) $(CXXFLAGS) $(COUTFLAG)$@ -c $<
-	
-#~ NAMES = 
-#~ SRCS_C = 
-#~ OBJS = $(SRCS_C:.c=.o)
 
-#~ all : time_cpp
-	#~ asctime clock_t \
-	#~ clock_t1 \
-	#~ ctime \
-	#~ ctime1 \
-	#~ difftime \
-	#~ facebook_ruby \
-	#~ gettime \
-	#~ gettimeofday \
-	#~ gmtime  \
-	#~ gmtime1\
-	#~ gmtime2\
-	#~ localtime \
-	#~ mktime \
-	#~ strftime \
-	#~ sunriset \
-	#~ time \
-	#~ time time_t \
-	#~ time_func \
-	#~ yesterday			
+all : sunriset
 
-all : time_cpp \
-			time \
-      elapsed_time \
-			elapsed_time1 \
-	    gmtime  \
-	    gmtime1\
-	    gmtime2
 			
 time_cpp : better_current_gmtime_struct_builder.c
 	cc -Wall -g better_current_gmtime_struct_builder.c -o better_current_gmtime_struct_builder
-.PHONY : all	
-#~ asctime : asctime.o
-	#~ cc -o asctime asctime.o
-#~ asctime.o : asctime.c
-	#~ cc -c asctime.c
 	
-#~ clock_t : clock_t.o
-	#~ cc -o clock_t clock_t.o
-#~ clock_t.o : clock_t.c
-	#~ cc -c clock_t.c
+.PHONY : all
 	
-#~ clock_t1 : clock_t1.o
-	#~ cc -o clock_t1 clock_t1.o
-#~ clock_t1.o : clock_t1.c
-	#~ cc -c clock_t1.c	
-	
-#~ ctime : ctime.o
-	#~ cc -o ctime ctime.o
-#~ ctime.o : ctime.c
-	#~ cc -c ctime.c
-
-#~ facebook_ruby : facebook_ruby.o
-	#~ cc -o facebook_ruby facebook_ruby.o
-#~ facebook_ruby.o : facebook_ruby.c
-	#~ cc -c facebook_ruby.c
+#~ getdate : getdate.o
+	#~ cc -o getdate getdate.o
+#~ getdate.o : getdate.c
+	#~ cc -c getdate.c 	
 	
 gettime : gettime.o
 	cc -o gettime gettime.o
 gettime.o : gettime.c
 	cc -c gettime.c -std=gnu99	
 	
-#~ gettimeofday : gettimeofday.o
-	#~ cc -o gettimeofday gettimeofday.o 
-#~ gettimeofday.o : gettimeofday.c
-	#~ cc -c gettimeofday.c	
+gettimeofday : gettimeofday.o
+	cc -o gettimeofday gettimeofday.o 
+gettimeofday.o : gettimeofday.c
+	cc -c gettimeofday.c	
 	
-#~ gmtime : gmtime.o
-	#~ cc -o gmtime gmtime.o
-#~ gmtime.o : gmtime.c
-	#~ cc -c gmtime.c	
-
+gmtime : gmtime.o
+	cc -o gmtime gmtime.o
+gmtime.o : gmtime.c
+	cc -c gmtime.c	
+	
 sunriset : sunriset.o
 	cc -o sunriset sunriset.o -lm
 sunriset.o : sunriset.c
 	cc -c sunriset.c
 	
-#~ time : time.o
-	#~ cc -o time time.o
-#~ time.o : time.c
-	#~ cc -c time.c
+time : time.o
+	cc -o time time.o
+time.o : time.c
+	cc -c time.c
 	
-#~ time_t : time_t.o
-	#~ cc -o time_t time_t.o
-#~ time_t.o : time_t.c
-	#~ cc -c time_t.c	
+time_t : time_t.o
+	cc -o time_t time_t.o
+time_t.o : time_t.c
+	cc -c time_t.c	
 	
-#~ time_func : time_func.o
-	#~ cc -o time_func time_func.o
-#~ time_func.o : time_func.c
-	#~ cc -c time_func.c
+time_func : time_func.o
+	cc -o time_func time_func.o
+time_func.o : time_func.c
+	cc -c time_func.c
 	
-#~ yesterday : yesterday.o
-	#~ cc -o yesterday yesterday.o
-#~ yesterday.o : yesterday.c
-	#~ cc -c yesterday.c
-	
+yesterday : yesterday.o
+	cc -o yesterday yesterday.o
+yesterday.o : yesterday.c
+	cc -c yesterday.c	
 
+asctime : asctime.o
+	cc -o asctime asctime.o
+asctime.o : asctime.c
+	cc -c asctime.c
+	
+clock_t : clock_t.o
+	cc -o clock_t clock_t.o
+clock_t.o : clock_t.c
+	cc -c clock_t.c
+	
+clock_t1 : clock_t1.o
+	cc -o clock_t1 clock_t1.o
+clock_t1.o : clock_t1.c
+	cc -c clock_t1.c	
 
+ctime : ctime.o
+	cc -o ctime ctime.o
+ctime.o : ctime.c
+	cc -c ctime.c
+
+facebook_ruby : facebook_ruby.o
+	cc -o facebook_ruby facebook_ruby.o
+facebook_ruby.o : facebook_ruby.c
+	cc -c facebook_ruby.c
+	
+	
 .PHONY: clean
 clean:
 	rm *.o

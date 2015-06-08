@@ -34,11 +34,12 @@ int main()
 /* check the struct parts */
 void print_struct_parts(struct tm* t)
 {
-	printf ("%i\n", t->tm_wday);
-	printf ("%i\n", t->tm_mon);
-	printf ("%i\n", t->tm_mday);
-	printf ("%i\n", t->tm_hour);
-	printf ("%i\n", t->tm_min);
-	printf ("%i\n", t->tm_sec);
-	printf ("%i\n", t->tm_year);
+	printf("%s\n", "From tm struct");
+	printf ("\tWeek Day\t: %i\n", t->tm_wday);
+	printf ("\tMonth num\t: %i\n", t->tm_mon);
+	printf ("\tMonth Day\t: %i\n", t->tm_mday);
+	printf ("\tHour\t\t: %i\n", t->tm_hour);
+	printf ("\tMinute\t\t: %i\n", t->tm_min);
+	printf ("\tSecond\t\t: %i\n", t->tm_sec);
+	printf ("\tYear\t\t\t: %i\n", t->tm_year);
 }

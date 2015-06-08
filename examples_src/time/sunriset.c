@@ -16,13 +16,18 @@ Released to the public domain by Paul Schlyter, December 1992
 
 #include <stdio.h>
 #include <math.h>
+#include <time.h>
 
+/* 1.1.1970 = JD 2440587.5 */
+#define EJD (double) 2440587.5
+
+#define J2000 (double) 2451545.0
 
 /* A macro to compute the number of days elapsed since 2000 Jan 0.0 */
 /* (which is equal to 1999 Dec 31, 0h UT)                           */
 
 #define days_since_2000_Jan_0(y,m,d) \
-    (367L*(y)-((7*((y)+(((m)+9)/12)))/4)+((275*(m))/9)+(d)-730529L)
+    (367L*(y)-((7*((y)+(((m)+9)/12)))/4)+((275*(m))/9)+(d)-730531.5L)
 
 /* Some conversion factors between radians and degrees */
 
@@ -55,61 +60,79 @@ Released to the public domain by Paul Schlyter, December 1992
 /* Sunrise/set is considered to occur when the Sun's upper limb is    */
 /* 35 arc minutes below the horizon (this accounts for the refraction */
 /* of the Earth's atmosphere).                                        */
-#define day_length(year,month,day,lon,lat)  \
-        __daylen__( year, month, day, lon, lat, -35.0/60.0, 1 )
+#define day_length(jd, lon, lat)  \
+        __daylen__( jd, lon, lat, -50.0/60.0, 1 )
+//~ #define day_length(year,month,day,lon,lat)  \
+        //~ __daylen__( year, month, day, lon, lat, -50.0/60.0, 1 )
 
 /* This macro computes the length of the day, including civil twilight. */
 /* Civil twilight starts/ends when the Sun's center is 6 degrees below  */
 /* the horizon.                                                         */
-#define day_civil_twilight_length(year,month,day,lon,lat)  \
-        __daylen__( year, month, day, lon, lat, -6.0, 0 )
+#define day_civil_twilight_length(jd,lon,lat)  \
+        __daylen__( jd, lon, lat, -6.0, 0 )
+//~ #define day_civil_twilight_length(year,month,day,lon,lat)  \
+        //~ __daylen__( year, month, day, lon, lat, -6.0, 0 )				
 
 /* This macro computes the length of the day, incl. nautical twilight.  */
 /* Nautical twilight starts/ends when the Sun's center is 12 degrees    */
 /* below the horizon.                                                   */
-#define day_nautical_twilight_length(year,month,day,lon,lat)  \
-        __daylen__( year, month, day, lon, lat, -12.0, 0 )
+#define day_nautical_twilight_length(jd, lon, lat)  \
+        __daylen__( jd, lon, lat, -12.0, 0 )
+//~ #define day_nautical_twilight_length(year,month,day,lon,lat)  \
+        //~ __daylen__( year, month, day, lon, lat, -12.0, 0 )				
 
 /* This macro computes the length of the day, incl. astronomical twilight. */
 /* Astronomical twilight starts/ends when the Sun's center is 18 degrees   */
 /* below the horizon.                                                      */
-#define day_astronomical_twilight_length(year,month,day,lon,lat)  \
-        __daylen__( year, month, day, lon, lat, -18.0, 0 )
-
+#define day_astronomical_twilight_length(jd, lon, lat)  \
+        __daylen__( jd, lon, lat, -18.0, 0 )
+//~ #define day_astronomical_twilight_length(year,month,day,lon,lat)  \
+        //~ __daylen__( year, month, day, lon, lat, -18.0, 0 )
 
 /* This macro computes times for sunrise/sunset.                      */
 /* Sunrise/set is considered to occur when the Sun's upper limb is    */
 /* 35 arc minutes below the horizon (this accounts for the refraction */
 /* of the Earth's atmosphere).                                        */
-#define sun_rise_set(year,month,day,lon,lat,rise,set)  \
-        __sunriset__( year, month, day, lon, lat, -50.0/60.0, 0, rise, set )
+#define sun_rise_set(jd, lon, lat, rise, set)  \
+        __sunriset__( jd, lon, lat, -50.0/60.0, 0, rise, set )
+//~ #define sun_rise_set(year,month,day,lon,lat,rise,set)  \
+        //~ __sunriset__( year, month, day, lon, lat, -50.0/60.0, 0, rise, set )				
 
 /* This macro computes the start and end times of civil twilight.       */
 /* Civil twilight starts/ends when the Sun's center is 6 degrees below  */
 /* the horizon.                                                         */
-#define civil_twilight(year,month,day,lon,lat,start,end)  \
-        __sunriset__( year, month, day, lon, lat, -6.0, 0, start, end )
+#define civil_twilight(jd, lon, lat, start, end)  \
+        __sunriset__( jd, lon, lat, -6.0, 0, start, end )
+//~ #define civil_twilight(year,month,day,lon,lat,start,end)  \
+        //~ __sunriset__( year, month, day, lon, lat, -6.0, 0, start, end )				
 
 /* This macro computes the start and end times of nautical twilight.    */
 /* Nautical twilight starts/ends when the Sun's center is 12 degrees    */
 /* below the horizon.                                                   */
-#define nautical_twilight(year,month,day,lon,lat,start,end)  \
-        __sunriset__( year, month, day, lon, lat, -12.0, 0, start, end )
+#define nautical_twilight(jd, lon, lat, start, end)  \
+        __sunriset__( jd, lon, lat, -12.0, 0, start, end )
+//~ #define nautical_twilight(year,month,day,lon,lat,start,end)  \
+        //~ __sunriset__( year, month, day, lon, lat, -12.0, 0, start, end )				
 
 /* This macro computes the start and end times of astronomical twilight.   */
 /* Astronomical twilight starts/ends when the Sun's center is 18 degrees   */
 /* below the horizon.                                                      */
-#define astronomical_twilight(year,month,day,lon,lat,start,end)  \
-        __sunriset__( year, month, day, lon, lat, -18.0, 0, start, end )
-
+#define astronomical_twilight(jd, lon, lat, start, end)  \
+        __sunriset__( jd, lon, lat, -18.0, 0, start, end )
+//~ #define astronomical_twilight(year,month,day,lon,lat,start,end)  \
+        //~ __sunriset__( year, month, day, lon, lat, -18.0, 0, start, end )
 
 /* Function prototypes */
-
-double __daylen__( int year, int month, int day, double lon, double lat,
-                   double altit, int upper_limb );
-
-int __sunriset__( int year, int month, int day, double lon, double lat,
+									 
+double __daylen__( double jd, double lon, double lat,
+                   double altit, int upper_limb );									 
+//~ double __daylen__( int year, int month, int day, double lon, double lat,
+                   //~ double altit, int upper_limb );
+									 
+int __sunriset__( double jd, double lon, double lat,
                   double altit, int upper_limb, double *rise, double *set );
+//~ int __sunriset__( int year, int month, int day, double lon, double lat,
+                  //~ double altit, int upper_limb, double *rise, double *set );
 
 void sunpos( double d, double *lon, double *r );
 
@@ -128,11 +151,21 @@ double GMST0( double d );
 void main(void)
 {
       int year,month,day;
+	    double d;  /* Days since 2000 Jan 0.0 (negative before) */
+	    double jd = time(0)/86400.0 + EJD - J2000;
       double lon, lat;
       double daylen, civlen, nautlen, astrlen;
       double rise, set, civ_start, civ_end, naut_start, naut_end,
-             astr_start, astr_end;
+                   astr_start, astr_end;
       int    rs, civ, naut, astr;
+	
+	    lat = 41.9475360;
+			lon = -88.7430640;
+	
+			printf ("\tMJD \t\t\t : %f \n", jd);
+
+	    //~ printf ("Number of days since 1970 Jan 1st " \
+                 //~ "is %ld \n", seconds / 86400);
 
       //~ printf( "Longitude (+ is east) and latitude (+ is north) : " );
       //~ scanf( "%lf %lf", &lon, &lat );
@@ -142,45 +175,46 @@ void main(void)
             //printf( "Input date ( yyyy mm dd ) (ctrl-C exits): " );
             //scanf( "%d %d %d", &year, &month, &day );
 
-            year = 2015;
-            month = 05;
-            day = 9;
-            lat = 41.93;
-            lon = -88.75;
+            //~ year = 2015;
+            //~ month = 06;
+            //~ day = 6;
 
-            daylen  = day_length(year,month,day,lon,lat);
-            civlen  = day_civil_twilight_length(year,month,day,lon,lat);
-            nautlen = day_nautical_twilight_length(year,month,day,lon,lat);
-            astrlen = day_astronomical_twilight_length(year,month,day,
-                  lon,lat);
+            //~ d = days_since_2000_Jan_0(year,month,day) - lon/360.0;
+						//~ printf( "JD %6.6fh \n", d + 2451545.0 );
+						
+            daylen  = day_length(jd, lon, lat);
+            civlen  = day_civil_twilight_length(jd, lon, lat);
+            nautlen = day_nautical_twilight_length(jd, lon, lat);
+            astrlen = day_astronomical_twilight_length(jd, lon, lat);
 
-            printf( "Day length:                 %5.2f hours\n", daylen );
-            printf( "With civil twilight         %5.2f hours\n", civlen );
-            printf( "With nautical twilight      %5.2f hours\n", nautlen );
-            printf( "With astronomical twilight  %5.2f hours\n", astrlen );
-            printf( "Length of twilight: civil   %5.2f hours\n",
-                  (civlen-daylen)/2.0);
-            printf( "                  nautical  %5.2f hours\n",
-                  (nautlen-daylen)/2.0);
-            printf( "              astronomical  %5.2f hours\n",
-                  (astrlen-daylen)/2.0);
-
-            rs   = sun_rise_set         ( year, month, day, lon, lat,
+            printf( "\tDay length \t : %5.2f hours\n", daylen );
+            //~ printf( "With civil twilight         %5.2f hours\n", civlen );
+            //~ printf( "With nautical twilight      %5.2f hours\n", nautlen );
+            //~ printf( "With astronomical twilight  %5.2f hours\n", astrlen );
+            //~ printf( "Length of twilight: civil   %5.2f hours\n",
+                  //~ (civlen-daylen)/2.0);
+            //~ printf( "                  nautical  %5.2f hours\n",
+                  //~ (nautlen-daylen)/2.0);
+            //~ printf( "              astronomical  %5.2f hours\n",
+                  //~ (astrlen-daylen)/2.0);
+            rs   = sun_rise_set         ( jd, lon, lat,
                                           &rise, &set );
-            civ  = civil_twilight       ( year, month, day, lon, lat,
-                                          &civ_start, &civ_end );
-            naut = nautical_twilight    ( year, month, day, lon, lat,
-                                          &naut_start, &naut_end );
-            astr = astronomical_twilight( year, month, day, lon, lat,
-                                          &astr_start, &astr_end );
+            //~ rs   = sun_rise_set         ( year, month, day, lon, lat,
+                                          //~ &rise, &set );
+            //~ civ  = civil_twilight       ( year, month, day, lon, lat,
+                                          //~ &civ_start, &civ_end );
+            //~ naut = nautical_twilight    ( year, month, day, lon, lat,
+                                          //~ &naut_start, &naut_end );
+            //~ astr = astronomical_twilight( year, month, day, lon, lat,
+                                          //~ &astr_start, &astr_end );
 
-            printf( "Sun at south %5.2fh UT\n", (rise+set)/2.0 );
+            printf( "\tSun at south \t : %2.0f:%2.0f UT\n", floor((rise+set)/2.0), floor(fmod((rise+set)/2.0, 1.0) * 60));
 
             switch( rs )
             {
                 case 0:
-                    printf( "Sun rises %5.2fh UT, sets %5.2fh UT\n",
-                             rise, set );
+                    printf( "\tSun rises \t\t : %2.0f:%2.0f UT\n", floor(rise), floor(fmod(rise, 1.0 ) * 60));
+								    printf( "\tSun sets \t\t : %2.0f:%2.0f UT\n", floor(set),  floor(fmod(set, 1.0 ) * 60)); 
                     break;
                 case +1:
                     printf( "Sun above horizon\n" );
@@ -190,56 +224,57 @@ void main(void)
                     break;
             }
 
-            switch( civ )
-            {
-                case 0:
-                    printf( "Civil twilight starts %5.2fh, "
-                            "ends %5.2fh UT\n", civ_start, civ_end );
-                    break;
-                case +1:
-                    printf( "Never darker than civil twilight\n" );
-                    break;
-                case -1:
-                    printf( "Never as bright as civil twilight\n" );
-                    break;
-            }
+            //~ switch( civ )
+            //~ {
+                //~ case 0:
+                    //~ printf( "Civil twilight starts %5.2fh, "
+                            //~ "ends %5.2fh UT\n", civ_start, civ_end );
+                    //~ break;
+                //~ case +1:
+                    //~ printf( "Never darker than civil twilight\n" );
+                    //~ break;
+                //~ case -1:
+                    //~ printf( "Never as bright as civil twilight\n" );
+                    //~ break;
+            //~ }
 
-            switch( naut )
-            {
-                case 0:
-                    printf( "Nautical twilight starts %5.2fh, "
-                            "ends %5.2fh UT\n", naut_start, naut_end );
-                    break;
-                case +1:
-                    printf( "Never darker than nautical twilight\n" );
-                    break;
-                case -1:
-                    printf( "Never as bright as nautical twilight\n" );
-                    break;
-            }
+            //~ switch( naut )
+            //~ {
+                //~ case 0:
+                    //~ printf( "Nautical twilight starts %5.2fh, "
+                            //~ "ends %5.2fh UT\n", naut_start, naut_end );
+                    //~ break;
+                //~ case +1:
+                    //~ printf( "Never darker than nautical twilight\n" );
+                    //~ break;
+                //~ case -1:
+                    //~ printf( "Never as bright as nautical twilight\n" );
+                    //~ break;
+            //~ }
 
-            switch( astr )
-            {
-                case 0:
-                    printf( "Astronomical twilight starts %5.2fh, "
-                            "ends %5.2fh UT\n", astr_start, astr_end );
-                    break;
-                case +1:
-                    printf( "Never darker than astronomical twilight\n" );
-                    break;
-                case -1:
-                    printf( "Never as bright as astronomical twilight\n" );
-                    break;
-            }
+            //~ switch( astr )
+            //~ {
+                //~ case 0:
+                    //~ printf( "Astronomical twilight starts %5.2fh, "
+                            //~ "ends %5.2fh UT\n", astr_start, astr_end );
+                    //~ break;
+                //~ case +1:
+                    //~ printf( "Never darker than astronomical twilight\n" );
+                    //~ break;
+                //~ case -1:
+                    //~ printf( "Never as bright as astronomical twilight\n" );
+                    //~ break;
+            //~ }
 
       //~ }
 }
 
 
 /* The "workhorse" function for sun rise/set times */
-
-int __sunriset__( int year, int month, int day, double lon, double lat,
+int __sunriset__( double jd, double lon, double lat,
                   double altit, int upper_limb, double *trise, double *tset )
+//~ int __sunriset__( int year, int month, int day, double lon, double lat,
+                  //~ double altit, int upper_limb, double *trise, double *tset )
 /***************************************************************************/
 /* Note: year,month,date = calendar date, 1801-2099 only.             */
 /*       Eastern longitude positive, Western longitude negative       */
@@ -271,22 +306,33 @@ int __sunriset__( int year, int month, int day, double lon, double lat,
 /**********************************************************************/
 {
       double  d,  /* Days since 2000 Jan 0.0 (negative before) */
-      sr,         /* Solar distance, astronomical units */
+	    gmsad,
+      majd,	
       sRA,        /* Sun's Right Ascension */
       sdec,       /* Sun's declination */
-      sradius,    /* Sun's apparent radius */
-      t,          /* Diurnal arc */
-      tsouth,     /* Time when Sun is at south */
-      sidtime;    /* Local sidereal time */
+	    sr,           /* Solar distance, astronomical units */
+      sradius,   /* Sun's apparent radius */
+      t,             /* Diurnal arc */
+      tsouth,    /* Time when Sun is at south */
+      sidtime;   /* Local sidereal time */
 
       int rc = 0; /* Return cde from function - usually 0 */
 
       /* Compute d of 12h local mean solar time */
-      d = days_since_2000_Jan_0(year,month,day) + 0.5 - lon/360.0;
-
+      //~ majd = days_since_2000_Jan_0(year,month,day);
+	    //~ printf( "MAJD %6.6f \n", majd );
+	    //~ printf( "AJD %6.6f \n", majd + 2451545.0 );
+	    //~ printf( "JD %6.6f \n", majd + 2451545.0 + 0.5 );
+	    d =  jd + 0.5 - lon/360.0;
+      //~ printf( "mean solar transit JD %6.9f \n", d + 2451545.0 );
+	
       /* Compute local sideral time of this moment */
-      sidtime = revolution( GMST0(d) + 180.0 + lon );
-
+	    gmsad = GMST0(d);
+			//~ printf( "GMSAD %6.6fh \n", gmsad );
+      sidtime = revolution( gmsad + 180.0 + lon );
+	    //~ printf( "LMSAD %6.6fh \n", sidtime );
+      //~ printf( "LMST %6.6fh \n", sidtime / 15.0 );
+			
       /* Compute Sun's RA + Decl at this moment */
       sun_RA_dec( d, &sRA, &sdec, &sr );
 
@@ -326,7 +372,9 @@ int __sunriset__( int year, int month, int day, double lon, double lat,
 /* The "workhorse" function */
 
 
-double __daylen__( int year, int month, int day, double lon, double lat,
+//~ double __daylen__( int year, int month, int day, double lon, double lat,
+                   //~ double altit, int upper_limb )
+double __daylen__( double jd, double lon, double lat,
                    double altit, int upper_limb )
 /**********************************************************************/
 /* Note: year,month,date = calendar date, 1801-2099 only.             */
@@ -354,7 +402,9 @@ double __daylen__( int year, int month, int day, double lon, double lat,
       t;          /* Diurnal arc */
 
       /* Compute d of 12h local mean solar time */
-      d = days_since_2000_Jan_0(year,month,day) + 0.5 - lon/360.0;
+      //~ d = days_since_2000_Jan_0(year,month,day) + 0.5 - lon/360.0;
+	    /* Compute d of 12h local mean solar time */
+      d = jd -  + 0.5 - lon/360.0;
 
       /* Compute obliquity of ecliptic (inclination of Earth's axis) */
       obl_ecl = 23.4393 - 3.563E-7 * d;
@@ -408,7 +458,10 @@ void sunpos( double d, double *lon, double *r )
              v;         /* True anomaly */
 
       /* Compute mean elements */
-      M = revolution( 356.0470 + 0.9856002585 * d );
+      //~ M = fmod( 356.0470 + 0.9856002585 * d, 360.0 );
+	    M = fmod( 357.52911 + 0.985600281725 * d +
+	                      -4.20718412047e-09 * d * d +
+	                      1.03430001369e-12 * d * d * d, 360.0 );
       w = 282.9404 + 4.70935E-5 * d;
       e = 0.016709 - 1.151E-9 * d;
 
@@ -416,11 +469,12 @@ void sunpos( double d, double *lon, double *r )
       E = M + e * RADEG * sind(M) * ( 1.0 + e * cosd(M) );
 			x = cosd(E) - e;
       y = sqrt( 1.0 - e*e ) * sind(E);
-      *r = sqrt( x*x + y*y );              /* Solar distance */
+      *r = sqrt( x*x + y*y );            /* Solar distance */
       v = atan2d( y, x );                  /* True anomaly */
-      *lon = v + w;                        /* True solar longitude */
-      if ( *lon >= 360.0 )
-            *lon -= 360.0;                   /* Make it 0..360 degrees */
+      *lon = fmod(v + w, 360.0);    /* True solar longitude */
+			
+      //~ if ( *lon >= 360.0 )
+            //~ *lon -= 360.0;                   /* Make it 0..360 degrees */
 }
 
 void sun_RA_dec( double d, double *RA, double *dec, double *r )
@@ -435,7 +489,7 @@ void sun_RA_dec( double d, double *RA, double *dec, double *r )
       y = *r * sind(lon);
 
       /* Compute obliquity of ecliptic (inclination of Earth's axis) */
-      obl_ecl = 23.4393 - 3.563E-7 * d;
+      obl_ecl = 23.439291 - 3.563E-7 * d;
 
       /* Convert to equatorial rectangular coordinates - x is uchanged */
       z = y * sind(obl_ecl);
@@ -490,7 +544,7 @@ double rev180( double x )
 /*                                                                 */
 /*  GMST = GMST0 + UT                                              */
 /*                                                                 */
-/* where GMST0 is the GMST "at 0h UT" but at the current moment!   */
+/* where GMST0 is not the GMST "at 0h UT" but at the current moment!   */
 /* Defined in this way, GMST0 will increase with about 4 min a     */
 /* day.  It also happens that GMST0 (in degrees, 1 hr = 15 degr)   */
 /* is equal to the Sun's mean longitude plus/minus 180 degrees!    */
@@ -507,7 +561,17 @@ double GMST0( double d )
       /* add these numbers, I'll let the C compiler do it for me.  */
       /* Any decent C compiler will add the constants at compile   */
       /* time, imposing no runtime or code overhead.               */
-      sidtim0 = revolution( ( 180.0 + 356.0470 + 282.9404 ) +
-                          ( 0.9856002585 + 4.70935E-5 ) * d );
+      sidtim0 = revolution( ( 180.0 + 356.0470 +  282.9404) +
+                          ( 0.9856002585 + 4.70935E-5 ) * d ); 
+	    sidtim0 = fmod( ( 180.0 + 356.0470 +  282.9404) +
+                          ( 0.9856002585 + 4.70935E-5 ) * d, 360.0 ); 
+	    sidtim0 = fmod( ( 180 + 357.52911 + 282.9404 ) + 
+																( 0.985600281725 + 4.70935E-5 ) * d, 360.0);
+			//~ sidtim0 = fmod(             280.4664567                +
+                             //~ d * (            0.9856473601          +
+                             //~ d * (            8.30124024641e-09 +
+                             //~ d * (           -5.48326848477e-11 +
+                             //~ d * (           -1.78956192374e-10 +
+                             //~ d * (         -11.37718852471e-12 ) ) ) ) ), 360.0 );
       return sidtim0;
 }  /* GMST0 */
