@@ -29,8 +29,11 @@ Other useful info
 9. [Building a library](http://crasseux.com/books/ctutorial/Building-a-library.html)
 10. [C Libraries](http://www.cs.swarthmore.edu/~newhall/unixhelp/howto_C_libraries.html)
 11. ['fsf c style advice' google search](http://bit.ly/1HRG7xs)
+<<<<<<< HEAD
 12. [Richard Stallman](https://en.wikipedia.org/wiki/Richard_Stallman)
 13. [Free Software Foundation](https://en.wikipedia.org/wiki/Free_Software_Foundation)
+=======
+>>>>>>> 3dbee2427ffb1e5a02525ca481eb2adaf3b69d78
 
 To the wiki
 
