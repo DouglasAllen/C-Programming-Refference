@@ -8,6 +8,7 @@ union value {
 } data;
 int i;                  /* Random integer */
 float f;                /* Random floating-point number */
+
 main()
 {
     data.f_value = 5.0;

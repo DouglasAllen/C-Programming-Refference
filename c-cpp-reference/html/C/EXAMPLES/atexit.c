@@ -12,15 +12,15 @@
 #include <stdlib.h>
 
 void End(void);
-        
+
 main()
 {
-    atexit(End);
+	atexit(End);
 
-    printf("Program is about to end\n");
+	printf("Program is about to end\n");
 }
 
 void End(void)
 {
-    printf("Program ended\n");
+	printf("Program ended\n");
 }

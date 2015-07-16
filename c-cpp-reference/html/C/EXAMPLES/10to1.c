@@ -7,48 +7,48 @@
  *
  *******************************************************************/
 
-   			/*			version 1          */
+/*			version 1          */
 
 #include <stdio.h>
 
 main()
 {
-    int a=10;
-    while (a >= 1)
-    {
-        printf("a is %2d\n",a);
-        a=a-1;
-    }
+	int a=10;
+	while (a >= 1)
+	{
+		printf("integer variable a is %2d\n",a);
+		a=a-1;
+	}
 }
 
 /*******************************************************************/
 
-   			/*			version 2          */
+/*			version 2          */
 
-main()
-{
-    a =11;
-    while (0 < (a = a - 1) )
-    {
-        printf("a is %2d\n",a);
-    }
-}
+//~ main()
+//~ {
+	//~ a =11;
+	//~ while (0 < (a = a - 1) )
+	//~ {
+		//~ printf("a is %2d\n",a);
+	//~ }
+//~ }
 
 /*******************************************************************/
 
-   			/*			version 3          */
+/*			version 3          */
 
-main()
-{
-   			/*
-			 * This works because the 'while' loop
-			 * will keep spinning while 'i' is TRUE.
-        		 * That is while 'i' is NOT equal to 0
-   			 */
+//~ main()
+//~ {
+	//~ /*
+	 //~ * This works because the 'while' loop
+	 //~ * will keep spinning while 'i' is TRUE.
+	 //~ * That is while 'i' is NOT equal to 0
+	 //~ */
 
-    a=11;
-    while (i)
-    {
-        printf ("%i",i=i-1);
-    }
-}
+	//~ a=11;
+	//~ while (i)
+	//~ {
+		//~ printf ("%i",i=i-1);
+	//~ }
+//~ }

@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Purpose: Program to demonstrate the * flag limiting a string filed width
+ * Purpose: Program to demonstrate the * flag limiting a string field width
  *          in a 'sprintf' statement.
  *
  *          This example shows an alternative way of performing a strncpy.

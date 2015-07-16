@@ -12,11 +12,11 @@ void clrscr(void);
 
 main()
 {
-    clrscr();
+	clrscr();
 }
 
 void clrscr(void)
 {
-    printf("\033[2J");		        /* Clear the entire screen.		*/
-    printf("\033[0;0f");		/* Move cursor to the top left hand corner */
+	printf("\033[2J");		        /* Clear the entire screen.		*/
+	printf("\033[0;0f");		/* Move cursor to the top left hand corner */
 }

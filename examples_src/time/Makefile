@@ -2,7 +2,7 @@
 	$(ECHO) compiling $(<)
 	$(Q) $(CXX) $(INCFLAGS) $(CPPFLAGS) $(CXXFLAGS) $(COUTFLAG)$@ -c $<
 
-all : sunriset
+#~ all : sunriset
 
 			
 time_cpp : better_current_gmtime_struct_builder.c
@@ -10,10 +10,10 @@ time_cpp : better_current_gmtime_struct_builder.c
 	
 .PHONY : all
 	
-#~ getdate : getdate.o
-	#~ cc -o getdate getdate.o
-#~ getdate.o : getdate.c
-	#~ cc -c getdate.c 	
+getdate : getdate.o
+	cc -o getdate getdate.o
+getdate.o : getdate.c
+	cc -c getdate.c 	
 	
 gettime : gettime.o
 	cc -o gettime gettime.o
@@ -31,7 +31,7 @@ gmtime.o : gmtime.c
 	cc -c gmtime.c	
 	
 sunriset : sunriset.o
-	cc -o sunriset sunriset.o -lm
+	cc -o sunriset sunriset.o -lm -lsofa_c
 sunriset.o : sunriset.c
 	cc -c sunriset.c
 	

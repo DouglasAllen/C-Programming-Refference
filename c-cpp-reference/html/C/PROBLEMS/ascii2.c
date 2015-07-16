@@ -5,16 +5,18 @@
  * Date:    12-Mar-94
  *
  ************************************************************************/
+/* gcc ascii2.c -o ascii2 */
 
 #include <stdio.h>			/* printf, putchar, fopen, fclose */
+#include <string.h>    /* strcpy */
 
 					/* Function declarations	*/
 int ascii(int);
 
 main()
 {
-ascii('h');				/* ascii table in Hex		*/
-ascii('d');				/* ascii table in decimal	*/
+ascii('h');			/* ascii table in Hex		*/
+ascii('d');			/* ascii table in decimal	*/
 ascii('r');				/* test invalid option		*/
 }
 

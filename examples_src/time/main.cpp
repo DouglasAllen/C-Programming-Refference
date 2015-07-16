@@ -8,8 +8,8 @@
 int main(void)
 {
     struct tm 
-	  tm = *localtime(&(time_t){time(NULL)});
-    printf("%s", asctime(&tm));
+	  //~ tm = *localtime(&(time_t){time(NULL)});
+    //~ printf("%s", asctime(&tm));
 		
 		char *asctime(const struct tm *timeptr);
  

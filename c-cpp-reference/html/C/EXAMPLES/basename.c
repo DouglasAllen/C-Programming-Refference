@@ -17,35 +17,35 @@ char *basename(const char *FullName);
 
 main()
 {
-    char *FullName = "/usr/local/bin/fdmount";
+	char *FullName = "/usr/local/bin/fdmount";
 
-    printf("Full name is %s \n", FullName);
+	printf("Full name is %s \n", FullName);
 
-    printf("File name is %s \n", basename(FullName));
+	printf("File name is %s \n", basename(FullName));
 }
 
 /************************************************************************/
 
 char *basename(const char *FullName)
 {
-    static char *File;
+	static char *File;
 
-    /* ...        I guess DOS users will have to change the direction of
-       ...        the slash. */
+	/* ...        I guess DOS users will have to change the direction of
+	   ...        the slash. */
 
-    File = strrchr(FullName, '/');
+	File = strrchr(FullName, '/');
 
-    /* ...        If no slashes have been found, Return the full file name */
+	/* ...        If no slashes have been found, Return the full file name */
 
-    if (File == NULL)
-    {
-        File = FullName;
-    }
-    else
-    {
-        File++;
-    }
+	if (File == NULL)
+	{
+		File = FullName;
+	}
+	else
+	{
+		File++;
+	}
 
-    return(File);
+	return(File);
 }
 

@@ -14,23 +14,28 @@
  * Date:    04-Apr-94
  *
  ************************************************************************/
+/* gcc array_prob.c -o array_prob */
 
 #include <stdio.h>
 
 #define ITTERATIONS 20
-				/* NO COMMENTS! can you figure it out? */
+/* NO COMMENTS! can you figure it out? */
 main()
 {
-int num[3]={0,1};
-int count1, count2;
+	int num[3]={0,1};
+	int count1, count2;
 
-printf("%d %d ", num[0], num[1]);
+	printf("%d %d ", num[0], num[1]);
 
-for (count1=0; count1 < ITTERATIONS-2; count1++)
-   {
-   num[2] = num[0] + num[1];
-   printf("%d ",num[2]);
-   for (count2 =0; count2 < 2; count2++) num[count2] = num[count2+1];
-   }
-puts("");
+	for (count1=0; count1 < ITTERATIONS-2; count1++)
+	{
+		num[2] = num[0] + num[1];
+		printf("%d ",num[2]);
+		for (count2 =0; count2 < 2; count2++)
+		{	
+			//~ printf("%d %d \n", num[count2],  num[count2+1]);
+			num[count2] = num[count2+1];
+		}
+	}
+	puts("");
 }

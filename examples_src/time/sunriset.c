@@ -13,7 +13,7 @@ Released to the public domain by Paul Schlyter, December 1992
 
 */
 
-
+#include <sofa.h>
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
@@ -160,9 +160,14 @@ void main(void)
       int    rs, civ, naut, astr;
 	
 	    lat = 41.9475360;
-			lon = -88.7430640;
+			lon = -88.7430640;			
 	
-			printf ("\tMJD \t\t\t : %f \n", jd);
+	    int iy, im, id;
+	    double fd;
+	    iauJd2cal(jd + J2000, 0, &iy, &im, &id, &fd);
+	    printf ("\tDate \t\t : %4d/%2.2d/%2.2d\n", iy, im, id );
+	    printf ("\tFD \t\t\t : %f\n", fd );
+	    printf ("\tMJD \t\t\t : %f \n", jd);
 
 	    //~ printf ("Number of days since 1970 Jan 1st " \
                  //~ "is %ld \n", seconds / 86400);

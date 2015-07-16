@@ -8,21 +8,22 @@
  ************************************************************************/
 
 #include <stdio.h>
+#include <string.h>
 
 main ()
 {
-					/* Declare the structure.	*/
-  struct { char name[20]; int age;} record ;
+	/* Declare the structure.	*/
+	struct { char name[20]; int age;} record ;
 
-					/* Put some values into the 
-					 * structure.			*/
-  strcpy(record.name, "Joe Brown");
-  record.age = 21;
+	/* Put some values into the 
+	 * structure.			*/
+	strcpy(record.name, "Joe Brown");
+	record.age = 21;
 
-					/* Display the contents of the
-					 * structure.			*/
+	/* Display the contents of the
+	 * structure.			*/
 
-  printf("name is %s \nage is %d \n", record.name, record.age);
+	printf("name is %s \nage is %d \n", record.name, record.age);
 }
 
 /************************************************************************

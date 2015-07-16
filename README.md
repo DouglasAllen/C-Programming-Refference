@@ -28,6 +28,9 @@ Other useful info
 8. [Creating a library with the GNU archiver](http://www.network-theory.co.uk/docs/gccintro/gccintro_79.html)
 9. [Building a library](http://crasseux.com/books/ctutorial/Building-a-library.html)
 10. [C Libraries](http://www.cs.swarthmore.edu/~newhall/unixhelp/howto_C_libraries.html)
+11. ['fsf c style advice' google search](http://bit.ly/1HRG7xs)
+12. [Richard Stallman](https://en.wikipedia.org/wiki/Richard_Stallman)
+13. [Free Software Foundation](https://en.wikipedia.org/wiki/Free_Software_Foundation)
 
 To the wiki
 
