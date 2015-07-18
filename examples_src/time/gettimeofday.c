@@ -1,3 +1,4 @@
+/* gcc -o gettimeofday gettimeofday.c */
 /* C routine: sample gettimeofday with time in milliseconds
    mmc mchirico@users.sourceforge.net
 

@@ -1,3 +1,4 @@
+/* gcc -Wall -g -o ctime2 ctime2.c */
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>

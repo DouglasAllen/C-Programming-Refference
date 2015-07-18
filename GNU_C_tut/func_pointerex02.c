@@ -2,10 +2,30 @@
 
 #include <stdio.h>
 
-int add (int, int);
-int subtract (int, int);
-int do_math (int (*math_fn_ptr) (int, int), int, int);
-int main();
+//~ int add (int, int);
+int add (int num1, int num2)
+{
+  return (num1 + num2);
+}
+
+//~ int subtract (int, int);
+int subtract (int num1, int num2)
+{
+  return (num1 - num2);
+}
+
+//~ int do_math (int (*math_fn_ptr) (int, int), int, int);
+int do_math (int (*math_fn_ptr) (int, int), int num1, int num2)
+{
+  int result;
+  printf ("\ndo_math here.\n");
+  /* Call one of the math functions passed to us:
+      either add or subtract. */
+  result = (*math_fn_ptr) (num1, num2);
+  return result;
+}
+
+//~ int main();
 
 int main()
 {
@@ -18,24 +38,4 @@ int main()
   printf ("Subtraction = %d.\n\n", result);
 	
   return 0;
-}
-
-int add (int num1, int num2)
-{
-  return (num1 + num2);
-}
-
-int subtract (int num1, int num2)
-{
-  return (num1 - num2);
-}
-
-int do_math (int (*math_fn_ptr) (int, int), int num1, int num2)
-{
-  int result;
-  printf ("\ndo_math here.\n");
-  /* Call one of the math functions passed to us:
-      either add or subtract. */
-  result = (*math_fn_ptr) (num1, num2);
-  return result;
 }

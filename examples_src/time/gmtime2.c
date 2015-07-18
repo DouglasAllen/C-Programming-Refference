@@ -1,4 +1,5 @@
 /* Example using gmtime by TechOnTheNet.com */
+/* gcc -o gmtime2 gmtime2.c */
 
 #include <stdio.h>
 #include <time.h>

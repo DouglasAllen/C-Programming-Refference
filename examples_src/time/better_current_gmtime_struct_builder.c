@@ -14,20 +14,19 @@ int main()
 	time_t now;
 	
 	/* set the time for now */
-	now = time( NULL ); /* NULL is a control character */
+	now = time( NULL );	
 	
-	/* set up time ponter */
-	struct tm *tp;
+	/* assign the current time struct from the time pointer */
+	struct tm t = *tp;
+	//~ struct tm *tp;
 	tp = gmtime(&now);
 	
 	/* quick check of time expected */	
-	printf("%s\n", asctime(tp));
-
-	/* assign the current time struct from the time pointer */
-	struct tm t = *tp;
+	printf("%s\n", asctime(tp));	
 	
 	/* print the parts */
 	print_struct_parts(&t);
+	
 	return 0;	
 }
 

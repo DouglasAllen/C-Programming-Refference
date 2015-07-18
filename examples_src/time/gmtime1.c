@@ -1,3 +1,4 @@
+/* gcc -o gmtime1 gmtime1.c */
 #include <stdio.h>
 #include <time.h>
 
