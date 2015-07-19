@@ -1,7 +1,7 @@
 /* gcc -Wall -g -o gmtime_struct gmtime_struct.c */
 
-#include <time.h>
 #include <stdio.h>
+#include <time.h>
 
 /********** prototype **************/
 void print_struct_parts(struct tm* t);
