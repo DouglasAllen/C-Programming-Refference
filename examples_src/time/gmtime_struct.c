@@ -15,8 +15,8 @@ void print_struct_parts(struct tm * t)
 	printf ("\tHour\t\t\t: %i\n", t->tm_hour);
 	printf ("\tMinute\t\t\t: %i\n", t->tm_min);
 	printf ("\tSecond\t\t\t: %i\n", t->tm_sec);
-	printf ("\tYear\t\t\t\t: %i\n", t->tm_year + 1900);
-	printf ("\tYear day\t\t\t: %i\n", t->tm_yday + 1);
+	printf ("\tYear\t\t\t: %i\n", t->tm_year + 1900);
+	printf ("\tYear day\t\t: %i\n", t->tm_yday + 1);
 	printf ("\tDaylight savings?\t: %i\n\n", t->tm_isdst);
 }
 
