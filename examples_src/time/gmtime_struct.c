@@ -22,28 +22,28 @@ void print_struct_parts(struct tm * t)
 
 int main()
 {
-	
+
 	time_t now;	
 	/* set the time for now */
 	time(&now);
 	printf ("The current local time is: %s", ctime (&now));
 	/* time pointer */	
 	struct tm * tp;
-	
+
 	/* time pointer to local time */
-  tp = localtime(&now);
+	tp = localtime(&now);
 	/* quick check of time expected */
-  puts(asctime(tp));
+	puts(asctime(tp));
 	/* print the parts */
 	print_struct_parts(tp);
-	
+
 	/* change time pointer to UTC time */
 	tp = gmtime(&now);	
 	/* quick check of time expected */		
 	puts(asctime(tp));		
 	/* print the parts */
 	print_struct_parts(tp);
-	
+
 	return 0;	
 }
 //
