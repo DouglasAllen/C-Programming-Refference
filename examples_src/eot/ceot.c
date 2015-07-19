@@ -303,11 +303,11 @@ int main()
 	int iy, im, id;
 	double fd;
 	iauJd2cal(jd, 0, &iy, &im, &id, &fd);
-	printf ("\tDate \t\t\t\t\t: %4d/%2.2d/%2.2d\n", iy, im, id );
+	printf ("\tDate \t\t\t: %4d/%2.2d/%2.2d\n", iy, im, id );
 
-	printf ("\tJD \t\t\t\t\t\t: %f \n", jd);
-	printf ("\tMJD \t\t\t\t\t\t: %f \n", mjd);
-	printf ("\tFD \t\t\t\t\t\t: %f\n", fd );
+	printf ("\tJD \t\t\t: %f \n", jd);
+	printf ("\tMJD \t\t\t: %f \n", mjd);
+	printf ("\tFD \t\t\t: %f\n", fd );
 
 	time_t rawtime;
 	struct tm *info;
@@ -315,41 +315,41 @@ int main()
 	time(&rawtime);
 	/* Get GMT time */
 	info = gmtime(&rawtime );
-	printf("\tUTC \t\t\t\t\t\t: %2d:%02d:%2d\n", (info->tm_hour)%24, info->tm_min, info->tm_sec);
+	printf("\tUTC \t\t\t: %2d:%02d:%2d\n", (info->tm_hour)%24, info->tm_min, info->tm_sec);
 
 	double t = mjd / 36525.0;
 
 	double sma = iauFalp03(t);
-	printf("\tmean anomaly Sun\t\t\t: %lf11 deg.\n", sma * DEGRAD);
+	printf("\tmean anomaly Sun\t: %lf11 deg.\n", sma * DEGRAD);
 	double sta = eqc(sma, t) + sma;
-	printf("\ttrue anomaly Sun\t\t\t: %lf11 deg.\n", sta * DEGRAD);
+	printf("\ttrue anomaly Sun\t: %lf11 deg.\n", sta * DEGRAD);
 	double orbit_angle = sma - sta;
-	printf("\torbital angle Sun\t\t\t: %lf11 deg.\n", orbit_angle * DEGRAD);
+	printf("\torbital angle Sun\t: %lf11 deg.\n", orbit_angle * DEGRAD);
 
 	double sml = ml_Sun(t);
-	printf("\tmean longitude Sun\t\t\t: %lf11 deg.\n", sml * DEGRAD);
+	printf("\tmean longitude Sun\t: %lf11 deg.\n", sml * DEGRAD);
 	double stl = tl_Sun(sma, t);
-	printf("\ttrue longitude Sun\t\t\t: %lf11 deg.\n", stl * DEGRAD);	
+	printf("\ttrue longitude Sun\t: %lf11 deg.\n", stl * DEGRAD);	
 	double omega = iauFaom03(t);
 	double sal = al_Sun(sma, t, omega);
-	printf("\tapparent longitude Sun\t\t: %lf11 deg.\n", sal * DEGRAD);
+	printf("\tapparent longitude Sun\t: %lf11 deg.\n", sal * DEGRAD);
 
 	double mo_Earth = iauObl06(jd, 0);
 	double dpsi, deps;
 	iauNut06a(jd, 0,&dpsi, &deps);
 	double to_Earth = mo_Earth + deps;
-	printf("\ttrue obliquity Earth\t\t\t: %lf11 deg.\n", to_Earth * DEGRAD);	
+	printf("\ttrue obliquity Earth\t: %lf11 deg.\n", to_Earth * DEGRAD);	
 	double y0 = sin_al_Sun(sal) * cos_to_Earth(to_Earth);
 	double cos_al_sun = cos_al_Sun(sal);
 	double sra = iauAnp(PI + ra_Sun(y0, cos_al_sun));
-	printf("\tright ascension Sun\t\t\t: %lf11 deg.\n", sra * DEGRAD);
+	printf("\tright ascension Sun\t: %lf11 deg.\n", sra * DEGRAD);
 
 	double obliquity_angle = sal - sra;
-	printf("\tobliquity angle Sun\t\t\t: %lf11 deg.\n", obliquity_angle * DEGRAD);
+	printf("\tobliquity angle Sun\t: %lf11 deg.\n", obliquity_angle * DEGRAD);
 	double eot_angle = orbit_angle + obliquity_angle;
-	printf("\tdelta total\t\t\t\t\t: %lf11 deg.\n", eot_angle * DEGRAD);
-	printf("\tdelta total minutes\t\t\t: %lf11\n", eot_angle * DEGRAD / 15 *  60);
-	printf("\tcompare with http://equationoftime.herokuapp.com/eot");
+	printf("\tdelta total\t\t: %lf11 deg.\n", eot_angle * DEGRAD);
+	printf("\tdelta total minutes\t: %lf11\n", eot_angle * DEGRAD / 15 *  60);
+	printf("\tcompare with http://equationoftime.herokuapp.com/eot\n");
 
 	return 0;
 }
