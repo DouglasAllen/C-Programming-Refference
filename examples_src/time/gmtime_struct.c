@@ -6,7 +6,7 @@
 /********** prototype **************/
 void print_struct_parts(struct tm* t);
 /* print the struct parts */
-void print_struct_parts(struct tm * t)
+void print_date_time_parts(struct tm * t)
 {
 	printf ("%s\n", "From time pointer");
 	printf ("\tWeek Day\t\t: %i\n", t->tm_wday + 1);
@@ -35,14 +35,14 @@ int main()
 	/* quick check of time expected */
 	puts(asctime(tp));
 	/* print the parts */
-	print_struct_parts(tp);
+	print_date_time_parts(tp);
 
 	/* change time pointer to UTC time */
 	tp = gmtime(&now);	
-	/* quick check of time expected */		
+			
 	puts(asctime(tp));		
-	/* print the parts */
-	print_struct_parts(tp);
+	
+	print_date_time_parts(tp);
 
 	return 0;	
 }
