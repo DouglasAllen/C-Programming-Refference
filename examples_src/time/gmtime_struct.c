@@ -8,7 +8,7 @@ void print_struct_parts(struct tm* t);
 /* print the struct parts */
 void print_struct_parts(struct tm * t)
 {
-	printf("%s\n", "From tm struct");
+	printf ("%s\n", "From time pointer");
 	printf ("\tWeek Day\t\t: %i\n", t->tm_wday + 1);
 	printf ("\tMonth num\t\t: %i\n", t->tm_mon + 1);
 	printf ("\tMonth Day\t\t: %i\n", t->tm_mday);
