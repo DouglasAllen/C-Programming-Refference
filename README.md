@@ -35,3 +35,8 @@ Other useful info
 To the wiki
 
 1. [*Source page*](https://github.com/DouglasAllen/C_Programming_Refference/wiki/Source-links)
+2. 
+
+Ruby C Extensions
+1. [Writing Ruby C extensions: Part 1](http://tenderlovemaking.com/2009/12/)
+2. [Writing Ruby C Extensions: Part 2](http://tenderlovemaking.com/2010/12/11/writing-ruby-c-extensions-part-2.html#)
