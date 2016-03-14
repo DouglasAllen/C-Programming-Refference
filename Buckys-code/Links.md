@@ -52,7 +52,7 @@
 
 27. https://thenewboston.com/forum/topic.php?id=1205
 
-28 https://thenewboston.com/forum/topic.php?id=1206
+28. https://thenewboston.com/forum/topic.php?id=1206
 
 29. https://thenewboston.com/forum/topic.php?id=1207
 
