@@ -34,7 +34,7 @@
  
 18. https://thenewboston.com/forum/topic.php?id=1144
 
-19.
+19. not found
 
 20. https://thenewboston.com/forum/topic.php?id=1145
 
@@ -46,7 +46,7 @@
 
 24. https://thenewboston.com/forum/topic.php?id=1149
 
-25.
+25. not found
 
 26. https://thenewboston.com/forum/topic.php?id=1151
 
