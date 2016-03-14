@@ -17,7 +17,7 @@ int main ()
    info = gmtime(&rawtime );
    
    printf("Current world clock:\n");
-	 printf("Chicago : %2d:%02d\n", (info->tm_hour+CDT)%24, info->tm_min);
+   printf("Chicago : %2d:%02d\n", (info->tm_hour+CDT)%24, info->tm_min);
    printf("London : %2d:%02d\n", (info->tm_hour+BST)%24, info->tm_min);
    printf("China  : %2d:%02d\n", (info->tm_hour+CCT)%24, info->tm_min);
 
