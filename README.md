@@ -44,6 +44,7 @@ Ruby C Extensions
 
 Video Lessons
 
+1. https://www.youtube.com/watch?v=Ps8jOj7diA0&list=PLD28639E2FFC4B86A
 1. https://www.youtube.com/watch?v=JNsIMu1cvCI&list=PLsu3nQRCX0RKT1XO_R7OLRO5kIRH20_9l&index=1
 2. https://www.youtube.com/watch?v=TL5vP45dYps&list=PL0170B6E7DD6D8810&index=1
 3. https://www.youtube.com/watch?v=2NWeucMKrLI&index=1&list=PL6gx4Cwl9DGAKIXv8Yr6nhGJ9Vlcjyymq
