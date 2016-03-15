@@ -3,12 +3,17 @@
 
 int main()
 {
-    //will replace %s with bucky
+    // If you want to use strings, use %s
+    // Good for programs where users can enter their name
+    //will replace %s with Bucky
 	printf("%s is best person ever \n", "Bucky");
 
+	// Use %d for integers
 	//will replace %d with 9
-	printf("I ate %d corndogs last night \n", 9);
+	printf("I ate %d corn-dogs last night \n", 9);
 
+	// %f for numbers with decimal places (floating point values)
+    //6 decimal places by default
 	//will replace %f with 3.14159
 	printf("Value of pi is %f \n", 3.14159);
 
