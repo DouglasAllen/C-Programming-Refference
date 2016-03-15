@@ -47,3 +47,20 @@ Video Lessons
 1. https://www.youtube.com/watch?v=JNsIMu1cvCI&list=PLsu3nQRCX0RKT1XO_R7OLRO5kIRH20_9l&index=1
 2. https://www.youtube.com/watch?v=TL5vP45dYps&list=PL0170B6E7DD6D8810&index=1
 3. https://www.youtube.com/watch?v=2NWeucMKrLI&index=1&list=PL6gx4Cwl9DGAKIXv8Yr6nhGJ9Vlcjyymq
+4. https://www.youtube.com/watch?v=rk2fK2IIiiQ
+5. https://www.youtube.com/watch?v=de2Hsvxaf8M
+6. https://www.youtube.com/watch?v=3CA1Su58SG8&list=PLQndNexFjUWnRdVNiyFf9u2aO0o1CqS8G
+7. https://www.youtube.com/watch?v=nXvy5900m3M
+8. https://www.youtube.com/watch?v=DWWQEmyVplU&list=PLZ1QII7yudbdFfKY1eKV3x_bag04AMPJq
+9. https://www.youtube.com/watch?v=AWliApDc61w&list=PL2_aWCzGMAwLSqGsERZGXGkA5AfMhcknE
+10. https://www.youtube.com/watch?v=Jlbs8ly6OKA&list=PL76809ED684A081F3
+11. https://www.youtube.com/watch?v=nL3mIImK8uE
+12. https://www.youtube.com/watch?v=KlPC3O1DVcg
+13. https://www.youtube.com/watch?v=_7Fm_0deh6A
+14. https://www.youtube.com/watch?v=1afFPRCkHuk&list=PLnfrUVpsJtF8biXsuF9bTWDYZcv3Yxxkd
+15. https://www.youtube.com/watch?v=otm9NaT9OWU&list=PLCB9F975ECF01953C
+16. https://www.youtube.com/watch?v=CKNjXvMB0MY&list=PLypxmOPCOkHXbJhUgjRaV2pD9MJkIArhg
+17. https://www.youtube.com/watch?v=OiKufig9jZc&list=PLo80fWiInSIM9bqj3mh-lSpMWqyn9Euo3
+18. https://www.youtube.com/watch?v=6MOc_3JiRV0&list=PLfVsf4Bjg79BDuGkLMWLE_VZHCSMly8GU
+19. https://www.youtube.com/watch?v=iXEw_0hlM9A&list=PL_RGaFnxSHWoGzOXqtKeM71OLpvZbuU0P
+20. 
