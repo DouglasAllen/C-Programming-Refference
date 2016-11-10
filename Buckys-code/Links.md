@@ -48,9 +48,9 @@
 
 [23 Shorthand if else](https://thenewboston.com/forum/topic.php?id=1148)
 
-[24 Increment Operator]((https://thenewboston.com/forum/topic.php?id=1149)
+[24 Increment Operator](https://thenewboston.com/forum/topic.php?id=1149)
 
-[25 ])
+[25 ]()
 
 [26 ]()
 
