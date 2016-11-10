@@ -1,12 +1,12 @@
 # Videos and Source
 
-0.[source code](https://github.com/buckyroberts/Source-Code-from-Tutorials/tree/master/C)
+[source code](https://github.com/buckyroberts/Source-Code-from-Tutorials/tree/master/C)
 
-1.https://thenewboston.com/videos.php?cat=14
+[Introduction](https://thenewboston.com/videos.php?cat=14)
 
-2. not found
+[Setting Up Code Blocks](https://thenewboston.com/videos.php?cat=14&video=20020)
 
-3. not found
+[How Computer Programs Work](https://thenewboston.com/videos.php?cat=14&video=20021)
 
 4. not found
 
