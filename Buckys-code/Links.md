@@ -12,69 +12,69 @@
 
 [CommentsComments](https://thenewboston.com/videos.php?cat=14&video=20023)
 
-6. https://thenewboston.com/forum/topic.php?id=1131
- 
-7. https://thenewboston.com/forum/topic.php?id=1133
- 
-8. https://thenewboston.com/forum/topic.php?id=1134
- 
-9. https://thenewboston.com/forum/topic.php?id=1157
+[Conversion Characters](https://thenewboston.com/forum/topic.php?id=1131)
 
-10. https://thenewboston.com/forum/topic.php?id=1136
+[](https://thenewboston.com/forum/topic.php?id=1133)
 
-11. https://thenewboston.com/forum/topic.php?id=1137
- 
-12. https://thenewboston.com/forum/topic.php?id=1138
- 
-13. https://thenewboston.com/forum/topic.php?id=1139
- 
-14. https://thenewboston.com/forum/topic.php?id=1140
- 
-15. https://thenewboston.com/forum/topic.php?id=1141
- 
-16. https://thenewboston.com/forum/topic.php?id=1142
- 
-17. https://thenewboston.com/forum/topic.php?id=1143
- 
-18. https://thenewboston.com/forum/topic.php?id=1144
+[]https://thenewboston.com/forum/topic.php?id=1134)
 
-19. not found
+[](https://thenewboston.com/forum/topic.php?id=1157)
 
-20. https://thenewboston.com/forum/topic.php?id=1145
+[](https://thenewboston.com/forum/topic.php?id=1136)
 
-21. https://thenewboston.com/forum/topic.php?id=1146
+[](https://thenewboston.com/forum/topic.php?id=1137)
 
-22. https://thenewboston.com/forum/topic.php?id=1147
+[](https://thenewboston.com/forum/topic.php?id=1138)
 
-23. https://thenewboston.com/forum/topic.php?id=1148
+[](https://thenewboston.com/forum/topic.php?id=1139)
 
-24. https://thenewboston.com/forum/topic.php?id=1149
+[](https://thenewboston.com/forum/topic.php?id=1140)
+
+[](https://thenewboston.com/forum/topic.php?id=1141)
+
+[](https://thenewboston.com/forum/topic.php?id=1142)
+
+[](https://thenewboston.com/forum/topic.php?id=1143)
+
+[](https://thenewboston.com/forum/topic.php?id=1144)
+
+[]()
+
+20. https://thenewboston.com/forum/topic.php?id=1145)
+
+21. https://thenewboston.com/forum/topic.php?id=1146)
+
+22. https://thenewboston.com/forum/topic.php?id=1147)
+
+23. https://thenewboston.com/forum/topic.php?id=1148)
+
+24. https://thenewboston.com/forum/topic.php?id=1149)
 
 25. not found
 
-26. https://thenewboston.com/forum/topic.php?id=1151
+26. https://thenewboston.com/forum/topic.php?id=1151)
 
-27. https://thenewboston.com/forum/topic.php?id=1205
+27. https://thenewboston.com/forum/topic.php?id=1205)
 
-28. https://thenewboston.com/forum/topic.php?id=1206
+28. https://thenewboston.com/forum/topic.php?id=1206)
 
-29. https://thenewboston.com/forum/topic.php?id=1207
+29. https://thenewboston.com/forum/topic.php?id=1207)
 
-30. https://thenewboston.com/forum/topic.php?id=1208
+30. https://thenewboston.com/forum/topic.php?id=1208)
 
-31. https://thenewboston.com/forum/topic.php?id=1209
+31. https://thenewboston.com/forum/topic.php?id=1209)
 
-32. https://thenewboston.com/forum/topic.php?id=1210
+32. https://thenewboston.com/forum/topic.php?id=1210)
 
-33. https://thenewboston.com/forum/topic.php?id=1211
+33. https://thenewboston.com/forum/topic.php?id=1211)
 
-34. https://thenewboston.com/forum/topic.php?id=1213
+34. https://thenewboston.com/forum/topic.php?id=1213)
 
-35. https://thenewboston.com/forum/topic.php?id=1214
+35. https://thenewboston.com/forum/topic.php?id=1214)
 
-36. https://thenewboston.com/forum/topic.php?id=1215
+36. https://thenewboston.com/forum/topic.php?id=1215)
 
-37. https://thenewboston.com/forum/topic.php?id=1216
+37. https://thenewboston.com/forum/topic.php?id=1216)
 
-38. https://thenewboston.com/forum/topic.php?id=1217
+38. https://thenewboston.com/forum/topic.php?id=1217)
 
