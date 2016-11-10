@@ -1,82 +1,119 @@
 # Videos and Source
 
-[source code](https://github.com/buckyroberts/Source-Code-from-Tutorials/tree/master/C)
+[00 source code](https://github.com/buckyroberts/Source-Code-from-Tutorials/tree/master/C)
 
-[Introduction](https://thenewboston.com/videos.php?cat=14)
+[01 Introduction](https://thenewboston.com/videos.php?cat=14)
 
-[Setting Up Code Blocks](https://thenewboston.com/videos.php?cat=14&video=20020)
+[02 Setting Up Code Blocks](https://thenewboston.com/videos.php?cat=14&video=20020)
 
-[How Computer Programs Work](https://thenewboston.com/videos.php?cat=14&video=20021)
+[03 How Computer Programs Work](https://thenewboston.com/videos.php?cat=14&video=20021)
 
-[Print Text on the Screen](https://thenewboston.com/videos.php?cat=14&video=20022)
+[04 Print Text on the Screen](https://thenewboston.com/videos.php?cat=14&video=20022)
 
-[Comments](https://thenewboston.com/videos.php?cat=14&video=20023)
+[05 Comments](https://thenewboston.com/videos.php?cat=14&video=20023)
 
-[Conversion Characters](https://thenewboston.com/forum/topic.php?id=1131)
+[06 Conversion Characters](https://thenewboston.com/forum/topic.php?id=1131)
 
-[Variables](https://thenewboston.com/forum/topic.php?id=1133)
+[07 Variables](https://thenewboston.com/forum/topic.php?id=1133)
 
-[String Terminator](https://thenewboston.com/forum/topic.php?id=1133)
+[08 String Terminator](https://thenewboston.com/forum/topic.php?id=1134)
 
-[I Need Arrays](https://thenewboston.com/forum/topic.php?id=1134)
+[09 I Need Arrays](https://thenewboston.com/videos.php?cat=14&video=20027)
 
-[](https://thenewboston.com/forum/topic.php?id=1157)
+[10 Creating a Header File](https://thenewboston.com/forum/topic.php?id=1136)
 
-[](https://thenewboston.com/forum/topic.php?id=1136)
+[11 Getting Input with scanf](https://thenewboston.com/forum/topic.php?id=1137)
 
-[](https://thenewboston.com/forum/topic.php?id=1137)
+[12 Math Operators](https://thenewboston.com/forum/topic.php?id=1138)
 
-[](https://thenewboston.com/forum/topic.php?id=1138)
+[13 Cats Love Bagels](https://thenewboston.com/forum/topic.php?id=1139)
 
-[](https://thenewboston.com/forum/topic.php?id=1139)
+[14 Calculating the Average Age](https://thenewboston.com/forum/topic.php?id=1140)
 
-[](https://thenewboston.com/forum/topic.php?id=1140)
+[15 How to Calculate Interest](https://thenewboston.com/forum/topic.php?id=1141)
 
-[](https://thenewboston.com/forum/topic.php?id=1141)
+[16 Typecasting](https://thenewboston.com/forum/topic.php?id=1142)
 
-[](https://thenewboston.com/forum/topic.php?id=1142)
+[17 Making Decisions Using if Statements](https://thenewboston.com/forum/topic.php?id=1143)
 
-[](https://thenewboston.com/forum/topic.php?id=1143)
+[18 Nesting if Statements](https://thenewboston.com/forum/topic.php?id=1144)
 
-[](https://thenewboston.com/forum/topic.php?id=1144)
+[19 if else](https://thenewboston.com/videos.php?cat=14&video=20037)
 
-[]()
+[20 What about more than two choices?](https://thenewboston.com/forum/topic.php?id=1145)
 
-20. https://thenewboston.com/forum/topic.php?id=1145)
+[21 Don't Beat Up Little Kids](https://thenewboston.com/forum/topic.php?id=1146)
 
-21. https://thenewboston.com/forum/topic.php?id=1146)
+[22 or](https://thenewboston.com/forum/topic.php?id=1147)
 
-22. https://thenewboston.com/forum/topic.php?id=1147)
+[23 Shorthand if else](https://thenewboston.com/forum/topic.php?id=1148)
 
-23. https://thenewboston.com/forum/topic.php?id=1148)
+[24 Increment Operator]((https://thenewboston.com/forum/topic.php?id=1149)
 
-24. https://thenewboston.com/forum/topic.php?id=1149)
+[25 ])
 
-25. not found
+[26 ]()
 
-26. https://thenewboston.com/forum/topic.php?id=1151)
+[27 ](https://thenewboston.com/forum/topic.php?id=1151)
 
-27. https://thenewboston.com/forum/topic.php?id=1205)
+[28 ](https://thenewboston.com/forum/topic.php?id=1205)
 
-28. https://thenewboston.com/forum/topic.php?id=1206)
+[29 ](https://thenewboston.com/forum/topic.php?id=1206)
 
-29. https://thenewboston.com/forum/topic.php?id=1207)
+[30 ](https://thenewboston.com/forum/topic.php?id=1207)
 
-30. https://thenewboston.com/forum/topic.php?id=1208)
+[31 ](https://thenewboston.com/forum/topic.php?id=1208)
 
-31. https://thenewboston.com/forum/topic.php?id=1209)
+[32 ](https://thenewboston.com/forum/topic.php?id=1209)
 
-32. https://thenewboston.com/forum/topic.php?id=1210)
+[33 ](https://thenewboston.com/forum/topic.php?id=1210)
 
-33. https://thenewboston.com/forum/topic.php?id=1211)
+[34 ](https://thenewboston.com/forum/topic.php?id=1211)
 
-34. https://thenewboston.com/forum/topic.php?id=1213)
+[35 ](https://thenewboston.com/forum/topic.php?id=1213)
 
-35. https://thenewboston.com/forum/topic.php?id=1214)
+[36 ](https://thenewboston.com/forum/topic.php?id=1214)
 
-36. https://thenewboston.com/forum/topic.php?id=1215)
+[37 ](https://thenewboston.com/forum/topic.php?id=1215)
 
-37. https://thenewboston.com/forum/topic.php?id=1216)
+[38 ](https://thenewboston.com/forum/topic.php?id=1216)
 
-38. https://thenewboston.com/forum/topic.php?id=1217)
+[39 ](https://thenewboston.com/forum/topic.php?id=1217)
 
+[40 ]()
+
+[41 ]()
+
+[42 ]()
+
+[43 ]()
+
+[44 ]()
+
+[45 ]()
+
+[46 ]()
+
+[47 ]()
+
+[48 ]()
+
+[49 ]()
+
+[50 ]()
+
+[51 ]()
+
+[52 ]()
+
+[53 ]()
+
+[54 ]()
+
+[55 ]()
+
+[56 ]()
+
+[57 ]()
+
+[58 ]()
