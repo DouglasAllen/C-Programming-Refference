@@ -10,13 +10,15 @@
 
 [Print Text on the Screen](https://thenewboston.com/videos.php?cat=14&video=20022)
 
-[CommentsComments](https://thenewboston.com/videos.php?cat=14&video=20023)
+[Comments](https://thenewboston.com/videos.php?cat=14&video=20023)
 
 [Conversion Characters](https://thenewboston.com/forum/topic.php?id=1131)
 
-[](https://thenewboston.com/forum/topic.php?id=1133)
+[Variables](https://thenewboston.com/forum/topic.php?id=1133)
 
-[]https://thenewboston.com/forum/topic.php?id=1134)
+[String Terminator](https://thenewboston.com/forum/topic.php?id=1133)
+
+[I Need Arrays](https://thenewboston.com/forum/topic.php?id=1134)
 
 [](https://thenewboston.com/forum/topic.php?id=1157)
 
