@@ -1,5 +1,7 @@
 # Videos and Source
 
+[play list](https://www.youtube.com/watch?v=2NWeucMKrLI&list=PL6gx4Cwl9DGAKIXv8Yr6nhGJ9Vlcjyymq)
+
 [00 source code](https://github.com/buckyroberts/Source-Code-from-Tutorials/tree/master/C)
 
 [01 Introduction](https://thenewboston.com/videos.php?cat=14)
@@ -22,7 +24,7 @@
 
 [10 Creating a Header File](https://thenewboston.com/forum/topic.php?id=1136)
 
-[11 Getting Input with scanf](https://thenewboston.com/forum/topic.php?id=1137)
+[11 Getting Input with scan f](https://thenewboston.com/forum/topic.php?id=1137)
 
 [12 Math Operators](https://thenewboston.com/forum/topic.php?id=1138)
 
