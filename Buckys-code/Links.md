@@ -8,9 +8,9 @@
 
 [How Computer Programs Work](https://thenewboston.com/videos.php?cat=14&video=20021)
 
-4. not found
+[Print Text on the Screen](https://thenewboston.com/videos.php?cat=14&video=20022)
 
-5. not found
+[CommentsComments](https://thenewboston.com/videos.php?cat=14&video=20023)
 
 6. https://thenewboston.com/forum/topic.php?id=1131
  
