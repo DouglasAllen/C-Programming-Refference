@@ -108,7 +108,7 @@
 
 [52 Append to File](https://thenewboston.com/videos.php?cat=14&video=20070)
 
-[53Random File Access](https://thenewboston.com/videos.php?cat=14&video=20071)
+[53 Random File Access](https://thenewboston.com/videos.php?cat=14&video=20071)
 
 [54 Functions](https://thenewboston.com/videos.php?cat=14&video=20101)
 
