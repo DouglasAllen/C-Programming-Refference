@@ -1,5 +1,0 @@
-/*
- *	Example to be done .....
- */
-
-
