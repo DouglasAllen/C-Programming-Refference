@@ -15,6 +15,7 @@ Links for the web pages of this reference:
 10. [*An Introduction to GCC - for the GNU compilers gcc and g++*](http://www.network-theory.co.uk/docs/gccintro/)
 11. [*The GNU C Library Reference Manual*](http://www.gnu.org/software/libc/manual/pdf/libc.pdf)
 12. [*Simplified Wrapper and Interface Generator*](http://www.swig.org/)
+13. [Learn C](http://learn-c.com/)
 
 Other useful info
 
